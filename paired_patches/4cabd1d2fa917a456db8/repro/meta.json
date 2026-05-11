@@ -1,0 +1,50 @@
+{
+  "extid": "4cabd1d2fa917a456db8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4cabd1d2fa917a456db8",
+  "bug_title": "WARNING in inet_sock_destruct (5)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "tcp_bpf: Call sk_msg_free() when tcp_bpf_send_verdict() fails to allocate psock->cork.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a3967baad4d533dc254c31e0d221e51c8d223d58",
+      "hash": "a3967baad4d533dc254c31e0d221e51c8d223d58",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-09-09T23:26:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in inet_sock_destruct",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "3e8e5822146bc396d2a7e5fbb7be13271665522a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "syzkaller-commit": "d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=135ff562580000",
+      "saved_to": "/home/lcj/paired_patches/4cabd1d2fa917a456db8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=69cfefa929ab96f7",
+      "saved_to": "/home/lcj/paired_patches/4cabd1d2fa917a456db8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=131b4642580000",
+      "saved_to": "/home/lcj/paired_patches/4cabd1d2fa917a456db8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=151b4642580000",
+      "saved_to": "/home/lcj/paired_patches/4cabd1d2fa917a456db8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

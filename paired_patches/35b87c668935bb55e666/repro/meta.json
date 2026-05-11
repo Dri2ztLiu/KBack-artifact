@@ -1,0 +1,50 @@
+{
+  "extid": "35b87c668935bb55e666",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=35b87c668935bb55e666",
+  "bug_title": "UBSAN: shift-out-of-bounds in __access_remote_vm",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Avoid UBSAN error on true_sectors_per_clst()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=caad9dd8792a2622737b7273cb34835fd9536cd2",
+      "hash": "caad9dd8792a2622737b7273cb34835fd9536cd2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2022-08-23T14:46:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in __access_remote_vm",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "8755ae45a9e8ae883fa7f4eb0162830c55aacf14",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/26a13b3872cf54f3e68ec48a93c9866423fc3304",
+  "syzkaller-commit": "26a13b3872cf54f3e68ec48a93c9866423fc3304",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16b186a5080000",
+      "saved_to": "/home/lcj/paired_patches/35b87c668935bb55e666/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ead6107a3bbe3c62",
+      "saved_to": "/home/lcj/paired_patches/35b87c668935bb55e666/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16e9ce85080000",
+      "saved_to": "/home/lcj/paired_patches/35b87c668935bb55e666/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10a5c1f3080000",
+      "saved_to": "/home/lcj/paired_patches/35b87c668935bb55e666/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

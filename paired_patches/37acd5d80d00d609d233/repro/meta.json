@@ -1,0 +1,50 @@
+{
+  "extid": "37acd5d80d00d609d233",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=37acd5d80d00d609d233",
+  "bug_title": "general protection fault in sco_conn_add",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_conn: return ERR_PTR instead of NULL when there is no link",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b4066eb04bb67e7ff66e5aaab0db4a753f37eaad",
+      "hash": "b4066eb04bb67e7ff66e5aaab0db4a753f37eaad",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "code@siddh.me",
+      "author-name": "Siddh Raman Pant",
+      "date": "2023-07-11T13:13:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in sco_conn_add",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "3674fbf0451df0395f9fa18df3122927006a3829",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/80298b6ff976aafe8f55904f88dabecb4c39d037",
+  "syzkaller-commit": "80298b6ff976aafe8f55904f88dabecb4c39d037",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11715b8ca80000",
+      "saved_to": "/home/lcj/paired_patches/37acd5d80d00d609d233/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c9bf1936936ca698",
+      "saved_to": "/home/lcj/paired_patches/37acd5d80d00d609d233/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=171aa228a80000",
+      "saved_to": "/home/lcj/paired_patches/37acd5d80d00d609d233/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1049b4e2a80000",
+      "saved_to": "/home/lcj/paired_patches/37acd5d80d00d609d233/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

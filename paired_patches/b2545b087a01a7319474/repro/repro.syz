@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2c3dfa9eb3b107c8f661f5d5f912bd77183474a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"vhci":true}
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000040)={&(0x7f0000000000)='scsi_dispatch_cmd_start\x00'}, 0x10)
+ioctl$TUNSETQUEUE(0xffffffffffffffff, 0x400454d9, &(0x7f0000000000)={'geneve1\x00', 0x400})
+syz_emit_vhci(&(0x7f0000000000)=ANY=[@ANYBLOB="043e751d"], 0x24)
+syz_emit_vhci(&(0x7f00000007c0)=ANY=[@ANYBLOB="040e060062204f"], 0x9)

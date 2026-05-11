@@ -1,0 +1,50 @@
+{
+  "extid": "5b667f9a1fee4ba3775a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5b667f9a1fee4ba3775a",
+  "bug_title": "general protection fault in p9_client_walk",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "fs/9p: fix NULL pointer dereference on mkdir",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f61ac7c65bdb26accb52f9db66313597e759821",
+      "hash": "3f61ac7c65bdb26accb52f9db66313597e759821",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "linux_oss@crudebyte.com",
+      "author-name": "Christian Schoenebeck",
+      "date": "2025-03-13T12:59:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in p9_client_walk",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0fed89a961ea851945d23cc35beb59d6e56c0964",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ee70e6dbc377b7957fe85c173da580f033ee93a3",
+  "syzkaller-commit": "ee70e6dbc377b7957fe85c173da580f033ee93a3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11d48c78580000",
+      "saved_to": "/home/lcj/paired_patches/5b667f9a1fee4ba3775a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f71f17a9b92472b2",
+      "saved_to": "/home/lcj/paired_patches/5b667f9a1fee4ba3775a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=138b17a8580000",
+      "saved_to": "/home/lcj/paired_patches/5b667f9a1fee4ba3775a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=177b6874580000",
+      "saved_to": "/home/lcj/paired_patches/5b667f9a1fee4ba3775a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,86 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  drivers/net/wireless/ath/ath6kl/htc_pipe.c (1), include/linux/compiler.h (1)
+TOP_SYMBOLS:
+  ath6kl_htc_pipe_rx_complete (1), ath6kl_err (1), ath6kl_dbg (1)
+TOP_KEYWORDS:
+  WARN (2), NULL (1), null (1), net (1), race (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ath6kl_htc_pipe_rx_complete)
+  - viewcode(ref=<target_release>, path=drivers/net/wireless/ath/ath6kl/htc_pipe.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=2, rows_scanned=2, candidates_kept=2, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 75c4a8154cb6c7239fb55d5550f481f6765fb83c
+bug_url: https://syzkaller.appspot.com/bug?extid=466f488371fea3a64c73
+title: WARNING in ath6kl_htc_pipe_rx_complete
+relevance_score: 0
+
+ drivers/net/wireless/ath/ath6kl/htc_pipe.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+diff --git a/drivers/net/wireless/ath/ath6kl/htc_pipe.c b/drivers/net/wireless/ath/ath6kl/htc_pipe.c
+index c68848819a52..9b88d96bfe96 100644
+--- a/drivers/net/wireless/ath/ath6kl/htc_pipe.c
++++ b/drivers/net/wireless/ath/ath6kl/htc_pipe.c
+@@ -960,8 +960,8 @@ static int ath6kl_htc_pipe_rx_complete(struct ath6kl *ar, struct sk_buff *skb,
+ 	 * Thus the possibility of ar->htc_target being NULL
+ 	 * via ath6kl_recv_complete -> ath6kl_usb_io_comp_work.
+ 	 */
+-	if (WARN_ON_ONCE(!target)) {
+-		ath6kl_err("Target not yet initialized\n");
++	if (!target) {
++		ath6kl_dbg(ATH6KL_DBG_HTC, "Target not yet initialized\n");
+ 		status = -EINVAL;
+ 		goto free_skb;
+ 	}
+================================================================================
+
+branch: linux-5.15
+fix_commit: 4d6d4c7f541d7027beed4fb86eb2c451bd8d6fff
+bug_url: https://syzkaller.appspot.com/bug?id=aff73b082709b347344b9b59d9229d348afd6df8
+title: WARNING in ath6kl_htc_pipe_rx_complete
+relevance_score: 0
+
+ include/linux/compiler.h | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+index 947a60b801db..d7779a18b24f 100644
+--- a/include/linux/compiler.h
++++ b/include/linux/compiler.h
+@@ -12,11 +12,10 @@
+  * Note: DISABLE_BRANCH_PROFILING can be used by special lowlevel code
+  * to disable branch tracing on a per file basis.
+  */
+-#if defined(CONFIG_TRACE_BRANCH_PROFILING) \
+-    && !defined(DISABLE_BRANCH_PROFILING) && !defined(__CHECKER__)
+ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
+ 			  int expect, int is_constant);
+-
++#if defined(CONFIG_TRACE_BRANCH_PROFILING) \
++    && !defined(DISABLE_BRANCH_PROFILING) && !defined(__CHECKER__)
+ #define likely_notrace(x)	__builtin_expect(!!(x), 1)
+ #define unlikely_notrace(x)	__builtin_expect(!!(x), 0)
+================================================================================

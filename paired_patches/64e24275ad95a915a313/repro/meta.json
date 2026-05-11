@@ -1,0 +1,50 @@
+{
+  "extid": "64e24275ad95a915a313",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=64e24275ad95a915a313",
+  "bug_title": "KASAN: slab-use-after-free Read in napi_gro_frags (2)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "net: tun: Update napi->skb after XDP process",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1091860a16a86ccdd77c09f2b21a5f634f5ab9ec",
+      "hash": "1091860a16a86ccdd77c09f2b21a5f634f5ab9ec",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "wangliang74@huawei.com",
+      "author-name": "Wang Liang",
+      "date": "2025-09-17T11:39:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in napi_gro_frags",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "f3883b1ea5a8f31df4eba1c2cb5196e3a249a09e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "syzkaller-commit": "d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1474d562580000",
+      "saved_to": "/home/lcj/paired_patches/64e24275ad95a915a313/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a6c33a7db07dbea2",
+      "saved_to": "/home/lcj/paired_patches/64e24275ad95a915a313/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1674d562580000",
+      "saved_to": "/home/lcj/paired_patches/64e24275ad95a915a313/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1274d562580000",
+      "saved_to": "/home/lcj/paired_patches/64e24275ad95a915a313/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "5138ca807af9d2b42574",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5138ca807af9d2b42574",
+  "bug_title": "KMSAN: uninit-value in tipc_nl_node_reset_link_stats",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "tipc: Change nla_policy for bearer-related names to NLA_NUL_STRING",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=19b3f72a41a8751e26bffc093bb7e1cef29ad579",
+      "hash": "19b3f72a41a8751e26bffc093bb7e1cef29ad579",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2023-10-30T07:55:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in tipc_nl_node_reset_link_stats",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e42bebf6db296d7fbfb3dd6782977d626e94031e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0b6a67ac4b0dc26f43030c5edd01c9175f13b784",
+  "syzkaller-commit": "0b6a67ac4b0dc26f43030c5edd01c9175f13b784",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1543983c680000",
+      "saved_to": "/home/lcj/paired_patches/5138ca807af9d2b42574/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=754d6383bae8bc99",
+      "saved_to": "/home/lcj/paired_patches/5138ca807af9d2b42574/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1692689c680000",
+      "saved_to": "/home/lcj/paired_patches/5138ca807af9d2b42574/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11bbea38680000",
+      "saved_to": "/home/lcj/paired_patches/5138ca807af9d2b42574/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

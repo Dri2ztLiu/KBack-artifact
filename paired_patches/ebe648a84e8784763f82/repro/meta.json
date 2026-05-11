@@ -1,0 +1,50 @@
+{
+  "extid": "ebe648a84e8784763f82",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ebe648a84e8784763f82",
+  "bug_title": "KCSAN: data-race in __bpf_lru_list_rotate / __htab_lru_percpu_map_update_elem (5)",
+  "bug_status": "fixed on 2023/09/28 17:51",
+  "fix_commits": [
+    {
+      "title": "bpf: Address KCSAN report on bpf_lru_list",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ee9fd0ac3017c4313be91a220a9ac4c99dde7ad4",
+      "hash": "ee9fd0ac3017c4313be91a220a9ac4c99dde7ad4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "martin.lau@kernel.org",
+      "author-name": "Martin KaFai Lau",
+      "date": "2023-05-11T04:37:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in __bpf_lru_list_rotate / __htab_lru_percpu_map_update_elem",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "547cc9be86f4c51c51fd429ace6c2e1ef9050d15",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/79782afcff30fd0c0af8c2725d508b2c7150f3ed",
+  "syzkaller-commit": "79782afcff30fd0c0af8c2725d508b2c7150f3ed",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1247b40b280000",
+      "saved_to": "/home/lcj/paired_patches/ebe648a84e8784763f82/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f329363e0c452b62",
+      "saved_to": "/home/lcj/paired_patches/ebe648a84e8784763f82/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ebe648a84e8784763f82/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ebe648a84e8784763f82/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

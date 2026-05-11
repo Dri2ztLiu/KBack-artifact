@@ -1,0 +1,50 @@
+{
+  "extid": "b2bf2652983d23734c5c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b2bf2652983d23734c5c",
+  "bug_title": "kernel BUG at net/core/skbuff.c:LINE! (3)",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "af_key: relax availability checks for skb size calculation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=afbc293add6466f8f3f0c3d944d85f53709c170f",
+      "hash": "afbc293add6466f8f3f0c3d944d85f53709c170f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2021-01-04T09:05:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c9c9e6a49f8998e9334507378c08cc16cb3ec0e5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/54289b0835634ca07a8117613c48b73e9e647d13",
+  "syzkaller-commit": "54289b0835634ca07a8117613c48b73e9e647d13",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16189e73900000",
+      "saved_to": "/home/lcj/paired_patches/b2bf2652983d23734c5c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5f4c828c9e3cef97",
+      "saved_to": "/home/lcj/paired_patches/b2bf2652983d23734c5c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17533365900000",
+      "saved_to": "/home/lcj/paired_patches/b2bf2652983d23734c5c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1223d2c3900000",
+      "saved_to": "/home/lcj/paired_patches/b2bf2652983d23734c5c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

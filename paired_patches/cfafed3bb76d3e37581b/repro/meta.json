@@ -1,0 +1,50 @@
+{
+  "extid": "cfafed3bb76d3e37581b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cfafed3bb76d3e37581b",
+  "bug_title": "WARNING in vmx_queue_exception (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "KVM: VMX: Exit to userspace if vCPU has injected exception and invalid state",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=053d2290c0307e3642e75e0185ddadf084dc36c1",
+      "hash": "053d2290c0307e3642e75e0185ddadf084dc36c1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "seanjc@google.com",
+      "author-name": "Sean Christopherson",
+      "date": "2022-05-02T22:18:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in vmx_queue_exception",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "57ae8a492116910bad2b3497ffe555b3a4b4180f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2df221f6ab480a3f2d315d283f26cfae890da3a1",
+  "syzkaller-commit": "2df221f6ab480a3f2d315d283f26cfae890da3a1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10f55eb4f00000",
+      "saved_to": "/home/lcj/paired_patches/cfafed3bb76d3e37581b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d21a72f6016e37e8",
+      "saved_to": "/home/lcj/paired_patches/cfafed3bb76d3e37581b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1386a07af00000",
+      "saved_to": "/home/lcj/paired_patches/cfafed3bb76d3e37581b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1202b25af00000",
+      "saved_to": "/home/lcj/paired_patches/cfafed3bb76d3e37581b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

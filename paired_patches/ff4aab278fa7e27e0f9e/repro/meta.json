@@ -1,0 +1,50 @@
+{
+  "extid": "ff4aab278fa7e27e0f9e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ff4aab278fa7e27e0f9e",
+  "bug_title": "general protection fault in account_kernel_stack (3)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "nvmet: Don't overflow subsysnqn",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4db3d750ac7e894278ef1cb1c53cc7d883060496",
+      "hash": "4db3d750ac7e894278ef1cb1c53cc7d883060496",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "leocstone@gmail.com",
+      "author-name": "Leo Stone",
+      "date": "2024-12-18T18:49:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in account_kernel_stack",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ccb98ccef0e543c2bd4ef1a72270461957f3d8d0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14473818580000",
+      "saved_to": "/home/lcj/paired_patches/ff4aab278fa7e27e0f9e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=86dd15278dbfe19f",
+      "saved_to": "/home/lcj/paired_patches/ff4aab278fa7e27e0f9e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=119fdaf8580000",
+      "saved_to": "/home/lcj/paired_patches/ff4aab278fa7e27e0f9e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16e5d6df980000",
+      "saved_to": "/home/lcj/paired_patches/ff4aab278fa7e27e0f9e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

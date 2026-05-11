@@ -1,0 +1,50 @@
+{
+  "extid": "2ca247c2d60c7023de7f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2ca247c2d60c7023de7f",
+  "bug_title": "KMSAN: uninit-value in ath9k_htc_rx_msg",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "wifi: ath9k: avoid uninit memory read in ath9k_htc_rx_msg()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b383e8abed41cc6ff1a3b34de75df9397fa4878c",
+      "hash": "b383e8abed41cc6ff1a3b34de75df9397fa4878c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-08-16T14:46:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ath9k_htc_rx_msg",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "97117d69c353ada1c3d90f88e617b30a62596098",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fef302b1a60baa1f93300b6744d9e08788133e77",
+  "syzkaller-commit": "fef302b1a60baa1f93300b6744d9e08788133e77",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=163734fe080000",
+      "saved_to": "/home/lcj/paired_patches/2ca247c2d60c7023de7f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a993a04a85ca241c",
+      "saved_to": "/home/lcj/paired_patches/2ca247c2d60c7023de7f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11987d3c080000",
+      "saved_to": "/home/lcj/paired_patches/2ca247c2d60c7023de7f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13091b36080000",
+      "saved_to": "/home/lcj/paired_patches/2ca247c2d60c7023de7f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

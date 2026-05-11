@@ -1,0 +1,50 @@
+{
+  "extid": "6ae213503fb12e87934f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6ae213503fb12e87934f",
+  "bug_title": "WARNING in xfs_qm_dqget_cache_insert",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "xfs: remove WARN when dquot cache insertion fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4b827b3f305d1fcf837265f1e12acc22ee84327c",
+      "hash": "4b827b3f305d1fcf837265f1e12acc22ee84327c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dchinner@redhat.com",
+      "author-name": "Dave Chinner",
+      "date": "2023-04-12T05:48:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in xfs_qm_dqget_cache_insert",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ffe78bbd512166e0ef1cc4858010b128c510ed7d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f325deb023e4e2fb9197004be1b3da738680429c",
+  "syzkaller-commit": "f325deb023e4e2fb9197004be1b3da738680429c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17edd399c80000",
+      "saved_to": "/home/lcj/paired_patches/6ae213503fb12e87934f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c35b3803e5ad668",
+      "saved_to": "/home/lcj/paired_patches/6ae213503fb12e87934f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15548d85c80000",
+      "saved_to": "/home/lcj/paired_patches/6ae213503fb12e87934f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=150f2435c80000",
+      "saved_to": "/home/lcj/paired_patches/6ae213503fb12e87934f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,110 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  include/linux/virtio_net.h (2)
+TOP_SYMBOLS:
+  virtio_net_hdr_to_skb (4), skb_shinfo (2)
+TOP_KEYWORDS:
+  WARN (2), net (2)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=virtio_net_hdr_to_skb)
+  - viewcode(ref=<target_release>, path=include/linux/virtio_net.h, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=6, rows_scanned=6, candidates_kept=2, skipped=4
+skip_breakdown: skip_upstream=3, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: e269d79c7d35aa3808b1f3c1737d63dab504ddc8
+bug_url: https://syzkaller.appspot.com/bug?extid=e1db31216c789f552871
+title: WARNING in skb_checksum_help
+relevance_score: 0
+
+ include/linux/virtio_net.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+diff --git a/include/linux/virtio_net.h b/include/linux/virtio_net.h
+index 4dfa9b69ca8d..d1d7825318c3 100644
+--- a/include/linux/virtio_net.h
++++ b/include/linux/virtio_net.h
+@@ -56,6 +56,7 @@ static inline int virtio_net_hdr_to_skb(struct sk_buff *skb,
+ 	unsigned int thlen = 0;
+ 	unsigned int p_off = 0;
+ 	unsigned int ip_proto;
++	u64 ret, remainder, gso_size;
+ 
+ 	if (hdr->gso_type != VIRTIO_NET_HDR_GSO_NONE) {
+ 		switch (hdr->gso_type & ~VIRTIO_NET_HDR_GSO_ECN) {
+@@ -98,6 +99,16 @@ static inline int virtio_net_hdr_to_skb(struct sk_buff *skb,
+ 		u32 off = __virtio16_to_cpu(little_endian, hdr->csum_offset);
+ 		u32 needed = start + max_t(u32, thlen, off + sizeof(__sum16));
+ 
++		if (hdr->gso_size) {
++			gso_size = __virtio16_to_cpu(little_endian, hdr->gso_size);
++			ret = div64_u64_rem(skb->len, gso_size, &remainder);
++			if (!(ret && (hdr->gso_size > needed) &&
++						((remainder > needed) || (remainder == 0)))) {
++				return -EINVAL;
++			}
++			skb_shinfo(skb)->tx_flags |= SKBFL_SHARED_FRAG;
++		}
++
+ 		if (!pskb_may_pull(skb, needed))
+ 			return -EINVAL;
+================================================================================
+
+branch: linux-5.15
+fix_commit: e269d79c7d35aa3808b1f3c1737d63dab504ddc8
+bug_url: https://syzkaller.appspot.com/bug?extid=7ee6817d83a87b7a15ff
+title: WARNING in skb_checksum_help
+relevance_score: 0
+
+ include/linux/virtio_net.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+diff --git a/include/linux/virtio_net.h b/include/linux/virtio_net.h
+index 4dfa9b69ca8d..d1d7825318c3 100644
+--- a/include/linux/virtio_net.h
++++ b/include/linux/virtio_net.h
+@@ -56,6 +56,7 @@ static inline int virtio_net_hdr_to_skb(struct sk_buff *skb,
+ 	unsigned int thlen = 0;
+ 	unsigned int p_off = 0;
+ 	unsigned int ip_proto;
++	u64 ret, remainder, gso_size;
+ 
+ 	if (hdr->gso_type != VIRTIO_NET_HDR_GSO_NONE) {
+ 		switch (hdr->gso_type & ~VIRTIO_NET_HDR_GSO_ECN) {
+@@ -98,6 +99,16 @@ static inline int virtio_net_hdr_to_skb(struct sk_buff *skb,
+ 		u32 off = __virtio16_to_cpu(little_endian, hdr->csum_offset);
+ 		u32 needed = start + max_t(u32, thlen, off + sizeof(__sum16));
+ 
++		if (hdr->gso_size) {
++			gso_size = __virtio16_to_cpu(little_endian, hdr->gso_size);
++			ret = div64_u64_rem(skb->len, gso_size, &remainder);
++			if (!(ret && (hdr->gso_size > needed) &&
++						((remainder > needed) || (remainder == 0)))) {
++				return -EINVAL;
++			}
++			skb_shinfo(skb)->tx_flags |= SKBFL_SHARED_FRAG;
++		}
++
+ 		if (!pskb_may_pull(skb, needed))
+ 			return -EINVAL;
+================================================================================

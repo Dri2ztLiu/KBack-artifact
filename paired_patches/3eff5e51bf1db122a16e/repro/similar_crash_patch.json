@@ -1,0 +1,68 @@
+{
+  "extid": "3eff5e51bf1db122a16e",
+  "target_ref": "3eff5e51bf1db122a16e",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "555161ee1b7a74e77ca70fd14ed8a5137c8108ac",
+      "branch": "linux-4.19",
+      "title": "KASAN: use-after-free Read in scatterwalk_copychunks",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "use-after-free",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "3f8a27f9e27bd78604c0709224cec0ec85a8b106",
+      "branch": "linux-4.19",
+      "title": "general protection fault in scatterwalk_copychunks",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "f6e27dbb1afabcba436e346d6aa88a592a1436bb",
+      "branch": "linux-4.14",
+      "title": "KASAN: slab-out-of-bounds Read in scatterwalk_copychunks",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

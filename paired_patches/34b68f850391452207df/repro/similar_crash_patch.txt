@@ -1,0 +1,58 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/bcachefs/io_read.c (1)
+TOP_SYMBOLS:
+  __promote_alloc (1), kfree (1), kfree_rcu (1)
+TOP_KEYWORDS:
+  rcu (1), NULL (1), null (1), WARN (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=__promote_alloc)
+  - viewcode(ref=<target_release>, path=fs/bcachefs/io_read.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=1, rows_scanned=1, candidates_kept=1, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: da4373fbcf006deda90e5e6a87c499e0ff747572
+bug_url: https://syzkaller.appspot.com/bug?id=85ecba173d59ecea2f1111ccb990632f02839e9f
+title: WARNING in current_check_refer_path
+relevance_score: 0
+
+ fs/bcachefs/io_read.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+diff --git a/fs/bcachefs/io_read.c b/fs/bcachefs/io_read.c
+index ac6a6fcc2bb8..b3b934a87c6d 100644
+--- a/fs/bcachefs/io_read.c
++++ b/fs/bcachefs/io_read.c
+@@ -262,7 +262,8 @@ static struct promote_op *__promote_alloc(struct btree_trans *trans,
+ 		bio_free_pages(&(*rbio)->bio);
+ 	kfree(*rbio);
+ 	*rbio = NULL;
+-	kfree(op);
++	/* We may have added to the rhashtable and thus need rcu freeing: */
++	kfree_rcu(op, rcu);
+ 	bch2_write_ref_put(c, BCH_WRITE_REF_promote);
+ 	return ERR_PTR(ret);
+ }
+================================================================================

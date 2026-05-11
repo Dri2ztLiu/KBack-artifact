@@ -1,0 +1,50 @@
+{
+  "extid": "a32b546d58dde07875a1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a32b546d58dde07875a1",
+  "bug_title": "WARNING in io_uring_flush",
+  "bug_status": "fixed on 2021/03/10 01:49",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix uring_flush in exit_files() warning",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4325cb498cb743dacaa3edbec398c5255f476ef6",
+      "hash": "4325cb498cb743dacaa3edbec398c5255f476ef6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-01-16T19:14:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1d94330a437a573cfdf848f6743b1ed169242c8a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/65a7a8540d29e72622fca06522587f7e66539fd3",
+  "syzkaller-commit": "65a7a8540d29e72622fca06522587f7e66539fd3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=173a8eaf500000",
+      "saved_to": "/home/lcj/paired_patches/a32b546d58dde07875a1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c60c9ff9cc916cbc",
+      "saved_to": "/home/lcj/paired_patches/a32b546d58dde07875a1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15a2feb8d00000",
+      "saved_to": "/home/lcj/paired_patches/a32b546d58dde07875a1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17d14c58d00000",
+      "saved_to": "/home/lcj/paired_patches/a32b546d58dde07875a1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "2f6d7c28bb4bf7e82060",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2f6d7c28bb4bf7e82060",
+  "bug_title": "inconsistent lock state in sco_sock_timeout",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: schedule SCO timeouts with delayed_work",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ba316be1b6a00db7126ed9a39f9bee434a508043",
+      "hash": "ba316be1b6a00db7126ed9a39f9bee434a508043",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "desmondcheongzx@gmail.com",
+      "author-name": "Desmond Cheong Zhi Xi",
+      "date": "2021-08-10T04:14:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "inconsistent lock state in sco_sock_timeout",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "625acffd7ae2c52898d249e6c5c39f348db0d8df",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9d2ab5dfe7727dfea4b9b279f4edf731acb386ef",
+  "syzkaller-commit": "9d2ab5dfe7727dfea4b9b279f4edf731acb386ef",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1155fe94300000",
+      "saved_to": "/home/lcj/paired_patches/2f6d7c28bb4bf7e82060/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=42ecca11b759d96c",
+      "saved_to": "/home/lcj/paired_patches/2f6d7c28bb4bf7e82060/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13996c44300000",
+      "saved_to": "/home/lcj/paired_patches/2f6d7c28bb4bf7e82060/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13d7bda4300000",
+      "saved_to": "/home/lcj/paired_patches/2f6d7c28bb4bf7e82060/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

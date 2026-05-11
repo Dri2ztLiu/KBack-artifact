@@ -1,0 +1,50 @@
+{
+  "extid": "7d41312fe3f123a6f605",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7d41312fe3f123a6f605",
+  "bug_title": "KASAN: null-ptr-deref Write in __pm_runtime_resume",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_uart: fix GPF in h5_recv",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2fc7acb69fa3573d4bf7a90c323296d840daf330",
+      "hash": "2fc7acb69fa3573d4bf7a90c323296d840daf330",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-09-02T20:27:56Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: null-ptr-deref Write in __pm_runtime_resume",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "02d5e016800d082058b3d3b7c3ede136cdc6ddcb",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/be530f6c7e0a2e1f66d03a5ad71d209302219d37",
+  "syzkaller-commit": "be530f6c7e0a2e1f66d03a5ad71d209302219d37",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=167d39df300000",
+      "saved_to": "/home/lcj/paired_patches/7d41312fe3f123a6f605/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9290a409049988d4",
+      "saved_to": "/home/lcj/paired_patches/7d41312fe3f123a6f605/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11be07bb300000",
+      "saved_to": "/home/lcj/paired_patches/7d41312fe3f123a6f605/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13acd8cf300000",
+      "saved_to": "/home/lcj/paired_patches/7d41312fe3f123a6f605/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

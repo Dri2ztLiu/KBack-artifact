@@ -1,0 +1,74 @@
+{
+  "extid": "0c2508114d912a54ee79",
+  "target_ref": "0c2508114d912a54ee79",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "c6b72f5d82b1017bad80f9ebf502832fc321d796",
+      "branch": "linux-6.1",
+      "title": "KASAN: use-after-free Read in ext4_search_dir",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ext4/inline.c"
+      ],
+      "symbols": [
+        "ext4_find_inline_entry",
+        "ext4_find_inline_entry",
+        "if",
+        "if",
+        "brelse",
+        "brelse"
+      ],
+      "patterns": [
+        "use-after-free",
+        "NULL",
+        "null",
+        "KASAN",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "be2e9b111e2790962cc66a177869b4e9717b4e29",
+      "branch": "linux-5.15",
+      "title": "KASAN: use-after-free Read in ext4_search_dir",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ext4/inline.c"
+      ],
+      "symbols": [
+        "ext4_find_inline_entry",
+        "ext4_find_inline_entry",
+        "if",
+        "if",
+        "brelse",
+        "brelse"
+      ],
+      "patterns": [
+        "use-after-free",
+        "NULL",
+        "null",
+        "KASAN",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

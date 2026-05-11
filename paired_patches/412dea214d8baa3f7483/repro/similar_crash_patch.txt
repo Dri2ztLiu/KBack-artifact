@@ -1,0 +1,104 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/jfs/jfs_dmap.c (2), Makefile (1)
+TOP_SYMBOLS:
+  dbAdjTree (2)
+TOP_KEYWORDS:
+  out-of-bounds (3), UBSAN (2), KASAN (1), slab (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=dbAdjTree)
+  - viewcode(ref=<target_release>, path=fs/jfs/jfs_dmap.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=5, rows_scanned=5, candidates_kept=3, skipped=2
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: a174706ba4dad895c40b1d2277bade16dfacdcd9
+bug_url: https://syzkaller.appspot.com/bug?extid=615942eeb2884c9896c4
+title: UBSAN: array-index-out-of-bounds in dbAdjTree
+relevance_score: 0
+
+ fs/jfs/jfs_dmap.c | 3 +++
+ 1 file changed, 3 insertions(+)
+diff --git a/fs/jfs/jfs_dmap.c b/fs/jfs/jfs_dmap.c
+index 39957361a7ee..f9009e4f9ffd 100644
+--- a/fs/jfs/jfs_dmap.c
++++ b/fs/jfs/jfs_dmap.c
+@@ -2891,6 +2891,9 @@ static void dbAdjTree(dmtree_t *tp, int leafno, int newval, bool is_ctl)
+ 	/* bubble the new value up the tree as required.
+ 	 */
+ 	for (k = 0; k < le32_to_cpu(tp->dmt_height); k++) {
++		if (lp == 0)
++			break;
++
+ 		/* get the index of the first leaf of the 4 leaf
+ 		 * group containing the specified leaf (leafno).
+ 		 */
+================================================================================
+
+branch: linux-5.15
+fix_commit: a174706ba4dad895c40b1d2277bade16dfacdcd9
+bug_url: https://syzkaller.appspot.com/bug?extid=b15dcf65907dd581fb1c
+title: UBSAN: array-index-out-of-bounds in dbAdjTree
+relevance_score: 0
+
+ fs/jfs/jfs_dmap.c | 3 +++
+ 1 file changed, 3 insertions(+)
+diff --git a/fs/jfs/jfs_dmap.c b/fs/jfs/jfs_dmap.c
+index 39957361a7ee..f9009e4f9ffd 100644
+--- a/fs/jfs/jfs_dmap.c
++++ b/fs/jfs/jfs_dmap.c
+@@ -2891,6 +2891,9 @@ static void dbAdjTree(dmtree_t *tp, int leafno, int newval, bool is_ctl)
+ 	/* bubble the new value up the tree as required.
+ 	 */
+ 	for (k = 0; k < le32_to_cpu(tp->dmt_height); k++) {
++		if (lp == 0)
++			break;
++
+ 		/* get the index of the first leaf of the 4 leaf
+ 		 * group containing the specified leaf (leafno).
+ 		 */
+================================================================================
+
+branch: linux-4.14
+fix_commit: 9d5c0b3a8e1a8b6c4969f630803103978e8d17b6
+bug_url: https://syzkaller.appspot.com/bug?extid=2aa0d1c312850487b23f
+title: KASAN: slab-out-of-bounds Read in dbAdjTree
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 222468241414..74c0d3f17293 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 294
++SUBLEVEL = 295
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

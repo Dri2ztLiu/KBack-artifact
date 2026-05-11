@@ -1,0 +1,50 @@
+{
+  "extid": "dfcc5f4da15868df7d4d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=dfcc5f4da15868df7d4d",
+  "bug_title": "inconsistent lock state in kmem_cache_alloc",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "io_uring/rw: defer fsnotify calls to task context",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b000145e9907809406d8164c3b2b8861d95aecd1",
+      "hash": "b000145e9907809406d8164c3b2b8861d95aecd1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "axboe@kernel.dk",
+      "author-name": "Jens Axboe",
+      "date": "2022-09-29T16:57:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "inconsistent lock state in kmem_cache_alloc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "987a926c1d8a40e4256953b04771fbdb63bc7938",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1d385642c6e7ff09f8689d6e0d70b07cc40af05d",
+  "syzkaller-commit": "1d385642c6e7ff09f8689d6e0d70b07cc40af05d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=151a4c1f080000",
+      "saved_to": "/home/lcj/paired_patches/dfcc5f4da15868df7d4d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=755695d26ad09807",
+      "saved_to": "/home/lcj/paired_patches/dfcc5f4da15868df7d4d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10c15740880000",
+      "saved_to": "/home/lcj/paired_patches/dfcc5f4da15868df7d4d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1432c9e4880000",
+      "saved_to": "/home/lcj/paired_patches/dfcc5f4da15868df7d4d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

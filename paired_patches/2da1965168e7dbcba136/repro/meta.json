@@ -1,0 +1,50 @@
+{
+  "extid": "2da1965168e7dbcba136",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2da1965168e7dbcba136",
+  "bug_title": "general protection fault in rxe_completer",
+  "bug_status": "fixed on 2023/10/12 12:47",
+  "fix_commits": [
+    {
+      "title": "RDMA/rxe: Fix unsafe drain work queue code",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5993b75d0bc71cd2b441d174b028fc36180f032c",
+      "hash": "5993b75d0bc71cd2b441d174b028fc36180f032c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "rpearsonhpe@gmail.com",
+      "author-name": "Bob Pearson",
+      "date": "2023-06-20T13:55:21Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in rxe_completer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "99d99825fc075fd24b60cc9cf0fb1e20b9c16b0f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/696ea0d2f4fdaa17db929e152edba19bf7666d84",
+  "syzkaller-commit": "696ea0d2f4fdaa17db929e152edba19bf7666d84",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1598d7dfa80000",
+      "saved_to": "/home/lcj/paired_patches/2da1965168e7dbcba136/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cce54b04d9a3d05b",
+      "saved_to": "/home/lcj/paired_patches/2da1965168e7dbcba136/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2da1965168e7dbcba136/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2da1965168e7dbcba136/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

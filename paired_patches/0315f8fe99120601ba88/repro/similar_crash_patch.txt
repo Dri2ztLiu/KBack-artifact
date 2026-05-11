@@ -1,0 +1,123 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  arch/x86/mm/fault.c (1), Makefile (1), drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.c (1)
+TOP_SYMBOLS:
+  local_irq_disable (3), __bad_area_nosemaphore (1), handle_page_fault (1), otx2_ptp_destroy (1), cancel_delayed_work (1), cancel_delayed_work_sync (1)
+TOP_KEYWORDS:
+  out-of-bounds (2), UBSAN (2), use-after-free (1), KASAN (1), slab (1), net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=local_irq_disable)
+  - viewcode(ref=<target_release>, path=arch/x86/mm/fault.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=7, rows_scanned=7, candidates_kept=3, skipped=4
+skip_breakdown: skip_upstream=2, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=2, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: c072629f05d7bca1148ab17690d7922a31423984
+bug_url: https://syzkaller.appspot.com/bug?extid=e87c4983f6a921e84439
+title: KASAN: slab-use-after-free Read in jfs_readdir
+relevance_score: 0
+
+ arch/x86/mm/fault.c | 15 +++++----------
+ 1 file changed, 5 insertions(+), 10 deletions(-)
+diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+index 998bd807fc7b..b83a06739b51 100644
+--- a/arch/x86/mm/fault.c
++++ b/arch/x86/mm/fault.c
+@@ -821,8 +821,6 @@ __bad_area_nosemaphore(struct pt_regs *regs, unsigned long error_code,
+ 		force_sig_pkuerr((void __user *)address, pkey);
+ 	else
+ 		force_sig_fault(SIGSEGV, si_code, (void __user *)address);
+-
+-	local_irq_disable();
+ }
+ 
+ static noinline void
+@@ -1474,15 +1472,12 @@ handle_page_fault(struct pt_regs *regs, unsigned long error_code,
+ 		do_kern_addr_fault(regs, error_code, address);
+ 	} else {
+ 		do_user_addr_fault(regs, error_code, address);
+-		/*
+-		 * User address page fault handling might have reenabled
+-		 * interrupts. Fixing up all potential exit points of
+-		 * do_user_addr_fault() and its leaf functions is just not
+-		 * doable w/o creating an unholy mess or turning the code
+-		 * upside down.
+-		 */
+-		local_irq_disable();
+ 	}
++	/*
++	 * page fault handling might have reenabled interrupts,
++	 * make sure to disable them again.
++	 */
++	local_irq_disable();
+ }
+ 
+ DEFINE_IDTENTRY_RAW_ERRORCODE(exc_page_fault)
+================================================================================
+
+branch: linux-6.1
+fix_commit: e4d90d63d385228b1e0bcf31cc15539bbbc28f7f
+bug_url: https://syzkaller.appspot.com/bug?extid=d9da34bfc308d1389b46
+title: UBSAN: array-index-out-of-bounds in jfs_readdir
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index ca304cece572..cc153c731405 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 118
++SUBLEVEL = 119
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: cbf658dd09419f1ef9de11b9604e950bdd5c170b
+bug_url: https://syzkaller.appspot.com/bug?extid=86aff299c9c99b870520
+title: UBSAN: array-index-out-of-bounds in jfs_readdir
+relevance_score: 0
+
+ drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.c b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.c
+index e52cc6b1a26c..dedd586ed310 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.c
++++ b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_ptp.c
+@@ -491,7 +491,7 @@ void otx2_ptp_destroy(struct otx2_nic *pfvf)
+ 	if (!ptp)
+ 		return;
+ 
+-	cancel_delayed_work(&pfvf->ptp->synctstamp_work);
++	cancel_delayed_work_sync(&pfvf->ptp->synctstamp_work);
+ 
+ 	ptp_clock_unregister(ptp->ptp_clock);
+ 	kfree(ptp);
+================================================================================

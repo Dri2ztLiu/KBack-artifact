@@ -1,0 +1,50 @@
+{
+  "extid": "ce96ca2b1d0b37c6422d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ce96ca2b1d0b37c6422d",
+  "bug_title": "general protection fault in nft_set_elem_expr_alloc",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "netfilter: nf_tables: initialize set before expression setup",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ad9f151e560b016b6ad3280b48e42fa11e1a5440",
+      "hash": "ad9f151e560b016b6ad3280b48e42fa11e1a5440",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pablo@netfilter.org",
+      "author-name": "Pablo Neira Ayuso",
+      "date": "2021-06-04T01:07:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in nft_set_elem_expr_alloc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "6850ec973791a4917003a6f5e2e0243a56e2c1f7",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/325a8dab43fe8af46c179dcb4e2426613440fe85",
+  "syzkaller-commit": "325a8dab43fe8af46c179dcb4e2426613440fe85",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1251638dd00000",
+      "saved_to": "/home/lcj/paired_patches/ce96ca2b1d0b37c6422d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=770708ea7cfd4916",
+      "saved_to": "/home/lcj/paired_patches/ce96ca2b1d0b37c6422d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12bbbe13d00000",
+      "saved_to": "/home/lcj/paired_patches/ce96ca2b1d0b37c6422d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1502d517d00000",
+      "saved_to": "/home/lcj/paired_patches/ce96ca2b1d0b37c6422d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

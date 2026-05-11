@@ -1,0 +1,50 @@
+{
+  "extid": "b6b347b7a4ea1b2e29b6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b6b347b7a4ea1b2e29b6",
+  "bug_title": "BUG: unable to handle kernel paging request in has_enough_free_secs",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to avoid accessing uninitialized curseg",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=986c50f6bca109c6cf362b4e2babcb85aba958f6",
+      "hash": "986c50f6bca109c6cf362b4e2babcb85aba958f6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2025-02-24T10:29:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel paging request in has_enough_free_secs",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "df60eac9efe8be41cd30767ed001c04f478e0f4e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a44b0418acb3ae8fdad9277c2f2aaa6446b97530",
+  "syzkaller-commit": "a44b0418acb3ae8fdad9277c2f2aaa6446b97530",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15490128580000",
+      "saved_to": "/home/lcj/paired_patches/b6b347b7a4ea1b2e29b6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e56f16478dfabb4",
+      "saved_to": "/home/lcj/paired_patches/b6b347b7a4ea1b2e29b6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/b6b347b7a4ea1b2e29b6/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/b6b347b7a4ea1b2e29b6/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

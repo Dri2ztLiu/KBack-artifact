@@ -1,0 +1,50 @@
+{
+  "extid": "210e196cef4711b65139",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=210e196cef4711b65139",
+  "bug_title": "WARNING in nci_add_new_protocol",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "NFC: nci: Bounds check struct nfc_target arrays",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e329e71013c9b5a4535b099208493c7826ee4a64",
+      "hash": "e329e71013c9b5a4535b099208493c7826ee4a64",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "keescook@chromium.org",
+      "author-name": "Kees Cook",
+      "date": "2022-12-02T21:44:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in nci_add_new_protocol",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4312098baf37ee17a8350725e6e0d0e8590252d4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/52fdf57a86cb556640e5ebcc234bc826ff249546",
+  "syzkaller-commit": "52fdf57a86cb556640e5ebcc234bc826ff249546",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15c74afd880000",
+      "saved_to": "/home/lcj/paired_patches/210e196cef4711b65139/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b1129081024ee340",
+      "saved_to": "/home/lcj/paired_patches/210e196cef4711b65139/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/210e196cef4711b65139/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/210e196cef4711b65139/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

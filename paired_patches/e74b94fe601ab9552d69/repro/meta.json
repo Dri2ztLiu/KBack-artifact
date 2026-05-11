@@ -1,0 +1,50 @@
+{
+  "extid": "e74b94fe601ab9552d69",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e74b94fe601ab9552d69",
+  "bug_title": "BUG: unable to handle kernel access to user memory in schedule_tail",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "riscv: evaluate put_user() arg before enabling user access",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=285a76bb2cf51b0c74c634f2aaccdb93e1f2a359",
+      "hash": "285a76bb2cf51b0c74c634f2aaccdb93e1f2a359",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ben.dooks@codethink.co.uk",
+      "author-name": "Ben Dooks",
+      "date": "2021-03-29T09:57:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel access to user memory in schedule_tail",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git",
+  "kernel-source-commit": "a5e13c6df0e41702d2b2c77c8ad41677ebb065b3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "syzkaller-commit": "6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10805786d00000",
+      "saved_to": "/home/lcj/paired_patches/e74b94fe601ab9552d69/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=81b3e7c68dad6e",
+      "saved_to": "/home/lcj/paired_patches/e74b94fe601ab9552d69/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e74b94fe601ab9552d69/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e74b94fe601ab9552d69/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

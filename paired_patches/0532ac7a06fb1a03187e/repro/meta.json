@@ -1,0 +1,50 @@
+{
+  "extid": "0532ac7a06fb1a03187e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0532ac7a06fb1a03187e",
+  "bug_title": "WARNING in remove_proc_entry (6)",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "can: bcm: Clear bo->bcm_proc_read after remove_proc_entry().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=94b0818fa63555a65f6ba107080659ea6bcca63e",
+      "hash": "94b0818fa63555a65f6ba107080659ea6bcca63e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2024-09-05T01:22:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in remove_proc_entry",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "5517ae241919e0208b077c910b0a369b9dce3c11",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/512328ba4c7c2d32f3ce13ad568a44b25d7e8df5",
+  "syzkaller-commit": "512328ba4c7c2d32f3ce13ad568a44b25d7e8df5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17abc88b980000",
+      "saved_to": "/home/lcj/paired_patches/0532ac7a06fb1a03187e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=996585887acdadb3",
+      "saved_to": "/home/lcj/paired_patches/0532ac7a06fb1a03187e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1534d5b7980000",
+      "saved_to": "/home/lcj/paired_patches/0532ac7a06fb1a03187e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13b7efdb980000",
+      "saved_to": "/home/lcj/paired_patches/0532ac7a06fb1a03187e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

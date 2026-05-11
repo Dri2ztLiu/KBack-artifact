@@ -1,0 +1,64 @@
+{
+  "extid": "601018296973a481f302",
+  "target_ref": "601018296973a481f302",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "958ccbbf1ce716d77c7cfa79ace50a421c1eed73",
+      "branch": "linux-6.1",
+      "title": "UBSAN: array-index-out-of-bounds in f2fs_iget",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/f2fs/inode.c"
+      ],
+      "symbols": [
+        "do_read_inode",
+        "do_read_inode",
+        "if",
+        "f2fs_put_page",
+        "f2fs_handle_error",
+        "if",
+        "f2fs_put_page",
+        "f2fs_handle_error",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "68efe5a6c16a05391e3d96025b41e9bf573f968c",
+      "branch": "linux-5.15",
+      "title": "KASAN: use-after-free Read in f2fs_iget",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "use-after-free",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

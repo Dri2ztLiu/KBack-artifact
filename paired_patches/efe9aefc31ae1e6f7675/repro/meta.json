@@ -1,0 +1,50 @@
+{
+  "extid": "efe9aefc31ae1e6f7675",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=efe9aefc31ae1e6f7675",
+  "bug_title": "memory leak in v4l2_ctrl_handler_init_class",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: drivers/media/usb: fix memory leak in zr364xx_probe",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9c39be40c0155c43343f53e3a439290c0fec5542",
+      "hash": "9c39be40c0155c43343f53e3a439290c0fec5542",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-03-01T20:38:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in v4l2_ctrl_handler_init_class",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c98ff1d013d2d53911c4b3e8ba14c7cd141cf1ed",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7e2b734bac96c22086fedd1b18135da06d5e4054",
+  "syzkaller-commit": "7e2b734bac96c22086fedd1b18135da06d5e4054",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14067919d00000",
+      "saved_to": "/home/lcj/paired_patches/efe9aefc31ae1e6f7675/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fd35e661e44323ea",
+      "saved_to": "/home/lcj/paired_patches/efe9aefc31ae1e6f7675/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13a29e41d00000",
+      "saved_to": "/home/lcj/paired_patches/efe9aefc31ae1e6f7675/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=130221fed00000",
+      "saved_to": "/home/lcj/paired_patches/efe9aefc31ae1e6f7675/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

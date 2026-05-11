@@ -1,0 +1,60 @@
+{
+  "extid": "011e4ea1da6692cf881c",
+  "target_ref": "011e4ea1da6692cf881c",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "59b13c2b647e464dd85622c89d7f16c15d681e96",
+      "branch": "linux-6.1",
+      "title": "possible deadlock in pipe_write",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "deadlock"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "055ca83559912f2cfd91c9441427bac4caf3c74e",
+      "branch": "linux-5.15",
+      "title": "possible deadlock in pipe_write",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/pipe.c"
+      ],
+      "symbols": [
+        "pipe_write",
+        "pipe_write",
+        "if",
+        "if"
+      ],
+      "patterns": [
+        "deadlock",
+        "lockdep",
+        "NULL",
+        "null"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

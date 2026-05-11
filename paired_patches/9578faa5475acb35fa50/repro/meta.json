@@ -1,0 +1,50 @@
+{
+  "extid": "9578faa5475acb35fa50",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9578faa5475acb35fa50",
+  "bug_title": "kernel BUG in hpage_collapse_scan_file",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "mm: khugepaged: fix kernel BUG in hpage_collapse_scan_file()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2ce0bdfebc74f6cbd4e97a4e767d505a81c38cf2",
+      "hash": "2ce0bdfebc74f6cbd4e97a4e767d505a81c38cf2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ivan.orlov0322@gmail.com",
+      "author-name": "Ivan Orlov",
+      "date": "2023-03-29T14:53:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in hpage_collapse_scan_file",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "857f1268a591147f7be7509f249dbb3aba6fc65c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "syzkaller-commit": "f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14c74fb0c80000",
+      "saved_to": "/home/lcj/paired_patches/9578faa5475acb35fa50/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f763d89e26d3d4c4",
+      "saved_to": "/home/lcj/paired_patches/9578faa5475acb35fa50/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=119cce98c80000",
+      "saved_to": "/home/lcj/paired_patches/9578faa5475acb35fa50/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=179e4e12c80000",
+      "saved_to": "/home/lcj/paired_patches/9578faa5475acb35fa50/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

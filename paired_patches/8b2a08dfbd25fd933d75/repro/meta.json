@@ -1,0 +1,50 @@
+{
+  "extid": "8b2a08dfbd25fd933d75",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8b2a08dfbd25fd933d75",
+  "bug_title": "WARNING in bpf_verifier_vlog",
+  "bug_status": "fixed on 2023/09/28 17:51",
+  "fix_commits": [
+    {
+      "title": "bpf: drop unnecessary user-triggerable WARN_ONCE in verifierl log",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cff36398bd4c7d322d424433db437f3c3391c491",
+      "hash": "cff36398bd4c7d322d424433db437f3c3391c491",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "andrii@kernel.org",
+      "author-name": "Andrii Nakryiko",
+      "date": "2023-05-16T18:04:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in bpf_verifier_vlog",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1b929c02afd37871d5afb9d498426f83432e71c2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/44712fbc6b687170984c3562336a415b56d82607",
+  "syzkaller-commit": "44712fbc6b687170984c3562336a415b56d82607",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1754fcf4480000",
+      "saved_to": "/home/lcj/paired_patches/8b2a08dfbd25fd933d75/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=60208ff8fae87ede",
+      "saved_to": "/home/lcj/paired_patches/8b2a08dfbd25fd933d75/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=151d96d4480000",
+      "saved_to": "/home/lcj/paired_patches/8b2a08dfbd25fd933d75/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=152a8a68480000",
+      "saved_to": "/home/lcj/paired_patches/8b2a08dfbd25fd933d75/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

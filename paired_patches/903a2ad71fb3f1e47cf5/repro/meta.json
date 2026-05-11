@@ -1,0 +1,50 @@
+{
+  "extid": "903a2ad71fb3f1e47cf5",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=903a2ad71fb3f1e47cf5",
+  "bug_title": "KCSAN: data-race in io_req_task_cancel / io_wq_free_work",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "io_uring: always do atomic put from iowq",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=390513642ee6763c7ada07f0a1470474986e6c1c",
+      "hash": "390513642ee6763c7ada07f0a1470474986e6c1c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2025-04-03T11:29:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in io_req_task_cancel / io_wq_free_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "92b71befc349587d58fdbbe6cdd68fb67f4933a8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c799dfdd5648677612604d10e2c13075eda21582",
+  "syzkaller-commit": "c799dfdd5648677612604d10e2c13075eda21582",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11596178580000",
+      "saved_to": "/home/lcj/paired_patches/903a2ad71fb3f1e47cf5/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a8120cade23cf14e",
+      "saved_to": "/home/lcj/paired_patches/903a2ad71fb3f1e47cf5/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/903a2ad71fb3f1e47cf5/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/903a2ad71fb3f1e47cf5/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

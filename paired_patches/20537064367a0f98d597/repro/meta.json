@@ -1,0 +1,50 @@
+{
+  "extid": "20537064367a0f98d597",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=20537064367a0f98d597",
+  "bug_title": "UBSAN: shift-out-of-bounds in ax88772_bind",
+  "bug_status": "fixed on 2025/10/09 01:15",
+  "fix_commits": [
+    {
+      "title": "net: usb: asix_devices: Fix PHY address mask in MDIO bus initialization",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=24ef2f53c07f273bad99173e27ee88d44d135b1c",
+      "hash": "24ef2f53c07f273bad99173e27ee88d44d135b1c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yuichtsu@amazon.com",
+      "author-name": "Yuichiro Tsuji",
+      "date": "2025-08-18T08:45:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in ax88772_bind",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "99bade344cfa1577c6dd658e10a3d64b119bddf4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1804e95e3ff848c11e87e8efe7560f03c011c081",
+  "syzkaller-commit": "1804e95e3ff848c11e87e8efe7560f03c011c081",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11fb2ba2580000",
+      "saved_to": "/home/lcj/paired_patches/20537064367a0f98d597/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ce98061fb8ee27bc",
+      "saved_to": "/home/lcj/paired_patches/20537064367a0f98d597/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1754faf0580000",
+      "saved_to": "/home/lcj/paired_patches/20537064367a0f98d597/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=126d13a2580000",
+      "saved_to": "/home/lcj/paired_patches/20537064367a0f98d597/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "abfc0f5e668d4099af73",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=abfc0f5e668d4099af73",
+  "bug_title": "INFO: trying to register non-static key in l2cap_chan_del",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: check for zapped sk before connecting",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3af70b39fa2d415dc86c370e5b24ddb9fdacbd6f",
+      "hash": "3af70b39fa2d415dc86c370e5b24ddb9fdacbd6f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "apusaka@chromium.org",
+      "author-name": "Archie Pusaka",
+      "date": "2021-03-23T08:32:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fb893de323e2d39f7a1f6df425703a2edbdf56ea",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bc15f7dbbc1c6e2042a7115b3fdacc0ada8c35e7",
+  "syzkaller-commit": "bc15f7dbbc1c6e2042a7115b3fdacc0ada8c35e7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17eed216900000",
+      "saved_to": "/home/lcj/paired_patches/abfc0f5e668d4099af73/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=38845bc5800753ad",
+      "saved_to": "/home/lcj/paired_patches/abfc0f5e668d4099af73/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/abfc0f5e668d4099af73/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13780f26900000",
+      "saved_to": "/home/lcj/paired_patches/abfc0f5e668d4099af73/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

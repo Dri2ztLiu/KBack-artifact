@@ -1,0 +1,50 @@
+{
+  "extid": "3b6b9ff7b80430020c7b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3b6b9ff7b80430020c7b",
+  "bug_title": "KMSAN: uninit-value in usbnet_probe (3)",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "net: usb: aqc111: fix error handling of usbnet read calls",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=405b0d610745fb5e84fc2961d9b960abb9f3d107",
+      "hash": "405b0d610745fb5e84fc2961d9b960abb9f3d107",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2025-05-20T11:32:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in usbnet_probe",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "02ddfb981de88a2c15621115dd7be2431252c568",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bb813bccb1da35d1a0140c842fb097525d920d97",
+  "syzkaller-commit": "bb813bccb1da35d1a0140c842fb097525d920d97",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17a4acf4580000",
+      "saved_to": "/home/lcj/paired_patches/3b6b9ff7b80430020c7b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9dc42c34a3f5c357",
+      "saved_to": "/home/lcj/paired_patches/3b6b9ff7b80430020c7b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16811768580000",
+      "saved_to": "/home/lcj/paired_patches/3b6b9ff7b80430020c7b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=168254d4580000",
+      "saved_to": "/home/lcj/paired_patches/3b6b9ff7b80430020c7b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

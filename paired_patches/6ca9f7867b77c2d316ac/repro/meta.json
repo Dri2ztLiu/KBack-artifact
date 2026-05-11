@@ -1,0 +1,50 @@
+{
+  "extid": "6ca9f7867b77c2d316ac",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6ca9f7867b77c2d316ac",
+  "bug_title": "KMSAN: uninit-value in ax88178_reset",
+  "bug_status": "fixed on 2023/02/24 13:51",
+  "fix_commits": [
+    {
+      "title": "net: asix: add proper error handling of usb read errors",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=920a9fa27e7805499cfe78491b36fed2322c02ec",
+      "hash": "920a9fa27e7805499cfe78491b36fed2322c02ec",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2022-02-06T18:05:16Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ax88178_reset",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "b0a8b5053e8b71f09057450953ce13559e9087a2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/44068e196185e2f5a7c94629b6245cdde008b140",
+  "syzkaller-commit": "44068e196185e2f5a7c94629b6245cdde008b140",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1257c79db00000",
+      "saved_to": "/home/lcj/paired_patches/6ca9f7867b77c2d316ac/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=46a956fc7a887c60",
+      "saved_to": "/home/lcj/paired_patches/6ca9f7867b77c2d316ac/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=127716a3b00000",
+      "saved_to": "/home/lcj/paired_patches/6ca9f7867b77c2d316ac/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14413193b00000",
+      "saved_to": "/home/lcj/paired_patches/6ca9f7867b77c2d316ac/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

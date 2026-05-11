@@ -1,0 +1,50 @@
+{
+  "extid": "0c4150bff9fff3bf023c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0c4150bff9fff3bf023c",
+  "bug_title": "WARNING in skb_ensure_writable",
+  "bug_status": "fixed on 2024/07/09 19:14",
+  "fix_commits": [
+    {
+      "title": "bpf: Avoid splat in pskb_pull_reason",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2bbe3e5a2f4ef69d13be54f1cf895b4658287080",
+      "hash": "2bbe3e5a2f4ef69d13be54f1cf895b4658287080",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-06-14T10:17:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in skb_ensure_writable",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "f99c5f563c174a49ea1cbf4754539b05cfde40c4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0d592ce46ebc504d579c07e5bc3f7f3f2038c4cf",
+  "syzkaller-commit": "0d592ce46ebc504d579c07e5bc3f7f3f2038c4cf",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14873957180000",
+      "saved_to": "/home/lcj/paired_patches/0c4150bff9fff3bf023c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6fb1be60a193d440",
+      "saved_to": "/home/lcj/paired_patches/0c4150bff9fff3bf023c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1233b7cd180000",
+      "saved_to": "/home/lcj/paired_patches/0c4150bff9fff3bf023c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1632f44f180000",
+      "saved_to": "/home/lcj/paired_patches/0c4150bff9fff3bf023c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

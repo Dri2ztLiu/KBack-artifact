@@ -1,0 +1,63 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  io_uring/openclose.c (1)
+TOP_SYMBOLS:
+  __io_openat_prep (1)
+TOP_KEYWORDS:
+  rcu (1), stall (1), NULL (1), null (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=__io_openat_prep)
+  - viewcode(ref=<target_release>, path=io_uring/openclose.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=5, rows_scanned=5, candidates_kept=1, skipped=4
+skip_breakdown: skip_upstream=4, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-5.15
+fix_commit: d26143bb38e2546fe6f8c9860c13a88146ce5dd6
+bug_url: https://syzkaller.appspot.com/bug?id=25407535fb89bf285fdf37d9844b0e537b15885f
+title: INFO: rcu detected stall in dummy_timer
+relevance_score: 0
+
+ io_uring/openclose.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/io_uring/openclose.c b/io_uring/openclose.c
+index bfeb91b31bba..15dde9bd6ff6 100644
+--- a/io_uring/openclose.c
++++ b/io_uring/openclose.c
+@@ -73,13 +73,13 @@ static int __io_openat_prep(struct io_kiocb *req, const struct io_uring_sqe *sqe
+ 		open->filename = NULL;
+ 		return ret;
+ 	}
++	req->flags |= REQ_F_NEED_CLEANUP;
+ 
+ 	open->file_slot = READ_ONCE(sqe->file_index);
+ 	if (open->file_slot && (open->how.flags & O_CLOEXEC))
+ 		return -EINVAL;
+ 
+ 	open->nofile = rlimit(RLIMIT_NOFILE);
+-	req->flags |= REQ_F_NEED_CLEANUP;
+ 	if (io_openat_force_async(open))
+ 		req->flags |= REQ_F_FORCE_ASYNC;
+ 	return 0;
+================================================================================

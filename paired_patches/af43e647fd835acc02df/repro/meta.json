@@ -1,0 +1,50 @@
+{
+  "extid": "af43e647fd835acc02df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=af43e647fd835acc02df",
+  "bug_title": "WARNING in ipv6_gso_segment",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "ipv6: reject malicious packets in ipv6_gso_segment()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d45cf1e7d7180256e17c9ce88e32e8061a7887fe",
+      "hash": "d45cf1e7d7180256e17c9ce88e32e8061a7887fe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2025-07-30T13:17:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ipv6_gso_segment",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "7abc678e308467ab60ffb8c31f4638a47ee3518c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f8f2b4da0e6eaaf0aeed6f6d613d86d599aafcd3",
+  "syzkaller-commit": "f8f2b4da0e6eaaf0aeed6f6d613d86d599aafcd3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=157589bc580000",
+      "saved_to": "/home/lcj/paired_patches/af43e647fd835acc02df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=12b5044868deb866",
+      "saved_to": "/home/lcj/paired_patches/af43e647fd835acc02df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=109b8834580000",
+      "saved_to": "/home/lcj/paired_patches/af43e647fd835acc02df/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1177cca2580000",
+      "saved_to": "/home/lcj/paired_patches/af43e647fd835acc02df/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "4fd66a69358fc15ae2ad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4fd66a69358fc15ae2ad",
+  "bug_title": "KASAN: slab-use-after-free Read in nf_tables_trans_destroy_work",
+  "bug_status": "fixed on 2024/08/06 11:02",
+  "fix_commits": [
+    {
+      "title": "netfilter: nf_tables: unconditionally flush pending work before notifier",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9f6958ba2e902f9820c594869bd710ba74b7c4c0",
+      "hash": "9f6958ba2e902f9820c594869bd710ba74b7c4c0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-07-02T14:08:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in nf_tables_trans_destroy_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "1c5fc27bc48a7f33302536c42184e5208ee66783",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b294e901e293e41b6374f056dcc8d4329780455c",
+  "syzkaller-commit": "b294e901e293e41b6374f056dcc8d4329780455c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14c8f869980000",
+      "saved_to": "/home/lcj/paired_patches/4fd66a69358fc15ae2ad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5264b58fdff6e881",
+      "saved_to": "/home/lcj/paired_patches/4fd66a69358fc15ae2ad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12cecb1e980000",
+      "saved_to": "/home/lcj/paired_patches/4fd66a69358fc15ae2ad/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=148791c6980000",
+      "saved_to": "/home/lcj/paired_patches/4fd66a69358fc15ae2ad/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

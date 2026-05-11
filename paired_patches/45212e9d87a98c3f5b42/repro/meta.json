@@ -1,0 +1,50 @@
+{
+  "extid": "45212e9d87a98c3f5b42",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=45212e9d87a98c3f5b42",
+  "bug_title": "KASAN: slab-use-after-free Read in join_transaction",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "btrfs: fix use-after-free when attempting to join an aborted transaction",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f0943cf37305dbdeaf9846e3c941451bcdef63",
+      "hash": "e2f0943cf37305dbdeaf9846e3c941451bcdef63",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2025-01-20T17:26:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in join_transaction",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c45323b7560ec87c37c729b703c86ee65f136d75",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0dce2409ff7389009070e025857c71f752d814e6",
+  "syzkaller-commit": "0dce2409ff7389009070e025857c71f752d814e6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=125009df980000",
+      "saved_to": "/home/lcj/paired_patches/45212e9d87a98c3f5b42/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=aadf89e2f6db86cc",
+      "saved_to": "/home/lcj/paired_patches/45212e9d87a98c3f5b42/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/45212e9d87a98c3f5b42/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/45212e9d87a98c3f5b42/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

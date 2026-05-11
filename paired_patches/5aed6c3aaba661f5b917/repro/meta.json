@@ -1,0 +1,60 @@
+{
+  "extid": "5aed6c3aaba661f5b917",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5aed6c3aaba661f5b917",
+  "bug_title": "WARNING in print_tainted",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "can: isotp: check CAN address family in isotp_bind()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c6adf659a8ba85913e16a571d5a9bcd17d3d1234",
+      "hash": "c6adf659a8ba85913e16a571d5a9bcd17d3d1234",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "socketcan@hartkopp.net",
+      "author-name": "Oliver Hartkopp",
+      "date": "2023-01-04T20:18:44Z"
+    },
+    {
+      "title": "can: isotp: split tx timer into transmission and timeout",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f027cba8216f42a18b544842efab134f8b1f9f4",
+      "hash": "4f027cba8216f42a18b544842efab134f8b1f9f4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "socketcan@hartkopp.net",
+      "author-name": "Oliver Hartkopp",
+      "date": "2023-01-04T14:57:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in print_tainted",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "457391b0380335d5e9a5babdec90ac53928b23b4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/90c93c40627cb0ac3c2c7cb99d807fd4c137adcb",
+  "syzkaller-commit": "90c93c40627cb0ac3c2c7cb99d807fd4c137adcb",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1542495a280000",
+      "saved_to": "/home/lcj/paired_patches/5aed6c3aaba661f5b917/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=385e197a58ca4afe",
+      "saved_to": "/home/lcj/paired_patches/5aed6c3aaba661f5b917/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1646075a280000",
+      "saved_to": "/home/lcj/paired_patches/5aed6c3aaba661f5b917/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=178650b8280000",
+      "saved_to": "/home/lcj/paired_patches/5aed6c3aaba661f5b917/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

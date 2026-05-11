@@ -1,0 +1,50 @@
+{
+  "extid": "b07a9da40df1576b8048",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b07a9da40df1576b8048",
+  "bug_title": "KMSAN: uninit-value in validate_set (2)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "net: openvswitch: fix nested key length validation in the set() action",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=65d91192aa66f05710cfddf6a14b5a25ee554dba",
+      "hash": "65d91192aa66f05710cfddf6a14b5a25ee554dba",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "i.maximets@ovn.org",
+      "author-name": "Ilya Maximets",
+      "date": "2025-04-12T10:40:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in validate_set",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0af2f6be1b4281385b618cb86ad946eded089ac8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a2ada0e73dabbcf555e77b26a3e4ee3455dfd3e7",
+  "syzkaller-commit": "a2ada0e73dabbcf555e77b26a3e4ee3455dfd3e7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11e94c04580000",
+      "saved_to": "/home/lcj/paired_patches/b07a9da40df1576b8048/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7cfe1169d7fc8523",
+      "saved_to": "/home/lcj/paired_patches/b07a9da40df1576b8048/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1495d23f980000",
+      "saved_to": "/home/lcj/paired_patches/b07a9da40df1576b8048/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1367bb4c580000",
+      "saved_to": "/home/lcj/paired_patches/b07a9da40df1576b8048/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

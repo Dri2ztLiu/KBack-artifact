@@ -1,0 +1,50 @@
+{
+  "extid": "09b349b3066c2e0b1e96",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=09b349b3066c2e0b1e96",
+  "bug_title": "KMSAN: kernel-infoleak in sys_name_to_handle_at (4)",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "do_sys_name_to_handle(): use kzalloc() to fix kernel-infoleak",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3948abaa4e2be938ccdfc289385a27342fb13d43",
+      "hash": "3948abaa4e2be938ccdfc289385a27342fb13d43",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2024-01-19T15:39:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: kernel-infoleak in sys_name_to_handle_at",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "04b8076df2534f08bb4190f90a24e0f7f8930aca",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/25905f5d0a2a7883bd33491997556193582c6059",
+  "syzkaller-commit": "25905f5d0a2a7883bd33491997556193582c6059",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1519f80e180000",
+      "saved_to": "/home/lcj/paired_patches/09b349b3066c2e0b1e96/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=80c7a82a572c0de3",
+      "saved_to": "/home/lcj/paired_patches/09b349b3066c2e0b1e96/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14badd9a180000",
+      "saved_to": "/home/lcj/paired_patches/09b349b3066c2e0b1e96/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1708f96a180000",
+      "saved_to": "/home/lcj/paired_patches/09b349b3066c2e0b1e96/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "90266696fe5daacebd35",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=90266696fe5daacebd35",
+  "bug_title": "kernel BUG in clear_inode (4)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to truncate first page in error path of f2fs_truncate()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9251a9e6e871cb03c4714a18efa8f5d4a8818450",
+      "hash": "9251a9e6e871cb03c4714a18efa8f5d4a8818450",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2025-09-10T08:40:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in clear_inode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f777d1112ee597d7f7dd3ca232220873a34ad0c8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "syzkaller-commit": "d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11b48d62580000",
+      "saved_to": "/home/lcj/paired_patches/90266696fe5daacebd35/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=429771c55b615e85",
+      "saved_to": "/home/lcj/paired_patches/90266696fe5daacebd35/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=164dad62580000",
+      "saved_to": "/home/lcj/paired_patches/90266696fe5daacebd35/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15a43562580000",
+      "saved_to": "/home/lcj/paired_patches/90266696fe5daacebd35/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

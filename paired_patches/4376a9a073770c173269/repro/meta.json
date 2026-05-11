@@ -1,0 +1,50 @@
+{
+  "extid": "4376a9a073770c173269",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4376a9a073770c173269",
+  "bug_title": "WARNING: kmalloc bug in btrfs_ioctl_send",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "btrfs: send: limit number of clones and allocated memory size",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=33e17b3f5ab74af12aca58c515bc8424ff69a343",
+      "hash": "33e17b3f5ab74af12aca58c515bc8424ff69a343",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dsterba@suse.com",
+      "author-name": "David Sterba",
+      "date": "2023-01-24T19:32:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: kmalloc bug in btrfs_ioctl_send",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f9ff5644bcc04221bae56f922122f2b7f5d24d62",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/05494336991504e3c6137b89eeddd492e17af6b6",
+  "syzkaller-commit": "05494336991504e3c6137b89eeddd492e17af6b6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14a2ba00480000",
+      "saved_to": "/home/lcj/paired_patches/4376a9a073770c173269/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=827916bd156c2ec6",
+      "saved_to": "/home/lcj/paired_patches/4376a9a073770c173269/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11cbcbd0480000",
+      "saved_to": "/home/lcj/paired_patches/4376a9a073770c173269/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1775aed7880000",
+      "saved_to": "/home/lcj/paired_patches/4376a9a073770c173269/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

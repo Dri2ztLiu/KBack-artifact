@@ -1,0 +1,50 @@
+{
+  "extid": "833061116fa28df97f3b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=833061116fa28df97f3b",
+  "bug_title": "INFO: trying to register non-static key in rxe_cleanup_task",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "RDMA/rxe: Fix error unwind in rxe_create_qp()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd5382c5805c4bcb50fd25b7246247d3f7114733",
+      "hash": "fd5382c5805c4bcb50fd25b7246247d3f7114733",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yanjun.zhu@linux.dev",
+      "author-name": "Zhu Yanjun",
+      "date": "2022-07-31T06:36:21Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in rxe_cleanup_task",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "cb71b93c2dc36d18a8b05245973328d018272cdf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1c9013acc70de325dbb554c8c40c17ed02eff33f",
+  "syzkaller-commit": "1c9013acc70de325dbb554c8c40c17ed02eff33f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1423d10e080000",
+      "saved_to": "/home/lcj/paired_patches/833061116fa28df97f3b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=badbc1adb2d582eb",
+      "saved_to": "/home/lcj/paired_patches/833061116fa28df97f3b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/833061116fa28df97f3b/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13bdcf3c080000",
+      "saved_to": "/home/lcj/paired_patches/833061116fa28df97f3b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

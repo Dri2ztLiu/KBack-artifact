@@ -1,0 +1,94 @@
+{
+  "extid": "5feef0b9ee9c8e9e5689",
+  "target_ref": "5feef0b9ee9c8e9e5689",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "e750f85391286a4c8100275516973324b621a269",
+      "branch": "linux-6.6",
+      "title": "WARNING in kvm_arch_vcpu_ioctl_run",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "arch/x86/kvm/emulate.c",
+        "arch/x86/kvm/kvm_emulate.h",
+        "arch/x86/kvm/x86.c"
+      ],
+      "symbols": [
+        "init_decode_cache",
+        "x86_emulate_insn",
+        "x86_emulate_insn",
+        "x86_emulate_insn",
+        "x86_emulate_ops",
+        "x86_page_table_writing_insn",
+        "emulator_is_smm",
+        "emulate_ops",
+        "x86_emulate_instruction",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "bool"
+      ],
+      "patterns": [
+        "WARN",
+        "ioctl"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "8e6ed96cdd5001c55fccc80a17f651741c1ca7d2",
+      "branch": "linux-6.1",
+      "title": "WARNING in kvm_arch_vcpu_ioctl_run",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "arch/x86/kvm/lapic.c"
+      ],
+      "symbols": [
+        "set_target_expiration",
+        "if",
+        "if",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "ioctl"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "b0ece631f84a3e70341496b000b094b7dfdf4e5f",
+      "branch": "linux-5.15",
+      "title": "WARNING in kvm_arch_vcpu_ioctl_run",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN",
+        "ioctl"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

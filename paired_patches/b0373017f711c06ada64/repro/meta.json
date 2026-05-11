@@ -1,0 +1,50 @@
+{
+  "extid": "b0373017f711c06ada64",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b0373017f711c06ada64",
+  "bug_title": "WARNING in ni_rename",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: reject index allocation if $BITMAP is empty but blocks exist",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0dc7117da8f92dd5fe077d712a756eccbe377d40",
+      "hash": "0dc7117da8f92dd5fe077d712a756eccbe377d40",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "moonhee.lee.ca@gmail.com",
+      "author-name": "Moon Hee Lee",
+      "date": "2025-07-22T17:40:16Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ni_rename",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c746c3b5169831d7fb032a1051d8b45592ae8d78",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8ef35d49f95e518c7667e9c650d97ac4332d9cfe",
+  "syzkaller-commit": "8ef35d49f95e518c7667e9c650d97ac4332d9cfe",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=133e0542580000",
+      "saved_to": "/home/lcj/paired_patches/b0373017f711c06ada64/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4353159e42687b5d",
+      "saved_to": "/home/lcj/paired_patches/b0373017f711c06ada64/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=105c6458580000",
+      "saved_to": "/home/lcj/paired_patches/b0373017f711c06ada64/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=179c6458580000",
+      "saved_to": "/home/lcj/paired_patches/b0373017f711c06ada64/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

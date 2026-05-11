@@ -1,0 +1,50 @@
+{
+  "extid": "2cd8c5db4a85f0a04142",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2cd8c5db4a85f0a04142",
+  "bug_title": "KMSAN: uninit-value in legacy_dvb_usb_read_remote_control",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "media: dvb-usb: fix ununit-value in az6027_rc_query",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=afae4ef7d5ad913cab1316137854a36bea6268a5",
+      "hash": "afae4ef7d5ad913cab1316137854a36bea6268a5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-08-13T14:34:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in legacy_dvb_usb_read_remote_control",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "29ad81a1074aa0a510cebb1f61eae68a8f46e11c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4c37c133e4bf703d023995535f1e264d8658e08e",
+  "syzkaller-commit": "4c37c133e4bf703d023995535f1e264d8658e08e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=178be692d00000",
+      "saved_to": "/home/lcj/paired_patches/2cd8c5db4a85f0a04142/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c8e3b38ca92283e",
+      "saved_to": "/home/lcj/paired_patches/2cd8c5db4a85f0a04142/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=177340dad00000",
+      "saved_to": "/home/lcj/paired_patches/2cd8c5db4a85f0a04142/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1394fb82d00000",
+      "saved_to": "/home/lcj/paired_patches/2cd8c5db4a85f0a04142/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

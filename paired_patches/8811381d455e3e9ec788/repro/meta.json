@@ -1,0 +1,50 @@
+{
+  "extid": "8811381d455e3e9ec788",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8811381d455e3e9ec788",
+  "bug_title": "KASAN: slab-use-after-free Read in unix_stream_read_actor (2)",
+  "bug_status": "fixed on 2024/10/22 11:56",
+  "fix_commits": [
+    {
+      "title": "af_unix: Don't return OOB skb in manage_oob().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5aa57d9f2d5311f19434d95b2a81610aa263e23b",
+      "hash": "5aa57d9f2d5311f19434d95b2a81610aa263e23b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2024-09-05T19:32:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in unix_stream_read_actor",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "fbdaffe41adca26cb9566e92060b97cd6dd87b60",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f885a8ff9168f5e83a85ec9b1b02764e02c0f4e8",
+  "syzkaller-commit": "f885a8ff9168f5e83a85ec9b1b02764e02c0f4e8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12d03533980000",
+      "saved_to": "/home/lcj/paired_patches/8811381d455e3e9ec788/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=996585887acdadb3",
+      "saved_to": "/home/lcj/paired_patches/8811381d455e3e9ec788/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16d3fc53980000",
+      "saved_to": "/home/lcj/paired_patches/8811381d455e3e9ec788/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14b395db980000",
+      "saved_to": "/home/lcj/paired_patches/8811381d455e3e9ec788/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

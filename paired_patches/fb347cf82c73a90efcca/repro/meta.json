@@ -1,0 +1,50 @@
+{
+  "extid": "fb347cf82c73a90efcca",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fb347cf82c73a90efcca",
+  "bug_title": "memory leak in xfrm_user_rcv_msg",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: xfrm: fix memory leak in xfrm_user_rcv_msg",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7c1a80e80cde008f271bae630d28cf684351e807",
+      "hash": "7c1a80e80cde008f271bae630d28cf684351e807",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-06-25T10:23:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in xfrm_user_rcv_msg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fd0aa1a4567d0f09e1bfe367a950b004f99ac290",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/aba2b2fb3544d9e42991237c13d8cada421deda5",
+  "syzkaller-commit": "aba2b2fb3544d9e42991237c13d8cada421deda5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1108167bd00000",
+      "saved_to": "/home/lcj/paired_patches/fb347cf82c73a90efcca/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6ec2526c74098317",
+      "saved_to": "/home/lcj/paired_patches/fb347cf82c73a90efcca/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10d28548300000",
+      "saved_to": "/home/lcj/paired_patches/fb347cf82c73a90efcca/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14946548300000",
+      "saved_to": "/home/lcj/paired_patches/fb347cf82c73a90efcca/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

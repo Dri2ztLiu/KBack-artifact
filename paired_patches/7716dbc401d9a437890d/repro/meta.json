@@ -1,0 +1,50 @@
+{
+  "extid": "7716dbc401d9a437890d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7716dbc401d9a437890d",
+  "bug_title": "WARNING in ieee80211_get_sband",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "mac80211: remove warning in ieee80211_get_sband()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0ee4d55534f82a0624701d0bb9fc2304d4529086",
+      "hash": "0ee4d55534f82a0624701d0bb9fc2304d4529086",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2021-05-17T14:47:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ieee80211_get_sband",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e0756cfc7d7cd08c98a53b6009c091a3f6a50be6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2bd9619f762176527aaf28fb26e4a08b614b55df",
+  "syzkaller-commit": "2bd9619f762176527aaf28fb26e4a08b614b55df",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17a29b8cd00000",
+      "saved_to": "/home/lcj/paired_patches/7716dbc401d9a437890d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a53fd47f16f22f8c",
+      "saved_to": "/home/lcj/paired_patches/7716dbc401d9a437890d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16f0bae2d00000",
+      "saved_to": "/home/lcj/paired_patches/7716dbc401d9a437890d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16073f74d00000",
+      "saved_to": "/home/lcj/paired_patches/7716dbc401d9a437890d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

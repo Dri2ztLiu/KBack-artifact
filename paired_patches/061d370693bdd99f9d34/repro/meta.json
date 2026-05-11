@@ -1,0 +1,50 @@
+{
+  "extid": "061d370693bdd99f9d34",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=061d370693bdd99f9d34",
+  "bug_title": "KCSAN: data-race in __mod_timer / kvfree_call_rcu",
+  "bug_status": "fixed on 2024/12/16 09:50",
+  "fix_commits": [
+    {
+      "title": "rcu/kvfree: Fix data-race in __mod_timer / kvfree_call_rcu",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a23da88c6c80e41e0503e0b481a22c9eea63f263",
+      "hash": "a23da88c6c80e41e0503e0b481a22c9eea63f263",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "urezki@gmail.com",
+      "author-name": "Uladzislau Rezki (Sony)",
+      "date": "2024-10-22T10:53:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in __mod_timer / kvfree_call_rcu",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "adc218676eef25575469234709c2d87185ca223a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e7bb5d6eaa12da79db8e670ea78af25fb5a49e02",
+  "syzkaller-commit": "e7bb5d6eaa12da79db8e670ea78af25fb5a49e02",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16e26ac0580000",
+      "saved_to": "/home/lcj/paired_patches/061d370693bdd99f9d34/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=44f4147e19698730",
+      "saved_to": "/home/lcj/paired_patches/061d370693bdd99f9d34/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/061d370693bdd99f9d34/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/061d370693bdd99f9d34/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "09ad4050dd3a120bfccd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=09ad4050dd3a120bfccd",
+  "bug_title": "KASAN: use-after-free Read in tty_release",
+  "bug_status": "fixed on 2023/02/24 13:51",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix assuming triggered poll waitqueue is the single poll",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d89a4fac0fbc6fe5fc24d1c9a889440dcf410368",
+      "hash": "d89a4fac0fbc6fe5fc24d1c9a889440dcf410368",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "axboe@kernel.dk",
+      "author-name": "Jens Axboe",
+      "date": "2022-03-22T19:11:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in tty_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6b1f86f8e9c7f9de7ca1cb987b2cf25e99b1ae3a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5ff41e943946a9e71b55566a02c8b1371fc9b8de",
+  "syzkaller-commit": "5ff41e943946a9e71b55566a02c8b1371fc9b8de",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13ca39f9700000",
+      "saved_to": "/home/lcj/paired_patches/09ad4050dd3a120bfccd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ecac895d3fbe085b",
+      "saved_to": "/home/lcj/paired_patches/09ad4050dd3a120bfccd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=130b2fbd700000",
+      "saved_to": "/home/lcj/paired_patches/09ad4050dd3a120bfccd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17941dcb700000",
+      "saved_to": "/home/lcj/paired_patches/09ad4050dd3a120bfccd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

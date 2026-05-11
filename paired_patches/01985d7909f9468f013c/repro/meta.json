@@ -1,0 +1,60 @@
+{
+  "extid": "01985d7909f9468f013c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=01985d7909f9468f013c",
+  "bug_title": "KASAN: use-after-free Write in dec_rlimit_ucounts",
+  "bug_status": "fixed on 2021/11/10 13:22",
+  "fix_commits": [
+    {
+      "title": "ucounts: Fix race condition between alloc_ucounts and put_ucounts",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=345daff2e994ee844d6a609c37f085695fbb4c4d",
+      "hash": "345daff2e994ee844d6a609c37f085695fbb4c4d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "legion@kernel.org",
+      "author-name": "Alexey Gladkov",
+      "date": "2021-07-27T15:24:18Z"
+    },
+    {
+      "title": "ucounts: Increase ucounts reference counter before the security hook",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bbb6d0f3e1feb43d663af089c7dedb23be6a04fb",
+      "hash": "bbb6d0f3e1feb43d663af089c7dedb23be6a04fb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "legion@kernel.org",
+      "author-name": "Alexey Gladkov",
+      "date": "2021-08-23T16:16:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Write in dec_rlimit_ucounts",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d6d09a6942050f21b065a134169002b4d6b701ef",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b599f2fcc734e2183016a340d4f6fc2891d8e41f",
+  "syzkaller-commit": "b599f2fcc734e2183016a340d4f6fc2891d8e41f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10ba6c05300000",
+      "saved_to": "/home/lcj/paired_patches/01985d7909f9468f013c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f61012d0b1cd846f",
+      "saved_to": "/home/lcj/paired_patches/01985d7909f9468f013c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1516c341300000",
+      "saved_to": "/home/lcj/paired_patches/01985d7909f9468f013c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15d0ec1e300000",
+      "saved_to": "/home/lcj/paired_patches/01985d7909f9468f013c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

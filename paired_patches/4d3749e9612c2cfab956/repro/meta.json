@@ -1,0 +1,50 @@
+{
+  "extid": "4d3749e9612c2cfab956",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4d3749e9612c2cfab956",
+  "bug_title": "INFO: rcu detected stall in dummy_timer (3)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "media: mceusb: return without resubmitting URB in case of -EPROTO error.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=476db72e521983ecb847e4013b263072bb1110fc",
+      "hash": "476db72e521983ecb847e4013b263072bb1110fc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "rajatasthana4@gmail.com",
+      "author-name": "Rajat Asthana",
+      "date": "2021-08-18T20:31:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: rcu detected stall in dummy_timer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f25a5481af12c2360710583b84537eb9e652d57d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/098b5d530648147c744a7c2eb8b78c1307f9d3ce",
+  "syzkaller-commit": "098b5d530648147c744a7c2eb8b78c1307f9d3ce",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1184d4d2b00000",
+      "saved_to": "/home/lcj/paired_patches/4d3749e9612c2cfab956/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9646ff3aa1daf1a8",
+      "saved_to": "/home/lcj/paired_patches/4d3749e9612c2cfab956/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1594a9d4b00000",
+      "saved_to": "/home/lcj/paired_patches/4d3749e9612c2cfab956/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11c9b5e2b00000",
+      "saved_to": "/home/lcj/paired_patches/4d3749e9612c2cfab956/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

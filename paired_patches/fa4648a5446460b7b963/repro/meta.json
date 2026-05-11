@@ -1,0 +1,60 @@
+{
+  "extid": "fa4648a5446460b7b963",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fa4648a5446460b7b963",
+  "bug_title": "WARNING in wnd_init",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Use __GFP_NOWARN allocation at wnd_init()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0d0f659bf713662fabed973f9996b8f23c59ca51",
+      "hash": "0d0f659bf713662fabed973f9996b8f23c59ca51",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-10-02T14:39:15Z"
+    },
+    {
+      "title": "fs/ntfs3: Validate attribute data and valid sizes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=019d22eb0eb707fc099e6e8fad9b3933236a06d0",
+      "hash": "019d22eb0eb707fc099e6e8fad9b3933236a06d0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "abdun.nihaal@gmail.com",
+      "author-name": "Abdun Nihaal",
+      "date": "2022-10-04T03:15:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in wnd_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "77856d911a8c8724ee8e2b09d55979fc1de8f1c0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/05494336991504e3c6137b89eeddd492e17af6b6",
+  "syzkaller-commit": "05494336991504e3c6137b89eeddd492e17af6b6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15bc0577880000",
+      "saved_to": "/home/lcj/paired_patches/fa4648a5446460b7b963/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f967143badd2fa39",
+      "saved_to": "/home/lcj/paired_patches/fa4648a5446460b7b963/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1150b79d880000",
+      "saved_to": "/home/lcj/paired_patches/fa4648a5446460b7b963/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1437533b880000",
+      "saved_to": "/home/lcj/paired_patches/fa4648a5446460b7b963/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

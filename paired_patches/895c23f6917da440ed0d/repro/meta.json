@@ -1,0 +1,130 @@
+{
+  "extid": "895c23f6917da440ed0d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=895c23f6917da440ed0d",
+  "bug_title": "kernel BUG in may_open (2)",
+  "bug_status": "fixed on 2026/01/07 12:29",
+  "fix_commits": [
+    {
+      "title": "bfs: Reconstruct file type when loading from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34ab4c75588c07cca12884f2bf6b0347c7a13872",
+      "hash": "34ab4c75588c07cca12884f2bf6b0347c7a13872",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-10-23T13:25:49Z"
+    },
+    {
+      "title": "cramfs: Verify inode mode when loading from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7f9d34b0a7cb93d678ee7207f0634dbf79e47fe5",
+      "hash": "7f9d34b0a7cb93d678ee7207f0634dbf79e47fe5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-08-30T10:01:01Z"
+    },
+    {
+      "title": "hfsplus: Verify inode mode when loading from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=005d4b0d33f6b4a23d382b7930f7a96b95b01f39",
+      "hash": "005d4b0d33f6b4a23d382b7930f7a96b95b01f39",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-11-15T09:18:54Z"
+    },
+    {
+      "title": "isofs: Verify inode mode when loading from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0a9e7405131380b57e155f10242b2e25d2e51852",
+      "hash": "0a9e7405131380b57e155f10242b2e25d2e51852",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2025-07-09T09:55:46Z"
+    },
+    {
+      "title": "jfs: Verify inode mode when loading from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7a5aa54fba2bd591b22b9b624e6baa9037276986",
+      "hash": "7a5aa54fba2bd591b22b9b624e6baa9037276986",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-09-12T14:18:44Z"
+    },
+    {
+      "title": "minixfs: Verify inode mode when loading from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=73861970938ad1323eb02bbbc87f6fbd1e5bacca",
+      "hash": "73861970938ad1323eb02bbbc87f6fbd1e5bacca",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-08-12T15:17:44Z"
+    },
+    {
+      "title": "nilfs2: reject invalid file types when reading inodes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4aead50caf67e01020c8be1945c3201e8a972a27",
+      "hash": "4aead50caf67e01020c8be1945c3201e8a972a27",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "konishi.ryusuke@gmail.com",
+      "author-name": "Ryusuke Konishi",
+      "date": "2025-07-10T13:49:08Z"
+    },
+    {
+      "title": "ntfs3: pretend $Extend records as regular files",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e8011ffec79717e5fdac43a7e79faf811a384b7",
+      "hash": "4e8011ffec79717e5fdac43a7e79faf811a384b7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-09-02T10:43:24Z"
+    },
+    {
+      "title": "squashfs: verify inode mode when loading from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bc107a619f029415e0a87e6df16f995553da4568",
+      "hash": "bc107a619f029415e0a87e6df16f995553da4568",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-08-13T07:17:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in may_open",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "068a56e56fa81e42fc5f08dff34fab149bb60a09",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3e79b8257815cdba40d12d0424af1446aeba0773",
+  "syzkaller-commit": "3e79b8257815cdba40d12d0424af1446aeba0773",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=119a76f0580000",
+      "saved_to": "/home/lcj/paired_patches/895c23f6917da440ed0d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e1e1566c7726877e",
+      "saved_to": "/home/lcj/paired_patches/895c23f6917da440ed0d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1520dfa2580000",
+      "saved_to": "/home/lcj/paired_patches/895c23f6917da440ed0d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13d6f442580000",
+      "saved_to": "/home/lcj/paired_patches/895c23f6917da440ed0d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

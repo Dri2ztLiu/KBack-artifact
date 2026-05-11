@@ -1,0 +1,64 @@
+{
+  "extid": "33841dc6aa3e1d86b78a",
+  "target_ref": "33841dc6aa3e1d86b78a",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "fbfd64d25c7af3b8695201ebc85efe90be28c5a3",
+      "branch": "linux-6.1",
+      "title": "WARNING: refcount bug in ax25_release",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/overlayfs/export.c"
+      ],
+      "symbols": [
+        "ovl_connect_layer",
+        "ovl_check_encode_origin",
+        "ovl_dentry_to_fid",
+        "ovl_dentry_to_fid",
+        "ovl_encode_fh",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "dput",
+        "if",
+        "pr_warn_ratelimited",
+        "pr_warn_ratelimited",
+        "if",
+        "dput"
+      ],
+      "patterns": [
+        "refcount",
+        "NULL",
+        "null",
+        "WARN",
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

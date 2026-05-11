@@ -1,0 +1,50 @@
+{
+  "extid": "3afc814e8df1af64b653",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3afc814e8df1af64b653",
+  "bug_title": "WARNING in maybe_exit_scc",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "bpf: dont report verifier bug for missing bpf_scc_visit on speculative path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a3c73d629ea1373af3c0c954d41fd1af555492e3",
+      "hash": "a3c73d629ea1373af3c0c954d41fd1af555492e3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eddyz87@gmail.com",
+      "author-name": "Eduard Zingerman",
+      "date": "2025-09-16T21:22:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in maybe_exit_scc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f83ec76bf285bea5727f478a68b894f5543ca76e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "syzkaller-commit": "e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16115762580000",
+      "saved_to": "/home/lcj/paired_patches/3afc814e8df1af64b653/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8f01d8629880e620",
+      "saved_to": "/home/lcj/paired_patches/3afc814e8df1af64b653/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14467b62580000",
+      "saved_to": "/home/lcj/paired_patches/3afc814e8df1af64b653/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=104a947c580000",
+      "saved_to": "/home/lcj/paired_patches/3afc814e8df1af64b653/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

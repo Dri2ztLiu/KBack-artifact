@@ -1,0 +1,226 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (3), drivers/media/usb/siano/smsusb.c (2), kernel/bpf/syscall.c (1), sound/core/oss/mulaw.c (1)
+TOP_SYMBOLS:
+  cancel_work_sync (4), smsusb_stop_streaming (2), bpf_prog_put (2), bpf_prog_load (1), snd_pcm_plugin_build_mulaw (1)
+TOP_KEYWORDS:
+  WARN (7), bpf (1), BUG (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=cancel_work_sync)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=10, rows_scanned=10, candidates_kept=7, skipped=3
+skip_breakdown: skip_upstream=2, skip_non_linux_branch=1, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 6f489a966fbeb0da63d45c2c66a8957eab604bf6
+bug_url: https://syzkaller.appspot.com/bug?extid=22468fcc3a44c84cb839
+title: WARNING in corrupted
+relevance_score: 0
+
+ drivers/media/usb/siano/smsusb.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+diff --git a/drivers/media/usb/siano/smsusb.c b/drivers/media/usb/siano/smsusb.c
+index 6f443c542c6d..640737d3b8ae 100644
+--- a/drivers/media/usb/siano/smsusb.c
++++ b/drivers/media/usb/siano/smsusb.c
+@@ -179,7 +179,8 @@ static void smsusb_stop_streaming(struct smsusb_device_t *dev)
+ 
+ 	for (i = 0; i < MAX_URBS; i++) {
+ 		usb_kill_urb(&dev->surbs[i].urb);
+-		cancel_work_sync(&dev->surbs[i].wq);
++		if (dev->surbs[i].wq.func)
++			cancel_work_sync(&dev->surbs[i].wq);
+ 
+ 		if (dev->surbs[i].cb) {
+ 			smscore_putbuffer(dev->coredev, dev->surbs[i].cb);
+================================================================================
+
+branch: linux-5.15
+fix_commit: 6f489a966fbeb0da63d45c2c66a8957eab604bf6
+bug_url: https://syzkaller.appspot.com/bug?extid=75db45a5c12e617ec6e1
+title: WARNING in corrupted
+relevance_score: 0
+
+ drivers/media/usb/siano/smsusb.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+diff --git a/drivers/media/usb/siano/smsusb.c b/drivers/media/usb/siano/smsusb.c
+index 6f443c542c6d..640737d3b8ae 100644
+--- a/drivers/media/usb/siano/smsusb.c
++++ b/drivers/media/usb/siano/smsusb.c
+@@ -179,7 +179,8 @@ static void smsusb_stop_streaming(struct smsusb_device_t *dev)
+ 
+ 	for (i = 0; i < MAX_URBS; i++) {
+ 		usb_kill_urb(&dev->surbs[i].urb);
+-		cancel_work_sync(&dev->surbs[i].wq);
++		if (dev->surbs[i].wq.func)
++			cancel_work_sync(&dev->surbs[i].wq);
+ 
+ 		if (dev->surbs[i].cb) {
+ 			smscore_putbuffer(dev->coredev, dev->surbs[i].cb);
+================================================================================
+
+branch: linux-5.15
+fix_commit: 43bb85222e53926decace01ce6584ca88e09a0a9
+bug_url: https://syzkaller.appspot.com/bug?extid=20c8460b6762a15263f2
+title: WARNING in corrupted (3)
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 1d707d015784..bc6478fae988 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 192
++SUBLEVEL = 193
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================
+
+branch: linux-5.15
+fix_commit: 14e468424d3edcf23167133d6ee2f3e3c6c5a022
+bug_url: https://syzkaller.appspot.com/bug?id=c4450c0b46b3187236d9351f26da6375115293b6
+title: WARNING in corrupted (2)
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 2105600c8d7c..747bfa4f1a8b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 165
++SUBLEVEL = 166
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================
+
+branch: linux-4.19
+fix_commit: c751798aa224fadc5124b49eeb38fb468c0fa039
+bug_url: https://syzkaller.appspot.com/bug?extid=4451029cd5df59905f25
+title: WARNING in corrupted
+relevance_score: 0
+
+ kernel/bpf/syscall.c | 30 ++++++++++++++++++------------
+ 1 file changed, 18 insertions(+), 12 deletions(-)
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index 5d141f16f6fa..272071e9112f 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -1707,20 +1707,26 @@ static int bpf_prog_load(union bpf_attr *attr, union bpf_attr __user *uattr)
+ 	if (err)
+ 		goto free_used_maps;
+ 
+-	err = bpf_prog_new_fd(prog);
+-	if (err < 0) {
+-		/* failed to allocate fd.
+-		 * bpf_prog_put() is needed because the above
+-		 * bpf_prog_alloc_id() has published the prog
+-		 * to the userspace and the userspace may
+-		 * have refcnt-ed it through BPF_PROG_GET_FD_BY_ID.
+-		 */
+-		bpf_prog_put(prog);
+-		return err;
+-	}
+-
++	/* Upon success of bpf_prog_alloc_id(), the BPF prog is
++	 * effectively publicly exposed. However, retrieving via
++	 * bpf_prog_get_fd_by_id() will take another reference,
++	 * therefore it cannot be gone underneath us.
++	 *
++	 * Only for the time /after/ successful bpf_prog_new_fd()
++	 * and before returning to userspace, we might just hold
++	 * one reference and any parallel close on that fd could
++	 * rip everything out. Hence, below notifications must
++	 * happen before bpf_prog_new_fd().
++	 *
++	 * Also, any failure handling from this point onwards must
++	 * be using bpf_prog_put() given the program is exposed.
++	 */
+ 	bpf_prog_kallsyms_add(prog);
+ 	perf_event_bpf_event(prog, PERF_BPF_EVENT_PROG_LOAD, 0);
++
++	err = bpf_prog_new_fd(prog);
++	if (err < 0)
++		bpf_prog_put(prog);
+ 	return err;
+ 
+ free_used_maps:
+================================================================================
+
+branch: linux-4.19
+fix_commit: 949a1ebe8cea7b342085cb6a4946b498306b9493
+bug_url: https://syzkaller.appspot.com/bug?extid=64f30e0180b664f2bf09
+title: WARNING in corrupted (2)
+relevance_score: 0
+
+ sound/core/oss/mulaw.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+diff --git a/sound/core/oss/mulaw.c b/sound/core/oss/mulaw.c
+index 3788906421a7..fe27034f2846 100644
+--- a/sound/core/oss/mulaw.c
++++ b/sound/core/oss/mulaw.c
+@@ -329,8 +329,8 @@ int snd_pcm_plugin_build_mulaw(struct snd_pcm_substream *plug,
+ 		snd_BUG();
+ 		return -EINVAL;
+ 	}
+-	if (snd_BUG_ON(!snd_pcm_format_linear(format->format)))
+-		return -ENXIO;
++	if (!snd_pcm_format_linear(format->format))
++		return -EINVAL;
+ 
+ 	err = snd_pcm_plugin_build(plug, "Mu-Law<->linear conversion",
+ 				   src_format, dst_format,
+================================================================================
+
+branch: linux-4.14
+fix_commit: b850307b279cbd12ab8c654d1a3dfe55319cc475
+bug_url: https://syzkaller.appspot.com/bug?extid=3f0cbbf9859008c8898e
+title: WARNING in corrupted
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index aa9d8c79bff0..ce607fe26228 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 183
++SUBLEVEL = 184
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

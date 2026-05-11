@@ -1,0 +1,60 @@
+{
+  "extid": "6ce141c55b2f7aafd1c4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6ce141c55b2f7aafd1c4",
+  "bug_title": "memory leak in h5_rx_pkt_start",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_h5: close serdev device and free hu in h5_close",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=70f259a3f4276b71db365b1d6ff1eab805ea6ec3",
+      "hash": "70f259a3f4276b71db365b1d6ff1eab805ea6ec3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "anant.thazhemadam@gmail.com",
+      "author-name": "Anant Thazhemadam",
+      "date": "2020-11-09T12:09:43Z"
+    },
+    {
+      "title": "Bluetooth: hci_h5: fix memory leak in h5_close",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=855af2d74c870d747bf53509f8b2d7b9dc9ee2c3",
+      "hash": "855af2d74c870d747bf53509f8b2d7b9dc9ee2c3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "anant.thazhemadam@gmail.com",
+      "author-name": "Anant Thazhemadam",
+      "date": "2020-11-09T13:04:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d012a7190fc1fd72ed48911e77ca97ba4521bccd",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67b599d167ab42fff545ec53e23f2711c184877b",
+  "syzkaller-commit": "67b599d167ab42fff545ec53e23f2711c184877b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11dfbd19900000",
+      "saved_to": "/home/lcj/paired_patches/6ce141c55b2f7aafd1c4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=903b9fecc3c6d231",
+      "saved_to": "/home/lcj/paired_patches/6ce141c55b2f7aafd1c4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14b3b649900000",
+      "saved_to": "/home/lcj/paired_patches/6ce141c55b2f7aafd1c4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14030d39900000",
+      "saved_to": "/home/lcj/paired_patches/6ce141c55b2f7aafd1c4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

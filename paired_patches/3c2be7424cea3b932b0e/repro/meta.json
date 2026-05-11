@@ -1,0 +1,50 @@
+{
+  "extid": "3c2be7424cea3b932b0e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3c2be7424cea3b932b0e",
+  "bug_title": "memory leak in usb_urb_init",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: dvb-usb: fix memory leak in dvb_usb_adapter_init",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b7cd0da982e3043f2eec7235ac5530cb18d6af1d",
+      "hash": "b7cd0da982e3043f2eec7235ac5530cb18d6af1d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-03-28T19:32:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f6e1ea19649216156576aeafa784e3b4cee45549",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/79264ae39c1ef4b4875ab67d6f0c8c3e75aa6a34",
+  "syzkaller-commit": "79264ae39c1ef4b4875ab67d6f0c8c3e75aa6a34",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=141f4d2f500000",
+      "saved_to": "/home/lcj/paired_patches/3c2be7424cea3b932b0e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1dcbf163b62a8256",
+      "saved_to": "/home/lcj/paired_patches/3c2be7424cea3b932b0e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12e15e0b500000",
+      "saved_to": "/home/lcj/paired_patches/3c2be7424cea3b932b0e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1509c9c0d00000",
+      "saved_to": "/home/lcj/paired_patches/3c2be7424cea3b932b0e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

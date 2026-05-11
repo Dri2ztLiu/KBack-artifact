@@ -1,0 +1,50 @@
+{
+  "extid": "034246a838a10d181e78",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=034246a838a10d181e78",
+  "bug_title": "general protection fault in try_to_wake_up (3)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "futex: Prevent use-after-free during requeue-PI",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b549113738e8c751b613118032a724b772aa83f2",
+      "hash": "b549113738e8c751b613118032a724b772aa83f2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "bigeasy@linutronix.de",
+      "author-name": "Sebastian Andrzej Siewior",
+      "date": "2025-09-10T10:42:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in try_to_wake_up",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2d5bd41a45050d9bcd2de9c049beaf7dc5c45aa6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67c375600e44473aafff4ce6ff7abb90e4f4fff4",
+  "syzkaller-commit": "67c375600e44473aafff4ce6ff7abb90e4f4fff4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1629e712580000",
+      "saved_to": "/home/lcj/paired_patches/034246a838a10d181e78/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f5b21423ca3f0a96",
+      "saved_to": "/home/lcj/paired_patches/034246a838a10d181e78/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/034246a838a10d181e78/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=163a68e2580000",
+      "saved_to": "/home/lcj/paired_patches/034246a838a10d181e78/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

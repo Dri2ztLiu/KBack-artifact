@@ -1,0 +1,50 @@
+{
+  "extid": "b87c222546179f4513a7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b87c222546179f4513a7",
+  "bug_title": "INFO: task hung in reg_check_chans_work (6)",
+  "bug_status": "fixed on 2024/07/09 19:14",
+  "fix_commits": [
+    {
+      "title": "net/sched: act_api: fix possible infinite loop in tcf_idr_check_alloc()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d864319871b05fadd153e0aede4811ca7008f5d6",
+      "hash": "d864319871b05fadd153e0aede4811ca7008f5d6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "druth@chromium.org",
+      "author-name": "David Ruth",
+      "date": "2024-06-14T19:03:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in reg_check_chans_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8f6a15f095a63a83b096d9b29aaff4f0fbe6f6e6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8f98448ed32de3ed37dd5bed05414b81e16e7437",
+  "syzkaller-commit": "8f98448ed32de3ed37dd5bed05414b81e16e7437",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12470210980000",
+      "saved_to": "/home/lcj/paired_patches/b87c222546179f4513a7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a6e600de1a27f120",
+      "saved_to": "/home/lcj/paired_patches/b87c222546179f4513a7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14460d44980000",
+      "saved_to": "/home/lcj/paired_patches/b87c222546179f4513a7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12c706e8980000",
+      "saved_to": "/home/lcj/paired_patches/b87c222546179f4513a7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

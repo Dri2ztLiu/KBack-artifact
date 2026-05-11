@@ -1,0 +1,50 @@
+{
+  "extid": "29c3c12f3214b85ad081",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=29c3c12f3214b85ad081",
+  "bug_title": "general protection fault in tls_sk_proto_close (3)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net/tls: fix tls_sk_proto_close executed repeatedly",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=69135c572d1f84261a6de2a1268513a7e71753e2",
+      "hash": "69135c572d1f84261a6de2a1268513a7e71753e2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "william.xuanziyang@huawei.com",
+      "author-name": "Ziyang Xuan",
+      "date": "2022-06-20T04:35:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in tls_sk_proto_close",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "6c465408a7709cf180cde7569e141191b67a175c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3037caa999f22cdb40f1fa5c6b1b13e5d6af9781",
+  "syzkaller-commit": "3037caa999f22cdb40f1fa5c6b1b13e5d6af9781",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e54cd3f00000",
+      "saved_to": "/home/lcj/paired_patches/29c3c12f3214b85ad081/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e2c9c27babb4d679",
+      "saved_to": "/home/lcj/paired_patches/29c3c12f3214b85ad081/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1353ae81f00000",
+      "saved_to": "/home/lcj/paired_patches/29c3c12f3214b85ad081/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=123c2e3df00000",
+      "saved_to": "/home/lcj/paired_patches/29c3c12f3214b85ad081/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

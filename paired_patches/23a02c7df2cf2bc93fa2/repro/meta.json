@@ -1,0 +1,50 @@
+{
+  "extid": "23a02c7df2cf2bc93fa2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=23a02c7df2cf2bc93fa2",
+  "bug_title": "WARNING in __get_free_pages",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "floppy: Add max size check for user space request",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=545a32498c536ee152331cd2e7d2416aa0f20e01",
+      "hash": "545a32498c536ee152331cd2e7d2416aa0f20e01",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sxwjean@gmail.com",
+      "author-name": "Xiongwei Song",
+      "date": "2021-11-16T13:10:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __get_free_pages",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fe8152b38d3a994c4c6fdbc0cd6551d569a5715a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1884f55a6d802b5f9e1ab64beeaf1d19ac135593",
+  "syzkaller-commit": "1884f55a6d802b5f9e1ab64beeaf1d19ac135593",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=140fa290700000",
+      "saved_to": "/home/lcj/paired_patches/23a02c7df2cf2bc93fa2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=96e0e6df6e7f54db",
+      "saved_to": "/home/lcj/paired_patches/23a02c7df2cf2bc93fa2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/23a02c7df2cf2bc93fa2/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/23a02c7df2cf2bc93fa2/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

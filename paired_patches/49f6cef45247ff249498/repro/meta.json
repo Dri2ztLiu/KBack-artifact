@@ -1,0 +1,50 @@
+{
+  "extid": "49f6cef45247ff249498",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=49f6cef45247ff249498",
+  "bug_title": "WARNING in sock_map_del_link",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "bpf, sockmap: Revert buggy deadlock fix in the sockhash and sockmap",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8c5c2a4898e3d6bad86e29d471e023c8a19ba799",
+      "hash": "8c5c2a4898e3d6bad86e29d471e023c8a19ba799",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "daniel@iogearbox.net",
+      "author-name": "Daniel Borkmann",
+      "date": "2023-04-13T18:28:42Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in sock_map_del_link",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git",
+  "kernel-source-commit": "d319f344561de23e810515d109c7278919bff7b0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3cfcaa1bed770dce1e4d55a41c168a9a56f931a5",
+  "syzkaller-commit": "3cfcaa1bed770dce1e4d55a41c168a9a56f931a5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14900413c80000",
+      "saved_to": "/home/lcj/paired_patches/49f6cef45247ff249498/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=78c9d875f0a80d33",
+      "saved_to": "/home/lcj/paired_patches/49f6cef45247ff249498/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/49f6cef45247ff249498/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/49f6cef45247ff249498/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

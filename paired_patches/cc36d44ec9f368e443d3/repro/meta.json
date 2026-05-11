@@ -1,0 +1,50 @@
+{
+  "extid": "cc36d44ec9f368e443d3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cc36d44ec9f368e443d3",
+  "bug_title": "WARNING in __io_uring_free",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "io_uring/tctx: work around xa_store() allocation error issue",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7eb75ce7527129d7f1fee6951566af409a37a1c4",
+      "hash": "7eb75ce7527129d7f1fee6951566af409a37a1c4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "axboe@kernel.dk",
+      "author-name": "Jens Axboe",
+      "date": "2024-11-29T14:20:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __io_uring_free",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cfaaa7d010d1fc58f9717fcc8591201e741d2d49",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f6ede3a3f38422f581e15b28c203a682eac5c135",
+  "syzkaller-commit": "f6ede3a3f38422f581e15b28c203a682eac5c135",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1506ab5f980000",
+      "saved_to": "/home/lcj/paired_patches/cc36d44ec9f368e443d3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d2aeec8c0b2e420c",
+      "saved_to": "/home/lcj/paired_patches/cc36d44ec9f368e443d3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/cc36d44ec9f368e443d3/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/cc36d44ec9f368e443d3/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

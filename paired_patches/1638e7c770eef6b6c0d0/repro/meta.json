@@ -1,0 +1,50 @@
+{
+  "extid": "1638e7c770eef6b6c0d0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1638e7c770eef6b6c0d0",
+  "bug_title": "memory leak in reg_copy_regd",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "cfg80211: always free wiphy specific regdomain",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e53e9828a8d2c6545e01ff9711f1221f2fd199ce",
+      "hash": "e53e9828a8d2c6545e01ff9711f1221f2fd199ce",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2021-09-27T11:11:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in reg_copy_regd",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d980cc0620ae77ab2572235a1300bf22519f2e86",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f115ae985a399ddce060f448097b8068450a8f48",
+  "syzkaller-commit": "f115ae985a399ddce060f448097b8068450a8f48",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=176ba65c300000",
+      "saved_to": "/home/lcj/paired_patches/1638e7c770eef6b6c0d0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7280943fd0476e5a",
+      "saved_to": "/home/lcj/paired_patches/1638e7c770eef6b6c0d0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=118cea5c300000",
+      "saved_to": "/home/lcj/paired_patches/1638e7c770eef6b6c0d0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=131de45a300000",
+      "saved_to": "/home/lcj/paired_patches/1638e7c770eef6b6c0d0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "02c9f70f3afae308464a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=02c9f70f3afae308464a",
+  "bug_title": "KMSAN: uninit-value in pegasus_probe",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: pegasus: fix uninit-value in get_interrupt_interval",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=af35fc37354cda3c9c8cc4961b1d24bdc9d27903",
+      "hash": "af35fc37354cda3c9c8cc4961b1d24bdc9d27903",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-08-04T14:30:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in pegasus_probe",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "4ebaab5fb428374552175aa39832abf5cedb916a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/06c27ff56b460864b5195bc0668d1d582df3cbf8",
+  "syzkaller-commit": "06c27ff56b460864b5195bc0668d1d582df3cbf8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=139a8c95d00000",
+      "saved_to": "/home/lcj/paired_patches/02c9f70f3afae308464a/repro/crash_report.txt",
+      "ok": true,
+      "error": "exists, skipped"
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=18939caf5d27beca",
+      "saved_to": "/home/lcj/paired_patches/02c9f70f3afae308464a/repro/kernel.config",
+      "ok": true,
+      "error": "exists, skipped"
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10532ca5d00000",
+      "saved_to": "/home/lcj/paired_patches/02c9f70f3afae308464a/repro/repro.c",
+      "ok": true,
+      "error": "exists, skipped"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=146ea12dd00000",
+      "saved_to": "/home/lcj/paired_patches/02c9f70f3afae308464a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "d4e8dc385d9258220c31",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d4e8dc385d9258220c31",
+  "bug_title": "WARNING: refcount bug in sk_skb_reason_drop",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "can: j1939: j1939_session_new(): fix skb reference counting",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a8c695005bfe6569acd73d777ca298ddddd66105",
+      "hash": "a8c695005bfe6569acd73d777ca298ddddd66105",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2024-11-05T09:48:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: refcount bug in sk_skb_reason_drop",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a430d95c5efa2b545d26a094eb5f624e36732af0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c673ca06b23cea94091ab496ef62c3513e434585",
+  "syzkaller-commit": "c673ca06b23cea94091ab496ef62c3513e434585",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11b9a607980000",
+      "saved_to": "/home/lcj/paired_patches/d4e8dc385d9258220c31/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d85e1e571a820894",
+      "saved_to": "/home/lcj/paired_patches/d4e8dc385d9258220c31/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15b9a607980000",
+      "saved_to": "/home/lcj/paired_patches/d4e8dc385d9258220c31/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11903177980000",
+      "saved_to": "/home/lcj/paired_patches/d4e8dc385d9258220c31/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

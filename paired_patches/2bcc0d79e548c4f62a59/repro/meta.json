@@ -1,0 +1,50 @@
+{
+  "extid": "2bcc0d79e548c4f62a59",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2bcc0d79e548c4f62a59",
+  "bug_title": "WARNING in blkdev_put (2)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "block: fix wrong mode for blkdev_put() from disk_scan_partitions()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=428913bce1e67ccb4dae317fd0332545bf8c9233",
+      "hash": "428913bce1e67ccb4dae317fd0332545bf8c9233",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yukuai3@huawei.com",
+      "author-name": "Yu Kuai",
+      "date": "2023-03-07T10:55:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in blkdev_put",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "d2af0fa4bfa4ec29d03b449ccd43fee39501112d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4f5f52092fba2058beef2f84df275ad377c3b35c",
+  "syzkaller-commit": "4f5f52092fba2058beef2f84df275ad377c3b35c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15f4b578c80000",
+      "saved_to": "/home/lcj/paired_patches/2bcc0d79e548c4f62a59/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=594e1a56901fd35d",
+      "saved_to": "/home/lcj/paired_patches/2bcc0d79e548c4f62a59/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=122d8ca0c80000",
+      "saved_to": "/home/lcj/paired_patches/2bcc0d79e548c4f62a59/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1227e837480000",
+      "saved_to": "/home/lcj/paired_patches/2bcc0d79e548c4f62a59/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

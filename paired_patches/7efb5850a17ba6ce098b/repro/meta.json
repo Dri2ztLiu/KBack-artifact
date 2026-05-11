@@ -1,0 +1,50 @@
+{
+  "extid": "7efb5850a17ba6ce098b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7efb5850a17ba6ce098b",
+  "bug_title": "KASAN: slab-use-after-free Read in sg_release",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "scsi: sg: Fix slab-use-after-free read in sg_release()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f10593ad9bc36921f623361c9e3dd96bd52d85ee",
+      "hash": "f10593ad9bc36921f623361c9e3dd96bd52d85ee",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "surajsonawane0215@gmail.com",
+      "author-name": "Suraj Sonawane",
+      "date": "2024-11-20T12:59:44Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in sg_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "11066801dd4b7c4d75fce65c812723a80c1481ae",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f00eed24f2a1332b07fef1a353a439133978d97b",
+  "syzkaller-commit": "f00eed24f2a1332b07fef1a353a439133978d97b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15bb5630580000",
+      "saved_to": "/home/lcj/paired_patches/7efb5850a17ba6ce098b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=672325e7ab17fdf7",
+      "saved_to": "/home/lcj/paired_patches/7efb5850a17ba6ce098b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/7efb5850a17ba6ce098b/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14e8755f980000",
+      "saved_to": "/home/lcj/paired_patches/7efb5850a17ba6ce098b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

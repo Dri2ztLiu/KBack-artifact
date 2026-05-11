@@ -1,0 +1,50 @@
+{
+  "extid": "5f088f29593e6b4c8db8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5f088f29593e6b4c8db8",
+  "bug_title": "UBSAN: shift-out-of-bounds in extAlloc",
+  "bug_status": "fixed on 2023/10/12 12:47",
+  "fix_commits": [
+    {
+      "title": "jfs: validate max amount of blocks before allocation.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0225e10972fa809728b8d4c1bd2772b3ec3fdb57",
+      "hash": "0225e10972fa809728b8d4c1bd2772b3ec3fdb57",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "halip0503@gmail.com",
+      "author-name": "Alexei Filippov",
+      "date": "2023-08-19T17:32:16Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in extAlloc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "727dbda16b83600379061c4ca8270ef3e2f51922",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7ba13a158b1ad89a23920bb64208ba34fed27b08",
+  "syzkaller-commit": "7ba13a158b1ad89a23920bb64208ba34fed27b08",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14737013a80000",
+      "saved_to": "/home/lcj/paired_patches/5f088f29593e6b4c8db8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2c13b5305ee70d27",
+      "saved_to": "/home/lcj/paired_patches/5f088f29593e6b4c8db8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=147ae6dfa80000",
+      "saved_to": "/home/lcj/paired_patches/5f088f29593e6b4c8db8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1004e470680000",
+      "saved_to": "/home/lcj/paired_patches/5f088f29593e6b4c8db8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

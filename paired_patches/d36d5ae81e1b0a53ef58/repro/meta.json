@@ -1,0 +1,50 @@
+{
+  "extid": "d36d5ae81e1b0a53ef58",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d36d5ae81e1b0a53ef58",
+  "bug_title": "general protection fault in print_reg_state",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "bpf: Skip scalar adjustment for BPF_NEG if dst is a pointer",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34904582b502a86fdb4d7984b12cacd2faabbe0d",
+      "hash": "34904582b502a86fdb4d7984b12cacd2faabbe0d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "listout@listout.xyz",
+      "author-name": "Brahmajit Das",
+      "date": "2025-10-01T19:17:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in print_reg_state",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cec1e6e5d1ab33403b809f79cd20d6aff124ccfe",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0ac7291ca51f87df8022da0f66178546e855701a",
+  "syzkaller-commit": "0ac7291ca51f87df8022da0f66178546e855701a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1208c27c580000",
+      "saved_to": "/home/lcj/paired_patches/d36d5ae81e1b0a53ef58/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8f01d8629880e620",
+      "saved_to": "/home/lcj/paired_patches/d36d5ae81e1b0a53ef58/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1608c27c580000",
+      "saved_to": "/home/lcj/paired_patches/d36d5ae81e1b0a53ef58/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=113bf8e2580000",
+      "saved_to": "/home/lcj/paired_patches/d36d5ae81e1b0a53ef58/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

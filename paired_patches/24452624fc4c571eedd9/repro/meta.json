@@ -1,0 +1,50 @@
+{
+  "extid": "24452624fc4c571eedd9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=24452624fc4c571eedd9",
+  "bug_title": "memory leak in virtio_transport_send_pkt_info",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "vsock/virtio: free queued packets when closing socket",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8432b8114957235f42e070a16118a7f750de9d39",
+      "hash": "8432b8114957235f42e070a16118a7f750de9d39",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sgarzare@redhat.com",
+      "author-name": "Stefano Garzarella",
+      "date": "2021-04-20T11:07:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in virtio_transport_send_pkt_info",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9f29bd8b2e7132b409178d1367dae1813017bd0e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d4f4eca56fbea6f58a4d5adfd19cb5e0dc32fe46",
+  "syzkaller-commit": "d4f4eca56fbea6f58a4d5adfd19cb5e0dc32fe46",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11b6d920d00000",
+      "saved_to": "/home/lcj/paired_patches/24452624fc4c571eedd9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=162a0109d6ff731f",
+      "saved_to": "/home/lcj/paired_patches/24452624fc4c571eedd9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=128787e7500000",
+      "saved_to": "/home/lcj/paired_patches/24452624fc4c571eedd9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=135dd494d00000",
+      "saved_to": "/home/lcj/paired_patches/24452624fc4c571eedd9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

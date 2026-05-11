@@ -1,0 +1,58 @@
+tblock:ffffc900026f9510: 00000000 00000000 00000000 00000000
+tblock:ffffc900026f9520: 8bcec180 ffffffff 00000300 00000000
+tblock:ffffc900026f9530: 026f9530 ffffc900 026f9530 ffffc900
+tblock:ffffc900026f9540: 72664448 ffff8880 00000000 00000000
+VFS: Busy inodes after unmount of loop4 (jfs)
+------------[ cut here ]------------
+kernel BUG at fs/super.c:650!
+Oops: invalid opcode: 0000 [#1] SMP KASAN NOPTI
+CPU: 0 UID: 0 PID: 5971 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 10/02/2025
+RIP: 0010:generic_shutdown_super+0x2e9/0x390 fs/super.c:650
+Code: 28 48 89 ea 48 c1 ea 03 80 3c 02 00 0f 85 9a 00 00 00 48 8b 55 00 48 8d b3 68 06 00 00 48 c7 c7 20 96 9f 8b e8 e8 f7 63 ff 90 <0f> 0b e8 00 3e ed ff e9 3c fd ff ff 4c 89 ef e8 f3 3d ed ff e9 d0
+RSP: 0018:ffffc90002e67d88 EFLAGS: 00010282
+RAX: 000000000000002d RBX: ffff888077c46000 RCX: ffffffff819b6199
+RDX: 0000000000000000 RSI: ffffffff819bdcc6 RDI: 0000000000000005
+RBP: ffffffff8e9a6380 R08: 0000000000000005 R09: 0000000000000000
+R10: 0000000080000000 R11: 0000000000000001 R12: ffff888077c46780
+R13: 0000000000000000 R14: 0000000000000000 R15: ffff888078b98740
+FS:  0000555571c61500(0000) GS:ffff888124a09000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fb1ece73000 CR3: 0000000058b13000 CR4: 0000000000350ef0
+Call Trace:
+ <TASK>
+ kill_block_super+0x3b/0x90 fs/super.c:1722
+ deactivate_locked_super+0xc1/0x1a0 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xde/0x100 fs/super.c:502
+ cleanup_mnt+0x225/0x450 fs/namespace.c:1327
+ task_work_run+0x150/0x240 kernel/task_work.c:227
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop+0xec/0x130 kernel/entry/common.c:43
+ exit_to_user_mode_prepare include/linux/irq-entry-common.h:225 [inline]
+ syscall_exit_to_user_mode_work include/linux/entry-common.h:175 [inline]
+ syscall_exit_to_user_mode include/linux/entry-common.h:210 [inline]
+ do_syscall_64+0x426/0xfa0 arch/x86/entry/syscall_64.c:100
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7efd4e1902f7
+Code: a8 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 0f 1f 44 00 00 31 f6 e9 09 00 00 00 66 0f 1f 84 00 00 00 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 a8 ff ff ff f7 d8 64 89 02 b8
+RSP: 002b:00007fffcf661e08 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 00007efd4e211d7d RCX: 00007efd4e1902f7
+RDX: 0000000000000000 RSI: 0000000000000009 RDI: 00007fffcf661ec0
+RBP: 00007fffcf661ec0 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000246 R12: 00007fffcf662f50
+R13: 00007efd4e211d7d R14: 0000000000030ed4 R15: 00007fffcf662f90
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:generic_shutdown_super+0x2e9/0x390 fs/super.c:650
+Code: 28 48 89 ea 48 c1 ea 03 80 3c 02 00 0f 85 9a 00 00 00 48 8b 55 00 48 8d b3 68 06 00 00 48 c7 c7 20 96 9f 8b e8 e8 f7 63 ff 90 <0f> 0b e8 00 3e ed ff e9 3c fd ff ff 4c 89 ef e8 f3 3d ed ff e9 d0
+RSP: 0018:ffffc90002e67d88 EFLAGS: 00010282
+RAX: 000000000000002d RBX: ffff888077c46000 RCX: ffffffff819b6199
+RDX: 0000000000000000 RSI: ffffffff819bdcc6 RDI: 0000000000000005
+RBP: ffffffff8e9a6380 R08: 0000000000000005 R09: 0000000000000000
+R10: 0000000080000000 R11: 0000000000000001 R12: ffff888077c46780
+R13: 0000000000000000 R14: 0000000000000000 R15: ffff888078b98740
+FS:  0000555571c61500(0000) GS:ffff888124b09000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fb1ed087000 CR3: 0000000058b13000 CR4: 0000000000350ef0

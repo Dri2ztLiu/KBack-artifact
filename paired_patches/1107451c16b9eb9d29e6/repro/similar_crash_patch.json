@@ -1,0 +1,94 @@
+{
+  "extid": "1107451c16b9eb9d29e6",
+  "target_ref": "1107451c16b9eb9d29e6",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "c7c6363ca186747ebc2df10c8a1a51e66e0e32d9",
+      "branch": "linux-6.6",
+      "title": "kernel BUG in __hfsplus_setxattr",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/hfsplus/xattr.c"
+      ],
+      "symbols": [
+        "hfsplus_create_attributes_file",
+        "BUG_ON",
+        "if",
+        "pr_err"
+      ],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "d1d10cea0895264cc3769e4d9719baa94f4b250b",
+      "branch": "linux-6.1",
+      "title": "kernel BUG in __hfsplus_setxattr",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "arch/arm64/include/asm/module.h",
+        "arch/arm64/include/asm/module.lds.h",
+        "arch/arm64/kernel/ftrace.c",
+        "arch/arm64/kernel/module-plts.c",
+        "arch/arm64/kernel/module.c"
+      ],
+      "symbols": [
+        "mod_arch_specific",
+        "SECTIONS",
+        "ftrace_update_ftrace_func",
+        "ftrace_find_callable_addr",
+        "module_frob_arch_sections",
+        "module_frob_arch_sections",
+        "module_frob_arch_sections",
+        "module_init_ftrace_plt",
+        "if",
+        "if",
+        "if",
+        "__init_plt"
+      ],
+      "patterns": [
+        "race",
+        "NULL",
+        "null",
+        "KASAN",
+        "WARN",
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "43bb85222e53926decace01ce6584ca88e09a0a9",
+      "branch": "linux-5.15",
+      "title": "kernel BUG in __hfsplus_setxattr",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

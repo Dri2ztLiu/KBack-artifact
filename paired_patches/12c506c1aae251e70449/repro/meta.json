@@ -1,0 +1,50 @@
+{
+  "extid": "12c506c1aae251e70449",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=12c506c1aae251e70449",
+  "bug_title": "WARNING in sk_nulls_del_node_init_rcu",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "tcp: Fix refcnt handling in __inet_hash_connect().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=04d9d1fc428ac9f581d55118d67e0cb546701feb",
+      "hash": "04d9d1fc428ac9f581d55118d67e0cb546701feb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2024-03-08T20:16:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in sk_nulls_del_node_init_rcu",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "c055fc00c07be1f0df7375ab0036cebd1106ed38",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f39a7eed7e2634a9f836f1922833d4b4d5b0f770",
+  "syzkaller-commit": "f39a7eed7e2634a9f836f1922833d4b4d5b0f770",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1702f761180000",
+      "saved_to": "/home/lcj/paired_patches/12c506c1aae251e70449/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fad652894fc96962",
+      "saved_to": "/home/lcj/paired_patches/12c506c1aae251e70449/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/12c506c1aae251e70449/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/12c506c1aae251e70449/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

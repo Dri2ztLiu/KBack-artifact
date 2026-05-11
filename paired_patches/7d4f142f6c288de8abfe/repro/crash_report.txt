@@ -1,0 +1,57 @@
+usb 1-1: SerialNumber: syz
+plfxlc 1-1:253.132: Firmware Version: 0
+plfxlc 1-1:253.132: Unit type is station
+plfxlc 1-1:253.132: vendor command failed (-71)
+plfxlc 1-1:253.132: FPGA download failed (-22)
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 127 at drivers/net/wireless/purelifi/plfxlc/mac.c:106 plfxlc_mac_release+0x7d/0xa0
+Modules linked in:
+CPU: 0 PID: 127 Comm: kworker/0:2 Not tainted 6.1.124-syzkaller #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/13/2024
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:plfxlc_mac_release+0x7d/0xa0 drivers/net/wireless/purelifi/plfxlc/mac.c:106
+Code: ff ff e8 f6 dc 6a 04 89 c3 31 ff 89 c6 e8 4b d4 42 fb 85 db 74 0f e8 e2 d0 42 fb eb 05 e8 db d0 42 fb 5b 5d c3 e8 d3 d0 42 fb <0f> 0b eb f4 48 c7 c1 74 40 9b 8e 80 e1 07 80 c1 03 38 c1 7c a1 48
+RSP: 0018:ffffc90002da6988 EFLAGS: 00010293
+RAX: ffffffff8647cb2d RBX: 0000000000000000 RCX: ffff88801a7bbb80
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000001 R08: ffffffff8647cb15 R09: ffffed100607acb3
+R10: 0000000000000000 R11: dffffc0000000001 R12: ffff88801c6d0000
+R13: 00000000ffffffea R14: ffff8880303d0e80 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ffff8880b8e00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055af1fe21a80 CR3: 000000002d02c000 CR4: 00000000003506f0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+Call Trace:
+ <TASK>
+ probe+0x941/0xbd0 drivers/net/wireless/purelifi/plfxlc/usb.c:694
+ usb_probe_interface+0x5c0/0xaf0 drivers/usb/core/driver.c:396
+ really_probe+0x2ab/0xcb0 drivers/base/dd.c:639
+ __driver_probe_device+0x1a2/0x3d0 drivers/base/dd.c:785
+ driver_probe_device+0x50/0x420 drivers/base/dd.c:815
+ __device_attach_driver+0x2cf/0x510 drivers/base/dd.c:943
+ bus_for_each_drv+0x183/0x200 drivers/base/bus.c:429
+ __device_attach+0x359/0x570 drivers/base/dd.c:1015
+ bus_probe_device+0xba/0x1e0 drivers/base/bus.c:489
+ device_add+0xb48/0xfd0 drivers/base/core.c:3696
+ usb_set_configuration+0x19dd/0x2020 drivers/usb/core/message.c:2165
+ usb_generic_driver_probe+0x84/0x140 drivers/usb/core/generic.c:238
+ usb_probe_device+0x130/0x260 drivers/usb/core/driver.c:293
+ really_probe+0x2ab/0xcb0 drivers/base/dd.c:639
+ __driver_probe_device+0x1a2/0x3d0 drivers/base/dd.c:785
+ driver_probe_device+0x50/0x420 drivers/base/dd.c:815
+ __device_attach_driver+0x2cf/0x510 drivers/base/dd.c:943
+ bus_for_each_drv+0x183/0x200 drivers/base/bus.c:429
+ __device_attach+0x359/0x570 drivers/base/dd.c:1015
+ bus_probe_device+0xba/0x1e0 drivers/base/bus.c:489
+ device_add+0xb48/0xfd0 drivers/base/core.c:3696
+ usb_new_device+0xbdd/0x18f0 drivers/usb/core/hub.c:2620
+ hub_port_connect drivers/usb/core/hub.c:5477 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5617 [inline]
+ port_event drivers/usb/core/hub.c:5773 [inline]
+ hub_event+0x2efe/0x5730 drivers/usb/core/hub.c:5855
+ process_one_work+0x8a9/0x11d0 kernel/workqueue.c:2292
+ worker_thread+0xa47/0x1200 kernel/workqueue.c:2439
+ kthread+0x28d/0x320 kernel/kthread.c:376
+ ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:295
+ </TASK>

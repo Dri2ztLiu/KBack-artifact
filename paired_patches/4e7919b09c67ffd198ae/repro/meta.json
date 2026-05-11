@@ -1,0 +1,50 @@
+{
+  "extid": "4e7919b09c67ffd198ae",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4e7919b09c67ffd198ae",
+  "bug_title": "WARNING in snd_ctl_led_register",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "ALSA: control: Avoid WARN() for symlink errors",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2e538a9827dd04ab5273bf4be8eb2edb84357b0",
+      "hash": "b2e538a9827dd04ab5273bf4be8eb2edb84357b0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2024-12-09T09:56:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in snd_ctl_led_register",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "feffde684ac29a3b7aec82d2df850fbdbdee55e4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/29f61fceff5d68b408b9086bff96ca036b503584",
+  "syzkaller-commit": "29f61fceff5d68b408b9086bff96ca036b503584",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1131dfc0580000",
+      "saved_to": "/home/lcj/paired_patches/4e7919b09c67ffd198ae/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=50c7a61469ce77e7",
+      "saved_to": "/home/lcj/paired_patches/4e7919b09c67ffd198ae/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4e7919b09c67ffd198ae/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4e7919b09c67ffd198ae/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

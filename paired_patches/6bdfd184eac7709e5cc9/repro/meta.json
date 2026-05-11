@@ -1,0 +1,50 @@
+{
+  "extid": "6bdfd184eac7709e5cc9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6bdfd184eac7709e5cc9",
+  "bug_title": "memory leak in pppoe_sendmsg",
+  "bug_status": "fixed on 2024/03/28 13:35",
+  "fix_commits": [
+    {
+      "title": "pppoe: Fix memory leak in pppoe_sendmsg()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dc34ebd5c018b0edf47f39d11083ad8312733034",
+      "hash": "dc34ebd5c018b0edf47f39d11083ad8312733034",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Ilia.Gavrilov@infotecs.ru",
+      "author-name": "Gavrilov Ilia",
+      "date": "2024-02-14T09:01:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in pppoe_sendmsg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f5837722ffecbbedf1b1dbab072a063565f0dad1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1607f65ee80000",
+      "saved_to": "/home/lcj/paired_patches/6bdfd184eac7709e5cc9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8ee0ee29759ea720",
+      "saved_to": "/home/lcj/paired_patches/6bdfd184eac7709e5cc9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15864829e80000",
+      "saved_to": "/home/lcj/paired_patches/6bdfd184eac7709e5cc9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14ff565ee80000",
+      "saved_to": "/home/lcj/paired_patches/6bdfd184eac7709e5cc9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

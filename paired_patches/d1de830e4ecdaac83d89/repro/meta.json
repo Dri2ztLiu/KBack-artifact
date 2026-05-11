@@ -1,0 +1,50 @@
+{
+  "extid": "d1de830e4ecdaac83d89",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d1de830e4ecdaac83d89",
+  "bug_title": "KCSAN: data-race in wg_packet_decrypt_worker / wg_packet_rx_poll (2)",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "wireguard: receive: annotate data-race around receiving_counter.counter",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bba045dc4d996d03dce6fe45726e78a1a1f6d4c3",
+      "hash": "bba045dc4d996d03dce6fe45726e78a1a1f6d4c3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2024-03-14T22:49:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in wg_packet_decrypt_worker / wg_packet_rx_poll",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "dba89d1b81df749711645bdc201ed67223f35830",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6753db5cdc04330ec9d1a5116b890c19481d69b3",
+  "syzkaller-commit": "6753db5cdc04330ec9d1a5116b890c19481d69b3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1137e291180000",
+      "saved_to": "/home/lcj/paired_patches/d1de830e4ecdaac83d89/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8e033e6bf1fa349a",
+      "saved_to": "/home/lcj/paired_patches/d1de830e4ecdaac83d89/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d1de830e4ecdaac83d89/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d1de830e4ecdaac83d89/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

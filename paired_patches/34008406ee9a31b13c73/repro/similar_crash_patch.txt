@@ -1,0 +1,108 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  kernel/rcu/tree.c (1), drivers/gpu/drm/nouveau/nvkm/core/firmware.c (1)
+TOP_SYMBOLS:
+  kfree (2), memcpy (2), __call_rcu_common (1), nvkm_firmware_dtor (1), nvkm_firmware_ctor (1), dma_unmap_single (1), dma_free_coherent (1)
+TOP_KEYWORDS:
+  rcu (1), NULL (1), null (1), WARN (1), BUG (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=kfree)
+  - viewcode(ref=<target_release>, path=kernel/rcu/tree.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=2, rows_scanned=2, candidates_kept=2, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 739a6c93cc755c0daf3a7e57e018a8c61047cd90
+bug_url: https://syzkaller.appspot.com/bug?id=efbef440826494fc4add49f9c7187472c9a31f10
+title: BUG: unable to handle kernel paging request in ir_raw_event_store_with_filter
+relevance_score: 0
+
+ kernel/rcu/tree.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
+index e8a4b720d7d2..14d4499c6fc3 100644
+--- a/kernel/rcu/tree.c
++++ b/kernel/rcu/tree.c
+@@ -3072,6 +3072,10 @@ __call_rcu_common(struct rcu_head *head, rcu_callback_t func, bool lazy_in)
+ 	/* Misaligned rcu_head! */
+ 	WARN_ON_ONCE((unsigned long)head & (sizeof(void *) - 1));
+ 
++	/* Avoid NULL dereference if callback is NULL. */
++	if (WARN_ON_ONCE(!func))
++		return;
++
+ 	if (debug_rcu_head_queue(head)) {
+ 		/*
+ 		 * Probable double call_rcu(), so leak the callback.
+================================================================================
+
+branch: linux-5.15
+fix_commit: cf87f46fd34d6c19283d9625a7822f20d90b64a4
+bug_url: https://syzkaller.appspot.com/bug?extid=42604e9406bbfdd83914
+title: general protection fault in ir_raw_event_store_with_filter
+relevance_score: 0
+
+ drivers/gpu/drm/nouveau/nvkm/core/firmware.c | 19 +++++++------------
+ 1 file changed, 7 insertions(+), 12 deletions(-)
+diff --git a/drivers/gpu/drm/nouveau/nvkm/core/firmware.c b/drivers/gpu/drm/nouveau/nvkm/core/firmware.c
+index 141b0a513bf5..adc60b25f8e6 100644
+--- a/drivers/gpu/drm/nouveau/nvkm/core/firmware.c
++++ b/drivers/gpu/drm/nouveau/nvkm/core/firmware.c
+@@ -205,9 +205,7 @@ nvkm_firmware_dtor(struct nvkm_firmware *fw)
+ 		break;
+ 	case NVKM_FIRMWARE_IMG_DMA:
+ 		nvkm_memory_unref(&memory);
+-		dma_unmap_single(fw->device->dev, fw->phys, sg_dma_len(&fw->mem.sgl),
+-				 DMA_TO_DEVICE);
+-		kfree(fw->img);
++		dma_free_coherent(fw->device->dev, sg_dma_len(&fw->mem.sgl), fw->img, fw->phys);
+ 		break;
+ 	case NVKM_FIRMWARE_IMG_SGT:
+ 		nvkm_memory_unref(&memory);
+@@ -237,17 +235,14 @@ nvkm_firmware_ctor(const struct nvkm_firmware_func *func, const char *name,
+ 		fw->img = kmemdup(src, fw->len, GFP_KERNEL);
+ 		break;
+ 	case NVKM_FIRMWARE_IMG_DMA: {
+-		len = ALIGN(fw->len, PAGE_SIZE);
++		dma_addr_t addr;
+ 
+-		fw->img = kmalloc(len, GFP_KERNEL);
+-		if (!fw->img)
+-			return -ENOMEM;
++		len = ALIGN(fw->len, PAGE_SIZE);
+ 
+-		memcpy(fw->img, src, fw->len);
+-		fw->phys = dma_map_single(fw->device->dev, fw->img, len, DMA_TO_DEVICE);
+-		if (dma_mapping_error(fw->device->dev, fw->phys)) {
+-			kfree(fw->img);
+-			return -EFAULT;
++		fw->img = dma_alloc_coherent(fw->device->dev, len, &addr, GFP_KERNEL);
++		if (fw->img) {
++			memcpy(fw->img, src, fw->len);
++			fw->phys = addr;
+ 		}
+ 
+ 		sg_init_one(&fw->mem.sgl, fw->img, len);
+================================================================================

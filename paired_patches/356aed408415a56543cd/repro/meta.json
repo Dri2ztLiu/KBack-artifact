@@ -1,0 +1,50 @@
+{
+  "extid": "356aed408415a56543cd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=356aed408415a56543cd",
+  "bug_title": "KASAN: slab-out-of-bounds Read in hfsplus_bmap_alloc",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "hfs: validate record offset in hfsplus_bmap_alloc",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=738d5a51864ed8d7a68600b8c0c63fe6fe5c4f20",
+      "hash": "738d5a51864ed8d7a68600b8c0c63fe6fe5c4f20",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yang.chenzhi@vivo.com",
+      "author-name": "Yang Chenzhi",
+      "date": "2025-08-18T14:17:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in hfsplus_bmap_alloc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "a1c24ab822793eb513351686f631bd18952b7870",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d34966d146f584d390b49f213d1fccd59548dc6d",
+  "syzkaller-commit": "d34966d146f584d390b49f213d1fccd59548dc6d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17af3fdf980000",
+      "saved_to": "/home/lcj/paired_patches/356aed408415a56543cd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f6b108de97771157",
+      "saved_to": "/home/lcj/paired_patches/356aed408415a56543cd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10b646e4580000",
+      "saved_to": "/home/lcj/paired_patches/356aed408415a56543cd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=106757a4580000",
+      "saved_to": "/home/lcj/paired_patches/356aed408415a56543cd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

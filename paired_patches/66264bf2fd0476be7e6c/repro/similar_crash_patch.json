@@ -1,0 +1,58 @@
+{
+  "extid": "66264bf2fd0476be7e6c",
+  "target_ref": "66264bf2fd0476be7e6c",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "734bc5ff783115aa3164f4e9dd5967ae78e0a8ab",
+      "branch": "linux-4.19",
+      "title": "BUG: corrupted list in kobject_add_internal",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/bluetooth/sco.c"
+      ],
+      "symbols": [
+        "sco_chan_add",
+        "sco_connect",
+        "sco_connect",
+        "sco_sock_connect",
+        "sco_sock_connect",
+        "if",
+        "hci_dev_lock",
+        "if",
+        "if",
+        "if",
+        "hci_dev_unlock",
+        "hci_dev_put",
+        "if",
+        "hci_dev_lock",
+        "lock_sock",
+        "hci_dev_unlock",
+        "hci_dev_put"
+      ],
+      "patterns": [
+        "NULL",
+        "null",
+        "BUG",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

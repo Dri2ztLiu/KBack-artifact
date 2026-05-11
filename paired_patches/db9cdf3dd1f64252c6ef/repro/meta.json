@@ -1,0 +1,60 @@
+{
+  "extid": "db9cdf3dd1f64252c6ef",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=db9cdf3dd1f64252c6ef",
+  "bug_title": "possible deadlock in proc_pid_syscall (2)",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "exec: Transform exec_update_mutex into a rw_semaphore",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f7cfd871ae0c5008d94b6f66834e7845caa93c15",
+      "hash": "f7cfd871ae0c5008d94b6f66834e7845caa93c15",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ebiederm@xmission.com",
+      "author-name": "Eric W. Biederman",
+      "date": "2020-12-10T19:13:32Z"
+    },
+    {
+      "title": "perf: Break deadlock involving exec_update_mutex",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=78af4dc949daaa37b3fcd5f348f373085b4e858f",
+      "hash": "78af4dc949daaa37b3fcd5f348f373085b4e858f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "peterz@infradead.org",
+      "author-name": "peterz@infradead.org",
+      "date": "2020-12-09T16:08:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "dd9fb9bb3340c791a2be106fdc895db75f177343",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/abf9ba4fc75d9b29af15625d44dcfc1360fad3b7",
+  "syzkaller-commit": "abf9ba4fc75d9b29af15625d44dcfc1360fad3b7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16cc90dd900000",
+      "saved_to": "/home/lcj/paired_patches/db9cdf3dd1f64252c6ef/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=bd46548257448703",
+      "saved_to": "/home/lcj/paired_patches/db9cdf3dd1f64252c6ef/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/db9cdf3dd1f64252c6ef/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/db9cdf3dd1f64252c6ef/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

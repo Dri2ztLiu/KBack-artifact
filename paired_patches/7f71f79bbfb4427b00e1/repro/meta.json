@@ -1,0 +1,50 @@
+{
+  "extid": "7f71f79bbfb4427b00e1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7f71f79bbfb4427b00e1",
+  "bug_title": "BUG: sleeping function called from invalid context in ntfs_d_hash",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "ntfs3: Change to non-blocking allocation in ntfs_d_hash",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=589996bf8c459deb5bbc9747d8f1c51658608103",
+      "hash": "589996bf8c459deb5bbc9747d8f1c51658608103",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "djahchankoike@gmail.com",
+      "author-name": "Diogo Jahchan Koike",
+      "date": "2024-09-02T17:19:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in ntfs_d_hash",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "86987d84b968b69a610fd00ab9006c13db193b4e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/940f38c1d236deec56b628d5586fdd6a5c33f5b6",
+  "syzkaller-commit": "940f38c1d236deec56b628d5586fdd6a5c33f5b6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1517b643980000",
+      "saved_to": "/home/lcj/paired_patches/7f71f79bbfb4427b00e1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8605cd35ddc8ff3c",
+      "saved_to": "/home/lcj/paired_patches/7f71f79bbfb4427b00e1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1231122b980000",
+      "saved_to": "/home/lcj/paired_patches/7f71f79bbfb4427b00e1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10552cdb980000",
+      "saved_to": "/home/lcj/paired_patches/7f71f79bbfb4427b00e1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

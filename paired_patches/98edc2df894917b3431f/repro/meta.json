@@ -1,0 +1,50 @@
+{
+  "extid": "98edc2df894917b3431f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=98edc2df894917b3431f",
+  "bug_title": "KASAN: slab-use-after-free Read in vhost_task_fn",
+  "bug_status": "fixed on 2024/06/05 13:52",
+  "fix_commits": [
+    {
+      "title": "vhost_task: Handle SIGKILL by flushing work and exiting",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=db5247d9bf5c6ade9fd70b4e4897441e0269b233",
+      "hash": "db5247d9bf5c6ade9fd70b4e4897441e0269b233",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "michael.christie@oracle.com",
+      "author-name": "Mike Christie",
+      "date": "2024-03-16T00:47:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in vhost_task_fn",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "f68868ba718e30594165879cc3020607165b0761",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3ba885bcb66dec1678d8842ddeb6805786d32a3f",
+  "syzkaller-commit": "3ba885bcb66dec1678d8842ddeb6805786d32a3f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13bd4097180000",
+      "saved_to": "/home/lcj/paired_patches/98edc2df894917b3431f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4e587bd97ba71a10",
+      "saved_to": "/home/lcj/paired_patches/98edc2df894917b3431f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14f4b2a0980000",
+      "saved_to": "/home/lcj/paired_patches/98edc2df894917b3431f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11ef556b180000",
+      "saved_to": "/home/lcj/paired_patches/98edc2df894917b3431f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "e34e5e6b5eddb0014def",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e34e5e6b5eddb0014def",
+  "bug_title": "BUG: unable to handle kernel NULL pointer dereference in vcc_sendmsg",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "atm: clip: Fix NULL pointer dereference in vcc_sendmsg()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=22fc46cea91df3dce140a7dc6847c6fcf0354505",
+      "hash": "22fc46cea91df3dce140a7dc6847c6fcf0354505",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yuehaibing@huawei.com",
+      "author-name": "Yue Haibing",
+      "date": "2025-07-05T08:52:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel NULL pointer dereference in vcc_sendmsg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5723cc3450bccf7f98f227b9723b5c9f6b3af1c5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f41472b03ad1c28c33fa0dcb999ded4c60d1247d",
+  "syzkaller-commit": "f41472b03ad1c28c33fa0dcb999ded4c60d1247d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15e21ef4580000",
+      "saved_to": "/home/lcj/paired_patches/e34e5e6b5eddb0014def/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c3f0e807ec5d1268",
+      "saved_to": "/home/lcj/paired_patches/e34e5e6b5eddb0014def/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e34e5e6b5eddb0014def/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e34e5e6b5eddb0014def/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

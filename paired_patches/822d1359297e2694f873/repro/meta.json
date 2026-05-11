@@ -1,0 +1,50 @@
+{
+  "extid": "822d1359297e2694f873",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=822d1359297e2694f873",
+  "bug_title": "KASAN: slab-use-after-free Read in xsk_diag_dump",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "xsk: Fix xsk_diag use-after-free error during socket cleanup",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3e019d8a05a38abb5c85d4f1e85fda964610aa14",
+      "hash": "3e019d8a05a38abb5c85d4f1e85fda964610aa14",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "magnus.karlsson@intel.com",
+      "author-name": "Magnus Karlsson",
+      "date": "2023-08-31T10:01:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in xsk_diag_dump",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "5c905279a1b7ebb676d73cec8819533e2b74d646",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/03d9c195daed8fca30b642783f35657aa7e32209",
+  "syzkaller-commit": "03d9c195daed8fca30b642783f35657aa7e32209",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1205f233a80000",
+      "saved_to": "/home/lcj/paired_patches/822d1359297e2694f873/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1e4a882f77ed77bd",
+      "saved_to": "/home/lcj/paired_patches/822d1359297e2694f873/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=109926eba80000",
+      "saved_to": "/home/lcj/paired_patches/822d1359297e2694f873/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14ec63a7a80000",
+      "saved_to": "/home/lcj/paired_patches/822d1359297e2694f873/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

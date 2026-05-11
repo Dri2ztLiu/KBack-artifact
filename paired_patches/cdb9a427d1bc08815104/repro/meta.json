@@ -1,0 +1,50 @@
+{
+  "extid": "cdb9a427d1bc08815104",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cdb9a427d1bc08815104",
+  "bug_title": "memory leak in virtual_ncidev_write",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "NFC: nci: fix memory leak in nci_rx_data_packet()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=53270fb0fd77fe786d8c07a0793981d797836b93",
+      "hash": "53270fb0fd77fe786d8c07a0793981d797836b93",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "liushixin2@huawei.com",
+      "author-name": "Liu Shixin",
+      "date": "2022-11-18T08:24:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in virtual_ncidev_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cc675d22e422442f6d230654a55a5fc5682ea018",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3a127a3157fd19caabb023978737471213127590",
+  "syzkaller-commit": "3a127a3157fd19caabb023978737471213127590",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=144d2759880000",
+      "saved_to": "/home/lcj/paired_patches/cdb9a427d1bc08815104/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=435fb8cdd395f932",
+      "saved_to": "/home/lcj/paired_patches/cdb9a427d1bc08815104/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10015c4e880000",
+      "saved_to": "/home/lcj/paired_patches/cdb9a427d1bc08815104/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14bea8d9880000",
+      "saved_to": "/home/lcj/paired_patches/cdb9a427d1bc08815104/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

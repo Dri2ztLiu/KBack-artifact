@@ -1,0 +1,50 @@
+{
+  "extid": "38a095a81f30d82884c1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=38a095a81f30d82884c1",
+  "bug_title": "general protection fault in put_page (4)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "mptcp: fix TCP options overflow.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cbb26f7d8451fe56ccac802c6db48d16240feebd",
+      "hash": "cbb26f7d8451fe56ccac802c6db48d16240feebd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pabeni@redhat.com",
+      "author-name": "Paolo Abeni",
+      "date": "2024-12-21T08:51:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in put_page",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f93b2b552ce5fe589b450ff74ca1b459cdbc71a8",
+  "syzkaller-commit": "f93b2b552ce5fe589b450ff74ca1b459cdbc71a8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=137227e8580000",
+      "saved_to": "/home/lcj/paired_patches/38a095a81f30d82884c1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6c532525a32eb57d",
+      "saved_to": "/home/lcj/paired_patches/38a095a81f30d82884c1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13f502df980000",
+      "saved_to": "/home/lcj/paired_patches/38a095a81f30d82884c1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=169b0b44580000",
+      "saved_to": "/home/lcj/paired_patches/38a095a81f30d82884c1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

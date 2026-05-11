@@ -1,0 +1,50 @@
+{
+  "extid": "9228d6098455bb209ec8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9228d6098455bb209ec8",
+  "bug_title": "KASAN: use-after-free Read in task_work_run (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "perf: Fix perf_pending_task() UaF",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=517e6a301f34613bff24a8e35b5455884f2d83d8",
+      "hash": "517e6a301f34613bff24a8e35b5455884f2d83d8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "peterz@infradead.org",
+      "author-name": "Peter Zijlstra",
+      "date": "2022-11-24T11:49:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in task_work_run",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "88619e77b33d5718fae3c13d29f94b2646facfcd",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2159e4d29f58ffa1107fc2213dbc87185ff4498f",
+  "syzkaller-commit": "2159e4d29f58ffa1107fc2213dbc87185ff4498f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10cb236e880000",
+      "saved_to": "/home/lcj/paired_patches/9228d6098455bb209ec8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a66c6c673fb555e8",
+      "saved_to": "/home/lcj/paired_patches/9228d6098455bb209ec8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1126516e880000",
+      "saved_to": "/home/lcj/paired_patches/9228d6098455bb209ec8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12bc425e880000",
+      "saved_to": "/home/lcj/paired_patches/9228d6098455bb209ec8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

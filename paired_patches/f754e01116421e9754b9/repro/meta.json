@@ -1,0 +1,50 @@
+{
+  "extid": "f754e01116421e9754b9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f754e01116421e9754b9",
+  "bug_title": "WARNING in ovl_copy_up_file (2)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "Squashfs: reject negative file sizes in squashfs_read_inode()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9f1c14c1de1bdde395f6cc893efa4f80a2ae3b2b",
+      "hash": "9f1c14c1de1bdde395f6cc893efa4f80a2ae3b2b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "phillip@squashfs.org.uk",
+      "author-name": "Phillip Lougher",
+      "date": "2025-09-26T21:59:35Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ovl_copy_up_file",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "bf40f4b87761e2ec16efc8e49b9ca0d81f4115d8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0abd06914a0618dff2f4b80e8d3c0bfb50121eb1",
+  "syzkaller-commit": "0abd06914a0618dff2f4b80e8d3c0bfb50121eb1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1294af12580000",
+      "saved_to": "/home/lcj/paired_patches/f754e01116421e9754b9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f5b21423ca3f0a96",
+      "saved_to": "/home/lcj/paired_patches/f754e01116421e9754b9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=118c6ce2580000",
+      "saved_to": "/home/lcj/paired_patches/f754e01116421e9754b9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17fbb4e2580000",
+      "saved_to": "/home/lcj/paired_patches/f754e01116421e9754b9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

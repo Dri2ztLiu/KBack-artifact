@@ -1,0 +1,50 @@
+{
+  "extid": "e8030702aefd3444fb9e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e8030702aefd3444fb9e",
+  "bug_title": "KASAN: null-ptr-deref Write in unix_stream_bpf_update_proto",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "bpf: syzkaller found null ptr deref in unix_bpf proto add",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8d6650646ce49e9a5b8c5c23eb94f74b1749f70f",
+      "hash": "8d6650646ce49e9a5b8c5c23eb94f74b1749f70f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "john.fastabend@gmail.com",
+      "author-name": "John Fastabend",
+      "date": "2023-12-01T18:01:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: null-ptr-deref Write in unix_stream_bpf_update_proto",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "300fbb247eb3d2146b37c8dc127056f695091218",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f819d6f7cb99737851dcaaa51f11190138fd48d5",
+  "syzkaller-commit": "f819d6f7cb99737851dcaaa51f11190138fd48d5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10003dc2e80000",
+      "saved_to": "/home/lcj/paired_patches/e8030702aefd3444fb9e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6ae1a4ee971a7305",
+      "saved_to": "/home/lcj/paired_patches/e8030702aefd3444fb9e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=108a528ce80000",
+      "saved_to": "/home/lcj/paired_patches/e8030702aefd3444fb9e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16929b52e80000",
+      "saved_to": "/home/lcj/paired_patches/e8030702aefd3444fb9e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

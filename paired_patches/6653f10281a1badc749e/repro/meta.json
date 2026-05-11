@@ -1,0 +1,39 @@
+{
+  "extid": "6653f10281a1badc749e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6653f10281a1badc749e",
+  "bug_title": "UBSAN: array-index-out-of-bounds in f2fs_truncate_inode_blocks",
+  "bug_status": "auto-obsoleted due to no activity on 2025/01/06 22:40",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in f2fs_truncate_inode_blocks",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ad46e8f95e931e113cb98253daf6d443ac244cde",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ba29ff75d05fca62258d71ffc063e70f0d7b8b09",
+  "syzkaller-commit": "ba29ff75d05fca62258d71ffc063e70f0d7b8b09",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11a44d9f980000",
+      "saved_to": "/home/lcj/paired_patches/6653f10281a1badc749e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=62086b2fd100a029",
+      "saved_to": "/home/lcj/paired_patches/6653f10281a1badc749e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/6653f10281a1badc749e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/6653f10281a1badc749e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

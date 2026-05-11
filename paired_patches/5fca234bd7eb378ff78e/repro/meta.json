@@ -1,0 +1,50 @@
+{
+  "extid": "5fca234bd7eb378ff78e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5fca234bd7eb378ff78e",
+  "bug_title": "INFO: rcu detected stall in sys_io_uring_enter (2)",
+  "bug_status": "fixed on 2024/10/22 11:56",
+  "fix_commits": [
+    {
+      "title": "io_uring: check if we need to reschedule during overflow flush",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=eac2ca2d682f94f46b1973bdf5e77d85d77b8e53",
+      "hash": "eac2ca2d682f94f46b1973bdf5e77d85d77b8e53",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "axboe@kernel.dk",
+      "author-name": "Jens Axboe",
+      "date": "2024-09-20T08:51:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: rcu detected stall in sys_io_uring_enter",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "eb952c47d154ba2aac794b99c66c3c45eb4cc4ec",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8fbfc0c8a015daaf053142a21906315246c7c4fd",
+  "syzkaller-commit": "8fbfc0c8a015daaf053142a21906315246c7c4fd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1512efd0580000",
+      "saved_to": "/home/lcj/paired_patches/5fca234bd7eb378ff78e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7cd9e7e4a8a0a15b",
+      "saved_to": "/home/lcj/paired_patches/5fca234bd7eb378ff78e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5fca234bd7eb378ff78e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5fca234bd7eb378ff78e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "bdb4bd87b5e22058e2a4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bdb4bd87b5e22058e2a4",
+  "bug_title": "BUG: stack guard page was hit in vsock_bpf_recvmsg",
+  "bug_status": "fixed on 2024/10/03 15:25",
+  "fix_commits": [
+    {
+      "title": "vsock: fix recursive ->recvmsg calls",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=69139d2919dd4aa9a553c8245e7c63e82613e3fc",
+      "hash": "69139d2919dd4aa9a553c8245e7c63e82613e3fc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2024-08-12T02:21:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: stack guard page was hit in vsock_bpf_recvmsg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "eb3ab13d997a2f12ec9d557b6ae2aea4e28e2bc3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a9e7e9e3a26f5e19a9d96c1a27717aa83e0bdbcd",
+  "syzkaller-commit": "a9e7e9e3a26f5e19a9d96c1a27717aa83e0bdbcd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13fabae5980000",
+      "saved_to": "/home/lcj/paired_patches/bdb4bd87b5e22058e2a4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e8a2eef9745ade09",
+      "saved_to": "/home/lcj/paired_patches/bdb4bd87b5e22058e2a4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17e7b2f3980000",
+      "saved_to": "/home/lcj/paired_patches/bdb4bd87b5e22058e2a4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14a1b97d980000",
+      "saved_to": "/home/lcj/paired_patches/bdb4bd87b5e22058e2a4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

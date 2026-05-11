@@ -1,0 +1,50 @@
+{
+  "extid": "4d2d56175b934b9a7bf9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4d2d56175b934b9a7bf9",
+  "bug_title": "INFO: trying to register non-static key in ath9k_htc_rxep",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "ath9k_htc: fix NULL pointer dereference at ath9k_htc_rxep()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0ec7e55fce65f125bd1d7f02e2dc4de62abee34",
+      "hash": "b0ec7e55fce65f125bd1d7f02e2dc4de62abee34",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@i-love.sakura.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2021-09-21T13:06:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in ath9k_htc_rxep",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1a6d80ff2419e8ad627b4bf4775a8b4c70af535d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b318694d0fc0781d0bc1e3aebfb916aa36731024",
+  "syzkaller-commit": "b318694d0fc0781d0bc1e3aebfb916aa36731024",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=113bf7ad300000",
+      "saved_to": "/home/lcj/paired_patches/4d2d56175b934b9a7bf9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=765eea9a273a8879",
+      "saved_to": "/home/lcj/paired_patches/4d2d56175b934b9a7bf9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10a4b7c1300000",
+      "saved_to": "/home/lcj/paired_patches/4d2d56175b934b9a7bf9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1111169d300000",
+      "saved_to": "/home/lcj/paired_patches/4d2d56175b934b9a7bf9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

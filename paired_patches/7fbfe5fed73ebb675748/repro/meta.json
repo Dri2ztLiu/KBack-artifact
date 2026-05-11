@@ -1,0 +1,50 @@
+{
+  "extid": "7fbfe5fed73ebb675748",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7fbfe5fed73ebb675748",
+  "bug_title": "UBSAN: array-index-out-of-bounds in udf_statfs",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "udf: Check LVID earlier",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=781d2a9a2fc7d0be53a072794dc03ef6de770f3d",
+      "hash": "781d2a9a2fc7d0be53a072794dc03ef6de770f3d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2021-05-03T09:39:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in udf_statfs",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e77a830c8297c088f80e337cf888af7d014a16d7",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/17f0b706a417a8a15d472f64a6a8b01872da1661",
+  "syzkaller-commit": "17f0b706a417a8a15d472f64a6a8b01872da1661",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=148754c5d00000",
+      "saved_to": "/home/lcj/paired_patches/7fbfe5fed73ebb675748/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c0a6882014fd3d45",
+      "saved_to": "/home/lcj/paired_patches/7fbfe5fed73ebb675748/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=132cb56dd00000",
+      "saved_to": "/home/lcj/paired_patches/7fbfe5fed73ebb675748/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17612825d00000",
+      "saved_to": "/home/lcj/paired_patches/7fbfe5fed73ebb675748/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

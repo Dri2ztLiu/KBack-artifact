@@ -1,0 +1,45 @@
+==================================================================
+BUG: KASAN: global-out-of-bounds in z_erofs_decompress_pcluster fs/erofs/zdata.c:1274 [inline]
+BUG: KASAN: global-out-of-bounds in z_erofs_decompress_queue+0x341/0x3580 fs/erofs/zdata.c:1411
+Read of size 8 at addr ffffffff8e05df10 by task kworker/u9:1/5152
+
+CPU: 1 UID: 0 PID: 5152 Comm: kworker/u9:1 Tainted: G        W           syzkaller #0 PREEMPT_{RT,(full)} 
+Tainted: [W]=WARN
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+Workqueue: erofs_worker z_erofs_decompressqueue_work
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x189/0x250 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xca/0x240 mm/kasan/report.c:482
+ kasan_report+0x118/0x150 mm/kasan/report.c:595
+ z_erofs_decompress_pcluster fs/erofs/zdata.c:1274 [inline]
+ z_erofs_decompress_queue+0x341/0x3580 fs/erofs/zdata.c:1411
+ z_erofs_decompressqueue_work+0x82/0xd0 fs/erofs/zdata.c:1423
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0xade/0x17b0 kernel/workqueue.c:3319
+ worker_thread+0x8a0/0xda0 kernel/workqueue.c:3400
+ kthread+0x70e/0x8a0 kernel/kthread.c:463
+ ret_from_fork+0x3fc/0x770 arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>
+
+The buggy address belongs to the variable:
+ z_erofs_decomp+0x30/0xe0
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0xe05d
+flags: 0x80000000002000(reserved|node=0|zone=1)
+raw: 0080000000002000 ffffea0000381748 ffffea0000381748 0000000000000000
+raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner info is not present (never set?)
+
+Memory state around the buggy address:
+ ffffffff8e05de00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ffffffff8e05de80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ffffffff8e05df00: 00 00 f9 f9 f9 f9 f9 f9 00 00 00 00 00 00 00 00
+                         ^
+ ffffffff8e05df80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ffffffff8e05e000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+==================================================================

@@ -1,0 +1,50 @@
+{
+  "extid": "5a398eb460ddaa6f242f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5a398eb460ddaa6f242f",
+  "bug_title": "KASAN: global-out-of-bounds Read in z_erofs_decompress_queue",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "erofs: fix invalid algorithm for encoded extents",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=131897c65e2b86cf14bec7379f44aa8fbb407526",
+      "hash": "131897c65e2b86cf14bec7379f44aa8fbb407526",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hsiangkao@linux.alibaba.com",
+      "author-name": "Gao Xiang",
+      "date": "2025-08-24T15:11:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: global-out-of-bounds Read in z_erofs_decompress_queue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3957a5720157264dcc41415fbec7c51c4000fc2d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bf27483f963359281b2d9b6d6efd36289f82e282",
+  "syzkaller-commit": "bf27483f963359281b2d9b6d6efd36289f82e282",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15405062580000",
+      "saved_to": "/home/lcj/paired_patches/5a398eb460ddaa6f242f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e1e1566c7726877e",
+      "saved_to": "/home/lcj/paired_patches/5a398eb460ddaa6f242f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1277dfa2580000",
+      "saved_to": "/home/lcj/paired_patches/5a398eb460ddaa6f242f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16650c42580000",
+      "saved_to": "/home/lcj/paired_patches/5a398eb460ddaa6f242f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

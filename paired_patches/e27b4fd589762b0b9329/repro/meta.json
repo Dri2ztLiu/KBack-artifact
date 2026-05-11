@@ -1,0 +1,60 @@
+{
+  "extid": "e27b4fd589762b0b9329",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e27b4fd589762b0b9329",
+  "bug_title": "KMSAN: uninit-value in dvb_usb_adapter_dvb_init (2)",
+  "bug_status": "fixed on 2022/03/16 16:02",
+  "fix_commits": [
+    {
+      "title": "media: dvb-usb: fix uninit-value in dvb_usb_adapter_dvb_init",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c5453769f77ce19a5b03f1f49946fd3f8a374009",
+      "hash": "c5453769f77ce19a5b03f1f49946fd3f8a374009",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mudongliangabcd@gmail.com",
+      "author-name": "Dongliang Mu",
+      "date": "2021-06-25T05:33:27Z"
+    },
+    {
+      "title": "media: usb: dvd-usb: fix uninit-value bug in dibusb_read_eeprom_byte()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=899a61a3305d49e8a712e9ab20d0db94bde5929f",
+      "hash": "899a61a3305d49e8a712e9ab20d0db94bde5929f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "anant.thazhemadam@gmail.com",
+      "author-name": "Anant Thazhemadam",
+      "date": "2020-12-07T06:16:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "73d62e81b476b8e30b7de1d84e9ae14e439fdd23",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/20366b870db78f1d58502dad9ffcf6dad618fae7",
+  "syzkaller-commit": "20366b870db78f1d58502dad9ffcf6dad618fae7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=105fe727500000",
+      "saved_to": "/home/lcj/paired_patches/e27b4fd589762b0b9329/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=eef728deea880383",
+      "saved_to": "/home/lcj/paired_patches/e27b4fd589762b0b9329/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=102a3437500000",
+      "saved_to": "/home/lcj/paired_patches/e27b4fd589762b0b9329/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=158833f7500000",
+      "saved_to": "/home/lcj/paired_patches/e27b4fd589762b0b9329/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

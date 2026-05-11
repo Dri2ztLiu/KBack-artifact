@@ -1,0 +1,172 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/erofs/zdata.c (1), Makefile (1)
+TOP_SYMBOLS:
+  DBG_BUGON (4), z_erofs_submit_queue (3), pickup_page_for_submission (2), unlock_page (2)
+TOP_KEYWORDS:
+  hung (2), stall (1), NULL (1), null (1), BUG (1), folio (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=DBG_BUGON)
+  - viewcode(ref=<target_release>, path=fs/erofs/zdata.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=2, rows_scanned=2, candidates_kept=2, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: c1172e65aad4b115392ea4c6e61e56e5b9b69df4
+bug_url: https://syzkaller.appspot.com/bug?extid=c8c8238b394be4a1087d
+title: INFO: task hung in z_erofs_runqueue
+relevance_score: 0
+
+ fs/erofs/zdata.c | 60 ++++++++++++++++++++++++++----------------------
+ 1 file changed, 32 insertions(+), 28 deletions(-)
+diff --git a/fs/erofs/zdata.c b/fs/erofs/zdata.c
+index 6d504adbf5e3..0461c41d15b1 100644
+--- a/fs/erofs/zdata.c
++++ b/fs/erofs/zdata.c
+@@ -1331,14 +1331,14 @@ static struct page *pickup_page_for_submission(struct z_erofs_pcluster *pcl,
+ 		goto out;
+ 
+ 	lock_page(page);
+-
+-	/* only true if page reclaim goes wrong, should never happen */
+-	DBG_BUGON(justfound && PagePrivate(page));
+-
+-	/* the page is still in manage cache */
+-	if (page->mapping == mc) {
++	if (likely(page->mapping == mc)) {
+ 		WRITE_ONCE(pcl->compressed_bvecs[nr].page, page);
++		oldpage = page;
+ 
++		/*
++		 * The cached folio is still in managed cache but without
++		 * a valid `->private` pcluster hint.  Let's reconnect them.
++		 */
+ 		if (!PagePrivate(page)) {
+ 			/*
+ 			 * impossible to be !PagePrivate(page) for
+@@ -1352,22 +1352,24 @@ static struct page *pickup_page_for_submission(struct z_erofs_pcluster *pcl,
+ 			SetPagePrivate(page);
+ 		}
+ 
+-		/* no need to submit io if it is already up-to-date */
+-		if (PageUptodate(page)) {
+-			unlock_page(page);
+-			page = NULL;
++		if (likely(page->private == (unsigned long)pcl)) {
++			/* don't submit cache I/Os again if already uptodate */
++			if (PageUptodate(page)) {
++				unlock_page(page);
++				page = NULL;
++
++			}
++			goto out;
+ 		}
+-		goto out;
++		/*
++		 * Already linked with another pcluster, which only appears in
++		 * crafted images by fuzzers for now.  But handle this anyway.
++		 */
++		tocache = false;	/* use temporary short-lived pages */
++	} else {
++		DBG_BUGON(1); /* referenced managed folios can't be truncated */
++		tocache = true;
+ 	}
+-
+-	/*
+-	 * the managed page has been truncated, it's unsafe to
+-	 * reuse this one, let's allocate a new cache-managed page.
+-	 */
+-	DBG_BUGON(page->mapping);
+-	DBG_BUGON(!justfound);
+-
+-	tocache = true;
+ 	unlock_page(page);
+ 	put_page(page);
+ out_allocpage:
+@@ -1520,16 +1522,11 @@ static void z_erofs_submit_queue(struct z_erofs_decompress_frontend *f,
+ 		end = cur + pcl->pclusterpages;
+ 
+ 		do {
+-			struct page *page;
+-
+-			page = pickup_page_for_submission(pcl, i++,
+-					&f->pagepool, mc);
+-			if (!page)
+-				continue;
++			struct page *page = NULL;
+ 
+ 			if (bio && (cur != last_index + 1 ||
+ 				    last_bdev != mdev.m_bdev)) {
+-submit_bio_retry:
++drain_io:
+ 				submit_bio(bio);
+ 				if (memstall) {
+ 					psi_memstall_leave(&pflags);
+@@ -1538,6 +1535,13 @@ static void z_erofs_submit_queue(struct z_erofs_decompress_frontend *f,
+ 				bio = NULL;
+ 			}
+ 
++			if (!page) {
++				page = pickup_page_for_submission(pcl, i++,
++						&f->pagepool, mc);
++				if (!page)
++					continue;
++			}
++
+ 			if (unlikely(PageWorkingset(page)) && !memstall) {
+ 				psi_memstall_enter(&pflags);
+ 				memstall = 1;
+@@ -1558,7 +1562,7 @@ static void z_erofs_submit_queue(struct z_erofs_decompress_frontend *f,
+ 			}
+ 
+ 			if (bio_add_page(bio, page, PAGE_SIZE, 0) < PAGE_SIZE)
+-				goto submit_bio_retry;
++				goto drain_io;
+ 
+ 			last_index = cur;
+ 			bypass = false;
+================================================================================
+
+branch: linux-5.15
+fix_commit: 3c17fc4839052076b9f27f22551d0d0bd8557822
+bug_url: https://syzkaller.appspot.com/bug?extid=de04e06b28cfecf2281c
+title: INFO: task hung in z_erofs_runqueue
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index e0680ae9db6b..1081b50f0932 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 170
++SUBLEVEL = 171
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================

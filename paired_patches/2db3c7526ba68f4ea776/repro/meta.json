@@ -1,0 +1,50 @@
+{
+  "extid": "2db3c7526ba68f4ea776",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2db3c7526ba68f4ea776",
+  "bug_title": "KMSAN: uninit-value in hfs_read_inode",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "hfs: Sanity check the root record",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b905bafdea21a75d75a96855edd9e0b6051eee30",
+      "hash": "b905bafdea21a75d75a96855edd9e0b6051eee30",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "leocstone@gmail.com",
+      "author-name": "Leo Stone",
+      "date": "2024-12-01T05:14:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in hfs_read_inode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f66d6acccbc08b4146f4c2cf9445241f70f5517d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cfe3a04a188eb9a2c407783d8d6e6f55a4b30886",
+  "syzkaller-commit": "cfe3a04a188eb9a2c407783d8d6e6f55a4b30886",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=135c0ac0580000",
+      "saved_to": "/home/lcj/paired_patches/2db3c7526ba68f4ea776/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=570f86970553dcd2",
+      "saved_to": "/home/lcj/paired_patches/2db3c7526ba68f4ea776/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=162c8ac0580000",
+      "saved_to": "/home/lcj/paired_patches/2db3c7526ba68f4ea776/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1400bb5f980000",
+      "saved_to": "/home/lcj/paired_patches/2db3c7526ba68f4ea776/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

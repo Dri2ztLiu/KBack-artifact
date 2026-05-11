@@ -1,0 +1,60 @@
+{
+  "extid": "69c9fdccc6dd08961d34",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=69c9fdccc6dd08961d34",
+  "bug_title": "KASAN: slab-out-of-bounds Write in udf_find_entry",
+  "bug_status": "fixed on 2023/06/12 19:24",
+  "fix_commits": [
+    {
+      "title": "udf: Fix a slab-out-of-bounds write bug in udf_find_entry()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c8af247de385ce49afabc3bf1cf4fd455c94bfe8",
+      "hash": "c8af247de385ce49afabc3bf1cf4fd455c94bfe8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zhangpeng362@huawei.com",
+      "author-name": "ZhangPeng",
+      "date": "2022-11-09T01:35:42Z"
+    },
+    {
+      "title": "udf: Implement searching for directory entry using new iteration code",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1c80afa04db39c98aebea9aabfafa37a208cdfee",
+      "hash": "1c80afa04db39c98aebea9aabfafa37a208cdfee",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2022-10-05T16:28:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Write in udf_find_entry",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "59f2f4b8a757412fce372f6d0767bdb55da127a8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/881db35d2af46d7f86c1cbd245f683d47bcdcacf",
+  "syzkaller-commit": "881db35d2af46d7f86c1cbd245f683d47bcdcacf",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14e8fb51880000",
+      "saved_to": "/home/lcj/paired_patches/69c9fdccc6dd08961d34/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4de0a9dc20cf6c0",
+      "saved_to": "/home/lcj/paired_patches/69c9fdccc6dd08961d34/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11d99f41880000",
+      "saved_to": "/home/lcj/paired_patches/69c9fdccc6dd08961d34/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1579d705880000",
+      "saved_to": "/home/lcj/paired_patches/69c9fdccc6dd08961d34/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

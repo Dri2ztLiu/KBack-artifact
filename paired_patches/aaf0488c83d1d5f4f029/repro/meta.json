@@ -1,0 +1,50 @@
+{
+  "extid": "aaf0488c83d1d5f4f029",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=aaf0488c83d1d5f4f029",
+  "bug_title": "INFO: trying to register non-static key in cfg80211_dev_free",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "wifi: cfg80211: init wiphy_work before allocating rfkill fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fc88dee89d7b63eeb17699393eb659aadf9d9b7c",
+      "hash": "fc88dee89d7b63eeb17699393eb659aadf9d9b7c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2025-03-18T03:13:45Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in cfg80211_dev_free",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4003c9e78778e93188a09d6043a74f7154449d43",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e28266709dd2a1d1452d4a5bbf271700e10335c6",
+  "syzkaller-commit": "e28266709dd2a1d1452d4a5bbf271700e10335c6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1585eff8580000",
+      "saved_to": "/home/lcj/paired_patches/aaf0488c83d1d5f4f029/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=317038cbd53153e8",
+      "saved_to": "/home/lcj/paired_patches/aaf0488c83d1d5f4f029/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16d2b03f980000",
+      "saved_to": "/home/lcj/paired_patches/aaf0488c83d1d5f4f029/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12c5ddb0580000",
+      "saved_to": "/home/lcj/paired_patches/aaf0488c83d1d5f4f029/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

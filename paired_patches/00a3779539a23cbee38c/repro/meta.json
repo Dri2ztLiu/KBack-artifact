@@ -1,0 +1,50 @@
+{
+  "extid": "00a3779539a23cbee38c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=00a3779539a23cbee38c",
+  "bug_title": "KMSAN: uninit-value in reiserfs_security_init",
+  "bug_status": "fixed on 2023/09/28 17:51",
+  "fix_commits": [
+    {
+      "title": "reiserfs: Initialize sec->length in reiserfs_security_init().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d031f4e8b493df299123fbb4ec13db870584ed28",
+      "hash": "d031f4e8b493df299123fbb4ec13db870584ed28",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2023-05-11T14:48:45Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in reiserfs_security_init",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "257152fe29be882ed42f1996153aebc750e44cca",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/668cb1fa42960ece96b7da8d9204e486ba6dcdf6",
+  "syzkaller-commit": "668cb1fa42960ece96b7da8d9204e486ba6dcdf6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e5adb0a80000",
+      "saved_to": "/home/lcj/paired_patches/00a3779539a23cbee38c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7d92b943fc06da81",
+      "saved_to": "/home/lcj/paired_patches/00a3779539a23cbee38c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/00a3779539a23cbee38c/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/00a3779539a23cbee38c/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

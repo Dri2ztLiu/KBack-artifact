@@ -1,0 +1,50 @@
+{
+  "extid": "2b3e5fb6c7ef285a94f6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2b3e5fb6c7ef285a94f6",
+  "bug_title": "UBSAN: array-index-out-of-bounds in taprio_change",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "fix array-index-out-of-bounds in taprio_change",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=efe487fce3061d94222c6501d7be3aa549b3dc78",
+      "hash": "efe487fce3061d94222c6501d7be3aa549b3dc78",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tcs_kernel@tencent.com",
+      "author-name": "Haimin Zhang",
+      "date": "2021-08-30T03:47:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in taprio_change",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "36a21d51725af2ce0700c6ebcb6b9594aac658a6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6972b10616d785401dea17cec890cca8916424a7",
+  "syzkaller-commit": "6972b10616d785401dea17cec890cca8916424a7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1621779e300000",
+      "saved_to": "/home/lcj/paired_patches/2b3e5fb6c7ef285a94f6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=730106bfb5bf8ace",
+      "saved_to": "/home/lcj/paired_patches/2b3e5fb6c7ef285a94f6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2b3e5fb6c7ef285a94f6/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2b3e5fb6c7ef285a94f6/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

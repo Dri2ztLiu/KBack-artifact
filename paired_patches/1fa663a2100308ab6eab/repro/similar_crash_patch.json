@@ -1,0 +1,70 @@
+{
+  "extid": "1fa663a2100308ab6eab",
+  "target_ref": "1fa663a2100308ab6eab",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6282921b6825fef6a1243e1c80063421d41e2576",
+      "branch": "linux-6.6",
+      "title": "possible deadlock in kvfree_call_rcu",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "deadlock",
+        "rcu"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "563edd786f0a115e983594efe6b0ae26fb7678fa",
+      "branch": "linux-6.1",
+      "title": "possible deadlock in kvfree_call_rcu",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "deadlock",
+        "rcu"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "c61bd26ae81a896c8660150b4e356153da30880a",
+      "branch": "linux-5.15",
+      "title": "possible deadlock in kvfree_call_rcu",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "deadlock",
+        "rcu"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

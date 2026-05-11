@@ -1,0 +1,60 @@
+{
+  "extid": "2f649ec6d2eea1495a8f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2f649ec6d2eea1495a8f",
+  "bug_title": "KASAN: vmalloc-out-of-bounds Read in bpf_jit_free",
+  "bug_status": "fixed on 2023/02/24 14:17",
+  "fix_commits": [
+    {
+      "title": "bpf, x86: fix freeing of not-finalized bpf_prog_pack",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1d5f82d9dd477d5c66e0214a68c3e4f308eadd6d",
+      "hash": "1d5f82d9dd477d5c66e0214a68c3e4f308eadd6d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "song@kernel.org",
+      "author-name": "Song Liu",
+      "date": "2022-07-06T00:26:12Z"
+    },
+    {
+      "title": "bpf: bpf_prog_pack: Set proper size before freeing ro_header",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d24d2a2b0a81dd5e9bb99aeb4559ec9734e1416f",
+      "hash": "d24d2a2b0a81dd5e9bb99aeb4559ec9734e1416f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "song@kernel.org",
+      "author-name": "Song Liu",
+      "date": "2022-02-17T18:30:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: vmalloc-out-of-bounds Read in bpf_jit_free",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "3d5a2a396f19874b02196268a567a529ad5c7448",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1434eec0b84075b7246560cfa89f20cdb3d8077f",
+  "syzkaller-commit": "1434eec0b84075b7246560cfa89f20cdb3d8077f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=114b03f4080000",
+      "saved_to": "/home/lcj/paired_patches/2f649ec6d2eea1495a8f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=833001d0819ddbc9",
+      "saved_to": "/home/lcj/paired_patches/2f649ec6d2eea1495a8f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16d200ec080000",
+      "saved_to": "/home/lcj/paired_patches/2f649ec6d2eea1495a8f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12112810080000",
+      "saved_to": "/home/lcj/paired_patches/2f649ec6d2eea1495a8f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

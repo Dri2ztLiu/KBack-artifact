@@ -1,0 +1,50 @@
+{
+  "extid": "ebea2790904673d7c618",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ebea2790904673d7c618",
+  "bug_title": "kernel BUG in f2fs_evict_inode (3)",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "f2fs: get rid of online repaire on corrupted directory",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=884ee6dc85b959bc152f15bca80c30f06069e6c4",
+      "hash": "884ee6dc85b959bc152f15bca80c30f06069e6c4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2024-09-06T06:27:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in f2fs_evict_inode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "872cf28b8df9c5c3a1e71a88ee750df7c2513971",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ca02180f7c9d6b3a7de8a887f3998725ae2f0c51",
+  "syzkaller-commit": "ca02180f7c9d6b3a7de8a887f3998725ae2f0c51",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1319bf6b980000",
+      "saved_to": "/home/lcj/paired_patches/ebea2790904673d7c618/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4fc2afd52fd008bb",
+      "saved_to": "/home/lcj/paired_patches/ebea2790904673d7c618/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1034880b980000",
+      "saved_to": "/home/lcj/paired_patches/ebea2790904673d7c618/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1344680b980000",
+      "saved_to": "/home/lcj/paired_patches/ebea2790904673d7c618/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

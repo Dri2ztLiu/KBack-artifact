@@ -1,0 +1,80 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/sched/ematch.c (2)
+TOP_SYMBOLS:
+  tcf_em_validate (2)
+TOP_KEYWORDS:
+  net (2)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=tcf_em_validate)
+  - viewcode(ref=<target_release>, path=net/sched/ematch.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=4, rows_scanned=4, candidates_kept=2, skipped=2
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=2, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-4.19
+fix_commit: 9cd3fd2054c3b3055163accbf2f31a4426f10317
+bug_url: https://syzkaller.appspot.com/bug?extid=0f85f339d85a5e331ec1
+title: general protection fault in em_cmp_match
+relevance_score: 0
+
+ net/sched/ematch.c | 2 ++
+ 1 file changed, 2 insertions(+)
+diff --git a/net/sched/ematch.c b/net/sched/ematch.c
+index 4ce681361851..5c1235e6076a 100644
+--- a/net/sched/ematch.c
++++ b/net/sched/ematch.c
+@@ -255,6 +255,8 @@ static int tcf_em_validate(struct tcf_proto *tp,
+ 			 * the value carried.
+ 			 */
+ 			if (em_hdr->flags & TCF_EM_SIMPLE) {
++				if (em->ops->datalen > 0)
++					goto errout;
+ 				if (data_len < sizeof(u32))
+ 					goto errout;
+ 				em->data = *(u32 *) data;
+================================================================================
+
+branch: linux-4.14
+fix_commit: 9cd3fd2054c3b3055163accbf2f31a4426f10317
+bug_url: https://syzkaller.appspot.com/bug?extid=0d44fe152dedbafa4bc9
+title: general protection fault in em_cmp_match
+relevance_score: 0
+
+ net/sched/ematch.c | 2 ++
+ 1 file changed, 2 insertions(+)
+diff --git a/net/sched/ematch.c b/net/sched/ematch.c
+index 4ce681361851..5c1235e6076a 100644
+--- a/net/sched/ematch.c
++++ b/net/sched/ematch.c
+@@ -255,6 +255,8 @@ static int tcf_em_validate(struct tcf_proto *tp,
+ 			 * the value carried.
+ 			 */
+ 			if (em_hdr->flags & TCF_EM_SIMPLE) {
++				if (em->ops->datalen > 0)
++					goto errout;
+ 				if (data_len < sizeof(u32))
+ 					goto errout;
+ 				em->data = *(u32 *) data;
+================================================================================

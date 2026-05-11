@@ -1,0 +1,50 @@
+{
+  "extid": "09a5d591c1f98cf5efcb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=09a5d591c1f98cf5efcb",
+  "bug_title": "KMSAN: uninit-value in caif_seqpkt_sendmsg",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: fix uninit-value in caif_seqpkt_sendmsg",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=991e634360f2622a683b48dfe44fe6d9cb765a09",
+      "hash": "991e634360f2622a683b48dfe44fe6d9cb765a09",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "william.xuanziyang@huawei.com",
+      "author-name": "Ziyang Xuan",
+      "date": "2021-07-15T12:22:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "8bbbc5cf3dca3e379f65be2f8167774bb4ad8894",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d801cb0223da621d7abb7af8b96a848d8976cc9f",
+  "syzkaller-commit": "d801cb0223da621d7abb7af8b96a848d8976cc9f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=112ecc81e00000",
+      "saved_to": "/home/lcj/paired_patches/09a5d591c1f98cf5efcb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cd0e9a6b0e555cc3",
+      "saved_to": "/home/lcj/paired_patches/09a5d591c1f98cf5efcb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=170e2109e00000",
+      "saved_to": "/home/lcj/paired_patches/09a5d591c1f98cf5efcb/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=150ef74ee00000",
+      "saved_to": "/home/lcj/paired_patches/09a5d591c1f98cf5efcb/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

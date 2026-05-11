@@ -1,0 +1,39 @@
+{
+  "extid": "5b415c07907a2990d1a3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5b415c07907a2990d1a3",
+  "bug_title": "KASAN: slab-out-of-bounds Read in key_task_permission (2)",
+  "bug_status": "auto-obsoleted due to no activity on 2024/05/28 00:19",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in key_task_permission",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ced59052315615ffb3c39eb96e7b33f2cff6f781",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/578f753887693e1375d17cf79dc1c575f6032a5d",
+  "syzkaller-commit": "578f753887693e1375d17cf79dc1c575f6032a5d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=138325d0180000",
+      "saved_to": "/home/lcj/paired_patches/5b415c07907a2990d1a3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=caa42dd2796e3ac1",
+      "saved_to": "/home/lcj/paired_patches/5b415c07907a2990d1a3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5b415c07907a2990d1a3/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5b415c07907a2990d1a3/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

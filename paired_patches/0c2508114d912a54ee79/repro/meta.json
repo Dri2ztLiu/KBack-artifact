@@ -1,0 +1,50 @@
+{
+  "extid": "0c2508114d912a54ee79",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0c2508114d912a54ee79",
+  "bug_title": "KASAN: use-after-free Read in ext4_search_dir (2)",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "ext4: avoid OOB when system.data xattr changes underneath the filesystem",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c6b72f5d82b1017bad80f9ebf502832fc321d796",
+      "hash": "c6b72f5d82b1017bad80f9ebf502832fc321d796",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cascardo@igalia.com",
+      "author-name": "Thadeu Lima de Souza Cascardo",
+      "date": "2024-08-21T15:23:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in ext4_search_dir",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "47ac09b91befbb6a235ab620c32af719f8208399",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e1c76ab230ba9925a55290523b8ec832399f9ba3",
+  "syzkaller-commit": "e1c76ab230ba9925a55290523b8ec832399f9ba3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10290d83980000",
+      "saved_to": "/home/lcj/paired_patches/0c2508114d912a54ee79/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=df2f0ed7e30a639d",
+      "saved_to": "/home/lcj/paired_patches/0c2508114d912a54ee79/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=156ba6fd980000",
+      "saved_to": "/home/lcj/paired_patches/0c2508114d912a54ee79/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1335fe05980000",
+      "saved_to": "/home/lcj/paired_patches/0c2508114d912a54ee79/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

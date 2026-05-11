@@ -1,0 +1,50 @@
+{
+  "extid": "ac2116e48989e84a2893",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ac2116e48989e84a2893",
+  "bug_title": "kernel BUG in clear_inode (2)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "jfs: reject on-disk inodes of an unsupported type",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8c3f9a70d2d4dd6c640afe294b05c6a0a45434d9",
+      "hash": "8c3f9a70d2d4dd6c640afe294b05c6a0a45434d9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2024-11-07T05:42:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in clear_inode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8630c59e99363c4b655788fd01134aef9bcd9264",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4826c28ef2aca1ee7dba7111e48d3b6a9c83d9a8",
+  "syzkaller-commit": "4826c28ef2aca1ee7dba7111e48d3b6a9c83d9a8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=155ff20c580000",
+      "saved_to": "/home/lcj/paired_patches/ac2116e48989e84a2893/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d9ebb51ccc2ec42f",
+      "saved_to": "/home/lcj/paired_patches/ac2116e48989e84a2893/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=175ff20c580000",
+      "saved_to": "/home/lcj/paired_patches/ac2116e48989e84a2893/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=135ff20c580000",
+      "saved_to": "/home/lcj/paired_patches/ac2116e48989e84a2893/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "fadfba6a911f6bf71842",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fadfba6a911f6bf71842",
+  "bug_title": "INFO: trying to register non-static key in skb_dequeue",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: initialize skb_queue_head at l2cap_chan_create()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=be8597239379f0f53c9710dd6ab551bbf535bec6",
+      "hash": "be8597239379f0f53c9710dd6ab551bbf535bec6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2021-03-21T22:52:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in skb_dequeue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "194cf4825638256e9afe1d360831aa5379b3517a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7e2b734bac96c22086fedd1b18135da06d5e4054",
+  "syzkaller-commit": "7e2b734bac96c22086fedd1b18135da06d5e4054",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17a88f65d00000",
+      "saved_to": "/home/lcj/paired_patches/fadfba6a911f6bf71842/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=339c2ecce8fdd1d0",
+      "saved_to": "/home/lcj/paired_patches/fadfba6a911f6bf71842/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12318c61d00000",
+      "saved_to": "/home/lcj/paired_patches/fadfba6a911f6bf71842/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1538b85ad00000",
+      "saved_to": "/home/lcj/paired_patches/fadfba6a911f6bf71842/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "34ad5fab48f7bf510349",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=34ad5fab48f7bf510349",
+  "bug_title": "KMSAN: kernel-infoleak in __skb_datagram_iter (2)",
+  "bug_status": "fixed on 2024/03/25 23:45",
+  "fix_commits": [
+    {
+      "title": "netlink: Fix kernel-infoleak-after-free in __skb_datagram_iter",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=661779e1fcafe1b74b3f3fe8e980c1e207fea1fd",
+      "hash": "661779e1fcafe1b74b3f3fe8e980c1e207fea1fd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ryasuoka@redhat.com",
+      "author-name": "Ryosuke Yasuoka",
+      "date": "2024-02-21T07:40:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: kernel-infoleak in __skb_datagram_iter",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8f6f76a6a29f36d2f3e4510d0bde5046672f6924",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/500bfdc41735bc8d617cbfd4f1ab6b5980c8f1e5",
+  "syzkaller-commit": "500bfdc41735bc8d617cbfd4f1ab6b5980c8f1e5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1515a928e80000",
+      "saved_to": "/home/lcj/paired_patches/34ad5fab48f7bf510349/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d4d232a0728c25c6",
+      "saved_to": "/home/lcj/paired_patches/34ad5fab48f7bf510349/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1346b927680000",
+      "saved_to": "/home/lcj/paired_patches/34ad5fab48f7bf510349/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10b71cb0e80000",
+      "saved_to": "/home/lcj/paired_patches/34ad5fab48f7bf510349/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

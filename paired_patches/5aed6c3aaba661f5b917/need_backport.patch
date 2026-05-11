@@ -1,0 +1,37 @@
+commit c6adf659a8ba85913e16a571d5a9bcd17d3d1234
+Author: Oliver Hartkopp <socketcan@hartkopp.net>
+Date:   Wed Jan 4 21:18:44 2023 +0100
+
+    can: isotp: check CAN address family in isotp_bind()
+    
+    Add missing check to block non-AF_CAN binds.
+    
+    Syzbot created some code which matched the right sockaddr struct size
+    but used AF_XDP (0x2C) instead of AF_CAN (0x1D) in the address family
+    field:
+    
+    bind$xdp(r2, &(0x7f0000000540)={0x2c, 0x0, r4, 0x0, r2}, 0x10)
+                                    ^^^^
+    This has no funtional impact but the userspace should be notified about
+    the wrong address family field content.
+    
+    Link: https://syzkaller.appspot.com/text?tag=CrashLog&x=11ff9d8c480000
+    Reported-by: syzbot+5aed6c3aaba661f5b917@syzkaller.appspotmail.com
+    Signed-off-by: Oliver Hartkopp <socketcan@hartkopp.net>
+    Link: https://lore.kernel.org/all/20230104201844.13168-1-socketcan@hartkopp.net
+    Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+
+diff --git a/net/can/isotp.c b/net/can/isotp.c
+index 608f8c24ae46..a18450ffae01 100644
+--- a/net/can/isotp.c
++++ b/net/can/isotp.c
+@@ -1225,6 +1225,9 @@ static int isotp_bind(struct socket *sock, struct sockaddr *uaddr, int len)
+ 	if (len < ISOTP_MIN_NAMELEN)
+ 		return -EINVAL;
+ 
++	if (addr->can_family != AF_CAN)
++		return -EINVAL;
++
+ 	/* sanitize tx CAN identifier */
+ 	if (tx_id & CAN_EFF_FLAG)
+ 		tx_id &= (CAN_EFF_FLAG | CAN_EFF_MASK);

@@ -1,0 +1,50 @@
+{
+  "extid": "ff796f04613b4c84ad89",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ff796f04613b4c84ad89",
+  "bug_title": "KASAN: use-after-free Read in register_shrinker_prepared (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "NFSD: unregister shrinker when nfsd_init_net() fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bd86c69dae65de30f6d47249418ba7889809e31a",
+      "hash": "bd86c69dae65de30f6d47249418ba7889809e31a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-10-10T05:59:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in register_shrinker_prepared",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a6afa4199d3d038fbfdff5511f7523b0e30cb774",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "syzkaller-commit": "aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14c7391a880000",
+      "saved_to": "/home/lcj/paired_patches/ff796f04613b4c84ad89/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e2021a61197ebe02",
+      "saved_to": "/home/lcj/paired_patches/ff796f04613b4c84ad89/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15a7ea78880000",
+      "saved_to": "/home/lcj/paired_patches/ff796f04613b4c84ad89/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=105ee158880000",
+      "saved_to": "/home/lcj/paired_patches/ff796f04613b4c84ad89/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

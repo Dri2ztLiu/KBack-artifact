@@ -1,0 +1,46 @@
+loop0: detected capacity change from 0 to 8
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 6013 at fs/overlayfs/copy_up.c:276 ovl_copy_up_file+0x640/0x6a0 fs/overlayfs/copy_up.c:276
+Modules linked in:
+CPU: 0 UID: 0 PID: 6013 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT_{RT,(full)} 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 08/18/2025
+RIP: 0010:ovl_copy_up_file+0x640/0x6a0 fs/overlayfs/copy_up.c:276
+Code: e9 2d ff ff ff e8 90 17 96 fe 49 bc 00 00 00 00 00 fc ff df e9 14 ff ff ff e8 7c 17 96 fe 90 0f 0b 90 eb 09 e8 71 17 96 fe 90 <0f> 0b 90 41 bd fb ff ff ff 48 8b 5c 24 10 e9 8d fb ff ff e8 c8 b9
+RSP: 0018:ffffc90003c9f000 EFLAGS: 00010293
+RAX: ffffffff832856cf RBX: ffffc90003c9f080 RCX: ffff888033d59dc0
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: ffffc90003c9f130 R08: 0000000000000000 R09: 0000000000000000
+R10: ffffc90003c9f080 R11: fffff52000793e12 R12: dffffc0000000000
+R13: fc0000000000000a R14: ffff88801def5200 R15: ffff888057ea06e0
+FS:  0000555564874500(0000) GS:ffff8881268bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000200000001000 CR3: 0000000042464000 CR4: 00000000003526f0
+Call Trace:
+ <TASK>
+ ovl_copy_up_tmpfile fs/overlayfs/copy_up.c:885 [inline]
+ ovl_do_copy_up fs/overlayfs/copy_up.c:999 [inline]
+ ovl_copy_up_one fs/overlayfs/copy_up.c:1202 [inline]
+ ovl_copy_up_flags+0x1502/0x2fe0 fs/overlayfs/copy_up.c:1257
+ ovl_open+0x13e/0x2f0 fs/overlayfs/file.c:211
+ do_dentry_open+0x9ae/0x1350 fs/open.c:965
+ vfs_open+0x3b/0x350 fs/open.c:1095
+ do_open fs/namei.c:3887 [inline]
+ path_openat+0x2ef1/0x3840 fs/namei.c:4046
+ do_filp_open+0x1fa/0x410 fs/namei.c:4073
+ do_sys_openat2+0x121/0x1c0 fs/open.c:1435
+ do_sys_open fs/open.c:1450 [inline]
+ __do_sys_openat fs/open.c:1466 [inline]
+ __se_sys_openat fs/open.c:1461 [inline]
+ __x64_sys_openat+0x138/0x170 fs/open.c:1461
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xfa/0x3b0 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f570719eec9
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffec29d4348 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007f57073f5fa0 RCX: 00007f570719eec9
+RDX: 0000000000000042 RSI: 0000200000000040 RDI: ffffffffffffff9c
+RBP: 00007f5707221f91 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f57073f5fa0 R14: 00007f57073f5fa0 R15: 0000000000000004
+ </TASK>

@@ -1,0 +1,60 @@
+{
+  "extid": "8285e973a41b5aa68902",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8285e973a41b5aa68902",
+  "bug_title": "possible deadlock in snd_hrtimer_callback (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "ALSA: pcm: Use deferred fasync helper",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=96b097091c66df4f6fbf5cbff21df6cc02a2f055",
+      "hash": "96b097091c66df4f6fbf5cbff21df6cc02a2f055",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2022-07-28T12:59:44Z"
+    },
+    {
+      "title": "ALSA: timer: Use deferred fasync helper",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=95cc637c1afd83fb7dd3d7c8a53710488f4caf9c",
+      "hash": "95cc637c1afd83fb7dd3d7c8a53710488f4caf9c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2022-07-28T12:59:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in snd_hrtimer_callback",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "515f71412bb73ebd7f41f90e1684fc80b8730789",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/22343af4ef8625de38ebba6b7c1758a27dabde73",
+  "syzkaller-commit": "22343af4ef8625de38ebba6b7c1758a27dabde73",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1695abd6080000",
+      "saved_to": "/home/lcj/paired_patches/8285e973a41b5aa68902/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b9e3292c3faf8030",
+      "saved_to": "/home/lcj/paired_patches/8285e973a41b5aa68902/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11077086080000",
+      "saved_to": "/home/lcj/paired_patches/8285e973a41b5aa68902/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14cf2526080000",
+      "saved_to": "/home/lcj/paired_patches/8285e973a41b5aa68902/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

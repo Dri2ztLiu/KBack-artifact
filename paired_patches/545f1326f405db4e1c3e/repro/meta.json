@@ -1,0 +1,50 @@
+{
+  "extid": "545f1326f405db4e1c3e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=545f1326f405db4e1c3e",
+  "bug_title": "WARNING in kvm_recalculate_apic_map",
+  "bug_status": "fixed on 2024/10/03 15:25",
+  "fix_commits": [
+    {
+      "title": "KVM: x86: Make x2APIC ID 100% readonly",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4b7c3f6d04bd53f2e5b228b6821fb8f5d1ba3071",
+      "hash": "4b7c3f6d04bd53f2e5b228b6821fb8f5d1ba3071",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "seanjc@google.com",
+      "author-name": "Sean Christopherson",
+      "date": "2024-08-02T20:29:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in kvm_recalculate_apic_map",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4853c74bd7ab7fdb83f319bd9ace8a08c031e9b6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7773e940a7feacbe318f849807fe586fee985805",
+  "syzkaller-commit": "7773e940a7feacbe318f849807fe586fee985805",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16b8e4bba80000",
+      "saved_to": "/home/lcj/paired_patches/545f1326f405db4e1c3e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c37cc0e4fcc5f8d",
+      "saved_to": "/home/lcj/paired_patches/545f1326f405db4e1c3e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1616cb17a80000",
+      "saved_to": "/home/lcj/paired_patches/545f1326f405db4e1c3e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11501e37a80000",
+      "saved_to": "/home/lcj/paired_patches/545f1326f405db4e1c3e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "extid": "40642be9b7e0bb28e0df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=40642be9b7e0bb28e0df",
+  "bug_title": "INFO: trying to register non-static key in f2fs_handle_error",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to avoid accessing uninitialized spinlock",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cc249e4cba9a6002c9d9e1438daf8440a160bc9e",
+      "hash": "cc249e4cba9a6002c9d9e1438daf8440a160bc9e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2022-11-06T13:25:44Z"
+    },
+    {
+      "title": "f2fs: initialize locks earlier in f2fs_fill_super()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=92b4cf5b48955a4bdd15fe4e2067db8ebd87f04c",
+      "hash": "92b4cf5b48955a4bdd15fe4e2067db8ebd87f04c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-11-08T22:04:42Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in f2fs_handle_error",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "a5541c0811a014fae81110cef171fd29fb48a0a5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9da18ae8fa827d046ef8da48cc23c97418553c23",
+  "syzkaller-commit": "9da18ae8fa827d046ef8da48cc23c97418553c23",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17f15ea8480000",
+      "saved_to": "/home/lcj/paired_patches/40642be9b7e0bb28e0df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cbd4e584773e9397",
+      "saved_to": "/home/lcj/paired_patches/40642be9b7e0bb28e0df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10f69d7f880000",
+      "saved_to": "/home/lcj/paired_patches/40642be9b7e0bb28e0df/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10174e28480000",
+      "saved_to": "/home/lcj/paired_patches/40642be9b7e0bb28e0df/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

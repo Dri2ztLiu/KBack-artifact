@@ -1,0 +1,50 @@
+{
+  "extid": "b4cd76826045a1eb93c1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b4cd76826045a1eb93c1",
+  "bug_title": "WARNING in tls_strp_msg_load",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "net: tls: explicitly disallow disconnect",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5071a1e606b30c0c11278d3c6620cd6a24724cf6",
+      "hash": "5071a1e606b30c0c11278d3c6620cd6a24724cf6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2025-04-04T18:03:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in tls_strp_msg_load",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "ccc2f5a436fbb0ae1fb598932a9b8e48423c1959",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/831e3629115be4f5e68e6e0df3a5b07eed26daa4",
+  "syzkaller-commit": "831e3629115be4f5e68e6e0df3a5b07eed26daa4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=124d0878580000",
+      "saved_to": "/home/lcj/paired_patches/b4cd76826045a1eb93c1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5b4c41bdaeea1964",
+      "saved_to": "/home/lcj/paired_patches/b4cd76826045a1eb93c1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=131e24b7980000",
+      "saved_to": "/home/lcj/paired_patches/b4cd76826045a1eb93c1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=141203a8580000",
+      "saved_to": "/home/lcj/paired_patches/b4cd76826045a1eb93c1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

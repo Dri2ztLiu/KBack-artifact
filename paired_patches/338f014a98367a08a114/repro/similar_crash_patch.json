@@ -1,0 +1,42 @@
+{
+  "extid": "338f014a98367a08a114",
+  "target_ref": "338f014a98367a08a114",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "3a9d54b1947ecea8eea9a902c0b7eb58a98add8a",
+      "branch": "linux-4.19",
+      "title": "WARNING: ODEBUG bug in cancel_delayed_work",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/bluetooth/l2cap_core.c"
+      ],
+      "symbols": [
+        "l2cap_chan_set_defaults",
+        "set_bit"
+      ],
+      "patterns": [
+        "WARN",
+        "BUG",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

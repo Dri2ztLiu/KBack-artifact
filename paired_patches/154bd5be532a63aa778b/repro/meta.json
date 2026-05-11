@@ -1,0 +1,50 @@
+{
+  "extid": "154bd5be532a63aa778b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=154bd5be532a63aa778b",
+  "bug_title": "WARNING in __nf_unregister_net_hook (4)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "netfilter: nf_tables: skip netdev events generated on netns removal",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=68a3765c659f809dcaac20030853a054646eb739",
+      "hash": "68a3765c659f809dcaac20030853a054646eb739",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2021-10-06T14:20:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __nf_unregister_net_hook",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "02d5e016800d082058b3d3b7c3ede136cdc6ddcb",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/be530f6c7e0a2e1f66d03a5ad71d209302219d37",
+  "syzkaller-commit": "be530f6c7e0a2e1f66d03a5ad71d209302219d37",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1715a6db300000",
+      "saved_to": "/home/lcj/paired_patches/154bd5be532a63aa778b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9290a409049988d4",
+      "saved_to": "/home/lcj/paired_patches/154bd5be532a63aa778b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=144eaf17300000",
+      "saved_to": "/home/lcj/paired_patches/154bd5be532a63aa778b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1400bf0f300000",
+      "saved_to": "/home/lcj/paired_patches/154bd5be532a63aa778b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

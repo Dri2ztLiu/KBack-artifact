@@ -1,0 +1,50 @@
+{
+  "extid": "5ec9bb042ddfe9644773",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5ec9bb042ddfe9644773",
+  "bug_title": "WARNING in __vunmap",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "xfrm: Update ipcomp_scratches with NULL when freed",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8a04d2fc700f717104bfb95b0f6694e448a4537f",
+      "hash": "8a04d2fc700f717104bfb95b0f6694e448a4537f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "khalid.masum.92@gmail.com",
+      "author-name": "Khalid Masum",
+      "date": "2022-09-01T07:12:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __vunmap",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d5ad8ec3cfb56a017de6a784835666475b4be349",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6c236867ce33c0c16b102e02a08226d7eb9b2046",
+  "syzkaller-commit": "6c236867ce33c0c16b102e02a08226d7eb9b2046",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17fe8434300000",
+      "saved_to": "/home/lcj/paired_patches/5ec9bb042ddfe9644773/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=343fd21f6f4da2d6",
+      "saved_to": "/home/lcj/paired_patches/5ec9bb042ddfe9644773/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=154e2121300000",
+      "saved_to": "/home/lcj/paired_patches/5ec9bb042ddfe9644773/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11c3f142300000",
+      "saved_to": "/home/lcj/paired_patches/5ec9bb042ddfe9644773/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

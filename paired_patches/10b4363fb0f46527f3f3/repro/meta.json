@@ -1,0 +1,50 @@
+{
+  "extid": "10b4363fb0f46527f3f3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=10b4363fb0f46527f3f3",
+  "bug_title": "possible deadlock in __snd_pcm_lib_xfer (2)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "ALSA: pcm: Disable bottom softirqs as part of spin_lock_irq() on PREEMPT_RT",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9fc4a3da9a0259a0500848b5d8657918efde176b",
+      "hash": "9fc4a3da9a0259a0500848b5d8657918efde176b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "bigeasy@linutronix.de",
+      "author-name": "Sebastian Andrzej Siewior",
+      "date": "2025-09-15T15:28:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in __snd_pcm_lib_xfer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "07d9df80082b8d1f37e05658371b087cb6738770",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3e1beec658de176f019d70b438efd52ea21b2cf4",
+  "syzkaller-commit": "3e1beec658de176f019d70b438efd52ea21b2cf4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13b67262580000",
+      "saved_to": "/home/lcj/paired_patches/10b4363fb0f46527f3f3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e1e1566c7726877e",
+      "saved_to": "/home/lcj/paired_patches/10b4363fb0f46527f3f3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17ed0242580000",
+      "saved_to": "/home/lcj/paired_patches/10b4363fb0f46527f3f3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=160e9262580000",
+      "saved_to": "/home/lcj/paired_patches/10b4363fb0f46527f3f3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

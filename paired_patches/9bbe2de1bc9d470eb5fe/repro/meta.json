@@ -1,0 +1,60 @@
+{
+  "extid": "9bbe2de1bc9d470eb5fe",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9bbe2de1bc9d470eb5fe",
+  "bug_title": "WARNING: suspicious RCU usage in br_mst_set_state (2)",
+  "bug_status": "fixed on 2024/07/09 19:14",
+  "fix_commits": [
+    {
+      "title": "net: bridge: mst: fix suspicious rcu usage in br_mst_set_state",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=546ceb1dfdac866648ec959cbc71d9525bd73462",
+      "hash": "546ceb1dfdac866648ec959cbc71d9525bd73462",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "razor@blackwall.org",
+      "author-name": "Nikolay Aleksandrov",
+      "date": "2024-06-09T10:36:54Z"
+    },
+    {
+      "title": "net: bridge: mst: pass vlan group directly to br_mst_vlan_set_state",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=36c92936e868601fa1f43da6758cf55805043509",
+      "hash": "36c92936e868601fa1f43da6758cf55805043509",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "razor@blackwall.org",
+      "author-name": "Nikolay Aleksandrov",
+      "date": "2024-06-09T10:36:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: suspicious RCU usage in br_mst_set_state",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8a92980606e3585d72d510a03b59906e96755b8a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/82c05ab8ae0b7da9a799b45753b4b14f3369d790",
+  "syzkaller-commit": "82c05ab8ae0b7da9a799b45753b4b14f3369d790",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16e1f1ce980000",
+      "saved_to": "/home/lcj/paired_patches/9bbe2de1bc9d470eb5fe/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9a6ac4277fffe3ea",
+      "saved_to": "/home/lcj/paired_patches/9bbe2de1bc9d470eb5fe/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9bbe2de1bc9d470eb5fe/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9bbe2de1bc9d470eb5fe/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

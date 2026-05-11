@@ -1,0 +1,50 @@
+{
+  "extid": "256c348558aa5cf611a9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=256c348558aa5cf611a9",
+  "bug_title": "WARNING in xt_cluster_mt (2)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "netfilter: xtables: avoid NFPROTO_UNSPEC where needed",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0bfcb7b71e735560077a42847f69597ec7dcc326",
+      "hash": "0bfcb7b71e735560077a42847f69597ec7dcc326",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-10-07T09:28:16Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in xt_cluster_mt",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "da3ea35007d0af457a0afc87e84fddaebc4e0b63",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "syzkaller-commit": "9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1167849f980000",
+      "saved_to": "/home/lcj/paired_patches/256c348558aa5cf611a9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=61d235cb8d15001c",
+      "saved_to": "/home/lcj/paired_patches/256c348558aa5cf611a9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17b21bc7980000",
+      "saved_to": "/home/lcj/paired_patches/256c348558aa5cf611a9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14462807980000",
+      "saved_to": "/home/lcj/paired_patches/256c348558aa5cf611a9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

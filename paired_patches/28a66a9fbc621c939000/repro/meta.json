@@ -1,0 +1,50 @@
+{
+  "extid": "28a66a9fbc621c939000",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=28a66a9fbc621c939000",
+  "bug_title": "KASAN: use-after-free Read in disk_release_events",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "block: fix error unwinding in device_add_disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=99d8690aae4b2f0d1d90075de355ac087f820a66",
+      "hash": "99d8690aae4b2f0d1d90075de355ac087f820a66",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hch@lst.de",
+      "author-name": "Christoph Hellwig",
+      "date": "2021-12-21T16:18:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in disk_release_events",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c741e49150dbb0c0aebe234389f4aa8b47958fa8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4d4ce9bc2a12073dcc8b917f9fc2a4ecba26c4c5",
+  "syzkaller-commit": "4d4ce9bc2a12073dcc8b917f9fc2a4ecba26c4c5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12f0a3e5b00000",
+      "saved_to": "/home/lcj/paired_patches/28a66a9fbc621c939000/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=221ffc09e39ebbd1",
+      "saved_to": "/home/lcj/paired_patches/28a66a9fbc621c939000/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/28a66a9fbc621c939000/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=158aa0bab00000",
+      "saved_to": "/home/lcj/paired_patches/28a66a9fbc621c939000/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

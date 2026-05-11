@@ -1,0 +1,37 @@
+{
+  "extid": "339e9dbe3a2ca419b85d",
+  "target_ref": "339e9dbe3a2ca419b85d",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "50cbba13faa294918f0e1a9cb2b0aba19f4e6fba",
+      "branch": "linux-6.1",
+      "title": "BUG: unable to handle kernel paging request in find_first_extent_item",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

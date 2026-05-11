@@ -1,0 +1,50 @@
+{
+  "extid": "3c5d43e97993e1fa612b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3c5d43e97993e1fa612b",
+  "bug_title": "WARNING in p9_client_create (2)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "9p: Avoid creating multiple slab caches with the same name",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79efebae4afc2221fa814c3cae001bede66ab259",
+      "hash": "79efebae4afc2221fa814c3cae001bede66ab259",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pedro.falcato@gmail.com",
+      "author-name": "Pedro Falcato",
+      "date": "2024-08-07T09:47:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in p9_client_create",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c964ced7726294d40913f2127c3f185a92cb4a41",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/666f77ed02b98b834393ff84c646a8d611605f6f",
+  "syzkaller-commit": "666f77ed02b98b834393ff84c646a8d611605f6f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=102b745f980000",
+      "saved_to": "/home/lcj/paired_patches/3c5d43e97993e1fa612b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4c9b3fd66df7ebb7",
+      "saved_to": "/home/lcj/paired_patches/3c5d43e97993e1fa612b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17aa0240580000",
+      "saved_to": "/home/lcj/paired_patches/3c5d43e97993e1fa612b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12502f27980000",
+      "saved_to": "/home/lcj/paired_patches/3c5d43e97993e1fa612b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

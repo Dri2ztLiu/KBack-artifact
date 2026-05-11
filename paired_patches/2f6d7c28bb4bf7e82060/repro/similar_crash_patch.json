@@ -1,0 +1,78 @@
+{
+  "extid": "2f6d7c28bb4bf7e82060",
+  "target_ref": "2f6d7c28bb4bf7e82060",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "ba316be1b6a00db7126ed9a39f9bee434a508043",
+      "branch": "linux-4.19",
+      "title": "inconsistent lock state in sco_sock_timeout",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/bluetooth/sco.c"
+      ],
+      "symbols": [
+        "sco_conn",
+        "sco_pinfo",
+        "sco_sock_timeout",
+        "sco_conn_del",
+        "__sco_chan_add",
+        "sco_sock_alloc",
+        "sco_conn_lock",
+        "if",
+        "sock_hold",
+        "sco_conn_unlock",
+        "if",
+        "if",
+        "BT_DBG",
+        "sk_reset_timer",
+        "cancel_delayed_work",
+        "schedule_delayed_work",
+        "if",
+        "BT_DBG",
+        "sk_stop_timer",
+        "cancel_delayed_work",
+        "cancel_delayed_work_sync",
+        "INIT_DELAYED_WORK",
+        "if",
+        "timer_setup",
+        "bt_sock_link"
+      ],
+      "patterns": [
+        "NULL",
+        "null",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "2b79150141611d3c6e1b55d4e70f49602482f0b8",
+      "branch": "linux-4.14",
+      "title": "inconsistent lock state in sco_sock_timeout",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

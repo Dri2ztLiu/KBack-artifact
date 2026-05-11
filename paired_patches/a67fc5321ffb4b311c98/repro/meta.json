@@ -1,0 +1,50 @@
+{
+  "extid": "a67fc5321ffb4b311c98",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a67fc5321ffb4b311c98",
+  "bug_title": "general protection fault in d_path",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "fs: Pass AT_GETATTR_NOSEC flag to getattr interface function",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8a924db2d7b5eb69ba08b1a0af46e9f1359a9bdf",
+      "hash": "8a924db2d7b5eb69ba08b1a0af46e9f1359a9bdf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "stefanb@linux.ibm.com",
+      "author-name": "Stefan Berger",
+      "date": "2023-10-02T12:57:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in d_path",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a747acc0b752f6c3911be539a2d3ca42b4424844",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/59da83662ae7076f1369c8a5b9dd1245223039df",
+  "syzkaller-commit": "59da83662ae7076f1369c8a5b9dd1245223039df",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=135a4a30680000",
+      "saved_to": "/home/lcj/paired_patches/a67fc5321ffb4b311c98/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=df91a3034fe3f122",
+      "saved_to": "/home/lcj/paired_patches/a67fc5321ffb4b311c98/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14ec94d8680000",
+      "saved_to": "/home/lcj/paired_patches/a67fc5321ffb4b311c98/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1671b694680000",
+      "saved_to": "/home/lcj/paired_patches/a67fc5321ffb4b311c98/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

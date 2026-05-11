@@ -1,0 +1,50 @@
+{
+  "extid": "3abd99031b42acf367ef",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3abd99031b42acf367ef",
+  "bug_title": "WARNING in ovl_copy_up_file",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "ovl: relax WARN_ON in ovl_verify_area()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=77a28aa476873048024ad56daf8f4f17d58ee48e",
+      "hash": "77a28aa476873048024ad56daf8f4f17d58ee48e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "amir73il@gmail.com",
+      "author-name": "Amir Goldstein",
+      "date": "2024-03-17T11:59:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ovl_copy_up_file",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "707081b61156a186b32dc5346cdcf91b08ae73a9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c35c26ec6312219507c518bae2e56c1ea46a5f36",
+  "syzkaller-commit": "c35c26ec6312219507c518bae2e56c1ea46a5f36",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16fc851e180000",
+      "saved_to": "/home/lcj/paired_patches/3abd99031b42acf367ef/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=caeac3f3565b057a",
+      "saved_to": "/home/lcj/paired_patches/3abd99031b42acf367ef/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1626870a180000",
+      "saved_to": "/home/lcj/paired_patches/3abd99031b42acf367ef/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1115ada6180000",
+      "saved_to": "/home/lcj/paired_patches/3abd99031b42acf367ef/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

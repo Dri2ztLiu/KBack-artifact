@@ -1,0 +1,50 @@
+{
+  "extid": "278279efdd2730dd14bf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=278279efdd2730dd14bf",
+  "bug_title": "general protection fault in skb_unlink",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "kcm: close race conditions on sk_receive_queue",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5121197ecc5db58c07da95eb1ff82b98b121a221",
+      "hash": "5121197ecc5db58c07da95eb1ff82b98b121a221",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2022-11-14T00:51:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6b8a794678763130b7e7d049985008641dc494e8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/598ca6c8b8766304c3b2865e38f5f301c39bd299",
+  "syzkaller-commit": "598ca6c8b8766304c3b2865e38f5f301c39bd299",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16f7fdcee00000",
+      "saved_to": "/home/lcj/paired_patches/278279efdd2730dd14bf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4737c15fc47048f2",
+      "saved_to": "/home/lcj/paired_patches/278279efdd2730dd14bf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=116dcc0ee00000",
+      "saved_to": "/home/lcj/paired_patches/278279efdd2730dd14bf/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=116dbef2e00000",
+      "saved_to": "/home/lcj/paired_patches/278279efdd2730dd14bf/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

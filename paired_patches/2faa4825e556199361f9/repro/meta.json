@@ -1,0 +1,50 @@
+{
+  "extid": "2faa4825e556199361f9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2faa4825e556199361f9",
+  "bug_title": "KASAN: slab-use-after-free Read in skb_queue_purge_reason (3)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_core: Fix use-after-free in vhci_flush()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1d6123102e9fbedc8d25bf4731da6d513173e49e",
+      "hash": "1d6123102e9fbedc8d25bf4731da6d513173e49e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-06-17T16:58:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in skb_queue_purge_reason",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "739a6c93cc755c0daf3a7e57e018a8c61047cd90",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d6cdfb8a765c64793bc63cf630e68fbdd0ee0974",
+  "syzkaller-commit": "d6cdfb8a765c64793bc63cf630e68fbdd0ee0974",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1034a182580000",
+      "saved_to": "/home/lcj/paired_patches/2faa4825e556199361f9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5f3f62311f35cdd9",
+      "saved_to": "/home/lcj/paired_patches/2faa4825e556199361f9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2faa4825e556199361f9/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2faa4825e556199361f9/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

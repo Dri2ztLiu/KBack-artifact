@@ -1,0 +1,50 @@
+{
+  "extid": "9af29acd8f27fbce94bc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9af29acd8f27fbce94bc",
+  "bug_title": "general protection fault in run_is_mapped_full",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix general protection fault in run_is_mapped_full",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a33fb016e49e37aafab18dc3c8314d6399cb4727",
+      "hash": "a33fb016e49e37aafab18dc3c8314d6399cb4727",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-08-30T10:50:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in run_is_mapped_full",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "41c196e567fb1ea97f68a2ffb7faab451cd90854",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b88348e926b1f214763f45a5457bd91aafd36fab",
+  "syzkaller-commit": "b88348e926b1f214763f45a5457bd91aafd36fab",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14792349980000",
+      "saved_to": "/home/lcj/paired_patches/9af29acd8f27fbce94bc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=197929814410fdf3",
+      "saved_to": "/home/lcj/paired_patches/9af29acd8f27fbce94bc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=142cb60d980000",
+      "saved_to": "/home/lcj/paired_patches/9af29acd8f27fbce94bc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=164c8ab5980000",
+      "saved_to": "/home/lcj/paired_patches/9af29acd8f27fbce94bc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

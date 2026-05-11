@@ -1,0 +1,50 @@
+{
+  "extid": "2393580080a2da190f04",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2393580080a2da190f04",
+  "bug_title": "kernel BUG at net/core/dev.c:NUM!",
+  "bug_status": "fixed on 2021/03/10 01:49",
+  "fix_commits": [
+    {
+      "title": "net: sit: unregister_netdevice on newlink's error path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=47e4bb147a96f1c9b4e7691e7e994e53838bfff8",
+      "hash": "47e4bb147a96f1c9b4e7691e7e994e53838bfff8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2021-01-14T18:26:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "c49243e8898233de18edfaaa5b7b261ea457f221",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a6c52263888c2ac5e9c267ec8f1d77664649536e",
+  "syzkaller-commit": "a6c52263888c2ac5e9c267ec8f1d77664649536e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10e44a48d00000",
+      "saved_to": "/home/lcj/paired_patches/2393580080a2da190f04/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=bacfc914704718d3",
+      "saved_to": "/home/lcj/paired_patches/2393580080a2da190f04/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=160cc357500000",
+      "saved_to": "/home/lcj/paired_patches/2393580080a2da190f04/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13704c3f500000",
+      "saved_to": "/home/lcj/paired_patches/2393580080a2da190f04/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

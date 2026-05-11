@@ -1,0 +1,50 @@
+{
+  "extid": "4caeae4c7103813598ae",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4caeae4c7103813598ae",
+  "bug_title": "general protection fault in em_cmp_match",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net_sched: reject TCF_EM_SIMPLE case for complex ematch module",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9cd3fd2054c3b3055163accbf2f31a4426f10317",
+      "hash": "9cd3fd2054c3b3055163accbf2f31a4426f10317",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2022-12-17T22:17:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in em_cmp_match",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "296a7b7eb79246912de31ee799cb85220931231a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67be1ae742603edad9c97d30b6ed69f9bbe2ffa8",
+  "syzkaller-commit": "67be1ae742603edad9c97d30b6ed69f9bbe2ffa8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14bc84af880000",
+      "saved_to": "/home/lcj/paired_patches/4caeae4c7103813598ae/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4edf421741552bc3",
+      "saved_to": "/home/lcj/paired_patches/4caeae4c7103813598ae/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16096513880000",
+      "saved_to": "/home/lcj/paired_patches/4caeae4c7103813598ae/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=128f80ed880000",
+      "saved_to": "/home/lcj/paired_patches/4caeae4c7103813598ae/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

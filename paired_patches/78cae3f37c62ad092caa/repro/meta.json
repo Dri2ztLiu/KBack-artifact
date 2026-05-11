@@ -1,0 +1,50 @@
+{
+  "extid": "78cae3f37c62ad092caa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=78cae3f37c62ad092caa",
+  "bug_title": "WARNING in rtl8150_start_xmit/usb_submit_urb",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "net: usb: Remove disruptive netif_wake_queue in rtl8150_set_multicast",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=958baf5eaee394e5fd976979b0791a875f14a179",
+      "hash": "958baf5eaee394e5fd976979b0791a875f14a179",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "viswanathiyyappan@gmail.com",
+      "author-name": "I Viswanath",
+      "date": "2025-09-24T13:43:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in rtl8150_start_xmit/usb_submit_urb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "7fa4d8dc380fbd81a9d702a855c50690c9c6442c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/443c11c765c0bf86d91595bf5edd50af4476fdc6",
+  "syzkaller-commit": "443c11c765c0bf86d91595bf5edd50af4476fdc6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13053c62580000",
+      "saved_to": "/home/lcj/paired_patches/78cae3f37c62ad092caa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ae76068823a236b3",
+      "saved_to": "/home/lcj/paired_patches/78cae3f37c62ad092caa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16891634580000",
+      "saved_to": "/home/lcj/paired_patches/78cae3f37c62ad092caa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14538262580000",
+      "saved_to": "/home/lcj/paired_patches/78cae3f37c62ad092caa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

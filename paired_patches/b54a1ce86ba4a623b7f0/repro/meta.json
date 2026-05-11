@@ -1,0 +1,50 @@
+{
+  "extid": "b54a1ce86ba4a623b7f0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b54a1ce86ba4a623b7f0",
+  "bug_title": "WARNING: refcount bug in sk_psock_get",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "smc: disallow TCP_ULP in smc_setsockopt()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8621436671f3a4bba5db57482e1ee604708bf1eb",
+      "hash": "8621436671f3a4bba5db57482e1ee604708bf1eb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2021-05-05T19:40:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: refcount bug in sk_psock_get",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "9c54130cd25528028b2d38f6ada0c79e92210390",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "syzkaller-commit": "6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=158e2726d00000",
+      "saved_to": "/home/lcj/paired_patches/b54a1ce86ba4a623b7f0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d125958c3995ddcd",
+      "saved_to": "/home/lcj/paired_patches/b54a1ce86ba4a623b7f0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1190f46ad00000",
+      "saved_to": "/home/lcj/paired_patches/b54a1ce86ba4a623b7f0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1729797ed00000",
+      "saved_to": "/home/lcj/paired_patches/b54a1ce86ba4a623b7f0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

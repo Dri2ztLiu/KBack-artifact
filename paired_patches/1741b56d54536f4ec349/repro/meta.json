@@ -1,0 +1,50 @@
+{
+  "extid": "1741b56d54536f4ec349",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1741b56d54536f4ec349",
+  "bug_title": "general protection fault in atmtcp_c_send",
+  "bug_status": "fixed on 2025/10/09 01:15",
+  "fix_commits": [
+    {
+      "title": "atm: atmtcp: Prevent arbitrary write in atmtcp_recv_control().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec79003c5f9d2c7f9576fc69b8dbda80305cbe3a",
+      "hash": "ec79003c5f9d2c7f9576fc69b8dbda80305cbe3a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-08-21T02:18:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in atmtcp_c_send",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "bab3ce404553de56242d7b09ad7ea5b70441ea41",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1804e95e3ff848c11e87e8efe7560f03c011c081",
+  "syzkaller-commit": "1804e95e3ff848c11e87e8efe7560f03c011c081",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11b51234580000",
+      "saved_to": "/home/lcj/paired_patches/1741b56d54536f4ec349/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=412ee2f8b704a5e6",
+      "saved_to": "/home/lcj/paired_patches/1741b56d54536f4ec349/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=100eaba2580000",
+      "saved_to": "/home/lcj/paired_patches/1741b56d54536f4ec349/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1769faf0580000",
+      "saved_to": "/home/lcj/paired_patches/1741b56d54536f4ec349/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "553d90297e6d2f50dbc7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=553d90297e6d2f50dbc7",
+  "bug_title": "UBSAN: array-index-out-of-bounds in diNewExt",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "jfs: fix array-index-out-of-bounds in diNewExt",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=49f9637aafa6e63ba686c13cb8549bf5e6920402",
+      "hash": "49f9637aafa6e63ba686c13cb8549bf5e6920402",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2023-12-12T01:36:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in diNewExt",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "bee0e7762ad2c6025b9f5245c040fcc36ef2bde8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/858d62d1cd710b35bbcee9c9a9c1b1dda4bdaa53",
+  "syzkaller-commit": "858d62d1cd710b35bbcee9c9a9c1b1dda4bdaa53",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11e47db4e80000",
+      "saved_to": "/home/lcj/paired_patches/553d90297e6d2f50dbc7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b45dfd882e46ec91",
+      "saved_to": "/home/lcj/paired_patches/553d90297e6d2f50dbc7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=110a49b4e80000",
+      "saved_to": "/home/lcj/paired_patches/553d90297e6d2f50dbc7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=122acc3ce80000",
+      "saved_to": "/home/lcj/paired_patches/553d90297e6d2f50dbc7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

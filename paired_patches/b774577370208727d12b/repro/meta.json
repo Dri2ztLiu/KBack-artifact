@@ -1,0 +1,50 @@
+{
+  "extid": "b774577370208727d12b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b774577370208727d12b",
+  "bug_title": "KASAN: use-after-free Write in sctp_auth_shkey_hold",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "sctp: update active_key for asoc when old key is being replaced",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=58acd10092268831e49de279446c314727101292",
+      "hash": "58acd10092268831e49de279446c314727101292",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lucien.xin@gmail.com",
+      "author-name": "Xin Long",
+      "date": "2021-07-20T20:07:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Write in sctp_auth_shkey_hold",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "6f20c8adb1813467ea52c1296d52c4e95978cb2f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bc48c9ab65ed47d707bedef64ca52e1a5c383250",
+  "syzkaller-commit": "bc48c9ab65ed47d707bedef64ca52e1a5c383250",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=167f1754300000",
+      "saved_to": "/home/lcj/paired_patches/b774577370208727d12b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6da37c7627210105",
+      "saved_to": "/home/lcj/paired_patches/b774577370208727d12b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=114bd0ea300000",
+      "saved_to": "/home/lcj/paired_patches/b774577370208727d12b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12d37b4a300000",
+      "saved_to": "/home/lcj/paired_patches/b774577370208727d12b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

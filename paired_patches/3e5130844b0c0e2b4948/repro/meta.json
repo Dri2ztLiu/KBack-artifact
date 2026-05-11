@@ -1,0 +1,50 @@
+{
+  "extid": "3e5130844b0c0e2b4948",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3e5130844b0c0e2b4948",
+  "bug_title": "WARNING: suspicious RCU usage in gfs2_permission",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "gfs2: Silence \"suspicious RCU usage in gfs2_permission\" warning",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=074d7306a4fe22fcac0b53f699f92757ab1cee99",
+      "hash": "074d7306a4fe22fcac0b53f699f92757ab1cee99",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "agruenba@redhat.com",
+      "author-name": "Andreas Gruenbacher",
+      "date": "2023-10-30T21:06:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: suspicious RCU usage in gfs2_permission",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "2ef7141596eed0b4b45ef18b3626f428a6b0a822",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/23afc60f9d53873eed6f06fcb586bfb7bb4726a0",
+  "syzkaller-commit": "23afc60f9d53873eed6f06fcb586bfb7bb4726a0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1703cd43680000",
+      "saved_to": "/home/lcj/paired_patches/3e5130844b0c0e2b4948/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=bfd4d416c04ba963",
+      "saved_to": "/home/lcj/paired_patches/3e5130844b0c0e2b4948/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=115e692d680000",
+      "saved_to": "/home/lcj/paired_patches/3e5130844b0c0e2b4948/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=149bb453680000",
+      "saved_to": "/home/lcj/paired_patches/3e5130844b0c0e2b4948/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

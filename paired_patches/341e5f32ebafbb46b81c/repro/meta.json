@@ -1,0 +1,50 @@
+{
+  "extid": "341e5f32ebafbb46b81c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=341e5f32ebafbb46b81c",
+  "bug_title": "kernel BUG in new_curseg",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to don't panic system for no free segment fault injection",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=65a6ce4726c27b45600303f06496fef46d00b57f",
+      "hash": "65a6ce4726c27b45600303f06496fef46d00b57f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2024-09-10T01:16:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in new_curseg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "89f5e14d05b4852db5ecdf222dc6a13edc633658",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "syzkaller-commit": "9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1588389f980000",
+      "saved_to": "/home/lcj/paired_patches/341e5f32ebafbb46b81c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=58a85aa6925a8b78",
+      "saved_to": "/home/lcj/paired_patches/341e5f32ebafbb46b81c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13854e00580000",
+      "saved_to": "/home/lcj/paired_patches/341e5f32ebafbb46b81c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1614c807980000",
+      "saved_to": "/home/lcj/paired_patches/341e5f32ebafbb46b81c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

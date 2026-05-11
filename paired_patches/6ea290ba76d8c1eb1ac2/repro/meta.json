@@ -1,0 +1,50 @@
+{
+  "extid": "6ea290ba76d8c1eb1ac2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6ea290ba76d8c1eb1ac2",
+  "bug_title": "KMSAN: uninit-value in hci_rx_work",
+  "bug_status": "fixed on 2024/12/16 09:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_core: Fix not checking skb length on hci_acldata_packet",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3fe288a8214e7dd784d1f9b7c9e448244d316b47",
+      "hash": "3fe288a8214e7dd784d1f9b7c9e448244d316b47",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2024-10-08T14:16:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in hci_rx_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8cf0b93919e13d1e8d4466eb4080a4c4d9d66d7b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d7906effc263366a8b067258cec67072b29aa5e0",
+  "syzkaller-commit": "d7906effc263366a8b067258cec67072b29aa5e0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1010db80580000",
+      "saved_to": "/home/lcj/paired_patches/6ea290ba76d8c1eb1ac2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=981fe2ff8a1e457a",
+      "saved_to": "/home/lcj/paired_patches/6ea290ba76d8c1eb1ac2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17b74327980000",
+      "saved_to": "/home/lcj/paired_patches/6ea290ba76d8c1eb1ac2/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=114bc707980000",
+      "saved_to": "/home/lcj/paired_patches/6ea290ba76d8c1eb1ac2/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

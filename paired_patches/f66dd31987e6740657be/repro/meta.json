@@ -1,0 +1,50 @@
+{
+  "extid": "f66dd31987e6740657be",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f66dd31987e6740657be",
+  "bug_title": "memory leak in dvb_usb_device_init",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "media: dvb-usb: fix memory leak in dvb_usb_adapter_init()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=94d90fb06b94a90c176270d38861bcba34ce377d",
+      "hash": "94d90fb06b94a90c176270d38861bcba34ce377d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mazinalhaddad05@gmail.com",
+      "author-name": "Mazin Al Haddad",
+      "date": "2022-08-24T01:21:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in dvb_usb_device_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3d7285a335edaf23b699e87c528cf0b0070e3293",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bd37ad7ed09f3176a3793d63ec111a2b35ea9fc2",
+  "syzkaller-commit": "bd37ad7ed09f3176a3793d63ec111a2b35ea9fc2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13c29591f00000",
+      "saved_to": "/home/lcj/paired_patches/f66dd31987e6740657be/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=50f4d49cdcacc43c",
+      "saved_to": "/home/lcj/paired_patches/f66dd31987e6740657be/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f66dd31987e6740657be/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=131c8871f00000",
+      "saved_to": "/home/lcj/paired_patches/f66dd31987e6740657be/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

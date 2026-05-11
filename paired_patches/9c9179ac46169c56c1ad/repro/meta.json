@@ -1,0 +1,50 @@
+{
+  "extid": "9c9179ac46169c56c1ad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9c9179ac46169c56c1ad",
+  "bug_title": "KASAN: stack-out-of-bounds Read in usb_check_int_endpoints",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "HID: hid-thrustmaster: fix stack-out-of-bounds read in usb_check_int_endpoints()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0b43d98ff29be3144e86294486b1373b5df74c0e",
+      "hash": "0b43d98ff29be3144e86294486b1373b5df74c0e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tuliomf09@gmail.com",
+      "author-name": "Tulio Fernandes",
+      "date": "2025-02-05T21:50:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: stack-out-of-bounds Read in usb_check_int_endpoints",
+  "kernel-source-git": "https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git",
+  "kernel-source-commit": "6d61a53dd6f55405ebcaea6ee38d1ab5a8856c2c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/180708967e9f2cb26bc15973d46e3cd9cf3d2d80",
+  "syzkaller-commit": "180708967e9f2cb26bc15973d46e3cd9cf3d2d80",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14cd8364580000",
+      "saved_to": "/home/lcj/paired_patches/9c9179ac46169c56c1ad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a4ddc212efe12f88",
+      "saved_to": "/home/lcj/paired_patches/9c9179ac46169c56c1ad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=143c85f8580000",
+      "saved_to": "/home/lcj/paired_patches/9c9179ac46169c56c1ad/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1514cddf980000",
+      "saved_to": "/home/lcj/paired_patches/9c9179ac46169c56c1ad/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

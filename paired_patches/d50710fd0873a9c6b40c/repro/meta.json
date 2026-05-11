@@ -1,0 +1,50 @@
+{
+  "extid": "d50710fd0873a9c6b40c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d50710fd0873a9c6b40c",
+  "bug_title": "WARNING in taprio_change",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: sched: tapr: prevent cycle_time == 0 in parse_taprio_schedule",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ed8157f1ebf1ae81a8fa2653e3f20d2076fad1c9",
+      "hash": "ed8157f1ebf1ae81a8fa2653e3f20d2076fad1c9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ducheng2@gmail.com",
+      "author-name": "Du Cheng",
+      "date": "2021-04-16T23:30:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in taprio_change",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d2b6f8a179194de0ffc4886ffc2c4358d86047b8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/77e2b66864e69c17416614228723a1ebd3581ddc",
+  "syzkaller-commit": "77e2b66864e69c17416614228723a1ebd3581ddc",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=155f3469d00000",
+      "saved_to": "/home/lcj/paired_patches/d50710fd0873a9c6b40c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d360b81e47df40ea",
+      "saved_to": "/home/lcj/paired_patches/d50710fd0873a9c6b40c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1582b9d5d00000",
+      "saved_to": "/home/lcj/paired_patches/d50710fd0873a9c6b40c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16cd3de1d00000",
+      "saved_to": "/home/lcj/paired_patches/d50710fd0873a9c6b40c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

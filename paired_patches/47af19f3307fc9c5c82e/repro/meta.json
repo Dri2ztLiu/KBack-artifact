@@ -1,0 +1,50 @@
+{
+  "extid": "47af19f3307fc9c5c82e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=47af19f3307fc9c5c82e",
+  "bug_title": "KASAN: use-after-free Read in tipc_named_reinit (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "tipc: fix use-after-free Read in tipc_named_reinit",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=911600bf5a5e84bfda4d33ee32acc75ecf6159f0",
+      "hash": "911600bf5a5e84bfda4d33ee32acc75ecf6159f0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hoang.h.le@dektech.com.au",
+      "author-name": "Hoang Le",
+      "date": "2022-06-17T01:45:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in tipc_named_reinit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "17d49e6e8012a9e30f8aab7af82f6a14ca25afaf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/44a5ca633e186c5836010366c515a4017836121b",
+  "syzkaller-commit": "44a5ca633e186c5836010366c515a4017836121b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=105b6f78f00000",
+      "saved_to": "/home/lcj/paired_patches/47af19f3307fc9c5c82e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4f67580b287bc88d",
+      "saved_to": "/home/lcj/paired_patches/47af19f3307fc9c5c82e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/47af19f3307fc9c5c82e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/47af19f3307fc9c5c82e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

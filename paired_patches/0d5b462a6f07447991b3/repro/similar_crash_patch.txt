@@ -1,0 +1,72 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/afs/dir.c (1)
+TOP_SYMBOLS:
+  afs_read_dir (3)
+TOP_KEYWORDS:
+  WARN (1), net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=afs_read_dir)
+  - viewcode(ref=<target_release>, path=fs/afs/dir.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=7, rows_scanned=7, candidates_kept=1, skipped=6
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=4, skip_same_target_branch=0, skip_no_fix_commit=2, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-5.15
+fix_commit: 348551ddaf311c76b01cdcbaf61b6fef06a49144
+bug_url: https://syzkaller.appspot.com/bug?extid=fee79f2d4df1316de949
+title: WARNING in __set_page_dirty
+relevance_score: 0
+
+ fs/afs/dir.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+diff --git a/fs/afs/dir.c b/fs/afs/dir.c
+index f92b9e62d567..4dd97afa536c 100644
+--- a/fs/afs/dir.c
++++ b/fs/afs/dir.c
+@@ -275,6 +275,7 @@ static struct afs_read *afs_read_dir(struct afs_vnode *dvnode, struct key *key)
+ 	loff_t i_size;
+ 	int nr_pages, i;
+ 	int ret;
++	loff_t remote_size = 0;
+ 
+ 	_enter("");
+ 
+@@ -289,6 +290,8 @@ static struct afs_read *afs_read_dir(struct afs_vnode *dvnode, struct key *key)
+ 
+ expand:
+ 	i_size = i_size_read(&dvnode->netfs.inode);
++	if (i_size < remote_size)
++	    i_size = remote_size;
+ 	if (i_size < 2048) {
+ 		ret = afs_bad(dvnode, afs_file_error_dir_small);
+ 		goto error;
+@@ -364,6 +367,7 @@ static struct afs_read *afs_read_dir(struct afs_vnode *dvnode, struct key *key)
+ 			 * buffer.
+ 			 */
+ 			up_write(&dvnode->validate_lock);
++			remote_size = req->file_size;
+ 			goto expand;
+ 		}
+================================================================================

@@ -1,0 +1,50 @@
+{
+  "extid": "8971da381fb5a31f542d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8971da381fb5a31f542d",
+  "bug_title": "general protection fault in taprio_dequeue_soft",
+  "bug_status": "fixed on 2021/03/10 01:49",
+  "fix_commits": [
+    {
+      "title": "net/sched: sch_taprio: reset child qdiscs before freeing them",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=44d4775ca51805b376a8db5b34f650434a08e556",
+      "hash": "44d4775ca51805b376a8db5b34f650434a08e556",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dcaratti@redhat.com",
+      "author-name": "Davide Caratti",
+      "date": "2020-12-17T18:57:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "7f376f1917d7461e05b648983e8d2aea9d0712b2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/97183ed760478c5b970c8c549d99c8147a72e293",
+  "syzkaller-commit": "97183ed760478c5b970c8c549d99c8147a72e293",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1228c77f500000",
+      "saved_to": "/home/lcj/paired_patches/8971da381fb5a31f542d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3416bb960d5c705d",
+      "saved_to": "/home/lcj/paired_patches/8971da381fb5a31f542d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17a1f123500000",
+      "saved_to": "/home/lcj/paired_patches/8971da381fb5a31f542d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=128c5745500000",
+      "saved_to": "/home/lcj/paired_patches/8971da381fb5a31f542d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

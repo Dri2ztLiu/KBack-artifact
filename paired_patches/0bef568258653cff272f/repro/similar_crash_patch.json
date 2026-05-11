@@ -1,0 +1,42 @@
+{
+  "extid": "0bef568258653cff272f",
+  "target_ref": "0bef568258653cff272f",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6dfccd13db2ff2b709ef60a50163925d477549aa",
+      "branch": "linux-4.19",
+      "title": "general protection fault in hci_event_packet",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/bluetooth/hci_event.c"
+      ],
+      "symbols": [
+        "hci_phy_link_complete_evt",
+        "if",
+        "hci_dev_unlock",
+        "if"
+      ],
+      "patterns": [
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

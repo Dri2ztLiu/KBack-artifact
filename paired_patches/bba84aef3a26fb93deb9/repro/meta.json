@@ -1,0 +1,50 @@
+{
+  "extid": "bba84aef3a26fb93deb9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bba84aef3a26fb93deb9",
+  "bug_title": "general protection fault in dtInsertEntry",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "jfs: fix null ptr deref in dtInsertEntry",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ce6dede912f064a855acf6f04a04cbb2c25b8c8c",
+      "hash": "ce6dede912f064a855acf6f04a04cbb2c25b8c8c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2024-04-11T12:05:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in dtInsertEntry",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "35bb670d65fc0f80c62383ab4f2544cec85ac57a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/edc5149ad2ab7a38db6b3bcb1b594e0264a92163",
+  "syzkaller-commit": "edc5149ad2ab7a38db6b3bcb1b594e0264a92163",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13cb7efa980000",
+      "saved_to": "/home/lcj/paired_patches/bba84aef3a26fb93deb9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=12f98862a3c0c799",
+      "saved_to": "/home/lcj/paired_patches/bba84aef3a26fb93deb9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=165f35ea980000",
+      "saved_to": "/home/lcj/paired_patches/bba84aef3a26fb93deb9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=118cde1e980000",
+      "saved_to": "/home/lcj/paired_patches/bba84aef3a26fb93deb9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

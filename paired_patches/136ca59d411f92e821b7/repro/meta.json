@@ -1,0 +1,50 @@
+{
+  "extid": "136ca59d411f92e821b7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=136ca59d411f92e821b7",
+  "bug_title": "WARNING in convert_ctx_accesses (2)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "bpf: Explicitly check accesses to bpf_sock_addr",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6fabca2fc94d33cdf7ec102058983b086293395f",
+      "hash": "6fabca2fc94d33cdf7ec102058983b086293395f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paul.chaignon@gmail.com",
+      "author-name": "Paul Chaignon",
+      "date": "2025-09-17T08:08:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in convert_ctx_accesses",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "22f20375f5b71f30c0d6896583b93b6e4bba7279",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "syzkaller-commit": "e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=153fd642580000",
+      "saved_to": "/home/lcj/paired_patches/136ca59d411f92e821b7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=13bd892ec3b155a2",
+      "saved_to": "/home/lcj/paired_patches/136ca59d411f92e821b7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15d5cb62580000",
+      "saved_to": "/home/lcj/paired_patches/136ca59d411f92e821b7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11d5cb62580000",
+      "saved_to": "/home/lcj/paired_patches/136ca59d411f92e821b7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

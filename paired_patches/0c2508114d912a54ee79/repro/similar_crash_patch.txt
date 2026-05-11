@@ -1,0 +1,204 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/ext4/inline.c (2)
+TOP_SYMBOLS:
+  ext4_find_inline_entry (4), brelse (4)
+TOP_KEYWORDS:
+  use-after-free (2), NULL (2), null (2), KASAN (2), ext4 (2)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ext4_find_inline_entry)
+  - viewcode(ref=<target_release>, path=fs/ext4/inline.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=8, rows_scanned=8, candidates_kept=2, skipped=6
+skip_breakdown: skip_upstream=2, skip_non_linux_branch=4, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: c6b72f5d82b1017bad80f9ebf502832fc321d796
+bug_url: https://syzkaller.appspot.com/bug?extid=2003a2bf24a18682dbf1
+title: KASAN: use-after-free Read in ext4_search_dir
+relevance_score: 0
+
+ fs/ext4/inline.c | 31 +++++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
+diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
+index 7b98b1bf1dc9..44a5f6df59ec 100644
+--- a/fs/ext4/inline.c
++++ b/fs/ext4/inline.c
+@@ -1664,25 +1664,36 @@ struct buffer_head *ext4_find_inline_entry(struct inode *dir,
+ 					struct ext4_dir_entry_2 **res_dir,
+ 					int *has_inline_data)
+ {
++	struct ext4_xattr_ibody_find is = {
++		.s = { .not_found = -ENODATA, },
++	};
++	struct ext4_xattr_info i = {
++		.name_index = EXT4_XATTR_INDEX_SYSTEM,
++		.name = EXT4_XATTR_SYSTEM_DATA,
++	};
+ 	int ret;
+-	struct ext4_iloc iloc;
+ 	void *inline_start;
+ 	int inline_size;
+ 
+-	ret = ext4_get_inode_loc(dir, &iloc);
++	ret = ext4_get_inode_loc(dir, &is.iloc);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
+ 	down_read(&EXT4_I(dir)->xattr_sem);
++
++	ret = ext4_xattr_ibody_find(dir, &i, &is);
++	if (ret)
++		goto out;
++
+ 	if (!ext4_has_inline_data(dir)) {
+ 		*has_inline_data = 0;
+ 		goto out;
+ 	}
+ 
+-	inline_start = (void *)ext4_raw_inode(&iloc)->i_block +
++	inline_start = (void *)ext4_raw_inode(&is.iloc)->i_block +
+ 						EXT4_INLINE_DOTDOT_SIZE;
+ 	inline_size = EXT4_MIN_INLINE_DATA_SIZE - EXT4_INLINE_DOTDOT_SIZE;
+-	ret = ext4_search_dir(iloc.bh, inline_start, inline_size,
++	ret = ext4_search_dir(is.iloc.bh, inline_start, inline_size,
+ 			      dir, fname, 0, res_dir);
+ 	if (ret == 1)
+ 		goto out_find;
+@@ -1692,23 +1703,23 @@ struct buffer_head *ext4_find_inline_entry(struct inode *dir,
+ 	if (ext4_get_inline_size(dir) == EXT4_MIN_INLINE_DATA_SIZE)
+ 		goto out;
+ 
+-	inline_start = ext4_get_inline_xattr_pos(dir, &iloc);
++	inline_start = ext4_get_inline_xattr_pos(dir, &is.iloc);
+ 	inline_size = ext4_get_inline_size(dir) - EXT4_MIN_INLINE_DATA_SIZE;
+ 
+-	ret = ext4_search_dir(iloc.bh, inline_start, inline_size,
++	ret = ext4_search_dir(is.iloc.bh, inline_start, inline_size,
+ 			      dir, fname, 0, res_dir);
+ 	if (ret == 1)
+ 		goto out_find;
+ 
+ out:
+-	brelse(iloc.bh);
++	brelse(is.iloc.bh);
+ 	if (ret < 0)
+-		iloc.bh = ERR_PTR(ret);
++		is.iloc.bh = ERR_PTR(ret);
+ 	else
+-		iloc.bh = NULL;
++		is.iloc.bh = NULL;
+ out_find:
+ 	up_read(&EXT4_I(dir)->xattr_sem);
+-	return iloc.bh;
++	return is.iloc.bh;
+ }
+ 
+ int ext4_delete_inline_entry(handle_t *handle,
+================================================================================
+
+branch: linux-5.15
+fix_commit: be2e9b111e2790962cc66a177869b4e9717b4e29
+bug_url: https://syzkaller.appspot.com/bug?extid=49e1219c6cb561ada5b9
+title: KASAN: use-after-free Read in ext4_search_dir
+relevance_score: 0
+
+ fs/ext4/inline.c | 31 +++++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
+diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
+index 9e42c3b18458..df74916db981 100644
+--- a/fs/ext4/inline.c
++++ b/fs/ext4/inline.c
+@@ -1671,25 +1671,36 @@ struct buffer_head *ext4_find_inline_entry(struct inode *dir,
+ 					struct ext4_dir_entry_2 **res_dir,
+ 					int *has_inline_data)
+ {
++	struct ext4_xattr_ibody_find is = {
++		.s = { .not_found = -ENODATA, },
++	};
++	struct ext4_xattr_info i = {
++		.name_index = EXT4_XATTR_INDEX_SYSTEM,
++		.name = EXT4_XATTR_SYSTEM_DATA,
++	};
+ 	int ret;
+-	struct ext4_iloc iloc;
+ 	void *inline_start;
+ 	int inline_size;
+ 
+-	ret = ext4_get_inode_loc(dir, &iloc);
++	ret = ext4_get_inode_loc(dir, &is.iloc);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
+ 	down_read(&EXT4_I(dir)->xattr_sem);
++
++	ret = ext4_xattr_ibody_find(dir, &i, &is);
++	if (ret)
++		goto out;
++
+ 	if (!ext4_has_inline_data(dir)) {
+ 		*has_inline_data = 0;
+ 		goto out;
+ 	}
+ 
+-	inline_start = (void *)ext4_raw_inode(&iloc)->i_block +
++	inline_start = (void *)ext4_raw_inode(&is.iloc)->i_block +
+ 						EXT4_INLINE_DOTDOT_SIZE;
+ 	inline_size = EXT4_MIN_INLINE_DATA_SIZE - EXT4_INLINE_DOTDOT_SIZE;
+-	ret = ext4_search_dir(iloc.bh, inline_start, inline_size,
++	ret = ext4_search_dir(is.iloc.bh, inline_start, inline_size,
+ 			      dir, fname, 0, res_dir);
+ 	if (ret == 1)
+ 		goto out_find;
+@@ -1699,23 +1710,23 @@ struct buffer_head *ext4_find_inline_entry(struct inode *dir,
+ 	if (ext4_get_inline_size(dir) == EXT4_MIN_INLINE_DATA_SIZE)
+ 		goto out;
+ 
+-	inline_start = ext4_get_inline_xattr_pos(dir, &iloc);
++	inline_start = ext4_get_inline_xattr_pos(dir, &is.iloc);
+ 	inline_size = ext4_get_inline_size(dir) - EXT4_MIN_INLINE_DATA_SIZE;
+ 
+-	ret = ext4_search_dir(iloc.bh, inline_start, inline_size,
++	ret = ext4_search_dir(is.iloc.bh, inline_start, inline_size,
+ 			      dir, fname, 0, res_dir);
+ 	if (ret == 1)
+ 		goto out_find;
+ 
+ out:
+-	brelse(iloc.bh);
++	brelse(is.iloc.bh);
+ 	if (ret < 0)
+-		iloc.bh = ERR_PTR(ret);
++		is.iloc.bh = ERR_PTR(ret);
+ 	else
+-		iloc.bh = NULL;
++		is.iloc.bh = NULL;
+ out_find:
+ 	up_read(&EXT4_I(dir)->xattr_sem);
+-	return iloc.bh;
++	return is.iloc.bh;
+ }
+ 
+ int ext4_delete_inline_entry(handle_t *handle,
+================================================================================

@@ -1,0 +1,101 @@
+{
+  "extid": "5e70d01ee8985ae62a3b",
+  "target_ref": "5e70d01ee8985ae62a3b",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6282921b6825fef6a1243e1c80063421d41e2576",
+      "branch": "linux-6.6",
+      "title": "unregister_netdevice: waiting for DEV to become free",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "535ec20c50273d81b2cc7985fed2108dee0e65d7",
+      "branch": "linux-6.1",
+      "title": "unregister_netdevice: waiting for DEV to become free",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "ed3ba9b6e280e14cc3148c1b226ba453f02fa76c",
+      "branch": "linux-5.15",
+      "title": "unregister_netdevice: waiting for DEV to become free",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "include/linux/if_bridge.h",
+        "net/bridge/br_ioctl.c",
+        "net/bridge/br_private.h",
+        "net/core/dev_ioctl.c",
+        "net/socket.c"
+      ],
+      "symbols": [
+        "br_ip_list",
+        "old_deviceless",
+        "br_ioctl_stub",
+        "br_port_get_check_rtnl",
+        "dev_ifsioc",
+        "dev_ifsioc",
+        "dev_ioctl",
+        "sock_write_iter",
+        "brioctl_set",
+        "br_ioctl_call",
+        "sock_ioctl",
+        "compat_sock_ioctl_trans",
+        "compat_sock_ioctl_trans",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "netdev_hold",
+        "rtnl_net_unlock",
+        "netdev_put",
+        "rtnl_net_lock"
+      ],
+      "patterns": [
+        "NULL",
+        "null",
+        "mutex",
+        "net",
+        "ioctl"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

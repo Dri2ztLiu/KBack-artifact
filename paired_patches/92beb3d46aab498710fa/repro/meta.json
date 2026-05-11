@@ -1,0 +1,50 @@
+{
+  "extid": "92beb3d46aab498710fa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=92beb3d46aab498710fa",
+  "bug_title": "WARNING: suspicious RCU usage in bond_ethtool_get_ts_info",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "bonding: fix missed rcu protection",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9b80ccda233fa6c59de411bf889cc4d0e028f2c7",
+      "hash": "9b80ccda233fa6c59de411bf889cc4d0e028f2c7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "liuhangbin@gmail.com",
+      "author-name": "Hangbin Liu",
+      "date": "2022-05-19T02:01:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: suspicious RCU usage in bond_ethtool_get_ts_info",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "feb9c5e19e913b53cb536a7aa7c9f20107bb51ec",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/beb0b407180f93f1c6acb56cbcf4a30c0ef50f25",
+  "syzkaller-commit": "beb0b407180f93f1c6acb56cbcf4a30c0ef50f25",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=148764c6f00000",
+      "saved_to": "/home/lcj/paired_patches/92beb3d46aab498710fa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=79caa0035f59d385",
+      "saved_to": "/home/lcj/paired_patches/92beb3d46aab498710fa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13043399f00000",
+      "saved_to": "/home/lcj/paired_patches/92beb3d46aab498710fa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1660fbfaf00000",
+      "saved_to": "/home/lcj/paired_patches/92beb3d46aab498710fa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

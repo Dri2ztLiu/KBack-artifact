@@ -1,0 +1,50 @@
+{
+  "extid": "8743fca924afed42f93e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8743fca924afed42f93e",
+  "bug_title": "KASAN: use-after-free Read in udf_update_tag",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "fs: udf: fix OOB read in lengthAllocDescs handling",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3bd5e45c2ce30e239d596becd5db720f7eb83c99",
+      "hash": "3bd5e45c2ce30e239d596becd5db720f7eb83c99",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Sergey.Larshin@kaspersky.com",
+      "author-name": "Larshin Sergey",
+      "date": "2025-09-22T13:13:58Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in udf_update_tag",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "850925a8133c73c4a2453c360b2c3beb3bab67c9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/65e8686b0e9e909b6ea5629f95a9b14e81927872",
+  "syzkaller-commit": "65e8686b0e9e909b6ea5629f95a9b14e81927872",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11582ca7980000",
+      "saved_to": "/home/lcj/paired_patches/8743fca924afed42f93e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=309bb816d40abc28",
+      "saved_to": "/home/lcj/paired_patches/8743fca924afed42f93e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13c01a87980000",
+      "saved_to": "/home/lcj/paired_patches/8743fca924afed42f93e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15582ca7980000",
+      "saved_to": "/home/lcj/paired_patches/8743fca924afed42f93e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

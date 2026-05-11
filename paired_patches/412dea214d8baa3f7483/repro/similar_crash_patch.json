@@ -1,0 +1,77 @@
+{
+  "extid": "412dea214d8baa3f7483",
+  "target_ref": "412dea214d8baa3f7483",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "a174706ba4dad895c40b1d2277bade16dfacdcd9",
+      "branch": "linux-6.1",
+      "title": "UBSAN: array-index-out-of-bounds in dbAdjTree",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/jfs/jfs_dmap.c"
+      ],
+      "symbols": [
+        "dbAdjTree",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "a174706ba4dad895c40b1d2277bade16dfacdcd9",
+      "branch": "linux-5.15",
+      "title": "UBSAN: array-index-out-of-bounds in dbAdjTree",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/jfs/jfs_dmap.c"
+      ],
+      "symbols": [
+        "dbAdjTree",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "9d5c0b3a8e1a8b6c4969f630803103978e8d17b6",
+      "branch": "linux-4.14",
+      "title": "KASAN: slab-out-of-bounds Read in dbAdjTree",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

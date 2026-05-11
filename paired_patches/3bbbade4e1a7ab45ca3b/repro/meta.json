@@ -1,0 +1,50 @@
+{
+  "extid": "3bbbade4e1a7ab45ca3b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3bbbade4e1a7ab45ca3b",
+  "bug_title": "KMSAN: uninit-value in get_temp_cnct",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "hwmon: (corsair-cpro) Validate the size of the received input buffer",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=495a4f0dce9c8c4478c242209748f1ee9e4d5820",
+      "hash": "495a4f0dce9c8c4478c242209748f1ee9e4d5820",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mail@mariuszachmann.de",
+      "author-name": "Marius Zachmann",
+      "date": "2025-06-19T13:27:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in get_temp_cnct",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "347e9f5043c89695b01e66b3ed111755afcf1911",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/03fcfc4b7385b545a89a3fc62bef4e1ec7532e0d",
+  "syzkaller-commit": "03fcfc4b7385b545a89a3fc62bef4e1ec7532e0d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1138fd82580000",
+      "saved_to": "/home/lcj/paired_patches/3bbbade4e1a7ab45ca3b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fdecd0cbf7c2893",
+      "saved_to": "/home/lcj/paired_patches/3bbbade4e1a7ab45ca3b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/3bbbade4e1a7ab45ca3b/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/3bbbade4e1a7ab45ca3b/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

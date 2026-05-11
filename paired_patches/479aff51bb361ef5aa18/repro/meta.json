@@ -1,0 +1,50 @@
+{
+  "extid": "479aff51bb361ef5aa18",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=479aff51bb361ef5aa18",
+  "bug_title": "KASAN: slab-use-after-free Read in mgmt_remove_adv_monitor_sync",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: MGMT: Fix slab-use-after-free Read in mgmt_remove_adv_monitor_sync",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=26fbd3494a7dd26269cb0817c289267dbcfdec06",
+      "hash": "26fbd3494a7dd26269cb0817c289267dbcfdec06",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mazin@getstate.dev",
+      "author-name": "Mazin Al Haddad",
+      "date": "2024-12-24T02:06:16Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in mgmt_remove_adv_monitor_sync",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "f1cd565ce57760923d5e0fbd9e9914b415c0620a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/689146651cb695ec7836080377ad32933a0b9bce",
+  "syzkaller-commit": "689146651cb695ec7836080377ad32933a0b9bce",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=160db9e8580000",
+      "saved_to": "/home/lcj/paired_patches/479aff51bb361ef5aa18/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3891b550f14aea0f",
+      "saved_to": "/home/lcj/paired_patches/479aff51bb361ef5aa18/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/479aff51bb361ef5aa18/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10296d30580000",
+      "saved_to": "/home/lcj/paired_patches/479aff51bb361ef5aa18/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

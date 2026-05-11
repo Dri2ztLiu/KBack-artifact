@@ -1,0 +1,50 @@
+{
+  "extid": "ea40e4294e58b0292f74",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ea40e4294e58b0292f74",
+  "bug_title": "WARNING in nsim_dev_health_break_write",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "netdevsim: prevent bad user input in nsim_dev_health_break_write()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ee76746387f6233bdfa93d7406990f923641568f",
+      "hash": "ee76746387f6233bdfa93d7406990f923641568f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-12-13T17:25:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in nsim_dev_health_break_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "243f750a2df0662bc45119f9dd5d7da031a17f36",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7cbfbb3ab457b0a8ecf525a27a65a2078c5dcaa8",
+  "syzkaller-commit": "7cbfbb3ab457b0a8ecf525a27a65a2078c5dcaa8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=148c6d44580000",
+      "saved_to": "/home/lcj/paired_patches/ea40e4294e58b0292f74/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=99a5586995ec03b2",
+      "saved_to": "/home/lcj/paired_patches/ea40e4294e58b0292f74/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12a13be8580000",
+      "saved_to": "/home/lcj/paired_patches/ea40e4294e58b0292f74/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=128c6d44580000",
+      "saved_to": "/home/lcj/paired_patches/ea40e4294e58b0292f74/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

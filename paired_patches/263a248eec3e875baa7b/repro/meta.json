@@ -1,0 +1,55 @@
+{
+  "extid": "263a248eec3e875baa7b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=263a248eec3e875baa7b",
+  "bug_title": "WARNING in mptcp_sendmsg_frag",
+  "bug_status": "fixed on 2022/03/16 16:02",
+  "fix_commits": [
+    {
+      "title": "mptcp: ensure tx skbs always have the MPTCP ext",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=efe686ffce0145418b4e004f95c6d0c0200aedd2",
+      "hash": "efe686ffce0145418b4e004f95c6d0c0200aedd2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pabeni@redhat.com",
+      "author-name": "Paolo Abeni",
+      "date": "2021-09-22T11:12:17Z"
+    },
+    {
+      "title": "mptcp: ensure tx skbs always have the MPTCP ext",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in mptcp_sendmsg_frag",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "02319bf15acf54004216e40ac9c171437f24be24",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/70b76c1d627711cc3ef109af16d6cb7429a61fe3",
+  "syzkaller-commit": "70b76c1d627711cc3ef109af16d6cb7429a61fe3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12e098ad300000",
+      "saved_to": "/home/lcj/paired_patches/263a248eec3e875baa7b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6d93fe4341f98704",
+      "saved_to": "/home/lcj/paired_patches/263a248eec3e875baa7b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=174c8017300000",
+      "saved_to": "/home/lcj/paired_patches/263a248eec3e875baa7b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1507cd8d300000",
+      "saved_to": "/home/lcj/paired_patches/263a248eec3e875baa7b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

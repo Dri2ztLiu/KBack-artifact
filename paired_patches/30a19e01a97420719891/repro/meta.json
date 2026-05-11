@@ -1,0 +1,50 @@
+{
+  "extid": "30a19e01a97420719891",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=30a19e01a97420719891",
+  "bug_title": "WARNING in cleanup_net (4)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "net: better track kernel sockets lifetime",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5c70eb5c593d64d93b178905da215a9fd288a4b5",
+      "hash": "5c70eb5c593d64d93b178905da215a9fd288a4b5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2025-02-20T13:18:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in cleanup_net",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6537cfb395f352782918d8ee7b7f10ba2cc3cbf2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cbd8edabd77d676c77120894f85f37dbf22d32a1",
+  "syzkaller-commit": "cbd8edabd77d676c77120894f85f37dbf22d32a1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1389cba4580000",
+      "saved_to": "/home/lcj/paired_patches/30a19e01a97420719891/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=61cbf5ac8a063ad4",
+      "saved_to": "/home/lcj/paired_patches/30a19e01a97420719891/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13d89498580000",
+      "saved_to": "/home/lcj/paired_patches/30a19e01a97420719891/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10bf9ae4580000",
+      "saved_to": "/home/lcj/paired_patches/30a19e01a97420719891/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

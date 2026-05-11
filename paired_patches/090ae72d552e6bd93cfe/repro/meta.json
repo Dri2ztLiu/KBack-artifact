@@ -1,0 +1,50 @@
+{
+  "extid": "090ae72d552e6bd93cfe",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=090ae72d552e6bd93cfe",
+  "bug_title": "KMSAN: uninit-value in xfs_getfsmap_helper",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "xfs: fix uninitialized variable access",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=60b730a40c43fbcc034970d3e77eb0f25b8cc1cf",
+      "hash": "60b730a40c43fbcc034970d3e77eb0f25b8cc1cf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "djwong@kernel.org",
+      "author-name": "Darrick J. Wong",
+      "date": "2023-02-15T01:51:35Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in xfs_getfsmap_helper",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "eda666ff2276f4e5c600d566c9e8427f6750a3d9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/be607b78d7dea8ef5a0267ae7396fded7dc016d5",
+  "syzkaller-commit": "be607b78d7dea8ef5a0267ae7396fded7dc016d5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=171bc45d480000",
+      "saved_to": "/home/lcj/paired_patches/090ae72d552e6bd93cfe/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f27365aeb365b358",
+      "saved_to": "/home/lcj/paired_patches/090ae72d552e6bd93cfe/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/090ae72d552e6bd93cfe/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/090ae72d552e6bd93cfe/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

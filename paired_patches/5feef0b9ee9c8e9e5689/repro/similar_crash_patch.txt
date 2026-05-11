@@ -1,0 +1,247 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (3), arch/x86/kvm/emulate.c (1), arch/x86/kvm/kvm_emulate.h (1), arch/x86/kvm/x86.c (1), arch/x86/kvm/lapic.c (1)
+TOP_SYMBOLS:
+  x86_emulate_insn (3), init_decode_cache (1), x86_emulate_ops (1), x86_page_table_writing_insn (1), emulator_is_smm (1), emulate_ops (1), x86_emulate_instruction (1), bool (1), set_target_expiration (1)
+TOP_KEYWORDS:
+  WARN (5), ioctl (5)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=x86_emulate_insn)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=11, rows_scanned=11, candidates_kept=5, skipped=6
+skip_breakdown: skip_upstream=5, skip_non_linux_branch=1, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: e750f85391286a4c8100275516973324b621a269
+bug_url: https://syzkaller.appspot.com/bug?extid=763b05564bdd61631084
+title: WARNING in kvm_arch_vcpu_ioctl_run
+relevance_score: 0
+
+ arch/x86/kvm/emulate.c     |  9 ++++-----
+ arch/x86/kvm/kvm_emulate.h |  3 +--
+ arch/x86/kvm/x86.c         | 15 ++++++++-------
+ 3 files changed, 13 insertions(+), 14 deletions(-)
+diff --git a/arch/x86/kvm/emulate.c b/arch/x86/kvm/emulate.c
+index 1349e278cd2a..542d3664afa3 100644
+--- a/arch/x86/kvm/emulate.c
++++ b/arch/x86/kvm/emulate.c
+@@ -5107,12 +5107,11 @@ void init_decode_cache(struct x86_emulate_ctxt *ctxt)
+ 	ctxt->mem_read.end = 0;
+ }
+ 
+-int x86_emulate_insn(struct x86_emulate_ctxt *ctxt)
++int x86_emulate_insn(struct x86_emulate_ctxt *ctxt, bool check_intercepts)
+ {
+ 	const struct x86_emulate_ops *ops = ctxt->ops;
+ 	int rc = X86EMUL_CONTINUE;
+ 	int saved_dst_type = ctxt->dst.type;
+-	bool is_guest_mode = ctxt->ops->is_guest_mode(ctxt);
+ 
+ 	ctxt->mem_read.pos = 0;
+ 
+@@ -5160,7 +5159,7 @@ int x86_emulate_insn(struct x86_emulate_ctxt *ctxt)
+ 				fetch_possible_mmx_operand(&ctxt->dst);
+ 		}
+ 
+-		if (unlikely(is_guest_mode) && ctxt->intercept) {
++		if (unlikely(check_intercepts) && ctxt->intercept) {
+ 			rc = emulator_check_intercept(ctxt, ctxt->intercept,
+ 						      X86_ICPT_PRE_EXCEPT);
+ 			if (rc != X86EMUL_CONTINUE)
+@@ -5189,7 +5188,7 @@ int x86_emulate_insn(struct x86_emulate_ctxt *ctxt)
+ 				goto done;
+ 		}
+ 
+-		if (unlikely(is_guest_mode) && (ctxt->d & Intercept)) {
++		if (unlikely(check_intercepts) && (ctxt->d & Intercept)) {
+ 			rc = emulator_check_intercept(ctxt, ctxt->intercept,
+ 						      X86_ICPT_POST_EXCEPT);
+ 			if (rc != X86EMUL_CONTINUE)
+@@ -5243,7 +5242,7 @@ int x86_emulate_insn(struct x86_emulate_ctxt *ctxt)
+ 
+ special_insn:
+ 
+-	if (unlikely(is_guest_mode) && (ctxt->d & Intercept)) {
++	if (unlikely(check_intercepts) && (ctxt->d & Intercept)) {
+ 		rc = emulator_check_intercept(ctxt, ctxt->intercept,
+ 					      X86_ICPT_POST_MEMACCESS);
+ 		if (rc != X86EMUL_CONTINUE)
+diff --git a/arch/x86/kvm/kvm_emulate.h b/arch/x86/kvm/kvm_emulate.h
+index c1df5acfacaf..7b5ddb787a25 100644
+--- a/arch/x86/kvm/kvm_emulate.h
++++ b/arch/x86/kvm/kvm_emulate.h
+@@ -235,7 +235,6 @@ struct x86_emulate_ops {
+ 	void (*set_nmi_mask)(struct x86_emulate_ctxt *ctxt, bool masked);
+ 
+ 	bool (*is_smm)(struct x86_emulate_ctxt *ctxt);
+-	bool (*is_guest_mode)(struct x86_emulate_ctxt *ctxt);
+ 	int (*leave_smm)(struct x86_emulate_ctxt *ctxt);
+ 	void (*triple_fault)(struct x86_emulate_ctxt *ctxt);
+ 	int (*set_xcr)(struct x86_emulate_ctxt *ctxt, u32 index, u64 xcr);
+@@ -521,7 +520,7 @@ bool x86_page_table_writing_insn(struct x86_emulate_ctxt *ctxt);
+ #define EMULATION_RESTART 1
+ #define EMULATION_INTERCEPTED 2
+ void init_decode_cache(struct x86_emulate_ctxt *ctxt);
+-int x86_emulate_insn(struct x86_emulate_ctxt *ctxt);
++int x86_emulate_insn(struct x86_emulate_ctxt *ctxt, bool check_intercepts);
+ int emulator_task_switch(struct x86_emulate_ctxt *ctxt,
+ 			 u16 tss_selector, int idt_index, int reason,
+ 			 bool has_error_code, u32 error_code);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index a1c49bc681c4..79057622fa76 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -8470,11 +8470,6 @@ static bool emulator_is_smm(struct x86_emulate_ctxt *ctxt)
+ 	return is_smm(emul_to_vcpu(ctxt));
+ }
+ 
+-static bool emulator_is_guest_mode(struct x86_emulate_ctxt *ctxt)
+-{
+-	return is_guest_mode(emul_to_vcpu(ctxt));
+-}
+-
+ #ifndef CONFIG_KVM_SMM
+ static int emulator_leave_smm(struct x86_emulate_ctxt *ctxt)
+ {
+@@ -8558,7 +8553,6 @@ static const struct x86_emulate_ops emulate_ops = {
+ 	.guest_cpuid_is_intel_compatible = emulator_guest_cpuid_is_intel_compatible,
+ 	.set_nmi_mask        = emulator_set_nmi_mask,
+ 	.is_smm              = emulator_is_smm,
+-	.is_guest_mode       = emulator_is_guest_mode,
+ 	.leave_smm           = emulator_leave_smm,
+ 	.triple_fault        = emulator_triple_fault,
+ 	.set_xcr             = emulator_set_xcr,
+@@ -9143,7 +9137,14 @@ int x86_emulate_instruction(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
+ 		ctxt->exception.address = 0;
+ 	}
+ 
+-	r = x86_emulate_insn(ctxt);
++	/*
++	 * Check L1's instruction intercepts when emulating instructions for
++	 * L2, unless KVM is re-emulating a previously decoded instruction,
++	 * e.g. to complete userspace I/O, in which case KVM has already
++	 * checked the intercepts.
++	 */
++	r = x86_emulate_insn(ctxt, is_guest_mode(vcpu) &&
++				   !(emulation_type & EMULTYPE_NO_DECODE));
+ 
+ 	if (r == EMULATION_INTERCEPTED)
+ 		return 1;
+================================================================================
+
+branch: linux-6.1
+fix_commit: 8e6ed96cdd5001c55fccc80a17f651741c1ca7d2
+bug_url: https://syzkaller.appspot.com/bug?extid=b000b7d21f93fc69de32
+title: WARNING in kvm_arch_vcpu_ioctl_run
+relevance_score: 0
+
+ arch/x86/kvm/lapic.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+diff --git a/arch/x86/kvm/lapic.c b/arch/x86/kvm/lapic.c
+index d2ad5e8b63a4..c28ba0275580 100644
+--- a/arch/x86/kvm/lapic.c
++++ b/arch/x86/kvm/lapic.c
+@@ -1968,8 +1968,12 @@ static bool set_target_expiration(struct kvm_lapic *apic, u32 count_reg)
+ 		if (unlikely(count_reg != APIC_TMICT)) {
+ 			deadline = tmict_to_ns(apic,
+ 				     kvm_lapic_get_reg(apic, count_reg));
+-			if (unlikely(deadline <= 0))
+-				deadline = apic->lapic_timer.period;
++			if (unlikely(deadline <= 0)) {
++				if (apic_lvtt_period(apic))
++					deadline = apic->lapic_timer.period;
++				else
++					deadline = 0;
++			}
+ 			else if (unlikely(deadline > apic->lapic_timer.period)) {
+ 				pr_info_ratelimited(
+ 				    "vcpu %i: requested lapic timer restore with "
+================================================================================
+
+branch: linux-5.15
+fix_commit: b0ece631f84a3e70341496b000b094b7dfdf4e5f
+bug_url: https://syzkaller.appspot.com/bug?extid=412c9ae97b4338c5187e
+title: WARNING in kvm_arch_vcpu_ioctl_run
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 781af18b5984..4d0a49688376 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 110
++SUBLEVEL = 111
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================
+
+branch: linux-4.19
+fix_commit: 7edd66cf61670d2d0c31f89cb3a247016e489a8a
+bug_url: https://syzkaller.appspot.com/bug?extid=1aae724aec7340740567
+title: WARNING in kvm_arch_vcpu_ioctl_run
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 555dbaab7bad..72ae7e879077 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 19
+-SUBLEVEL = 117
++SUBLEVEL = 118
+ EXTRAVERSION =
+ NAME = "People's Front"
+================================================================================
+
+branch: linux-4.14
+fix_commit: 050272a0423e68207fd2367831ae610680129062
+bug_url: https://syzkaller.appspot.com/bug?extid=d8f921b63518234f6a20
+title: WARNING in kvm_arch_vcpu_ioctl_run
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 9db2e7f90769..d81fb98737f7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 176
++SUBLEVEL = 177
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

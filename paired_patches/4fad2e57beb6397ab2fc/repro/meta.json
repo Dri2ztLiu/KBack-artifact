@@ -1,0 +1,60 @@
+{
+  "extid": "4fad2e57beb6397ab2fc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4fad2e57beb6397ab2fc",
+  "bug_title": "KMSAN: uninit-value in drm_mode_setcrtc",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "drm/crtc: Fix uninit-value bug in drm_mode_setcrtc",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3823119b9c2b5f9e9b760336f75bc989b805cde6",
+      "hash": "3823119b9c2b5f9e9b760336f75bc989b805cde6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "astrajoan@yahoo.com",
+      "author-name": "Ziqi Zhao",
+      "date": "2023-07-21T16:14:46Z"
+    },
+    {
+      "title": "drm/crtc: fix uninitialized variable use",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6e455f5dcdd15fa28edf0ffb5b44d3508512dccf",
+      "hash": "6e455f5dcdd15fa28edf0ffb5b44d3508512dccf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jani.nikula@intel.com",
+      "author-name": "Jani Nikula",
+      "date": "2023-12-08T13:12:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in drm_mode_setcrtc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c527f5606aa545233a4d2c6d5c636ed82b8633ef",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/28b24332d95f2f7df44ec7e7a5e0025bcadc6277",
+  "syzkaller-commit": "28b24332d95f2f7df44ec7e7a5e0025bcadc6277",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1510802ae80000",
+      "saved_to": "/home/lcj/paired_patches/4fad2e57beb6397ab2fc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fd620b7a2b5112ce",
+      "saved_to": "/home/lcj/paired_patches/4fad2e57beb6397ab2fc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15185bcae80000",
+      "saved_to": "/home/lcj/paired_patches/4fad2e57beb6397ab2fc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16eda112e80000",
+      "saved_to": "/home/lcj/paired_patches/4fad2e57beb6397ab2fc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

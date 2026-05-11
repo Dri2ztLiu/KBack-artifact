@@ -1,0 +1,50 @@
+{
+  "extid": "8bd335d2ad3b93e80715",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8bd335d2ad3b93e80715",
+  "bug_title": "WARNING: proc registration bug in atm_dev_register",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "atm: Release atm_dev_mutex after removing procfs in atm_dev_deregister().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a433791aeaea6e84df709e0b9584b9bbe040cd1c",
+      "hash": "a433791aeaea6e84df709e0b9584b9bbe040cd1c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-06-24T21:45:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: proc registration bug in atm_dev_register",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "52da431bf03b5506203bca27fe14a97895c80faf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e77fae1501ac8002d344f33dfea3a7b8444d74fc",
+  "syzkaller-commit": "e77fae1501ac8002d344f33dfea3a7b8444d74fc",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1790f50c580000",
+      "saved_to": "/home/lcj/paired_patches/8bd335d2ad3b93e80715/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4130f4d8a06c3e71",
+      "saved_to": "/home/lcj/paired_patches/8bd335d2ad3b93e80715/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16a7f90c580000",
+      "saved_to": "/home/lcj/paired_patches/8bd335d2ad3b93e80715/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=175835d4580000",
+      "saved_to": "/home/lcj/paired_patches/8bd335d2ad3b93e80715/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

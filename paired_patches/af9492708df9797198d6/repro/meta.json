@@ -1,0 +1,50 @@
+{
+  "extid": "af9492708df9797198d6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=af9492708df9797198d6",
+  "bug_title": "general protection fault in dev_map_enqueue",
+  "bug_status": "fixed on 2024/05/22 23:26",
+  "fix_commits": [
+    {
+      "title": "xdp: use flags field to disambiguate broadcast redirect",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5bcf0dcbf9066348058b88a510c57f70f384c92c",
+      "hash": "5bcf0dcbf9066348058b88a510c57f70f384c92c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "toke@redhat.com",
+      "author-name": "Toke Høiland-Jørgensen",
+      "date": "2024-04-18T07:18:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in dev_map_enqueue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "f99c5f563c174a49ea1cbf4754539b05cfde40c4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/454571b6a16598f5a6e015b9fb1a04932bce7ab9",
+  "syzkaller-commit": "454571b6a16598f5a6e015b9fb1a04932bce7ab9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15920641180000",
+      "saved_to": "/home/lcj/paired_patches/af9492708df9797198d6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6fb1be60a193d440",
+      "saved_to": "/home/lcj/paired_patches/af9492708df9797198d6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14f292b1180000",
+      "saved_to": "/home/lcj/paired_patches/af9492708df9797198d6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=178fb791180000",
+      "saved_to": "/home/lcj/paired_patches/af9492708df9797198d6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

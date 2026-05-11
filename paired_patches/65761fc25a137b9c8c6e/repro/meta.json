@@ -1,0 +1,50 @@
+{
+  "extid": "65761fc25a137b9c8c6e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=65761fc25a137b9c8c6e",
+  "bug_title": "UBSAN: shift-out-of-bounds in squashfs_bio_read",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "Squashfs: check return result of sb_min_blocksize",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=734aa85390ea693bb7eaf2240623d41b03705c84",
+      "hash": "734aa85390ea693bb7eaf2240623d41b03705c84",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "phillip@squashfs.org.uk",
+      "author-name": "Phillip Lougher",
+      "date": "2025-04-09T02:47:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in squashfs_bio_read",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "56f944529ec2292cbe63377a76df3759d702dd39",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1c65791efe9456a21463647b20027e6f8c2c21af",
+  "syzkaller-commit": "1c65791efe9456a21463647b20027e6f8c2c21af",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1350123f980000",
+      "saved_to": "/home/lcj/paired_patches/65761fc25a137b9c8c6e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f2054704dd53fb80",
+      "saved_to": "/home/lcj/paired_patches/65761fc25a137b9c8c6e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=113787e4580000",
+      "saved_to": "/home/lcj/paired_patches/65761fc25a137b9c8c6e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1775dd98580000",
+      "saved_to": "/home/lcj/paired_patches/65761fc25a137b9c8c6e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

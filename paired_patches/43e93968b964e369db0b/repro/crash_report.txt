@@ -1,0 +1,148 @@
+======================================================
+WARNING: possible circular locking dependency detected
+5.12.0-rc8-syzkaller #0 Not tainted
+------------------------------------------------------
+syz-executor079/10407 is trying to acquire lock:
+ffffffff8be830a0 (console_owner){....}-{0:0}, at: console_unlock+0x2f2/0xc80 kernel/printk/printk.c:2551
+
+but task is already holding lock:
+ffffffff900fed38 (&port->lock){-.-.}-{2:2}, at: tty_port_close_start.part.0+0x28/0x550 drivers/tty/tty_port.c:567
+
+which lock already depends on the new lock.
+
+
+the existing dependency chain (in reverse order) is:
+
+-> #2 (&port->lock){-.-.}-{2:2}:
+       __raw_spin_lock_irqsave include/linux/spinlock_api_smp.h:110 [inline]
+       _raw_spin_lock_irqsave+0x39/0x50 kernel/locking/spinlock.c:159
+       tty_port_tty_get+0x1f/0x100 drivers/tty/tty_port.c:288
+       tty_port_default_wakeup+0x11/0x40 drivers/tty/tty_port.c:47
+       serial8250_tx_chars+0x487/0xa80 drivers/tty/serial/8250/8250_port.c:1832
+       serial8250_handle_irq.part.0+0x328/0x3d0 drivers/tty/serial/8250/8250_port.c:1919
+       serial8250_handle_irq drivers/tty/serial/8250/8250_port.c:1892 [inline]
+       serial8250_default_handle_irq+0xb2/0x220 drivers/tty/serial/8250/8250_port.c:1935
+       serial8250_interrupt+0xfd/0x200 drivers/tty/serial/8250/8250_core.c:126
+       __handle_irq_event_percpu+0x303/0x8f0 kernel/irq/handle.c:156
+       handle_irq_event_percpu kernel/irq/handle.c:196 [inline]
+       handle_irq_event+0x102/0x290 kernel/irq/handle.c:213
+       handle_edge_irq+0x25f/0xd00 kernel/irq/chip.c:819
+       generic_handle_irq_desc include/linux/irqdesc.h:158 [inline]
+       handle_irq arch/x86/kernel/irq.c:231 [inline]
+       __common_interrupt+0x9e/0x200 arch/x86/kernel/irq.c:250
+       common_interrupt+0x9f/0xd0 arch/x86/kernel/irq.c:240
+       asm_common_interrupt+0x1e/0x40 arch/x86/include/asm/idtentry.h:623
+       native_safe_halt arch/x86/include/asm/irqflags.h:51 [inline]
+       arch_safe_halt arch/x86/include/asm/irqflags.h:89 [inline]
+       acpi_safe_halt drivers/acpi/processor_idle.c:111 [inline]
+       acpi_idle_do_entry+0x1c9/0x250 drivers/acpi/processor_idle.c:517
+       acpi_idle_enter+0x361/0x500 drivers/acpi/processor_idle.c:652
+       cpuidle_enter_state+0x1b1/0xc80 drivers/cpuidle/cpuidle.c:237
+       cpuidle_enter+0x4a/0xa0 drivers/cpuidle/cpuidle.c:351
+       call_cpuidle kernel/sched/idle.c:158 [inline]
+       cpuidle_idle_call kernel/sched/idle.c:239 [inline]
+       do_idle+0x3e1/0x590 kernel/sched/idle.c:300
+       cpu_startup_entry+0x14/0x20 kernel/sched/idle.c:397
+       start_kernel+0x475/0x496 init/main.c:1064
+       secondary_startup_64_no_verify+0xb0/0xbb
+
+-> #1 (&port_lock_key){-.-.}-{2:2}:
+       __raw_spin_lock_irqsave include/linux/spinlock_api_smp.h:110 [inline]
+       _raw_spin_lock_irqsave+0x39/0x50 kernel/locking/spinlock.c:159
+       serial8250_console_write+0x8b2/0xae0 drivers/tty/serial/8250/8250_port.c:3292
+       call_console_drivers kernel/printk/printk.c:1862 [inline]
+       console_unlock+0x895/0xc80 kernel/printk/printk.c:2576
+       vprintk_emit+0x1ca/0x560 kernel/printk/printk.c:2098
+       vprintk_func+0x8d/0x1e0 kernel/printk/printk_safe.c:401
+       printk+0xba/0xed kernel/printk/printk.c:2146
+       register_console kernel/printk/printk.c:2927 [inline]
+       register_console+0x606/0x840 kernel/printk/printk.c:2807
+       univ8250_console_init+0x3a/0x46 drivers/tty/serial/8250/8250_core.c:690
+       console_init+0x3c7/0x596 kernel/printk/printk.c:3027
+       start_kernel+0x306/0x496 init/main.c:993
+       secondary_startup_64_no_verify+0xb0/0xbb
+
+-> #0 (console_owner){....}-{0:0}:
+       check_prev_add kernel/locking/lockdep.c:2937 [inline]
+       check_prevs_add kernel/locking/lockdep.c:3060 [inline]
+       validate_chain kernel/locking/lockdep.c:3675 [inline]
+       __lock_acquire+0x2b14/0x54c0 kernel/locking/lockdep.c:4901
+       lock_acquire kernel/locking/lockdep.c:5511 [inline]
+       lock_acquire+0x1ab/0x740 kernel/locking/lockdep.c:5476
+       console_lock_spinning_enable kernel/printk/printk.c:1714 [inline]
+       console_unlock+0x371/0xc80 kernel/printk/printk.c:2573
+       vprintk_emit+0x1ca/0x560 kernel/printk/printk.c:2098
+       vprintk_func+0x8d/0x1e0 kernel/printk/printk_safe.c:401
+       printk+0xba/0xed kernel/printk/printk.c:2146
+       tty_port_close_start.part.0+0x503/0x550 drivers/tty/tty_port.c:569
+       tty_port_close_start drivers/tty/tty_port.c:641 [inline]
+       tty_port_close+0x46/0x170 drivers/tty/tty_port.c:634
+       tty_release+0x45e/0x1210 drivers/tty/tty_io.c:1779
+       __fput+0x288/0x920 fs/file_table.c:280
+       task_work_run+0xdd/0x1a0 kernel/task_work.c:140
+       tracehook_notify_resume include/linux/tracehook.h:189 [inline]
+       exit_to_user_mode_loop kernel/entry/common.c:174 [inline]
+       exit_to_user_mode_prepare+0x249/0x250 kernel/entry/common.c:208
+       __syscall_exit_to_user_mode_work kernel/entry/common.c:290 [inline]
+       syscall_exit_to_user_mode+0x19/0x60 kernel/entry/common.c:301
+       entry_SYSCALL_64_after_hwframe+0x44/0xae
+
+other info that might help us debug this:
+
+Chain exists of:
+  console_owner --> &port_lock_key --> &port->lock
+
+ Possible unsafe locking scenario:
+
+       CPU0                    CPU1
+       ----                    ----
+  lock(&port->lock);
+                               lock(&port_lock_key);
+                               lock(&port->lock);
+  lock(console_owner);
+
+ *** DEADLOCK ***
+
+3 locks held by syz-executor079/10407:
+ #0: ffff8880232bd1c0 (&tty->legacy_mutex){+.+.}-{3:3}, at: tty_lock+0xbd/0x120 drivers/tty/tty_mutex.c:19
+ #1: ffffffff900fed38 (&port->lock){-.-.}-{2:2}, at: tty_port_close_start.part.0+0x28/0x550 drivers/tty/tty_port.c:567
+ #2: ffffffff8bf63420 (console_lock){+.+.}-{0:0}, at: vprintk_func+0x8d/0x1e0 kernel/printk/printk_safe.c:401
+
+stack backtrace:
+CPU: 1 PID: 10407 Comm: syz-executor079 Not tainted 5.12.0-rc8-syzkaller #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+Call Trace:
+ __dump_stack lib/dump_stack.c:79 [inline]
+ dump_stack+0x141/0x1d7 lib/dump_stack.c:120
+ check_noncircular+0x25f/0x2e0 kernel/locking/lockdep.c:2128
+ check_prev_add kernel/locking/lockdep.c:2937 [inline]
+ check_prevs_add kernel/locking/lockdep.c:3060 [inline]
+ validate_chain kernel/locking/lockdep.c:3675 [inline]
+ __lock_acquire+0x2b14/0x54c0 kernel/locking/lockdep.c:4901
+ lock_acquire kernel/locking/lockdep.c:5511 [inline]
+ lock_acquire+0x1ab/0x740 kernel/locking/lockdep.c:5476
+ console_lock_spinning_enable kernel/printk/printk.c:1714 [inline]
+ console_unlock+0x371/0xc80 kernel/printk/printk.c:2573
+ vprintk_emit+0x1ca/0x560 kernel/printk/printk.c:2098
+ vprintk_func+0x8d/0x1e0 kernel/printk/printk_safe.c:401
+ printk+0xba/0xed kernel/printk/printk.c:2146
+ tty_port_close_start.part.0+0x503/0x550 drivers/tty/tty_port.c:569
+ tty_port_close_start drivers/tty/tty_port.c:641 [inline]
+ tty_port_close+0x46/0x170 drivers/tty/tty_port.c:634
+ tty_release+0x45e/0x1210 drivers/tty/tty_io.c:1779
+ __fput+0x288/0x920 fs/file_table.c:280
+ task_work_run+0xdd/0x1a0 kernel/task_work.c:140
+ tracehook_notify_resume include/linux/tracehook.h:189 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:174 [inline]
+ exit_to_user_mode_prepare+0x249/0x250 kernel/entry/common.c:208
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:290 [inline]
+ syscall_exit_to_user_mode+0x19/0x60 kernel/entry/common.c:301
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+RIP: 0033:0x409aeb
+Code: 0f 05 48 3d 00 f0 ff ff 77 45 c3 0f 1f 40 00 48 83 ec 18 89 7c 24 0c e8 03 fd ff ff 8b 7c 24 0c 41 89 c0 b8 03 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 35 44 89 c7 89 44 24 0c e8 41 fd ff ff 8b 44
+RSP: 002b:00007ffcb5f819b0 EFLAGS: 00000293 ORIG_RAX: 0000000000000003
+RAX: 0000000000000000 RBX: 0000000000000004 RCX: 0000000000409aeb
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000003
+RBP: 0000000000000032 R08: 0000000000000000 R09: 000000000049e190
+R10: 0000000000000000 R11: 0000000000000293 R12: 00000000004cf4dc
+R13: 00007ffcb5f81a00 R14: 00007ffcb5f81a20 R15: 00007ffcb5f81a90

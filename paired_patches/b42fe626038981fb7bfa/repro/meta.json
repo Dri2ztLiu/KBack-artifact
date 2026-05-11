@@ -1,0 +1,50 @@
+{
+  "extid": "b42fe626038981fb7bfa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b42fe626038981fb7bfa",
+  "bug_title": "possible deadlock in mnt_want_write (2)",
+  "bug_status": "fixed on 2023/12/21 01:43",
+  "fix_commits": [
+    {
+      "title": "ima: annotate iint mutex to avoid lockdep false positive warnings",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e044374a8a0a99e46f4e6d6751d3042b6d9cc12e",
+      "hash": "e044374a8a0a99e46f4e6d6751d3042b6d9cc12e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "amir73il@gmail.com",
+      "author-name": "Amir Goldstein",
+      "date": "2023-10-05T11:15:58Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in mnt_want_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3aba70aed91f2b283f7952be152ad76ec5c34975",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0b6a67ac4b0dc26f43030c5edd01c9175f13b784",
+  "syzkaller-commit": "0b6a67ac4b0dc26f43030c5edd01c9175f13b784",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=122df942680000",
+      "saved_to": "/home/lcj/paired_patches/b42fe626038981fb7bfa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e4ca82a1bedd37e4",
+      "saved_to": "/home/lcj/paired_patches/b42fe626038981fb7bfa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13cec0dc680000",
+      "saved_to": "/home/lcj/paired_patches/b42fe626038981fb7bfa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1304fba6680000",
+      "saved_to": "/home/lcj/paired_patches/b42fe626038981fb7bfa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

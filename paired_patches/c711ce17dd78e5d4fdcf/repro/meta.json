@@ -1,0 +1,50 @@
+{
+  "extid": "c711ce17dd78e5d4fdcf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c711ce17dd78e5d4fdcf",
+  "bug_title": "WARNING in reg_bounds_sanity_check",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "bpf: Forget ranges when refining tnum after JSET",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6279846b9b2532e1b04559ef8bd0dec049f29383",
+      "hash": "6279846b9b2532e1b04559ef8bd0dec049f29383",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paul.chaignon@gmail.com",
+      "author-name": "Paul Chaignon",
+      "date": "2025-07-10T18:20:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in reg_bounds_sanity_check",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git",
+  "kernel-source-commit": "cce3fee729ee18caa03bade7f4c360343e863bb1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ffe4b334cb3673050f6078356393ce4b76adfc54",
+  "syzkaller-commit": "ffe4b334cb3673050f6078356393ce4b76adfc54",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11b05770580000",
+      "saved_to": "/home/lcj/paired_patches/c711ce17dd78e5d4fdcf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=79da270cec5ffd65",
+      "saved_to": "/home/lcj/paired_patches/c711ce17dd78e5d4fdcf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1159388c580000",
+      "saved_to": "/home/lcj/paired_patches/c711ce17dd78e5d4fdcf/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1594e48c580000",
+      "saved_to": "/home/lcj/paired_patches/c711ce17dd78e5d4fdcf/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "cfbcb82adf6d7279fd35",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cfbcb82adf6d7279fd35",
+  "bug_title": "riscv/fixes test error: can't ssh into the instance",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "riscv: Fix RISCV_ALTERNATIVE_EARLY",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1ff95eb2bebda50c4c5406caaf201e0fcb24cc8f",
+      "hash": "1ff95eb2bebda50c4c5406caaf201e0fcb24cc8f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "alexghiti@rivosinc.com",
+      "author-name": "Alexandre Ghiti",
+      "date": "2024-08-29T16:50:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "riscv/fixes test error: can't ssh into the instance",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git",
+  "kernel-source-commit": "b686ecdeacf6658e1348c1a32a08e2e72f7c0f00",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8045124c794269555c41ada3c7e00a4efcbc8df3",
+  "syzkaller-commit": "8045124c794269555c41ada3c7e00a4efcbc8df3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/cfbcb82adf6d7279fd35/repro/crash_report.txt",
+      "ok": false,
+      "error": "empty url"
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c79e90d7b2f5b364",
+      "saved_to": "/home/lcj/paired_patches/cfbcb82adf6d7279fd35/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/cfbcb82adf6d7279fd35/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/cfbcb82adf6d7279fd35/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

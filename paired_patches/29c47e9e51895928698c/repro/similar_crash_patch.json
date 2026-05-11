@@ -1,0 +1,47 @@
+{
+  "extid": "29c47e9e51895928698c",
+  "target_ref": "29c47e9e51895928698c",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "557c024ca7250bb65ae60f16c02074106c2f197b",
+      "branch": "linux-6.6",
+      "title": "KASAN: slab-use-after-free Write in gfs2_qd_dealloc",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/gfs2/dir.c",
+        "fs/gfs2/glops.c"
+      ],
+      "symbols": [
+        "dir_make_exhash",
+        "dir_make_exhash",
+        "gfs2_dinode_in",
+        "for",
+        "if",
+        "gfs2_consist_inode"
+      ],
+      "patterns": [
+        "use-after-free",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "ad9ec60c8eaf69e6f99c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ad9ec60c8eaf69e6f99c",
+  "bug_title": "BUG: unable to handle kernel paging request in bpf_prog_ADDR (3)",
+  "bug_status": "fixed on 2024/10/22 11:56",
+  "fix_commits": [
+    {
+      "title": "bpf: Fail verification for sign-extension of packet data/data_end/data_meta",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=92de36080c93296ef9005690705cba260b9bd68a",
+      "hash": "92de36080c93296ef9005690705cba260b9bd68a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yonghong.song@linux.dev",
+      "author-name": "Yonghong Song",
+      "date": "2024-07-23T15:34:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel paging request in bpf_prog_ADDR",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "8b9b59e27aa88ba133fbac85def3f8be67f2d5a8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/eaeb5c15ad704753a93bc8f8c7fc422d2a189581",
+  "syzkaller-commit": "eaeb5c15ad704753a93bc8f8c7fc422d2a189581",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=134e3259980000",
+      "saved_to": "/home/lcj/paired_patches/ad9ec60c8eaf69e6f99c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b63b35269462a0e0",
+      "saved_to": "/home/lcj/paired_patches/ad9ec60c8eaf69e6f99c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12341c2d980000",
+      "saved_to": "/home/lcj/paired_patches/ad9ec60c8eaf69e6f99c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1192b1a5980000",
+      "saved_to": "/home/lcj/paired_patches/ad9ec60c8eaf69e6f99c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

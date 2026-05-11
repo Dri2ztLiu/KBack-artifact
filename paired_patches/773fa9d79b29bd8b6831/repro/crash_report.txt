@@ -1,0 +1,73 @@
+loop0: detected capacity change from 0 to 64
+=====================================================
+BUG: KMSAN: uninit-value in hfs_find_set_zero_bits+0x74d/0xb60 fs/hfs/bitmap.c:45
+ hfs_find_set_zero_bits+0x74d/0xb60 fs/hfs/bitmap.c:45
+ hfs_vbm_search_free+0x13c/0x5b0 fs/hfs/bitmap.c:151
+ hfs_extend_file+0x6a5/0x1b00 fs/hfs/extent.c:408
+ hfs_bmap_reserve+0x11c/0x5a0 fs/hfs/btree.c:269
+ hfs_cat_create+0x22e/0xc40 fs/hfs/catalog.c:104
+ hfs_create+0xce/0x250 fs/hfs/dir.c:202
+ lookup_open fs/namei.c:3708 [inline]
+ open_last_lookups fs/namei.c:3807 [inline]
+ path_openat+0x2d47/0x6760 fs/namei.c:4043
+ do_filp_open+0x280/0x660 fs/namei.c:4073
+ do_sys_openat2+0x1bb/0x2f0 fs/open.c:1435
+ do_sys_open fs/open.c:1450 [inline]
+ __do_sys_openat fs/open.c:1466 [inline]
+ __se_sys_openat fs/open.c:1461 [inline]
+ __x64_sys_openat+0x240/0x300 fs/open.c:1461
+ x64_sys_call+0x3bcc/0x3e20 arch/x86/include/generated/asm/syscalls_64.h:258
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xd9/0x210 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Uninit was created at:
+ __alloc_frozen_pages_noprof+0x689/0xf00 mm/page_alloc.c:5171
+ alloc_pages_mpol+0x328/0x860 mm/mempolicy.c:2416
+ alloc_frozen_pages_noprof+0xf7/0x200 mm/mempolicy.c:2487
+ alloc_slab_page mm/slub.c:2487 [inline]
+ allocate_slab+0x24d/0x1220 mm/slub.c:2655
+ new_slab mm/slub.c:2709 [inline]
+ ___slab_alloc+0x1024/0x34e0 mm/slub.c:3891
+ __slab_alloc mm/slub.c:3981 [inline]
+ __slab_alloc_node mm/slub.c:4056 [inline]
+ slab_alloc_node mm/slub.c:4217 [inline]
+ __do_kmalloc_node mm/slub.c:4364 [inline]
+ __kvmalloc_node_noprof+0xcab/0x1530 mm/slub.c:5052
+ kvmalloc_array_node_noprof include/linux/slab.h:1065 [inline]
+ __ptr_ring_init_queue_alloc_noprof include/linux/ptr_ring.h:471 [inline]
+ ptr_ring_init_noprof include/linux/ptr_ring.h:489 [inline]
+ skb_array_init_noprof include/linux/skb_array.h:182 [inline]
+ pfifo_fast_init+0x45c/0x7f0 net/sched/sch_generic.c:869
+ qdisc_create_dflt+0x21c/0x640 net/sched/sch_generic.c:1019
+ attach_one_default_qdisc net/sched/sch_generic.c:1178 [inline]
+ netdev_for_each_tx_queue include/linux/netdevice.h:2660 [inline]
+ attach_default_qdiscs net/sched/sch_generic.c:1196 [inline]
+ dev_activate+0x4ce/0x1c10 net/sched/sch_generic.c:1255
+ __dev_open+0xbc1/0xc60 net/core/dev.c:1691
+ __dev_change_flags+0x3a8/0x9f0 net/core/dev.c:9549
+ netif_change_flags+0x8d/0x1e0 net/core/dev.c:9612
+ do_setlink+0x15c3/0x7e50 net/core/rtnetlink.c:3143
+ rtnl_changelink net/core/rtnetlink.c:3761 [inline]
+ __rtnl_newlink net/core/rtnetlink.c:3920 [inline]
+ rtnl_newlink+0x2fcc/0x3a90 net/core/rtnetlink.c:4057
+ rtnetlink_rcv_msg+0x106c/0x14b0 net/core/rtnetlink.c:6946
+ netlink_rcv_skb+0x54d/0x680 net/netlink/af_netlink.c:2552
+ rtnetlink_rcv+0x35/0x40 net/core/rtnetlink.c:6973
+ netlink_unicast_kernel net/netlink/af_netlink.c:1320 [inline]
+ netlink_unicast+0xf01/0x12b0 net/netlink/af_netlink.c:1346
+ netlink_sendmsg+0x10b3/0x1250 net/netlink/af_netlink.c:1896
+ sock_sendmsg_nosec net/socket.c:714 [inline]
+ __sock_sendmsg+0x333/0x3d0 net/socket.c:729
+ __sys_sendto+0x593/0x720 net/socket.c:2228
+ __do_sys_sendto net/socket.c:2235 [inline]
+ __se_sys_sendto net/socket.c:2231 [inline]
+ __x64_sys_sendto+0x130/0x200 net/socket.c:2231
+ x64_sys_call+0x3910/0x3e20 arch/x86/include/generated/asm/syscalls_64.h:45
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xd9/0x210 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+CPU: 1 UID: 0 PID: 6083 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(none) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+=====================================================

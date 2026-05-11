@@ -1,0 +1,50 @@
+{
+  "extid": "57b25da729eb0b88177d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=57b25da729eb0b88177d",
+  "bug_title": "KMSAN: uninit-value in ext4_evict_inode",
+  "bug_status": "fixed on 2023/02/24 13:51",
+  "fix_commits": [
+    {
+      "title": "ext4: fix uninititialized value in 'ext4_evict_inode'",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7ea71af94eaaaf6d9aed24bc94a05b977a741cb9",
+      "hash": "7ea71af94eaaaf6d9aed24bc94a05b977a741cb9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yebin10@huawei.com",
+      "author-name": "Ye Bin",
+      "date": "2022-11-17T07:36:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ext4_evict_inode",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "5c6259d6d19f546a97b88bfa076067a9a9fc323e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1dac8c7a01e2bdd35cb04eb4901ddb157291ac2d",
+  "syzkaller-commit": "1dac8c7a01e2bdd35cb04eb4901ddb157291ac2d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1095876a480000",
+      "saved_to": "/home/lcj/paired_patches/57b25da729eb0b88177d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e2f77da22508204e",
+      "saved_to": "/home/lcj/paired_patches/57b25da729eb0b88177d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/57b25da729eb0b88177d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/57b25da729eb0b88177d/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

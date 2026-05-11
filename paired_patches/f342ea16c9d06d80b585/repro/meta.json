@@ -1,0 +1,50 @@
+{
+  "extid": "f342ea16c9d06d80b585",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f342ea16c9d06d80b585",
+  "bug_title": "INFO: task hung in usb_port_suspend",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "USB: gadget: dummy-hcd: Fix \"task hung\" problem",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5189df7b8088268012882c220d6aca4e64981348",
+      "hash": "5189df7b8088268012882c220d6aca4e64981348",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "stern@rowland.harvard.edu",
+      "author-name": "Alan Stern",
+      "date": "2024-10-16T15:44:45Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in usb_port_suspend",
+  "kernel-source-git": "https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git",
+  "kernel-source-commit": "07b887f8236eb3ed52f1fe83e385e6436dc4b052",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cd6fc0a3018e5d793bdcca6530622493f5e88307",
+  "syzkaller-commit": "cd6fc0a3018e5d793bdcca6530622493f5e88307",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15e9425f980000",
+      "saved_to": "/home/lcj/paired_patches/f342ea16c9d06d80b585/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9878fe11046ea2c6",
+      "saved_to": "/home/lcj/paired_patches/f342ea16c9d06d80b585/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17a36c87980000",
+      "saved_to": "/home/lcj/paired_patches/f342ea16c9d06d80b585/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13a36c87980000",
+      "saved_to": "/home/lcj/paired_patches/f342ea16c9d06d80b585/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

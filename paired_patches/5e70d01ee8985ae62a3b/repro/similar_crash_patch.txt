@@ -1,0 +1,643 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (2), include/linux/if_bridge.h (1), net/bridge/br_ioctl.c (1), net/bridge/br_private.h (1), net/core/dev_ioctl.c (1), net/socket.c (1), include/net/ip_vs.h (1), net/netfilter/ipvs/ip_vs_ctl.c (1)
+TOP_SYMBOLS:
+  kfree (11), start_sync_thread (5), mutex_unlock (5), sock_release (5), mutex_lock (4), wake_up_process (4), task_pid_nr (4), kthread_stop (3), for (3), dev_ifsioc (2)
+TOP_KEYWORDS:
+  net (4), NULL (2), null (2), mutex (2), ioctl (1), spin_lock (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=kfree)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=16, rows_scanned=16, candidates_kept=4, skipped=12
+skip_breakdown: skip_upstream=7, skip_non_linux_branch=3, skip_same_target_branch=0, skip_no_fix_commit=2, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: 6282921b6825fef6a1243e1c80063421d41e2576
+bug_url: https://syzkaller.appspot.com/bug?extid=009b6836b8e397538463
+title: unregister_netdevice: waiting for DEV to become free
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index c9a1e2286b3a..9625d9072c77 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 6
+-SUBLEVEL = 93
++SUBLEVEL = 94
+ EXTRAVERSION =
+ NAME = Pinguïn Aangedreven
+================================================================================
+
+branch: linux-6.1
+fix_commit: 535ec20c50273d81b2cc7985fed2108dee0e65d7
+bug_url: https://syzkaller.appspot.com/bug?extid=567a05e571d86deb603d
+title: unregister_netdevice: waiting for DEV to become free
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index eae097d3db6c..be531bb0f734 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 134
++SUBLEVEL = 135
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: ed3ba9b6e280e14cc3148c1b226ba453f02fa76c
+bug_url: https://syzkaller.appspot.com/bug?extid=d3736679164e26746ec2
+title: unregister_netdevice: waiting for DEV to become free
+relevance_score: 0
+
+ include/linux/if_bridge.h |  6 ++----
+ net/bridge/br_ioctl.c     | 36 +++++++++++++++++++++++++++++++++---
+ net/bridge/br_private.h   |  3 +--
+ net/core/dev_ioctl.c      | 19 -------------------
+ net/socket.c              | 19 +++++++++----------
+ 5 files changed, 45 insertions(+), 38 deletions(-)
+diff --git a/include/linux/if_bridge.h b/include/linux/if_bridge.h
+index 3ff96ae31bf6..c5fe3b2a53e8 100644
+--- a/include/linux/if_bridge.h
++++ b/include/linux/if_bridge.h
+@@ -65,11 +65,9 @@ struct br_ip_list {
+ #define BR_DEFAULT_AGEING_TIME	(300 * HZ)
+ 
+ struct net_bridge;
+-void brioctl_set(int (*hook)(struct net *net, struct net_bridge *br,
+-			     unsigned int cmd, struct ifreq *ifr,
++void brioctl_set(int (*hook)(struct net *net, unsigned int cmd,
+ 			     void __user *uarg));
+-int br_ioctl_call(struct net *net, struct net_bridge *br, unsigned int cmd,
+-		  struct ifreq *ifr, void __user *uarg);
++int br_ioctl_call(struct net *net, unsigned int cmd, void __user *uarg);
+ 
+ #if IS_ENABLED(CONFIG_BRIDGE) && IS_ENABLED(CONFIG_BRIDGE_IGMP_SNOOPING)
+ int br_multicast_list_adjacent(struct net_device *dev,
+diff --git a/net/bridge/br_ioctl.c b/net/bridge/br_ioctl.c
+index f213ed108361..6bc0a11f2ed3 100644
+--- a/net/bridge/br_ioctl.c
++++ b/net/bridge/br_ioctl.c
+@@ -394,10 +394,26 @@ static int old_deviceless(struct net *net, void __user *data)
+ 	return -EOPNOTSUPP;
+ }
+ 
+-int br_ioctl_stub(struct net *net, struct net_bridge *br, unsigned int cmd,
+-		  struct ifreq *ifr, void __user *uarg)
++int br_ioctl_stub(struct net *net, unsigned int cmd, void __user *uarg)
+ {
+ 	int ret = -EOPNOTSUPP;
++	struct ifreq ifr;
++
++	if (cmd == SIOCBRADDIF || cmd == SIOCBRDELIF) {
++		void __user *data;
++		char *colon;
++
++		if (!ns_capable(net->user_ns, CAP_NET_ADMIN))
++			return -EPERM;
++
++		if (get_user_ifreq(&ifr, &data, uarg))
++			return -EFAULT;
++
++		ifr.ifr_name[IFNAMSIZ - 1] = 0;
++		colon = strchr(ifr.ifr_name, ':');
++		if (colon)
++			*colon = 0;
++	}
+ 
+ 	rtnl_lock();
+ 
+@@ -430,7 +446,21 @@ int br_ioctl_stub(struct net *net, struct net_bridge *br, unsigned int cmd,
+ 		break;
+ 	case SIOCBRADDIF:
+ 	case SIOCBRDELIF:
+-		ret = add_del_if(br, ifr->ifr_ifindex, cmd == SIOCBRADDIF);
++	{
++		struct net_device *dev;
++
++		dev = __dev_get_by_name(net, ifr.ifr_name);
++		if (!dev || !netif_device_present(dev)) {
++			ret = -ENODEV;
++			break;
++		}
++		if (!netif_is_bridge_master(dev)) {
++			ret = -EOPNOTSUPP;
++			break;
++		}
++
++		ret = add_del_if(netdev_priv(dev), ifr.ifr_ifindex, cmd == SIOCBRADDIF);
++	}
+ 		break;
+ 	}
+ 
+diff --git a/net/bridge/br_private.h b/net/bridge/br_private.h
+index 1054b8a88edc..d5b3c5936a79 100644
+--- a/net/bridge/br_private.h
++++ b/net/bridge/br_private.h
+@@ -949,8 +949,7 @@ br_port_get_check_rtnl(const struct net_device *dev)
+ /* br_ioctl.c */
+ int br_dev_siocdevprivate(struct net_device *dev, struct ifreq *rq,
+ 			  void __user *data, int cmd);
+-int br_ioctl_stub(struct net *net, struct net_bridge *br, unsigned int cmd,
+-		  struct ifreq *ifr, void __user *uarg);
++int br_ioctl_stub(struct net *net, unsigned int cmd, void __user *uarg);
+ 
+ /* br_multicast.c */
+ #ifdef CONFIG_BRIDGE_IGMP_SNOOPING
+diff --git a/net/core/dev_ioctl.c b/net/core/dev_ioctl.c
+index 4c2098ac9d72..57f79f8e8466 100644
+--- a/net/core/dev_ioctl.c
++++ b/net/core/dev_ioctl.c
+@@ -551,7 +551,6 @@ static int dev_ifsioc(struct net *net, struct ifreq *ifr, void __user *data,
+ 	int err;
+ 	struct net_device *dev = __dev_get_by_name(net, ifr->ifr_name);
+ 	const struct net_device_ops *ops;
+-	netdevice_tracker dev_tracker;
+ 
+ 	if (!dev)
+ 		return -ENODEV;
+@@ -614,22 +613,6 @@ static int dev_ifsioc(struct net *net, struct ifreq *ifr, void __user *data,
+ 	case SIOCWANDEV:
+ 		return dev_siocwandev(dev, &ifr->ifr_settings);
+ 
+-	case SIOCBRADDIF:
+-	case SIOCBRDELIF:
+-		if (!netif_device_present(dev))
+-			return -ENODEV;
+-		if (!netif_is_bridge_master(dev))
+-			return -EOPNOTSUPP;
+-
+-		netdev_hold(dev, &dev_tracker, GFP_KERNEL);
+-		rtnl_net_unlock(net);
+-
+-		err = br_ioctl_call(net, netdev_priv(dev), cmd, ifr, NULL);
+-
+-		netdev_put(dev, &dev_tracker);
+-		rtnl_net_lock(net);
+-		return err;
+-
+ 	case SIOCDEVPRIVATE ... SIOCDEVPRIVATE + 15:
+ 		return dev_siocdevprivate(dev, ifr, data, cmd);
+ 
+@@ -812,8 +795,6 @@ int dev_ioctl(struct net *net, unsigned int cmd, struct ifreq *ifr,
+ 	case SIOCBONDRELEASE:
+ 	case SIOCBONDSETHWADDR:
+ 	case SIOCBONDCHANGEACTIVE:
+-	case SIOCBRADDIF:
+-	case SIOCBRDELIF:
+ 	case SIOCSHWTSTAMP:
+ 		if (!ns_capable(net->user_ns, CAP_NET_ADMIN))
+ 			return -EPERM;
+diff --git a/net/socket.c b/net/socket.c
+index 28bae5a94234..38227d00d198 100644
+--- a/net/socket.c
++++ b/net/socket.c
+@@ -1145,12 +1145,10 @@ static ssize_t sock_write_iter(struct kiocb *iocb, struct iov_iter *from)
+  */
+ 
+ static DEFINE_MUTEX(br_ioctl_mutex);
+-static int (*br_ioctl_hook)(struct net *net, struct net_bridge *br,
+-			    unsigned int cmd, struct ifreq *ifr,
++static int (*br_ioctl_hook)(struct net *net, unsigned int cmd,
+ 			    void __user *uarg);
+ 
+-void brioctl_set(int (*hook)(struct net *net, struct net_bridge *br,
+-			     unsigned int cmd, struct ifreq *ifr,
++void brioctl_set(int (*hook)(struct net *net, unsigned int cmd,
+ 			     void __user *uarg))
+ {
+ 	mutex_lock(&br_ioctl_mutex);
+@@ -1159,8 +1157,7 @@ void brioctl_set(int (*hook)(struct net *net, struct net_bridge *br,
+ }
+ EXPORT_SYMBOL(brioctl_set);
+ 
+-int br_ioctl_call(struct net *net, struct net_bridge *br, unsigned int cmd,
+-		  struct ifreq *ifr, void __user *uarg)
++int br_ioctl_call(struct net *net, unsigned int cmd, void __user *uarg)
+ {
+ 	int err = -ENOPKG;
+ 
+@@ -1169,7 +1166,7 @@ int br_ioctl_call(struct net *net, struct net_bridge *br, unsigned int cmd,
+ 
+ 	mutex_lock(&br_ioctl_mutex);
+ 	if (br_ioctl_hook)
+-		err = br_ioctl_hook(net, br, cmd, ifr, uarg);
++		err = br_ioctl_hook(net, cmd, uarg);
+ 	mutex_unlock(&br_ioctl_mutex);
+ 
+ 	return err;
+@@ -1269,7 +1266,9 @@ static long sock_ioctl(struct file *file, unsigned cmd, unsigned long arg)
+ 		case SIOCSIFBR:
+ 		case SIOCBRADDBR:
+ 		case SIOCBRDELBR:
+-			err = br_ioctl_call(net, NULL, cmd, NULL, argp);
++		case SIOCBRADDIF:
++		case SIOCBRDELIF:
++			err = br_ioctl_call(net, cmd, argp);
+ 			break;
+ 		case SIOCGIFVLAN:
+ 		case SIOCSIFVLAN:
+@@ -3429,6 +3428,8 @@ static int compat_sock_ioctl_trans(struct file *file, struct socket *sock,
+ 	case SIOCGPGRP:
+ 	case SIOCBRADDBR:
+ 	case SIOCBRDELBR:
++	case SIOCBRADDIF:
++	case SIOCBRDELIF:
+ 	case SIOCGIFVLAN:
+ 	case SIOCSIFVLAN:
+ 	case SIOCGSKNS:
+@@ -3468,8 +3469,6 @@ static int compat_sock_ioctl_trans(struct file *file, struct socket *sock,
+ 	case SIOCGIFPFLAGS:
+ 	case SIOCGIFTXQLEN:
+ 	case SIOCSIFTXQLEN:
+-	case SIOCBRADDIF:
+-	case SIOCBRDELIF:
+ 	case SIOCGIFNAME:
+ 	case SIOCSIFNAME:
+ 	case SIOCGMIIPHY:
+================================================================================
+
+branch: linux-4.14
+fix_commit: 5db7c8b9f9fc2aeec671ae3ca6375752c162e0e7
+bug_url: https://syzkaller.appspot.com/bug?extid=2bb104d4adafb1ed1a19
+title: unregister_netdevice: waiting for DEV to become free
+relevance_score: 0
+
+ include/net/ip_vs.h             |   6 +-
+ net/netfilter/ipvs/ip_vs_ctl.c  |   4 -
+ net/netfilter/ipvs/ip_vs_sync.c | 134 +++++++++++++++++---------------
+ 3 files changed, 76 insertions(+), 68 deletions(-)
+diff --git a/include/net/ip_vs.h b/include/net/ip_vs.h
+index 2ac40135b576..b36a1df93e7c 100644
+--- a/include/net/ip_vs.h
++++ b/include/net/ip_vs.h
+@@ -808,11 +808,12 @@ struct ipvs_master_sync_state {
+ 	struct ip_vs_sync_buff	*sync_buff;
+ 	unsigned long		sync_queue_len;
+ 	unsigned int		sync_queue_delay;
+-	struct task_struct	*master_thread;
+ 	struct delayed_work	master_wakeup_work;
+ 	struct netns_ipvs	*ipvs;
+ };
+ 
++struct ip_vs_sync_thread_data;
++
+ /* How much time to keep dests in trash */
+ #define IP_VS_DEST_TRASH_PERIOD		(120 * HZ)
+ 
+@@ -943,7 +944,8 @@ struct netns_ipvs {
+ 	spinlock_t		sync_lock;
+ 	struct ipvs_master_sync_state *ms;
+ 	spinlock_t		sync_buff_lock;
+-	struct task_struct	**backup_threads;
++	struct ip_vs_sync_thread_data *master_tinfo;
++	struct ip_vs_sync_thread_data *backup_tinfo;
+ 	int			threads_mask;
+ 	volatile int		sync_state;
+ 	struct mutex		sync_mutex;
+diff --git a/net/netfilter/ipvs/ip_vs_ctl.c b/net/netfilter/ipvs/ip_vs_ctl.c
+index 776c87ed4813..741d91aa4a8d 100644
+--- a/net/netfilter/ipvs/ip_vs_ctl.c
++++ b/net/netfilter/ipvs/ip_vs_ctl.c
+@@ -2396,9 +2396,7 @@ do_ip_vs_set_ctl(struct sock *sk, int cmd, void __user *user, unsigned int len)
+ 			cfg.syncid = dm->syncid;
+ 			ret = start_sync_thread(ipvs, &cfg, dm->state);
+ 		} else {
+-			mutex_lock(&ipvs->sync_mutex);
+ 			ret = stop_sync_thread(ipvs, dm->state);
+-			mutex_unlock(&ipvs->sync_mutex);
+ 		}
+ 		goto out_dec;
+ 	}
+@@ -3515,10 +3513,8 @@ static int ip_vs_genl_del_daemon(struct netns_ipvs *ipvs, struct nlattr **attrs)
+ 	if (!attrs[IPVS_DAEMON_ATTR_STATE])
+ 		return -EINVAL;
+ 
+-	mutex_lock(&ipvs->sync_mutex);
+ 	ret = stop_sync_thread(ipvs,
+ 			       nla_get_u32(attrs[IPVS_DAEMON_ATTR_STATE]));
+-	mutex_unlock(&ipvs->sync_mutex);
+ 	return ret;
+ }
+ 
+diff --git a/net/netfilter/ipvs/ip_vs_sync.c b/net/netfilter/ipvs/ip_vs_sync.c
+index 2526be6b3d90..a4a78c4b06de 100644
+--- a/net/netfilter/ipvs/ip_vs_sync.c
++++ b/net/netfilter/ipvs/ip_vs_sync.c
+@@ -195,6 +195,7 @@ union ip_vs_sync_conn {
+ #define IPVS_OPT_F_PARAM	(1 << (IPVS_OPT_PARAM-1))
+ 
+ struct ip_vs_sync_thread_data {
++	struct task_struct *task;
+ 	struct netns_ipvs *ipvs;
+ 	struct socket *sock;
+ 	char *buf;
+@@ -374,8 +375,11 @@ static inline void sb_queue_tail(struct netns_ipvs *ipvs,
+ 					      max(IPVS_SYNC_SEND_DELAY, 1));
+ 		ms->sync_queue_len++;
+ 		list_add_tail(&sb->list, &ms->sync_queue);
+-		if ((++ms->sync_queue_delay) == IPVS_SYNC_WAKEUP_RATE)
+-			wake_up_process(ms->master_thread);
++		if ((++ms->sync_queue_delay) == IPVS_SYNC_WAKEUP_RATE) {
++			int id = (int)(ms - ipvs->ms);
++
++			wake_up_process(ipvs->master_tinfo[id].task);
++		}
+ 	} else
+ 		ip_vs_sync_buff_release(sb);
+ 	spin_unlock(&ipvs->sync_lock);
+@@ -1636,8 +1640,10 @@ static void master_wakeup_work_handler(struct work_struct *work)
+ 	spin_lock_bh(&ipvs->sync_lock);
+ 	if (ms->sync_queue_len &&
+ 	    ms->sync_queue_delay < IPVS_SYNC_WAKEUP_RATE) {
++		int id = (int)(ms - ipvs->ms);
++
+ 		ms->sync_queue_delay = IPVS_SYNC_WAKEUP_RATE;
+-		wake_up_process(ms->master_thread);
++		wake_up_process(ipvs->master_tinfo[id].task);
+ 	}
+ 	spin_unlock_bh(&ipvs->sync_lock);
+ }
+@@ -1703,10 +1709,6 @@ static int sync_thread_master(void *data)
+ 	if (sb)
+ 		ip_vs_sync_buff_release(sb);
+ 
+-	/* release the sending multicast socket */
+-	sock_release(tinfo->sock);
+-	kfree(tinfo);
+-
+ 	return 0;
+ }
+ 
+@@ -1740,11 +1742,6 @@ static int sync_thread_backup(void *data)
+ 		}
+ 	}
+ 
+-	/* release the sending multicast socket */
+-	sock_release(tinfo->sock);
+-	kfree(tinfo->buf);
+-	kfree(tinfo);
+-
+ 	return 0;
+ }
+ 
+@@ -1752,8 +1749,8 @@ static int sync_thread_backup(void *data)
+ int start_sync_thread(struct netns_ipvs *ipvs, struct ipvs_sync_daemon_cfg *c,
+ 		      int state)
+ {
+-	struct ip_vs_sync_thread_data *tinfo = NULL;
+-	struct task_struct **array = NULL, *task;
++	struct ip_vs_sync_thread_data *ti = NULL, *tinfo;
++	struct task_struct *task;
+ 	struct net_device *dev;
+ 	char *name;
+ 	int (*threadfn)(void *data);
+@@ -1822,7 +1819,7 @@ int start_sync_thread(struct netns_ipvs *ipvs, struct ipvs_sync_daemon_cfg *c,
+ 		threadfn = sync_thread_master;
+ 	} else if (state == IP_VS_STATE_BACKUP) {
+ 		result = -EEXIST;
+-		if (ipvs->backup_threads)
++		if (ipvs->backup_tinfo)
+ 			goto out_early;
+ 
+ 		ipvs->bcfg = *c;
+@@ -1849,28 +1846,22 @@ int start_sync_thread(struct netns_ipvs *ipvs, struct ipvs_sync_daemon_cfg *c,
+ 					  master_wakeup_work_handler);
+ 			ms->ipvs = ipvs;
+ 		}
+-	} else {
+-		array = kcalloc(count, sizeof(struct task_struct *),
+-				GFP_KERNEL);
+-		result = -ENOMEM;
+-		if (!array)
+-			goto out;
+ 	}
++	result = -ENOMEM;
++	ti = kcalloc(count, sizeof(struct ip_vs_sync_thread_data),
++		     GFP_KERNEL);
++	if (!ti)
++		goto out;
+ 
+ 	for (id = 0; id < count; id++) {
+-		result = -ENOMEM;
+-		tinfo = kmalloc(sizeof(*tinfo), GFP_KERNEL);
+-		if (!tinfo)
+-			goto out;
++		tinfo = &ti[id];
+ 		tinfo->ipvs = ipvs;
+-		tinfo->sock = NULL;
+ 		if (state == IP_VS_STATE_BACKUP) {
++			result = -ENOMEM;
+ 			tinfo->buf = kmalloc(ipvs->bcfg.sync_maxlen,
+ 					     GFP_KERNEL);
+ 			if (!tinfo->buf)
+ 				goto out;
+-		} else {
+-			tinfo->buf = NULL;
+ 		}
+ 		tinfo->id = id;
+ 		if (state == IP_VS_STATE_MASTER)
+@@ -1885,17 +1876,15 @@ int start_sync_thread(struct netns_ipvs *ipvs, struct ipvs_sync_daemon_cfg *c,
+ 			result = PTR_ERR(task);
+ 			goto out;
+ 		}
+-		tinfo = NULL;
+-		if (state == IP_VS_STATE_MASTER)
+-			ipvs->ms[id].master_thread = task;
+-		else
+-			array[id] = task;
++		tinfo->task = task;
+ 	}
+ 
+ 	/* mark as active */
+ 
+-	if (state == IP_VS_STATE_BACKUP)
+-		ipvs->backup_threads = array;
++	if (state == IP_VS_STATE_MASTER)
++		ipvs->master_tinfo = ti;
++	else
++		ipvs->backup_tinfo = ti;
+ 	spin_lock_bh(&ipvs->sync_buff_lock);
+ 	ipvs->sync_state |= state;
+ 	spin_unlock_bh(&ipvs->sync_buff_lock);
+@@ -1910,29 +1899,31 @@ int start_sync_thread(struct netns_ipvs *ipvs, struct ipvs_sync_daemon_cfg *c,
+ 
+ out:
+ 	/* We do not need RTNL lock anymore, release it here so that
+-	 * sock_release below and in the kthreads can use rtnl_lock
+-	 * to leave the mcast group.
++	 * sock_release below can use rtnl_lock to leave the mcast group.
+ 	 */
+ 	rtnl_unlock();
+-	count = id;
+-	while (count-- > 0) {
+-		if (state == IP_VS_STATE_MASTER)
+-			kthread_stop(ipvs->ms[count].master_thread);
+-		else
+-			kthread_stop(array[count]);
++	id = min(id, count - 1);
++	if (ti) {
++		for (tinfo = ti + id; tinfo >= ti; tinfo--) {
++			if (tinfo->task)
++				kthread_stop(tinfo->task);
++		}
+ 	}
+ 	if (!(ipvs->sync_state & IP_VS_STATE_MASTER)) {
+ 		kfree(ipvs->ms);
+ 		ipvs->ms = NULL;
+ 	}
+ 	mutex_unlock(&ipvs->sync_mutex);
+-	if (tinfo) {
+-		if (tinfo->sock)
+-			sock_release(tinfo->sock);
+-		kfree(tinfo->buf);
+-		kfree(tinfo);
++
++	/* No more mutexes, release socks */
++	if (ti) {
++		for (tinfo = ti + id; tinfo >= ti; tinfo--) {
++			if (tinfo->sock)
++				sock_release(tinfo->sock);
++			kfree(tinfo->buf);
++		}
++		kfree(ti);
+ 	}
+-	kfree(array);
+ 	return result;
+ 
+ out_early:
+@@ -1944,15 +1935,18 @@ int start_sync_thread(struct netns_ipvs *ipvs, struct ipvs_sync_daemon_cfg *c,
+ 
+ int stop_sync_thread(struct netns_ipvs *ipvs, int state)
+ {
+-	struct task_struct **array;
++	struct ip_vs_sync_thread_data *ti, *tinfo;
+ 	int id;
+ 	int retc = -EINVAL;
+ 
+ 	IP_VS_DBG(7, "%s(): pid %d\n", __func__, task_pid_nr(current));
+ 
++	mutex_lock(&ipvs->sync_mutex);
+ 	if (state == IP_VS_STATE_MASTER) {
++		retc = -ESRCH;
+ 		if (!ipvs->ms)
+-			return -ESRCH;
++			goto err;
++		ti = ipvs->master_tinfo;
+ 
+ 		/*
+ 		 * The lock synchronizes with sb_queue_tail(), so that we don't
+@@ -1971,38 +1965,56 @@ int stop_sync_thread(struct netns_ipvs *ipvs, int state)
+ 			struct ipvs_master_sync_state *ms = &ipvs->ms[id];
+ 			int ret;
+ 
++			tinfo = &ti[id];
+ 			pr_info("stopping master sync thread %d ...\n",
+-				task_pid_nr(ms->master_thread));
++				task_pid_nr(tinfo->task));
+ 			cancel_delayed_work_sync(&ms->master_wakeup_work);
+-			ret = kthread_stop(ms->master_thread);
++			ret = kthread_stop(tinfo->task);
+ 			if (retc >= 0)
+ 				retc = ret;
+ 		}
+ 		kfree(ipvs->ms);
+ 		ipvs->ms = NULL;
++		ipvs->master_tinfo = NULL;
+ 	} else if (state == IP_VS_STATE_BACKUP) {
+-		if (!ipvs->backup_threads)
+-			return -ESRCH;
++		retc = -ESRCH;
++		if (!ipvs->backup_tinfo)
++			goto err;
++		ti = ipvs->backup_tinfo;
+ 
+ 		ipvs->sync_state &= ~IP_VS_STATE_BACKUP;
+-		array = ipvs->backup_threads;
+ 		retc = 0;
+ 		for (id = ipvs->threads_mask; id >= 0; id--) {
+ 			int ret;
+ 
++			tinfo = &ti[id];
+ 			pr_info("stopping backup sync thread %d ...\n",
+-				task_pid_nr(array[id]));
+-			ret = kthread_stop(array[id]);
++				task_pid_nr(tinfo->task));
++			ret = kthread_stop(tinfo->task);
+ 			if (retc >= 0)
+ 				retc = ret;
+ 		}
+-		kfree(array);
+-		ipvs->backup_threads = NULL;
++		ipvs->backup_tinfo = NULL;
++	} else {
++		goto err;
+ 	}
++	id = ipvs->threads_mask;
++	mutex_unlock(&ipvs->sync_mutex);
++
++	/* No more mutexes, release socks */
++	for (tinfo = ti + id; tinfo >= ti; tinfo--) {
++		if (tinfo->sock)
++			sock_release(tinfo->sock);
++		kfree(tinfo->buf);
++	}
++	kfree(ti);
+ 
+ 	/* decrease the module use count */
+ 	ip_vs_use_count_dec();
++	return retc;
+ 
++err:
++	mutex_unlock(&ipvs->sync_mutex);
+ 	return retc;
+ }
+ 
+@@ -2021,7 +2033,6 @@ void ip_vs_sync_net_cleanup(struct netns_ipvs *ipvs)
+ {
+ 	int retc;
+ 
+-	mutex_lock(&ipvs->sync_mutex);
+ 	retc = stop_sync_thread(ipvs, IP_VS_STATE_MASTER);
+ 	if (retc && retc != -ESRCH)
+ 		pr_err("Failed to stop Master Daemon\n");
+@@ -2029,5 +2040,4 @@ void ip_vs_sync_net_cleanup(struct netns_ipvs *ipvs)
+ 	retc = stop_sync_thread(ipvs, IP_VS_STATE_BACKUP);
+ 	if (retc && retc != -ESRCH)
+ 		pr_err("Failed to stop Backup Daemon\n");
+-	mutex_unlock(&ipvs->sync_mutex);
+ }
+================================================================================

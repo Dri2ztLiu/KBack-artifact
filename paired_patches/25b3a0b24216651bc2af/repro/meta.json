@@ -1,0 +1,50 @@
+{
+  "extid": "25b3a0b24216651bc2af",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=25b3a0b24216651bc2af",
+  "bug_title": "possible deadlock in ieee80211_change_mac",
+  "bug_status": "fixed on 2023/12/21 01:43",
+  "fix_commits": [
+    {
+      "title": "wifi: mac80211: fix change_address deadlock during unregister",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=74a7c93f45abba538914a65dd2ef2ea7cf7150e2",
+      "hash": "74a7c93f45abba538914a65dd2ef2ea7cf7150e2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2023-10-12T10:34:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in ieee80211_change_mac",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "48533eca606efcf63ef4080ded5618e0b17ee3d7",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5e837c76f52db819969341086d19d650156d1dc1",
+  "syzkaller-commit": "5e837c76f52db819969341086d19d650156d1dc1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=102755a1680000",
+      "saved_to": "/home/lcj/paired_patches/25b3a0b24216651bc2af/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=37e6eb4526c4e801",
+      "saved_to": "/home/lcj/paired_patches/25b3a0b24216651bc2af/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/25b3a0b24216651bc2af/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/25b3a0b24216651bc2af/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

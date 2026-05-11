@@ -1,0 +1,50 @@
+{
+  "extid": "31c2f641b850a348a734",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=31c2f641b850a348a734",
+  "bug_title": "KASAN: slab-use-after-free Read in l2cap_send_cmd",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: L2CAP: Fix slab-use-after-free Read in l2cap_send_cmd",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b4f82f9ed43aefa79bec2504ae8c29be0c0f5d1d",
+      "hash": "b4f82f9ed43aefa79bec2504ae8c29be0c0f5d1d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2025-01-16T15:35:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in l2cap_send_cmd",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ab75170520d4964f3acf8bb1f91d34cbc650688e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "syzkaller-commit": "f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11b6b9c4580000",
+      "saved_to": "/home/lcj/paired_patches/31c2f641b850a348a734/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1c541fa8af5c9cc7",
+      "saved_to": "/home/lcj/paired_patches/31c2f641b850a348a734/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17fa36f8580000",
+      "saved_to": "/home/lcj/paired_patches/31c2f641b850a348a734/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11261edf980000",
+      "saved_to": "/home/lcj/paired_patches/31c2f641b850a348a734/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

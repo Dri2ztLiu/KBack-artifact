@@ -1,0 +1,50 @@
+{
+  "extid": "7325f164162e200000c1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7325f164162e200000c1",
+  "bug_title": "KASAN: slab-use-after-free Read in free_block_entry",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "btrfs: ref-verify: fix use-after-free after invalid ref action",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7c4e39f9d2af4abaf82ca0e315d1fd340456620f",
+      "hash": "7c4e39f9d2af4abaf82ca0e315d1fd340456620f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2024-11-15T11:29:21Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in free_block_entry",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2d5404caa8c7bb5c4e0435f94b28834ae5456623",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0c4b1325b9b691b1f98aea7b53252b81405a810f",
+  "syzkaller-commit": "0c4b1325b9b691b1f98aea7b53252b81405a810f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1052e5f7980000",
+      "saved_to": "/home/lcj/paired_patches/7325f164162e200000c1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d2aeec8c0b2e420c",
+      "saved_to": "/home/lcj/paired_patches/7325f164162e200000c1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/7325f164162e200000c1/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/7325f164162e200000c1/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

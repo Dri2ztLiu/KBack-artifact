@@ -1,0 +1,50 @@
+{
+  "extid": "544248a761451c0df72f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=544248a761451c0df72f",
+  "bug_title": "kernel BUG in ext4_update_inline_data",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "ext4: do not BUG when INLINE_DATA_FL lacks system.data xattr",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=099b847ccc6c1ad2f805d13cfbcc83f5b6d4bc42",
+      "hash": "099b847ccc6c1ad2f805d13cfbcc83f5b6d4bc42",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tytso@mit.edu",
+      "author-name": "Theodore Ts'o",
+      "date": "2025-07-17T14:54:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in ext4_update_inline_data",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "772b78c2abd85586bb90b23adff89f7303c704c7",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4f67c4aece4f5794be20c6bc99c177e44b1320e8",
+  "syzkaller-commit": "4f67c4aece4f5794be20c6bc99c177e44b1320e8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=140e828c580000",
+      "saved_to": "/home/lcj/paired_patches/544248a761451c0df72f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=930b74448cb4593a",
+      "saved_to": "/home/lcj/paired_patches/544248a761451c0df72f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=160e828c580000",
+      "saved_to": "/home/lcj/paired_patches/544248a761451c0df72f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=120e828c580000",
+      "saved_to": "/home/lcj/paired_patches/544248a761451c0df72f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

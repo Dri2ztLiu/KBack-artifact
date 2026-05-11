@@ -1,0 +1,50 @@
+{
+  "extid": "eaba5abe296837a640c0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=eaba5abe296837a640c0",
+  "bug_title": "KMSAN: uninit-value in ext4_inlinedir_to_tree",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "ext4: fix uninitialized variable in ext4_inlinedir_to_tree",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8dc9c3da79c84b13fdb135e2fb0a149a8175bffe",
+      "hash": "8dc9c3da79c84b13fdb135e2fb0a149a8175bffe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "shenxiaxi26@gmail.com",
+      "author-name": "Xiaxi Shen",
+      "date": "2024-05-01T03:30:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ext4_inlinedir_to_tree",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e88c4cfcb7b888ac374916806f86c17d8ecaeb67",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8bdc0f220628c9347b3581fead4c026272439799",
+  "syzkaller-commit": "8bdc0f220628c9347b3581fead4c026272439799",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=130f24ef180000",
+      "saved_to": "/home/lcj/paired_patches/eaba5abe296837a640c0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=776c05250f36d55c",
+      "saved_to": "/home/lcj/paired_patches/eaba5abe296837a640c0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1741a028980000",
+      "saved_to": "/home/lcj/paired_patches/eaba5abe296837a640c0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13e2cd27180000",
+      "saved_to": "/home/lcj/paired_patches/eaba5abe296837a640c0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

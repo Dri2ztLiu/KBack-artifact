@@ -1,0 +1,50 @@
+{
+  "extid": "338f014a98367a08a114",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=338f014a98367a08a114",
+  "bug_title": "WARNING: ODEBUG bug in cancel_delayed_work",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: Set CONF_NOT_COMPLETE as l2cap_chan default",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3a9d54b1947ecea8eea9a902c0b7eb58a98add8a",
+      "hash": "3a9d54b1947ecea8eea9a902c0b7eb58a98add8a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "apusaka@chromium.org",
+      "author-name": "Archie Pusaka",
+      "date": "2021-03-22T06:02:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c3d8f220d01220a5b253e422be407d068dc65511",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1da71ab086c5d9e6a32beae37b109efaa856b257",
+  "syzkaller-commit": "1da71ab086c5d9e6a32beae37b109efaa856b257",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1108b939900000",
+      "saved_to": "/home/lcj/paired_patches/338f014a98367a08a114/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a0437fdd630bee11",
+      "saved_to": "/home/lcj/paired_patches/338f014a98367a08a114/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=146d9dee900000",
+      "saved_to": "/home/lcj/paired_patches/338f014a98367a08a114/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15495b36900000",
+      "saved_to": "/home/lcj/paired_patches/338f014a98367a08a114/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

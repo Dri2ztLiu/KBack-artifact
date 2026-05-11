@@ -1,0 +1,50 @@
+{
+  "extid": "0fe7752e52337864d29b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0fe7752e52337864d29b",
+  "bug_title": "INFO: task hung in del_gendisk",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "nbd: do del_gendisk() asynchronously for NBD_DESTROY_ON_DISCONNECT",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=68c9417b193d0d174b0ada013602272177e61303",
+      "hash": "68c9417b193d0d174b0ada013602272177e61303",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "houtao1@huawei.com",
+      "author-name": "Hou Tao",
+      "date": "2021-08-11T12:44:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in del_gendisk",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3dbdb38e286903ec220aaf1fb29a8d94297da246",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4846d5c1dcbf362c2e9949b24feca9670ca9b4b9",
+  "syzkaller-commit": "4846d5c1dcbf362c2e9949b24feca9670ca9b4b9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1527ddb4300000",
+      "saved_to": "/home/lcj/paired_patches/0fe7752e52337864d29b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1700b0b2b41cd52c",
+      "saved_to": "/home/lcj/paired_patches/0fe7752e52337864d29b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13bc89c4300000",
+      "saved_to": "/home/lcj/paired_patches/0fe7752e52337864d29b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=156d30d2300000",
+      "saved_to": "/home/lcj/paired_patches/0fe7752e52337864d29b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

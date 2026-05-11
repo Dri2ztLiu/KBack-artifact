@@ -1,0 +1,50 @@
+{
+  "extid": "f31660cf279b0557160c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f31660cf279b0557160c",
+  "bug_title": "KASAN: use-after-free Read in nft_table_lookup (2)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "netfilter: nf_tables: unlink table before deleting it",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a499b03bf36b0c2e3b958a381d828678ab0ffc5e",
+      "hash": "a499b03bf36b0c2e3b958a381d828678ab0ffc5e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2021-09-13T12:42:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in nft_table_lookup",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0f4b9289bad354b606190a4cd54d5222b4e41d98",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e2776ee417c18d6e0056b058f3b6055f65206ee9",
+  "syzkaller-commit": "e2776ee417c18d6e0056b058f3b6055f65206ee9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=163a2eb3300000",
+      "saved_to": "/home/lcj/paired_patches/f31660cf279b0557160c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ddf81d5d49fe3452",
+      "saved_to": "/home/lcj/paired_patches/f31660cf279b0557160c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f31660cf279b0557160c/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17f78feb300000",
+      "saved_to": "/home/lcj/paired_patches/f31660cf279b0557160c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

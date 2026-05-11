@@ -1,0 +1,67 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  drivers/net/can/usb/peak_usb/pcan_usb_core.c (1)
+TOP_SYMBOLS:
+  peak_usb_create_dev (2)
+TOP_KEYWORDS:
+  net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=peak_usb_create_dev)
+  - viewcode(ref=<target_release>, path=drivers/net/can/usb/peak_usb/pcan_usb_core.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=1, rows_scanned=1, candidates_kept=1, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-4.19
+fix_commit: a0b96b4a62745397aee662670cfc2157bac03f55
+bug_url: https://syzkaller.appspot.com/bug?extid=14c65ec8bbbd79f3afd8
+title: general protection fault in crypto_destroy_tfm
+relevance_score: 0
+
+ drivers/net/can/usb/peak_usb/pcan_usb_core.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_core.c b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
+index 573b11559d73..28e916a04047 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb_core.c
++++ b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
+@@ -857,7 +857,7 @@ static int peak_usb_create_dev(const struct peak_usb_adapter *peak_usb_adapter,
+ 	if (dev->adapter->dev_set_bus) {
+ 		err = dev->adapter->dev_set_bus(dev, 0);
+ 		if (err)
+-			goto lbl_unregister_candev;
++			goto adap_dev_free;
+ 	}
+ 
+ 	/* get device number early */
+@@ -869,6 +869,10 @@ static int peak_usb_create_dev(const struct peak_usb_adapter *peak_usb_adapter,
+ 
+ 	return 0;
+ 
++adap_dev_free:
++	if (dev->adapter->dev_free)
++		dev->adapter->dev_free(dev);
++
+ lbl_unregister_candev:
+ 	unregister_candev(netdev);
+================================================================================

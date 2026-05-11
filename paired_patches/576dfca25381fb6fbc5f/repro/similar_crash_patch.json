@@ -1,0 +1,38 @@
+{
+  "extid": "576dfca25381fb6fbc5f",
+  "target_ref": "576dfca25381fb6fbc5f",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "4946ea5c1237036155c3b3a24f049fd5f849f8f6",
+      "branch": "linux-4.19",
+      "title": "INFO: trying to register non-static key in hci_uart_flush",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "include/linux/netfilter/nf_conntrack_pptp.h",
+        "net/netfilter/nf_conntrack_pptp.c"
+      ],
+      "symbols": [],
+      "patterns": [
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

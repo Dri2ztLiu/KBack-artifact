@@ -1,0 +1,50 @@
+{
+  "extid": "f4e0f821e3a3b7cee51d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f4e0f821e3a3b7cee51d",
+  "bug_title": "general protection fault in sctp_inet_listen",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "sctp: set sk_state back to CLOSED if autobind fails in sctp_listen_start",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8beee4d8dee76b67c75dc91fd8185d91e845c160",
+      "hash": "8beee4d8dee76b67c75dc91fd8185d91e845c160",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lucien.xin@gmail.com",
+      "author-name": "Xin Long",
+      "date": "2024-09-30T20:49:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in sctp_inet_listen",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "196145c606d0f816fd3926483cb1ff87e09c2c0b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/73e8a465188a43a0d783006a7cb71d0931a08492",
+  "syzkaller-commit": "73e8a465188a43a0d783006a7cb71d0931a08492",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=137010a9980000",
+      "saved_to": "/home/lcj/paired_patches/f4e0f821e3a3b7cee51d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=61d235cb8d15001c",
+      "saved_to": "/home/lcj/paired_patches/f4e0f821e3a3b7cee51d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f4e0f821e3a3b7cee51d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f4e0f821e3a3b7cee51d/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

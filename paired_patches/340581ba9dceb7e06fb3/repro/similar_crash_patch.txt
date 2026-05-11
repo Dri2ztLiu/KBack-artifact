@@ -1,0 +1,118 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/ext4/super.c (3)
+TOP_SYMBOLS:
+  ext4_feature_set_ok (3), ext4_msg (3)
+TOP_KEYWORDS:
+  WARN (3), ext4 (3)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ext4_feature_set_ok)
+  - viewcode(ref=<target_release>, path=fs/ext4/super.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=4, rows_scanned=4, candidates_kept=3, skipped=1
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: 985b67cd86392310d9e9326de941c22fc9340eec
+bug_url: https://syzkaller.appspot.com/bug?extid=29b46d845126c2686055
+title: WARNING in fscrypt_fname_siphash
+relevance_score: 0
+
+ fs/ext4/super.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+diff --git a/fs/ext4/super.c b/fs/ext4/super.c
+index e72145c4ae5a..25cd0d662e31 100644
+--- a/fs/ext4/super.c
++++ b/fs/ext4/super.c
+@@ -3582,6 +3582,13 @@ int ext4_feature_set_ok(struct super_block *sb, int readonly)
+ 			 "mounted without CONFIG_UNICODE");
+ 		return 0;
+ 	}
++	if (EXT4_SB(sb)->s_es->s_def_hash_version == DX_HASH_SIPHASH &&
++	    !ext4_has_feature_casefold(sb)) {
++		ext4_msg(sb, KERN_ERR,
++			 "Filesystem without casefold feature cannot be "
++			 "mounted with siphash");
++		return 0;
++	}
+ 
+ 	if (readonly)
+ 		return 1;
+================================================================================
+
+branch: linux-6.1
+fix_commit: 985b67cd86392310d9e9326de941c22fc9340eec
+bug_url: https://syzkaller.appspot.com/bug?extid=9177d065333561cd6fd0
+title: WARNING in fscrypt_fname_siphash (2)
+relevance_score: 0
+
+ fs/ext4/super.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+diff --git a/fs/ext4/super.c b/fs/ext4/super.c
+index e72145c4ae5a..25cd0d662e31 100644
+--- a/fs/ext4/super.c
++++ b/fs/ext4/super.c
+@@ -3582,6 +3582,13 @@ int ext4_feature_set_ok(struct super_block *sb, int readonly)
+ 			 "mounted without CONFIG_UNICODE");
+ 		return 0;
+ 	}
++	if (EXT4_SB(sb)->s_es->s_def_hash_version == DX_HASH_SIPHASH &&
++	    !ext4_has_feature_casefold(sb)) {
++		ext4_msg(sb, KERN_ERR,
++			 "Filesystem without casefold feature cannot be "
++			 "mounted with siphash");
++		return 0;
++	}
+ 
+ 	if (readonly)
+ 		return 1;
+================================================================================
+
+branch: linux-5.15
+fix_commit: 985b67cd86392310d9e9326de941c22fc9340eec
+bug_url: https://syzkaller.appspot.com/bug?extid=0095e55ed9774db43786
+title: WARNING in fscrypt_fname_siphash
+relevance_score: 0
+
+ fs/ext4/super.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+diff --git a/fs/ext4/super.c b/fs/ext4/super.c
+index e72145c4ae5a..25cd0d662e31 100644
+--- a/fs/ext4/super.c
++++ b/fs/ext4/super.c
+@@ -3582,6 +3582,13 @@ int ext4_feature_set_ok(struct super_block *sb, int readonly)
+ 			 "mounted without CONFIG_UNICODE");
+ 		return 0;
+ 	}
++	if (EXT4_SB(sb)->s_es->s_def_hash_version == DX_HASH_SIPHASH &&
++	    !ext4_has_feature_casefold(sb)) {
++		ext4_msg(sb, KERN_ERR,
++			 "Filesystem without casefold feature cannot be "
++			 "mounted with siphash");
++		return 0;
++	}
+ 
+ 	if (readonly)
+ 		return 1;
+================================================================================

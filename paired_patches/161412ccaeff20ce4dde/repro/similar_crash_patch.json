@@ -1,0 +1,38 @@
+{
+  "extid": "161412ccaeff20ce4dde",
+  "target_ref": "161412ccaeff20ce4dde",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "b641242202ed8c52030f7b6d8cf15886d3c4fc82",
+      "branch": "linux-4.14",
+      "title": "WARNING in tracepoint_add_func (2)",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "race",
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

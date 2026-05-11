@@ -1,0 +1,50 @@
+{
+  "extid": "e04e2c007ba2c80476cb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e04e2c007ba2c80476cb",
+  "bug_title": "KASAN: slab-use-after-free Read in rose_get_neigh",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "rose: fix dangling neighbour pointers in rose_rt_device_down()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34a500caf48c47d5171f4aa1f237da39b07c6157",
+      "hash": "34a500caf48c47d5171f4aa1f237da39b07c6157",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "enjuk@amazon.com",
+      "author-name": "Kohei Enju",
+      "date": "2025-06-29T03:06:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in rose_get_neigh",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4cb6c8af8591135ec000fbe4bb474139ceec595d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3d2f584ddab119da50e8a8d26765aa98d3b33c02",
+  "syzkaller-commit": "3d2f584ddab119da50e8a8d26765aa98d3b33c02",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12358c82580000",
+      "saved_to": "/home/lcj/paired_patches/e04e2c007ba2c80476cb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e413b6de2bc0230",
+      "saved_to": "/home/lcj/paired_patches/e04e2c007ba2c80476cb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=131f7ed4580000",
+      "saved_to": "/home/lcj/paired_patches/e04e2c007ba2c80476cb/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=161c5970580000",
+      "saved_to": "/home/lcj/paired_patches/e04e2c007ba2c80476cb/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

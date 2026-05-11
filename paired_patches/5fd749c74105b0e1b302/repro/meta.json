@@ -1,0 +1,50 @@
+{
+  "extid": "5fd749c74105b0e1b302",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5fd749c74105b0e1b302",
+  "bug_title": "possible deadlock in serial8250_handle_irq",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "6pack: drop redundant locking and refcounting",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=38b04ed7072e54086102eae2d05d03ffcdb4b695",
+      "hash": "38b04ed7072e54086102eae2d05d03ffcdb4b695",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dqfext@gmail.com",
+      "author-name": "Qingfang Deng",
+      "date": "2025-09-25T05:10:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in serial8250_handle_irq",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "590b221ed4256fd6c34d3dea77aa5bd6e741bbc1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "syzkaller-commit": "e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1533947c580000",
+      "saved_to": "/home/lcj/paired_patches/5fd749c74105b0e1b302/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9134e501f17b95a4",
+      "saved_to": "/home/lcj/paired_patches/5fd749c74105b0e1b302/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10a88e42580000",
+      "saved_to": "/home/lcj/paired_patches/5fd749c74105b0e1b302/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14e41762580000",
+      "saved_to": "/home/lcj/paired_patches/5fd749c74105b0e1b302/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

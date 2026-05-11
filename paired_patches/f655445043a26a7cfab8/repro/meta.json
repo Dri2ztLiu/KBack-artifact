@@ -1,0 +1,50 @@
+{
+  "extid": "f655445043a26a7cfab8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f655445043a26a7cfab8",
+  "bug_title": "WARNING in io_wq_submit_work",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix cancellation taking mutex while TASK_UNINTERRUPTIBLE",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ca70f00bed6cb255b7a9b91aa18a2717c9217f70",
+      "hash": "ca70f00bed6cb255b7a9b91aa18a2717c9217f70",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-01-26T16:01:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in io_wq_submit_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9791581c049c10929e97098374dd1716a81fefcc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d4f4eca56fbea6f58a4d5adfd19cb5e0dc32fe46",
+  "syzkaller-commit": "d4f4eca56fbea6f58a4d5adfd19cb5e0dc32fe46",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13086bd0d00000",
+      "saved_to": "/home/lcj/paired_patches/f655445043a26a7cfab8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=41e68e7e8a23ad09",
+      "saved_to": "/home/lcj/paired_patches/f655445043a26a7cfab8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f655445043a26a7cfab8/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f655445043a26a7cfab8/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "726dc8c62c3536431ceb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=726dc8c62c3536431ceb",
+  "bug_title": "KCSAN: data-race in random_recv_done / virtio_read (3)",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "hwrng: virtio - Fix race on data_avail and actual data",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac52578d6e8d300dd50f790f29a24169b1edd26c",
+      "hash": "ac52578d6e8d300dd50f790f29a24169b1edd26c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "herbert@gondor.apana.org.au",
+      "author-name": "Herbert Xu",
+      "date": "2023-05-04T03:59:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in random_recv_done / virtio_read",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a92b7d26c743b9dc06d520f863d624e94978a1d9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/79782afcff30fd0c0af8c2725d508b2c7150f3ed",
+  "syzkaller-commit": "79782afcff30fd0c0af8c2725d508b2c7150f3ed",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14b510e0a80000",
+      "saved_to": "/home/lcj/paired_patches/726dc8c62c3536431ceb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f329363e0c452b62",
+      "saved_to": "/home/lcj/paired_patches/726dc8c62c3536431ceb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/726dc8c62c3536431ceb/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/726dc8c62c3536431ceb/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

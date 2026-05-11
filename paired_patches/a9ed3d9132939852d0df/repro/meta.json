@@ -1,0 +1,50 @@
+{
+  "extid": "a9ed3d9132939852d0df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a9ed3d9132939852d0df",
+  "bug_title": "WARNING in do_misc_fixups",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "bpf: Check the helper function is valid in get_helper_proto",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e4414b01c1cd9887bbde92f946c1ba94e40d6d64",
+      "hash": "e4414b01c1cd9887bbde92f946c1ba94e40d6d64",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "olsajiri@gmail.com",
+      "author-name": "Jiri Olsa",
+      "date": "2025-08-14T20:06:55Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in do_misc_fixups",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a6923c06a3b2e2c534ae28c53a7531e76cc95cfa",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7368264b463a401571d2eb381f50ea2a758e9d05",
+  "syzkaller-commit": "7368264b463a401571d2eb381f50ea2a758e9d05",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1758a2a2580000",
+      "saved_to": "/home/lcj/paired_patches/a9ed3d9132939852d0df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f89bb9497754f485",
+      "saved_to": "/home/lcj/paired_patches/a9ed3d9132939852d0df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=117bd834580000",
+      "saved_to": "/home/lcj/paired_patches/a9ed3d9132939852d0df/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=165d0aa2580000",
+      "saved_to": "/home/lcj/paired_patches/a9ed3d9132939852d0df/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

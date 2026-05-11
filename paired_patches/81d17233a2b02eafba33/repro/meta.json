@@ -1,0 +1,50 @@
+{
+  "extid": "81d17233a2b02eafba33",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=81d17233a2b02eafba33",
+  "bug_title": "inconsistent lock state in io_dismantle_req",
+  "bug_status": "fixed on 2021/04/09 19:46",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix inconsistent lock state",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9ae1f8dd372e0e4c020b345cf9e09f519265e981",
+      "hash": "9ae1f8dd372e0e4c020b345cf9e09f519265e981",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-02-01T20:09:21Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "inconsistent lock state in io_dismantle_req",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "b01f250d83f6c3af5c77699dd14e7b48ee0b5383",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fc9fd31ee7998c8b747752791000ea4eef07b5c6",
+  "syzkaller-commit": "fc9fd31ee7998c8b747752791000ea4eef07b5c6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12feaac4d00000",
+      "saved_to": "/home/lcj/paired_patches/81d17233a2b02eafba33/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=725bc96dc234fda7",
+      "saved_to": "/home/lcj/paired_patches/81d17233a2b02eafba33/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12c10440d00000",
+      "saved_to": "/home/lcj/paired_patches/81d17233a2b02eafba33/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14f8a330d00000",
+      "saved_to": "/home/lcj/paired_patches/81d17233a2b02eafba33/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

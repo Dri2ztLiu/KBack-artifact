@@ -1,0 +1,50 @@
+{
+  "extid": "cca39e6e84a367a7e6f6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cca39e6e84a367a7e6f6",
+  "bug_title": "general protection fault in dev_map_enqueue (2)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "bpf: Make sure internal and UAPI bpf_redirect flags don't overlap",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=09d88791c7cd888d5195c84733caf9183dcfbd16",
+      "hash": "09d88791c7cd888d5195c84733caf9183dcfbd16",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "toke@redhat.com",
+      "author-name": "Toke Høiland-Jørgensen",
+      "date": "2024-09-20T12:56:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in dev_map_enqueue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "36534d3c54537bf098224a32dc31397793d4594d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/edc5149ad2ab7a38db6b3bcb1b594e0264a92163",
+  "syzkaller-commit": "edc5149ad2ab7a38db6b3bcb1b594e0264a92163",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=137800d6980000",
+      "saved_to": "/home/lcj/paired_patches/cca39e6e84a367a7e6f6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=333ebe38d43c42e2",
+      "saved_to": "/home/lcj/paired_patches/cca39e6e84a367a7e6f6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10948741980000",
+      "saved_to": "/home/lcj/paired_patches/cca39e6e84a367a7e6f6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13390aea980000",
+      "saved_to": "/home/lcj/paired_patches/cca39e6e84a367a7e6f6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

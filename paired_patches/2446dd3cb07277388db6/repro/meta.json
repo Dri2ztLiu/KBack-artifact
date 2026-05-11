@@ -1,0 +1,50 @@
+{
+  "extid": "2446dd3cb07277388db6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2446dd3cb07277388db6",
+  "bug_title": "WARNING in hci_conn_timeout",
+  "bug_status": "fixed on 2024/12/16 09:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_conn: Use disable_delayed_work_sync",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2b0f2fc9ed62e73c95df1fa8ed2ba3dac54699df",
+      "hash": "2b0f2fc9ed62e73c95df1fa8ed2ba3dac54699df",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2024-10-01T16:34:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hci_conn_timeout",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b86545e02e8c22fb89218f29d381fa8e8b91d815",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5df2386563cbffa1bbbb9d0b8ec1eebb98d051ae",
+  "syzkaller-commit": "5df2386563cbffa1bbbb9d0b8ec1eebb98d051ae",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=164033c0580000",
+      "saved_to": "/home/lcj/paired_patches/2446dd3cb07277388db6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f73436f88b198e63",
+      "saved_to": "/home/lcj/paired_patches/2446dd3cb07277388db6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=114033c0580000",
+      "saved_to": "/home/lcj/paired_patches/2446dd3cb07277388db6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17c0cf78580000",
+      "saved_to": "/home/lcj/paired_patches/2446dd3cb07277388db6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

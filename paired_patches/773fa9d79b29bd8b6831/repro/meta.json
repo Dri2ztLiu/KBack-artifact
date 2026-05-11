@@ -1,0 +1,50 @@
+{
+  "extid": "773fa9d79b29bd8b6831",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=773fa9d79b29bd8b6831",
+  "bug_title": "KMSAN: uninit-value in hfs_find_set_zero_bits",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "hfs: fix KMSAN uninit-value issue in hfs_find_set_zero_bits()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2048ec5b98dbdfe0b929d2e42dc7a54c389c53dd",
+      "hash": "2048ec5b98dbdfe0b929d2e42dc7a54c389c53dd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "slava@dubeyko.com",
+      "author-name": "Viacheslav Dubeyko",
+      "date": "2025-08-20T23:06:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in hfs_find_set_zero_bits",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "39f90c1967215375f7d87b81d14b0f3ed6b40c29",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e12e5ba469cd05aa76330394486b1f2a24dd4ef6",
+  "syzkaller-commit": "e12e5ba469cd05aa76330394486b1f2a24dd4ef6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1704dc62580000",
+      "saved_to": "/home/lcj/paired_patches/773fa9d79b29bd8b6831/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6ccfdce02093e91f",
+      "saved_to": "/home/lcj/paired_patches/773fa9d79b29bd8b6831/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17e21fbc580000",
+      "saved_to": "/home/lcj/paired_patches/773fa9d79b29bd8b6831/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17980262580000",
+      "saved_to": "/home/lcj/paired_patches/773fa9d79b29bd8b6831/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

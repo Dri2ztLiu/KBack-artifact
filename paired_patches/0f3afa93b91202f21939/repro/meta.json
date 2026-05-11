@@ -1,0 +1,50 @@
+{
+  "extid": "0f3afa93b91202f21939",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0f3afa93b91202f21939",
+  "bug_title": "KMSAN: uninit-value in cfg80211_inform_bss_frame_data",
+  "bug_status": "fixed on 2024/08/23 02:59",
+  "fix_commits": [
+    {
+      "title": "wifi: cfg80211: correct S1G beacon length calculation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6873cc4416078202882691b424fcca5b5fb1a94d",
+      "hash": "6873cc4416078202882691b424fcca5b5fb1a94d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2024-07-24T11:29:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in cfg80211_inform_bss_frame_data",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e4fc196f5ba36eb7b9758cf2c73df49a44199895",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1e9c4cf3ae82ef82220af312606fffe65e124563",
+  "syzkaller-commit": "1e9c4cf3ae82ef82220af312606fffe65e124563",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=129363a1980000",
+      "saved_to": "/home/lcj/paired_patches/0f3afa93b91202f21939/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2a7cf62669c9536b",
+      "saved_to": "/home/lcj/paired_patches/0f3afa93b91202f21939/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0f3afa93b91202f21939/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0f3afa93b91202f21939/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

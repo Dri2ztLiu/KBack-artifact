@@ -1,0 +1,50 @@
+{
+  "extid": "c53d4d3ddb327e80bc51",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c53d4d3ddb327e80bc51",
+  "bug_title": "WARNING in subflow_data_ready",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "mptcp: fix inconsistent state on fastopen race",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4fd19a30701659af5839b7bd19d1f05f05933ebe",
+      "hash": "4fd19a30701659af5839b7bd19d1f05f05933ebe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pabeni@redhat.com",
+      "author-name": "Paolo Abeni",
+      "date": "2023-12-15T16:04:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in subflow_data_ready",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1b1934dbbdcf9aa2d507932ff488cec47999cf3f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/915053c78aa2a0bd5050388203940fad27112b23",
+  "syzkaller-commit": "915053c78aa2a0bd5050388203940fad27112b23",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=141a62dbe80000",
+      "saved_to": "/home/lcj/paired_patches/c53d4d3ddb327e80bc51/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=33cf18a9653bdafe",
+      "saved_to": "/home/lcj/paired_patches/c53d4d3ddb327e80bc51/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c53d4d3ddb327e80bc51/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c53d4d3ddb327e80bc51/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (2), net/wireless/mlme.c (1)
+TOP_SYMBOLS:
+  cfg80211_mlme_assoc (2), ether_addr_equal (2), cfg80211_mlme_auth (1), cfg80211_oper_and_ht_capa (1)
+TOP_KEYWORDS:
+  rcu (3), WARN (3), net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=cfg80211_mlme_assoc)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=7, rows_scanned=7, candidates_kept=3, skipped=4
+skip_breakdown: skip_upstream=3, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 5d4e04bf3a0f098bd9033de3a5291810fa14c7a6
+bug_url: https://syzkaller.appspot.com/bug?extid=cba0825e014e1e384a1e
+title: WARNING in sta_info_insert_rcu
+relevance_score: 0
+
+ net/wireless/mlme.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+diff --git a/net/wireless/mlme.c b/net/wireless/mlme.c
+index ac059cefbeb3..775cac4d6100 100644
+--- a/net/wireless/mlme.c
++++ b/net/wireless/mlme.c
+@@ -281,6 +281,11 @@ int cfg80211_mlme_auth(struct cfg80211_registered_device *rdev,
+ 	    ether_addr_equal(req->bss->bssid, wdev->u.client.connected_addr))
+ 		return -EALREADY;
+ 
++	if (ether_addr_equal(req->bss->bssid, dev->dev_addr) ||
++	    (req->link_id >= 0 &&
++	     ether_addr_equal(req->ap_mld_addr, dev->dev_addr)))
++		return -EINVAL;
++
+ 	return rdev_auth(rdev, dev, req);
+ }
+ 
+@@ -335,6 +340,9 @@ int cfg80211_mlme_assoc(struct cfg80211_registered_device *rdev,
+ 			if (req->links[i].bss == req->links[j].bss)
+ 				return -EINVAL;
+ 		}
++
++		if (ether_addr_equal(req->links[i].bss->bssid, dev->dev_addr))
++			return -EINVAL;
+ 	}
+ 
+ 	if (wdev->connected &&
+@@ -342,6 +350,11 @@ int cfg80211_mlme_assoc(struct cfg80211_registered_device *rdev,
+ 	     !ether_addr_equal(wdev->u.client.connected_addr, req->prev_bssid)))
+ 		return -EALREADY;
+ 
++	if ((req->bss && ether_addr_equal(req->bss->bssid, dev->dev_addr)) ||
++	    (req->link_id >= 0 &&
++	     ether_addr_equal(req->ap_mld_addr, dev->dev_addr)))
++		return -EINVAL;
++
+ 	cfg80211_oper_and_ht_capa(&req->ht_capa_mask,
+ 				  rdev->wiphy.ht_capa_mod_mask);
+ 	cfg80211_oper_and_vht_capa(&req->vht_capa_mask,
+================================================================================
+
+branch: linux-5.15
+fix_commit: ddcaf49990615eb5659e8f06f5bab4bc3d65c4a5
+bug_url: https://syzkaller.appspot.com/bug?extid=af22409d8084f9c4bac2
+title: WARNING in sta_info_insert_rcu
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index bf3b4827b612..95170c5f75c2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 146
++SUBLEVEL = 147
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================
+
+branch: linux-4.14
+fix_commit: cbfa1702aaf69b2311ea1b35e04f113c48368c67
+bug_url: https://syzkaller.appspot.com/bug?extid=5c2fd4fe5d3518478fda
+title: WARNING in sta_info_insert_rcu
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 3712b4deafbe..d503d041b526 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 197
++SUBLEVEL = 198
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

@@ -1,0 +1,50 @@
+{
+  "extid": "1917d778024161609247",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1917d778024161609247",
+  "bug_title": "KASAN: slab-out-of-bounds Read in qrtr_endpoint_post (2)",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: qrtr: fix OOB Read in qrtr_endpoint_post",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ad9d24c9429e2159d1e279dc3a83191ccb4daf1d",
+      "hash": "ad9d24c9429e2159d1e279dc3a83191ccb4daf1d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-06-14T12:06:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "549738f15da0e5a00275977623be199fbbf7df50",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5ef9c29141f85f210b326ce68718498ae0c1fd35",
+  "syzkaller-commit": "5ef9c29141f85f210b326ce68718498ae0c1fd35",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=122dd3c7900000",
+      "saved_to": "/home/lcj/paired_patches/1917d778024161609247/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c06bcf3cc963d91c",
+      "saved_to": "/home/lcj/paired_patches/1917d778024161609247/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=165b8993900000",
+      "saved_to": "/home/lcj/paired_patches/1917d778024161609247/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17b3631f900000",
+      "saved_to": "/home/lcj/paired_patches/1917d778024161609247/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

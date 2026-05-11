@@ -1,0 +1,50 @@
+{
+  "extid": "e4d843bb96a9431e6331",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e4d843bb96a9431e6331",
+  "bug_title": "general protection fault in inet_csk_accept",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "mptcp: never allow the PM to close a listener subflow",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0cdc5dbcf2ba0d99785da5aabf1b17943805b8a",
+      "hash": "b0cdc5dbcf2ba0d99785da5aabf1b17943805b8a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pabeni@redhat.com",
+      "author-name": "Paolo Abeni",
+      "date": "2021-12-11T16:11:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in inet_csk_accept",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2a987e65025e2b79c6d453b78cb5985ac6e5eb26",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a4a2a50158b25d4af0fd07528f38e6656b903d68",
+  "syzkaller-commit": "a4a2a50158b25d4af0fd07528f38e6656b903d68",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=145deabdb00000",
+      "saved_to": "/home/lcj/paired_patches/e4d843bb96a9431e6331/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=221ffc09e39ebbd1",
+      "saved_to": "/home/lcj/paired_patches/e4d843bb96a9431e6331/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1000fdc5b00000",
+      "saved_to": "/home/lcj/paired_patches/e4d843bb96a9431e6331/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16280ae5b00000",
+      "saved_to": "/home/lcj/paired_patches/e4d843bb96a9431e6331/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

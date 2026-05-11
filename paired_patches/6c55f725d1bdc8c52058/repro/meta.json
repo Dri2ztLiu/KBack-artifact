@@ -1,0 +1,50 @@
+{
+  "extid": "6c55f725d1bdc8c52058",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6c55f725d1bdc8c52058",
+  "bug_title": "KMSAN: uninit-value in from_kuid (2)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fs: Fix uninitialized value issue in from_kuid and from_kgid",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=15f34347481648a567db67fb473c23befb796af5",
+      "hash": "15f34347481648a567db67fb473c23befb796af5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "alessandro.zanni87@gmail.com",
+      "author-name": "Alessandro Zanni",
+      "date": "2024-10-17T12:05:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in from_kuid",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2004cef11ea072838f99bd95cefa5c8e45df0847",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6f888b7530906167ecb1f5a35e060fec736d6d32",
+  "syzkaller-commit": "6f888b7530906167ecb1f5a35e060fec736d6d32",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11c2cca9980000",
+      "saved_to": "/home/lcj/paired_patches/6c55f725d1bdc8c52058/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ea86c03799707382",
+      "saved_to": "/home/lcj/paired_patches/6c55f725d1bdc8c52058/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13f5ae9f980000",
+      "saved_to": "/home/lcj/paired_patches/6c55f725d1bdc8c52058/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16e5bf00580000",
+      "saved_to": "/home/lcj/paired_patches/6c55f725d1bdc8c52058/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

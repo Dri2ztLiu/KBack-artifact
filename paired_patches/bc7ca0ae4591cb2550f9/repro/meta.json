@@ -1,0 +1,50 @@
+{
+  "extid": "bc7ca0ae4591cb2550f9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bc7ca0ae4591cb2550f9",
+  "bug_title": "possible deadlock in mi_read",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix possible deadlock in mi_read",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=03b097099eef255fbf85ea6a786ae3c91b11f041",
+      "hash": "03b097099eef255fbf85ea6a786ae3c91b11f041",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-08-28T08:55:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in mi_read",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "27cc6fdf720183dce1dbd293483ec5a9cb6b595e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d7906effc263366a8b067258cec67072b29aa5e0",
+  "syzkaller-commit": "d7906effc263366a8b067258cec67072b29aa5e0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=131a3380580000",
+      "saved_to": "/home/lcj/paired_patches/bc7ca0ae4591cb2550f9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f8af0b3195caed62",
+      "saved_to": "/home/lcj/paired_patches/bc7ca0ae4591cb2550f9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12e7bbd0580000",
+      "saved_to": "/home/lcj/paired_patches/bc7ca0ae4591cb2550f9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17a9cd27980000",
+      "saved_to": "/home/lcj/paired_patches/bc7ca0ae4591cb2550f9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

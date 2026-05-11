@@ -1,0 +1,58 @@
+{
+  "extid": "4ed6852d4da4606c93da",
+  "target_ref": "4ed6852d4da4606c93da",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "ca94b2b036c22556c3a66f1b80f490882deef7a6",
+      "branch": "linux-6.1",
+      "title": "BUG: unable to handle kernel paging request in bcsp_recv",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/bluetooth/hci_bcsp.c"
+      ],
+      "symbols": [
+        "bcsp_recv",
+        "if",
+        "BT_DBG"
+      ],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "ca94b2b036c22556c3a66f1b80f490882deef7a6",
+      "branch": "linux-5.15",
+      "title": "general protection fault in bcsp_recv",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/bluetooth/hci_bcsp.c"
+      ],
+      "symbols": [
+        "bcsp_recv",
+        "if",
+        "BT_DBG"
+      ],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

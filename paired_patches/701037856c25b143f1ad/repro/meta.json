@@ -1,0 +1,50 @@
+{
+  "extid": "701037856c25b143f1ad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=701037856c25b143f1ad",
+  "bug_title": "KCSAN: data-race in __fsnotify_parent / __fsnotify_recalc_mask (5)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fsnotify: Avoid data race between fsnotify_recalc_mask() and fsnotify_object_watched()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=35ceae44742e1101f9d20adadbbbd92c05d7d659",
+      "hash": "35ceae44742e1101f9d20adadbbbd92c05d7d659",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2024-07-17T14:06:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in __fsnotify_parent / __fsnotify_recalc_mask",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3efc57369a0ce8f76bf0804f7e673982384e4ac9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ba29ff75d05fca62258d71ffc063e70f0d7b8b09",
+  "syzkaller-commit": "ba29ff75d05fca62258d71ffc063e70f0d7b8b09",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=100fcd9f980000",
+      "saved_to": "/home/lcj/paired_patches/701037856c25b143f1ad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8e8d0e0b46ee7b0d",
+      "saved_to": "/home/lcj/paired_patches/701037856c25b143f1ad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/701037856c25b143f1ad/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/701037856c25b143f1ad/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

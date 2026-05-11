@@ -1,0 +1,50 @@
+{
+  "extid": "c5ce866a8d30f4be0651",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c5ce866a8d30f4be0651",
+  "bug_title": "general protection fault in kernel_accept (5)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "tipc: fix a null-ptr-deref in tipc_topsrv_accept",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=82cb4e4612c633a9ce320e1773114875604a3cce",
+      "hash": "82cb4e4612c633a9ce320e1773114875604a3cce",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lucien.xin@gmail.com",
+      "author-name": "Xin Long",
+      "date": "2022-10-18T19:19:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in kernel_accept",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "bf682942cd26ce9cd5e87f73ae099b383041e782",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0042f2b4c00ce1ceeaa44a0147909fe3a6f86c5c",
+  "syzkaller-commit": "0042f2b4c00ce1ceeaa44a0147909fe3a6f86c5c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=146acd7f080000",
+      "saved_to": "/home/lcj/paired_patches/c5ce866a8d30f4be0651/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7db7ad17eb14cb7",
+      "saved_to": "/home/lcj/paired_patches/c5ce866a8d30f4be0651/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c5ce866a8d30f4be0651/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c5ce866a8d30f4be0651/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

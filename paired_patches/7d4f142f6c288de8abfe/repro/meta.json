@@ -1,0 +1,50 @@
+{
+  "extid": "7d4f142f6c288de8abfe",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7d4f142f6c288de8abfe",
+  "bug_title": "WARNING in plfxlc_mac_release",
+  "bug_status": "fixed on 2025/05/09 08:57",
+  "fix_commits": [
+    {
+      "title": "wifi: plfxlc: Remove erroneous assert in plfxlc_mac_release",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/commit/?id=0fb15ae3b0a9221be01715dac0335647c79f3362",
+      "hash": "0fb15ae3b0a9221be01715dac0335647c79f3362",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git",
+      "branch": "linux-6.1.y",
+      "author": "m.masimov@mt-integration.ru",
+      "author-name": "Murad Masimov",
+      "date": "2025-04-23T12:54:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in plfxlc_mac_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git",
+  "kernel-source-commit": "c63962be84ef9c4f32e2a57404ceeda330ff3beb",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b1f1cd885392add389778baffd5cdafbeccb7934",
+  "syzkaller-commit": "b1f1cd885392add389778baffd5cdafbeccb7934",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=165409df980000",
+      "saved_to": "/home/lcj/paired_patches/7d4f142f6c288de8abfe/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b61d63ebcdeb2b69",
+      "saved_to": "/home/lcj/paired_patches/7d4f142f6c288de8abfe/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=138f7664580000",
+      "saved_to": "/home/lcj/paired_patches/7d4f142f6c288de8abfe/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=130a01f8580000",
+      "saved_to": "/home/lcj/paired_patches/7d4f142f6c288de8abfe/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

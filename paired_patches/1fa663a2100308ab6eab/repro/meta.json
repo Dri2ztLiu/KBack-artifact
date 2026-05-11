@@ -1,0 +1,50 @@
+{
+  "extid": "1fa663a2100308ab6eab",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1fa663a2100308ab6eab",
+  "bug_title": "possible deadlock in kvfree_call_rcu",
+  "bug_status": "fixed on 2024/06/05 13:52",
+  "fix_commits": [
+    {
+      "title": "bpf: Avoid kfree_rcu() under lock in bpf_lpm_trie.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=59f2f841179aa6a0899cb9cf53659149a35749b7",
+      "hash": "59f2f841179aa6a0899cb9cf53659149a35749b7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ast@kernel.org",
+      "author-name": "Alexei Starovoitov",
+      "date": "2024-03-29T17:14:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in kvfree_call_rcu",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "f99c5f563c174a49ea1cbf4754539b05cfde40c4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6baf506947ba27ed9ce775cf9351cb0886166083",
+  "syzkaller-commit": "6baf506947ba27ed9ce775cf9351cb0886166083",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10702de5180000",
+      "saved_to": "/home/lcj/paired_patches/1fa663a2100308ab6eab/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6fb1be60a193d440",
+      "saved_to": "/home/lcj/paired_patches/1fa663a2100308ab6eab/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1462d855180000",
+      "saved_to": "/home/lcj/paired_patches/1fa663a2100308ab6eab/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10022f0d180000",
+      "saved_to": "/home/lcj/paired_patches/1fa663a2100308ab6eab/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

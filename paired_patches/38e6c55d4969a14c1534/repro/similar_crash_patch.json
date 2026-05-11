@@ -1,0 +1,39 @@
+{
+  "extid": "38e6c55d4969a14c1534",
+  "target_ref": "38e6c55d4969a14c1534",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "5f63595ebd82f56a2dd36ca013dd7f5ff2e2416a",
+      "branch": "linux-6.1",
+      "title": "INFO: task hung in blk_freeze_queue",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "MAINTAINERS"
+      ],
+      "symbols": [],
+      "patterns": [
+        "hung",
+        "BUG",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

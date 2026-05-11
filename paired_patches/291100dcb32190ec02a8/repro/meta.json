@@ -1,0 +1,50 @@
+{
+  "extid": "291100dcb32190ec02a8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=291100dcb32190ec02a8",
+  "bug_title": "general protection fault in bpf_prog_offload_verifier_prep",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "bpf: Avoid dummy bpf_offload_netdev in __bpf_prog_dev_bound_init",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a49f4195d3498fe458a7f5ff7ec5385da70d92e",
+      "hash": "1a49f4195d3498fe458a7f5ff7ec5385da70d92e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eddyz87@gmail.com",
+      "author-name": "Eduard Zingerman",
+      "date": "2023-09-12T00:55:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in bpf_prog_offload_verifier_prep",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "fa09bc40b21a33937872c4c4cf0f266ec9fa4869",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/696ea0d2f4fdaa17db929e152edba19bf7666d84",
+  "syzkaller-commit": "696ea0d2f4fdaa17db929e152edba19bf7666d84",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=123000d7a80000",
+      "saved_to": "/home/lcj/paired_patches/291100dcb32190ec02a8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=634e05b4025da9da",
+      "saved_to": "/home/lcj/paired_patches/291100dcb32190ec02a8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15db0248680000",
+      "saved_to": "/home/lcj/paired_patches/291100dcb32190ec02a8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1529c448680000",
+      "saved_to": "/home/lcj/paired_patches/291100dcb32190ec02a8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

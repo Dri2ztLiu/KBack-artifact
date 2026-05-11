@@ -1,0 +1,60 @@
+{
+  "extid": "15cd994e273307bf5cfa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=15cd994e273307bf5cfa",
+  "bug_title": "kernel BUG in ext4_free_blocks (2)",
+  "bug_status": "fixed on 2023/05/04 14:51",
+  "fix_commits": [
+    {
+      "title": "UPSTREAM: ext4: block range must be validated before use in ext4_mb_clear_bb()",
+      "link": "https://android.googlesource.com/kernel/common/+/1e1c2b86ef86a8477fd9b9a4f48a6bfe235606f6^!",
+      "hash": "1e1c2b86ef86a8477fd9b9a4f48a6bfe235606f6",
+      "repo": "https://android.googlesource.com/kernel/common",
+      "branch": "android13-5.10-lts",
+      "author": "lczerner@redhat.com",
+      "author-name": "Lukas Czerner",
+      "date": "2022-08-03T03:56:25Z"
+    },
+    {
+      "title": "ext4: block range must be validated before use in ext4_mb_clear_bb()",
+      "link": "https://android.googlesource.com/kernel/common/+/1e1c2b86ef86a8477fd9b9a4f48a6bfe235606f6^!",
+      "hash": "1e1c2b86ef86a8477fd9b9a4f48a6bfe235606f6",
+      "repo": "https://android.googlesource.com/kernel/common",
+      "branch": "android13-5.10-lts",
+      "author": "lczerner@redhat.com",
+      "author-name": "Lukas Czerner",
+      "date": "2022-08-03T03:56:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in ext4_free_blocks",
+  "kernel-source-git": "https://android.googlesource.com/kernel/common",
+  "kernel-source-commit": "fa7f6a5f56d909d4d321b28a3e23ca0175825042",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1434eec0b84075b7246560cfa89f20cdb3d8077f",
+  "syzkaller-commit": "1434eec0b84075b7246560cfa89f20cdb3d8077f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1318185bf00000",
+      "saved_to": "/home/lcj/paired_patches/15cd994e273307bf5cfa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=30bf844d1a89de15",
+      "saved_to": "/home/lcj/paired_patches/15cd994e273307bf5cfa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1063cf04080000",
+      "saved_to": "/home/lcj/paired_patches/15cd994e273307bf5cfa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1609e668080000",
+      "saved_to": "/home/lcj/paired_patches/15cd994e273307bf5cfa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

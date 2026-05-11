@@ -1,0 +1,62 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  MAINTAINERS (1)
+TOP_SYMBOLS:
+  (none)
+TOP_KEYWORDS:
+  hung (1), BUG (1), net (1)
+
+Recommended next tool calls (example):
+  - viewcode(ref=<target_release>, path=MAINTAINERS, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=6, rows_scanned=6, candidates_kept=1, skipped=5
+skip_breakdown: skip_upstream=4, skip_non_linux_branch=1, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 5f63595ebd82f56a2dd36ca013dd7f5ff2e2416a
+bug_url: https://syzkaller.appspot.com/bug?extid=d34e535ffb9e7ef2bc78
+title: INFO: task hung in blk_freeze_queue
+relevance_score: 0
+
+ MAINTAINERS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0dab9737ec16..a2f1d14031b8 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -5728,6 +5728,14 @@ F:	include/linux/tfrc.h
+ F:	include/uapi/linux/dccp.h
+ F:	net/dccp/
+ 
++DEBUGOBJECTS:
++M:	Thomas Gleixner <tglx@linutronix.de>
++L:	linux-kernel@vger.kernel.org
++S:	Maintained
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/debugobjects
++F:	lib/debugobjects.c
++F:	include/linux/debugobjects.h
++
+ DECSTATION PLATFORM SUPPORT
+ M:	"Maciej W. Rozycki" <macro@orcam.me.uk>
+ L:	linux-mips@vger.kernel.org
+================================================================================

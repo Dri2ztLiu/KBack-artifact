@@ -1,0 +1,42 @@
+{
+  "extid": "4d3749e9612c2cfab956",
+  "target_ref": "4d3749e9612c2cfab956",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "d26143bb38e2546fe6f8c9860c13a88146ce5dd6",
+      "branch": "linux-5.15",
+      "title": "INFO: rcu detected stall in dummy_timer",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "io_uring/openclose.c"
+      ],
+      "symbols": [
+        "__io_openat_prep"
+      ],
+      "patterns": [
+        "rcu",
+        "stall",
+        "NULL",
+        "null"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

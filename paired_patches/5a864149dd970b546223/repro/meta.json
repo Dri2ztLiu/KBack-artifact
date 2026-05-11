@@ -1,0 +1,50 @@
+{
+  "extid": "5a864149dd970b546223",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5a864149dd970b546223",
+  "bug_title": "WARNING in io_link_timeout_fn",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix ltout double free on completion race",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=447c19f3b5074409c794b350b10306e1da1ef4ba",
+      "hash": "447c19f3b5074409c794b350b10306e1da1ef4ba",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-05-14T11:02:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in io_link_timeout_fn",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "88b06399c9c766c283e070b022b5ceafa4f63f19",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/da958a4d24db4dfddd875298efb23733d05272d5",
+  "syzkaller-commit": "da958a4d24db4dfddd875298efb23733d05272d5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13ed12add00000",
+      "saved_to": "/home/lcj/paired_patches/5a864149dd970b546223/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=807beec6b4d66bf1",
+      "saved_to": "/home/lcj/paired_patches/5a864149dd970b546223/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1715208bd00000",
+      "saved_to": "/home/lcj/paired_patches/5a864149dd970b546223/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10436223d00000",
+      "saved_to": "/home/lcj/paired_patches/5a864149dd970b546223/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

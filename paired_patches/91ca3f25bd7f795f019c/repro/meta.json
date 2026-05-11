@@ -1,0 +1,50 @@
+{
+  "extid": "91ca3f25bd7f795f019c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=91ca3f25bd7f795f019c",
+  "bug_title": "possible deadlock in io_timeout_fn (2)",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "io_uring: dont kill fasync under completion_lock",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4aa84f2ffa81f71e15e5cffc2cc6090dbee78f8e",
+      "hash": "4aa84f2ffa81f71e15e5cffc2cc6090dbee78f8e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-01-07T14:48:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "71c061d2443814de15e177489d5cc00a4a253ef3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c104d4a3bfc1f83e7ed33b4dca70e099402ce39f",
+  "syzkaller-commit": "c104d4a3bfc1f83e7ed33b4dca70e099402ce39f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=150da51f500000",
+      "saved_to": "/home/lcj/paired_patches/91ca3f25bd7f795f019c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8aa30b9da402d224",
+      "saved_to": "/home/lcj/paired_patches/91ca3f25bd7f795f019c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/91ca3f25bd7f795f019c/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/91ca3f25bd7f795f019c/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

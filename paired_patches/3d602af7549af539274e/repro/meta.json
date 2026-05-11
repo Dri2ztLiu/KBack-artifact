@@ -1,0 +1,50 @@
+{
+  "extid": "3d602af7549af539274e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3d602af7549af539274e",
+  "bug_title": "WARNING in hsr_fill_frame_info",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "net: hsr: Use the seqnr lock for frames received via interlink port.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=430d67bdcb04ee8502c2b10dcbaced4253649189",
+      "hash": "430d67bdcb04ee8502c2b10dcbaced4253649189",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "bigeasy@linutronix.de",
+      "author-name": "Sebastian Andrzej Siewior",
+      "date": "2024-09-06T13:25:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hsr_fill_frame_info",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5be63fc19fcaa4c236b307420483578a56986a37",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9aee4e0bf82f0d67df233a41aba4397ecfc18e3a",
+  "syzkaller-commit": "9aee4e0bf82f0d67df233a41aba4397ecfc18e3a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14029047980000",
+      "saved_to": "/home/lcj/paired_patches/3d602af7549af539274e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8605cd35ddc8ff3c",
+      "saved_to": "/home/lcj/paired_patches/3d602af7549af539274e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17d49305980000",
+      "saved_to": "/home/lcj/paired_patches/3d602af7549af539274e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15d1f76b980000",
+      "saved_to": "/home/lcj/paired_patches/3d602af7549af539274e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

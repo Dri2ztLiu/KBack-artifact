@@ -1,0 +1,50 @@
+{
+  "extid": "65e940cfb8f99a97aca7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=65e940cfb8f99a97aca7",
+  "bug_title": "KASAN: slab-out-of-bounds Read in ntfs_listxattr (2)",
+  "bug_status": "fixed on 2024/03/25 23:45",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix oob in ntfs_listxattr",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=731ab1f9828800df871c5a7ab9ffe965317d3f15",
+      "hash": "731ab1f9828800df871c5a7ab9ffe965317d3f15",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2023-12-30T09:00:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in ntfs_listxattr",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "aafe7ad77b91342049b8f157b978d5d4d5103211",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15bd3b31e80000",
+      "saved_to": "/home/lcj/paired_patches/65e940cfb8f99a97aca7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=23ce86eb3d78ef4d",
+      "saved_to": "/home/lcj/paired_patches/65e940cfb8f99a97aca7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=101c0fa1e80000",
+      "saved_to": "/home/lcj/paired_patches/65e940cfb8f99a97aca7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10c85065e80000",
+      "saved_to": "/home/lcj/paired_patches/65e940cfb8f99a97aca7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

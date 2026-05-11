@@ -1,0 +1,50 @@
+{
+  "extid": "25b83a6f2c702075fcbc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=25b83a6f2c702075fcbc",
+  "bug_title": "KASAN: slab-out-of-bounds Read in iov_iter_revert",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "netfs: Fix oops in write-retry from mis-resetting the subreq iterator",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4481f7f2b3df123ec77e828c849138f75cff2bf2",
+      "hash": "4481f7f2b3df123ec77e828c849138f75cff2bf2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2025-05-19T09:07:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in iov_iter_revert",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9f35e33144ae5377d6a8de86dd3bd4d995c6ac65",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a4fa04ef178601d46ebb3b4233c05c736fbaf9b3",
+  "syzkaller-commit": "a4fa04ef178601d46ebb3b4233c05c736fbaf9b3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16d556f4580000",
+      "saved_to": "/home/lcj/paired_patches/25b83a6f2c702075fcbc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c9b33a466dfee330",
+      "saved_to": "/home/lcj/paired_patches/25b83a6f2c702075fcbc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16899cd4580000",
+      "saved_to": "/home/lcj/paired_patches/25b83a6f2c702075fcbc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1193a6f4580000",
+      "saved_to": "/home/lcj/paired_patches/25b83a6f2c702075fcbc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

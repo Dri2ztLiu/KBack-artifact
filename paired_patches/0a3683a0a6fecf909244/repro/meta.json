@@ -1,0 +1,50 @@
+{
+  "extid": "0a3683a0a6fecf909244",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0a3683a0a6fecf909244",
+  "bug_title": "WARNING in iomap_iter (2)",
+  "bug_status": "fixed on 2024/06/05 13:52",
+  "fix_commits": [
+    {
+      "title": "block: refine the EOF check in blkdev_iomap_begin",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0c12028aec837f5a002009bbf68d179d506510e8",
+      "hash": "0c12028aec837f5a002009bbf68d179d506510e8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hch@lst.de",
+      "author-name": "Christoph Hellwig",
+      "date": "2024-05-03T08:10:42Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in iomap_iter",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2c8159388952f530bd260e097293ccc0209240be",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/07b455f928ae5c2cd07f4d61c1b499f56ea3dd08",
+  "syzkaller-commit": "07b455f928ae5c2cd07f4d61c1b499f56ea3dd08",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=137fc937180000",
+      "saved_to": "/home/lcj/paired_patches/0a3683a0a6fecf909244/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7edc7330e976610e",
+      "saved_to": "/home/lcj/paired_patches/0a3683a0a6fecf909244/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1538a228980000",
+      "saved_to": "/home/lcj/paired_patches/0a3683a0a6fecf909244/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14c1a97f180000",
+      "saved_to": "/home/lcj/paired_patches/0a3683a0a6fecf909244/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

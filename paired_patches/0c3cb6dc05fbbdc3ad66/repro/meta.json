@@ -1,0 +1,50 @@
+{
+  "extid": "0c3cb6dc05fbbdc3ad66",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0c3cb6dc05fbbdc3ad66",
+  "bug_title": "WARNING in send_packet/usb_submit_urb",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "media: imon: fix a race condition in send_packet()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=813ceef062b53d68f296aa3cb944b21a091fabdb",
+      "hash": "813ceef062b53d68f296aa3cb944b21a091fabdb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "gautammenghani201@gmail.com",
+      "author-name": "Gautam Menghani",
+      "date": "2022-10-19T05:02:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in send_packet/usb_submit_urb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8ed710da2873c2aeb3bb805864a699affaf1d03b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d88f3abb0873e90df9259d60d5bcd3ad796db6b8",
+  "syzkaller-commit": "d88f3abb0873e90df9259d60d5bcd3ad796db6b8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1709fa4d880000",
+      "saved_to": "/home/lcj/paired_patches/0c3cb6dc05fbbdc3ad66/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b83f3e90d74765ea",
+      "saved_to": "/home/lcj/paired_patches/0c3cb6dc05fbbdc3ad66/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17a95fc3880000",
+      "saved_to": "/home/lcj/paired_patches/0c3cb6dc05fbbdc3ad66/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=130b9c6d880000",
+      "saved_to": "/home/lcj/paired_patches/0c3cb6dc05fbbdc3ad66/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

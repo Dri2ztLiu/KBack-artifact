@@ -1,0 +1,50 @@
+{
+  "extid": "cf54c1da6574b6c1b049",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cf54c1da6574b6c1b049",
+  "bug_title": "KASAN: slab-use-after-free Write in sco_chan_del",
+  "bug_status": "fixed on 2023/10/12 12:47",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_conn: fail SCO/ISO via hci_conn_failed if ACL gone early",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3344d318337d9dca928fd448e966557ec5063f85",
+      "hash": "3344d318337d9dca928fd448e966557ec5063f85",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pav@iki.fi",
+      "author-name": "Pauli Virtanen",
+      "date": "2023-08-19T13:33:36Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Write in sco_chan_del",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "47762f08697484cf0c2f2904b8c52375ed26c8cb",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/74b106b66341c94da35974f62c072d91ca3bea28",
+  "syzkaller-commit": "74b106b66341c94da35974f62c072d91ca3bea28",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16e4d73da80000",
+      "saved_to": "/home/lcj/paired_patches/cf54c1da6574b6c1b049/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ed03cf326b3ef94c",
+      "saved_to": "/home/lcj/paired_patches/cf54c1da6574b6c1b049/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14ce8f03a80000",
+      "saved_to": "/home/lcj/paired_patches/cf54c1da6574b6c1b049/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1125bc65a80000",
+      "saved_to": "/home/lcj/paired_patches/cf54c1da6574b6c1b049/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "extid": "0d5b462a6f07447991b3",
+  "target_ref": "0d5b462a6f07447991b3",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "348551ddaf311c76b01cdcbaf61b6fef06a49144",
+      "branch": "linux-5.15",
+      "title": "WARNING in __set_page_dirty",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/afs/dir.c"
+      ],
+      "symbols": [
+        "afs_read_dir",
+        "afs_read_dir",
+        "afs_read_dir",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "7c2bb71996f95a82524c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7c2bb71996f95a82524c",
+  "bug_title": "KMSAN: kernel-usb-infoleak in hid_submit_ctrl",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "HID: usbhid: fix info leak in hid_submit_ctrl",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6be388f4a35d2ce5ef7dbf635a8964a5da7f799f",
+      "hash": "6be388f4a35d2ce5ef7dbf635a8964a5da7f799f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mail@anirudhrb.com",
+      "author-name": "Anirudh Rayabharam",
+      "date": "2021-04-25T17:33:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: kernel-usb-infoleak in hid_submit_ctrl",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "4ebaab5fb428374552175aa39832abf5cedb916a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ad61f3714f0a5e8f7ce062d54f310df1f5e0d351",
+  "syzkaller-commit": "ad61f3714f0a5e8f7ce062d54f310df1f5e0d351",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1667ac45d00000",
+      "saved_to": "/home/lcj/paired_patches/7c2bb71996f95a82524c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=647ca0f5bbe7703a",
+      "saved_to": "/home/lcj/paired_patches/7c2bb71996f95a82524c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11312245d00000",
+      "saved_to": "/home/lcj/paired_patches/7c2bb71996f95a82524c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1647af43d00000",
+      "saved_to": "/home/lcj/paired_patches/7c2bb71996f95a82524c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

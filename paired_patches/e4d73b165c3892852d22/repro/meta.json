@@ -1,0 +1,50 @@
+{
+  "extid": "e4d73b165c3892852d22",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e4d73b165c3892852d22",
+  "bug_title": "KASAN: null-ptr-deref Write in l2cap_sock_resume_cb (4)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: Fix null-ptr-deref in l2cap_sock_resume_cb()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a0075accbf0d76c2dad1ad3993d2e944505d99a0",
+      "hash": "a0075accbf0d76c2dad1ad3993d2e944505d99a0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-07-07T19:28:29Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: null-ptr-deref Write in l2cap_sock_resume_cb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "7482bb149b9f4e2c9f195a3fcb2af2f2b5aa8307",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4f67c4aece4f5794be20c6bc99c177e44b1320e8",
+  "syzkaller-commit": "4f67c4aece4f5794be20c6bc99c177e44b1320e8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1074e28c580000",
+      "saved_to": "/home/lcj/paired_patches/e4d73b165c3892852d22/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3c06e3e2454512b3",
+      "saved_to": "/home/lcj/paired_patches/e4d73b165c3892852d22/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13d11f70580000",
+      "saved_to": "/home/lcj/paired_patches/e4d73b165c3892852d22/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17c4cbd4580000",
+      "saved_to": "/home/lcj/paired_patches/e4d73b165c3892852d22/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

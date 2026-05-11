@@ -1,0 +1,50 @@
+{
+  "extid": "1e608ba4217c96d1952f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1e608ba4217c96d1952f",
+  "bug_title": "general protection fault in pn533_out_complete",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "nfc: pn533: initialize struct pn533_out_arg properly",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=484b7059796e3bc1cb527caa61dfc60da649b4f6",
+      "hash": "484b7059796e3bc1cb527caa61dfc60da649b4f6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pchelkin@ispras.ru",
+      "author-name": "Fedor Pchelkin",
+      "date": "2023-03-09T16:50:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in pn533_out_complete",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "435bf71af3a0aa8067f3b87ff9febf68b564dbb6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1dac8c7a01e2bdd35cb04eb4901ddb157291ac2d",
+  "syzkaller-commit": "1dac8c7a01e2bdd35cb04eb4901ddb157291ac2d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17015e1c480000",
+      "saved_to": "/home/lcj/paired_patches/1e608ba4217c96d1952f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2de08b99ad4f49c",
+      "saved_to": "/home/lcj/paired_patches/1e608ba4217c96d1952f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1480685a480000",
+      "saved_to": "/home/lcj/paired_patches/1e608ba4217c96d1952f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14c88886480000",
+      "saved_to": "/home/lcj/paired_patches/1e608ba4217c96d1952f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

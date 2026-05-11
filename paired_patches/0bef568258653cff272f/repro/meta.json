@@ -1,0 +1,50 @@
+{
+  "extid": "0bef568258653cff272f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0bef568258653cff272f",
+  "bug_title": "general protection fault in hci_event_packet",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: Fix null pointer dereference in hci_event_packet()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6dfccd13db2ff2b709ef60a50163925d477549aa",
+      "hash": "6dfccd13db2ff2b709ef60a50163925d477549aa",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "anmol.karan123@gmail.com",
+      "author-name": "Anmol Karn",
+      "date": "2020-11-09T12:09:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "15bc20c6af4ceee97a1f90b43c0e386643c071b4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/816e0689d7d9d8321f8bf360740f0e516aee15ca",
+  "syzkaller-commit": "816e0689d7d9d8321f8bf360740f0e516aee15ca",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=110d9341900000",
+      "saved_to": "/home/lcj/paired_patches/0bef568258653cff272f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=891ca5711a9f1650",
+      "saved_to": "/home/lcj/paired_patches/0bef568258653cff272f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12c6e1d5900000",
+      "saved_to": "/home/lcj/paired_patches/0bef568258653cff272f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14496a69900000",
+      "saved_to": "/home/lcj/paired_patches/0bef568258653cff272f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,42 @@
+commit 5f920d5d60839f7cbbb1ed50eac68d8bc0a73a7c
+Author: Jan Kara <jack@suse.cz>
+Date:   Thu Feb 6 10:44:55 2025 +0100
+
+    ext4: verify fast symlink length
+    
+    Verify fast symlink length stored in inode->i_size matches the string
+    stored in the inode to avoid surprises from corrupted filesystems.
+    
+    Reported-by: syzbot+48a99e426f29859818c0@syzkaller.appspotmail.com
+    Tested-by: syzbot+48a99e426f29859818c0@syzkaller.appspotmail.com
+    Fixes: bae80473f7b0 ("ext4: use inode_set_cached_link()")
+    Suggested-by: Darrick J. Wong <djwong@kernel.org>
+    Signed-off-by: Jan Kara <jack@suse.cz>
+    Reviewed-by: Baokun Li <libaokun1@huawei.com>
+    Reviewed-by: Darrick J. Wong <djwong@kernel.org>
+    Link: https://patch.msgid.link/20250206094454.20522-2-jack@suse.cz
+    Signed-off-by: Theodore Ts'o <tytso@mit.edu>
+
+diff --git a/fs/ext4/inode.c b/fs/ext4/inode.c
+index fc3e1b474e2c..7d965338c7d2 100644
+--- a/fs/ext4/inode.c
++++ b/fs/ext4/inode.c
+@@ -5029,8 +5029,16 @@ struct inode *__ext4_iget(struct super_block *sb, unsigned long ino,
+ 			inode->i_op = &ext4_encrypted_symlink_inode_operations;
+ 		} else if (ext4_inode_is_fast_symlink(inode)) {
+ 			inode->i_op = &ext4_fast_symlink_inode_operations;
+-			nd_terminate_link(ei->i_data, inode->i_size,
+-				sizeof(ei->i_data) - 1);
++			if (inode->i_size == 0 ||
++			    inode->i_size >= sizeof(ei->i_data) ||
++			    strnlen((char *)ei->i_data, inode->i_size + 1) !=
++								inode->i_size) {
++				ext4_error_inode(inode, function, line, 0,
++					"invalid fast symlink length %llu",
++					 (unsigned long long)inode->i_size);
++				ret = -EFSCORRUPTED;
++				goto bad_inode;
++			}
+ 			inode_set_cached_link(inode, (char *)ei->i_data,
+ 					      inode->i_size);
+ 		} else {

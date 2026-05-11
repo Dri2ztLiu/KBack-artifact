@@ -1,0 +1,50 @@
+{
+  "extid": "4fc98ed414ae63d1ada2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4fc98ed414ae63d1ada2",
+  "bug_title": "INFO: task hung in z_erofs_runqueue",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "erofs: handle overlapped pclusters out of crafted images properly",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e2f9d34dd12e6e5b244ec488bcebd0c2d566c50",
+      "hash": "9e2f9d34dd12e6e5b244ec488bcebd0c2d566c50",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hsiangkao@linux.alibaba.com",
+      "author-name": "Gao Xiang",
+      "date": "2024-09-10T07:08:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in z_erofs_runqueue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "048499f92ed71d5ba16c2b8a2ee2fa29df5ddc86",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/295a4b502e10748d2a48a91eba70d77ce4d09fd4",
+  "syzkaller-commit": "295a4b502e10748d2a48a91eba70d77ce4d09fd4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11118193980000",
+      "saved_to": "/home/lcj/paired_patches/4fc98ed414ae63d1ada2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5c686716759500c2",
+      "saved_to": "/home/lcj/paired_patches/4fc98ed414ae63d1ada2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10e3247b980000",
+      "saved_to": "/home/lcj/paired_patches/4fc98ed414ae63d1ada2/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10d09f83980000",
+      "saved_to": "/home/lcj/paired_patches/4fc98ed414ae63d1ada2/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

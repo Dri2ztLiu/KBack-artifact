@@ -1,0 +1,50 @@
+{
+  "extid": "3b6e67ac2b646da57862",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3b6e67ac2b646da57862",
+  "bug_title": "kernel BUG in gfs2_quota_cleanup",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "gfs2: fix kernel BUG in gfs2_quota_cleanup",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=71733b4922007500ae259af9e96017080f5d36d9",
+      "hash": "71733b4922007500ae259af9e96017080f5d36d9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2023-12-02T09:25:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in gfs2_quota_cleanup",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2cf4f94d8e8646803f8fb0facf134b0cd7fb691a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3ad490ea48468e50fe91f6f6b2ca4cbc74d924bf",
+  "syzkaller-commit": "3ad490ea48468e50fe91f6f6b2ca4cbc74d924bf",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16f3a7e6e80000",
+      "saved_to": "/home/lcj/paired_patches/3b6e67ac2b646da57862/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e5751b3a2226135d",
+      "saved_to": "/home/lcj/paired_patches/3b6e67ac2b646da57862/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15d349aee80000",
+      "saved_to": "/home/lcj/paired_patches/3b6e67ac2b646da57862/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13d7b901e80000",
+      "saved_to": "/home/lcj/paired_patches/3b6e67ac2b646da57862/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

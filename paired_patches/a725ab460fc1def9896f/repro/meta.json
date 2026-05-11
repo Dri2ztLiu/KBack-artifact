@@ -1,0 +1,50 @@
+{
+  "extid": "a725ab460fc1def9896f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a725ab460fc1def9896f",
+  "bug_title": "WARNING in __rt_mutex_slowlock_locked",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "exfat: validate cluster allocation bits of the allocation bitmap",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79c1587b6cda74deb0c86fc7ba194b92958c793c",
+      "hash": "79c1587b6cda74deb0c86fc7ba194b92958c793c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "linkinjeon@kernel.org",
+      "author-name": "Namjae Jeon",
+      "date": "2025-08-30T05:44:35Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __rt_mutex_slowlock_locked",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "41cd3fd152634250fdd09a52a35352b3f323800d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0b9605c8e9db737f9efc5a0557534eade4cbf844",
+  "syzkaller-commit": "0b9605c8e9db737f9efc5a0557534eade4cbf844",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14d0d7a2580000",
+      "saved_to": "/home/lcj/paired_patches/a725ab460fc1def9896f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e1e1566c7726877e",
+      "saved_to": "/home/lcj/paired_patches/a725ab460fc1def9896f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=109a96f0580000",
+      "saved_to": "/home/lcj/paired_patches/a725ab460fc1def9896f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15d3d442580000",
+      "saved_to": "/home/lcj/paired_patches/a725ab460fc1def9896f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

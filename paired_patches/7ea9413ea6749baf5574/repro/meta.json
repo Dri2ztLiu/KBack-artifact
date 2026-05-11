@@ -1,0 +1,50 @@
+{
+  "extid": "7ea9413ea6749baf5574",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7ea9413ea6749baf5574",
+  "bug_title": "KMSAN: uninit-value in nci_dev_up",
+  "bug_status": "fixed on 2024/05/22 23:16",
+  "fix_commits": [
+    {
+      "title": "nfc: nci: Fix uninit-value in nci_dev_up and nci_ntf_packet",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d24b03535e5eb82e025219c2f632b485409c898f",
+      "hash": "d24b03535e5eb82e025219c2f632b485409c898f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ryasuoka@redhat.com",
+      "author-name": "Ryosuke Yasuoka",
+      "date": "2024-03-20T00:54:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in nci_dev_up",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9f8413c4a66f2fb776d3dc3c9ed20bf435eb305e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1e153dc8b31e685ca8495576db4f8c077585e39c",
+  "syzkaller-commit": "1e153dc8b31e685ca8495576db4f8c077585e39c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1319c78be80000",
+      "saved_to": "/home/lcj/paired_patches/7ea9413ea6749baf5574/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=656820e61b758b15",
+      "saved_to": "/home/lcj/paired_patches/7ea9413ea6749baf5574/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10a6c1e3e80000",
+      "saved_to": "/home/lcj/paired_patches/7ea9413ea6749baf5574/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=153e178be80000",
+      "saved_to": "/home/lcj/paired_patches/7ea9413ea6749baf5574/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

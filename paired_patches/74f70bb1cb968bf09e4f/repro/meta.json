@@ -1,0 +1,50 @@
+{
+  "extid": "74f70bb1cb968bf09e4f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=74f70bb1cb968bf09e4f",
+  "bug_title": "kernel BUG in vlan_get_protocol_dgram",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "af_packet: fix vlan_get_protocol_dgram() vs MSG_PEEK",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f91a5b8089389eb408501af2762f168c3aaa7b79",
+      "hash": "f91a5b8089389eb408501af2762f168c3aaa7b79",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-12-30T16:10:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in vlan_get_protocol_dgram",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d6ef8b40d075c425f548002d2f35ae3f06e9cf96",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15e992c4580000",
+      "saved_to": "/home/lcj/paired_patches/74f70bb1cb968bf09e4f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d269ef41b9262400",
+      "saved_to": "/home/lcj/paired_patches/74f70bb1cb968bf09e4f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1506d2f8580000",
+      "saved_to": "/home/lcj/paired_patches/74f70bb1cb968bf09e4f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=122110b0580000",
+      "saved_to": "/home/lcj/paired_patches/74f70bb1cb968bf09e4f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

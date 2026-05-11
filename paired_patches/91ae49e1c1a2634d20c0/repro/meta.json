@@ -1,0 +1,50 @@
+{
+  "extid": "91ae49e1c1a2634d20c0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=91ae49e1c1a2634d20c0",
+  "bug_title": "KMSAN: uninit-value in ima_add_template_entry (2)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "exfat: fix the new buffer was not zeroed before writing",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=98e2fb26d1a9eafe79f46d15d54e68e014d81d8c",
+      "hash": "98e2fb26d1a9eafe79f46d15d54e68e014d81d8c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Yuezhang.Mo@sony.com",
+      "author-name": "Yuezhang Mo",
+      "date": "2024-12-12T08:29:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ima_add_template_entry",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9b2ffa6148b1e4468d08f7e0e7e371c43cac9ffe",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/444551c40edde85b5e4900ae27d432bd1da7079c",
+  "syzkaller-commit": "444551c40edde85b5e4900ae27d432bd1da7079c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1511690f980000",
+      "saved_to": "/home/lcj/paired_patches/91ae49e1c1a2634d20c0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f9048090d7bb0d06",
+      "saved_to": "/home/lcj/paired_patches/91ae49e1c1a2634d20c0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17c6e2f8580000",
+      "saved_to": "/home/lcj/paired_patches/91ae49e1c1a2634d20c0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=128bc0b0580000",
+      "saved_to": "/home/lcj/paired_patches/91ae49e1c1a2634d20c0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

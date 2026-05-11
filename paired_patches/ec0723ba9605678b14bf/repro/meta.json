@@ -1,0 +1,50 @@
+{
+  "extid": "ec0723ba9605678b14bf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ec0723ba9605678b14bf",
+  "bug_title": "KMSAN: uninit-value in ppp_async_push (3)",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "ppp: reject claimed-as-LCP but actually malformed packets",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f2aeb7306a898e1cbd03963d376f4b6656ca2b55",
+      "hash": "f2aeb7306a898e1cbd03963d376f4b6656ca2b55",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2024-07-08T11:56:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ppp_async_push",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "614da38e2f7afe9e01c6e359dfa09285f26fa381",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1014eca7bf35e59d7e3c9b4fea0fbd2701ff0061",
+  "syzkaller-commit": "1014eca7bf35e59d7e3c9b4fea0fbd2701ff0061",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1247b252980000",
+      "saved_to": "/home/lcj/paired_patches/ec0723ba9605678b14bf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f5d2cbf33633f507",
+      "saved_to": "/home/lcj/paired_patches/ec0723ba9605678b14bf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1653d768980000",
+      "saved_to": "/home/lcj/paired_patches/ec0723ba9605678b14bf/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14b284e8980000",
+      "saved_to": "/home/lcj/paired_patches/ec0723ba9605678b14bf/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

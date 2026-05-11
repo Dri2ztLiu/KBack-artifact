@@ -1,0 +1,50 @@
+{
+  "extid": "fe8264911355151c487f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fe8264911355151c487f",
+  "bug_title": "UBSAN: shift-out-of-bounds in dbAllocAG (2)",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "jfs: validate AG parameters in dbMount() to prevent crashes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=37bfb464ddca87f203071b5bd562cd91ddc0b40a",
+      "hash": "37bfb464ddca87f203071b5bd562cd91ddc0b40a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kovalev@altlinux.org",
+      "author-name": "Vasiliy Kovalev",
+      "date": "2025-03-10T08:56:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in dbAllocAG",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7eb172143d5508b4da468ed59ee857c6e5e01da6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c3901742785ff25afdc6f470af7b25b69d7c4f2f",
+  "syzkaller-commit": "c3901742785ff25afdc6f470af7b25b69d7c4f2f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12e7a7a0580000",
+      "saved_to": "/home/lcj/paired_patches/fe8264911355151c487f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=523d3ff8e053340a",
+      "saved_to": "/home/lcj/paired_patches/fe8264911355151c487f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1336afb8580000",
+      "saved_to": "/home/lcj/paired_patches/fe8264911355151c487f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16dc6464580000",
+      "saved_to": "/home/lcj/paired_patches/fe8264911355151c487f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

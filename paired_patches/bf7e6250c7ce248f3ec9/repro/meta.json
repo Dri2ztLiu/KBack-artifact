@@ -1,0 +1,50 @@
+{
+  "extid": "bf7e6250c7ce248f3ec9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bf7e6250c7ce248f3ec9",
+  "bug_title": "KMSAN: uninit-value in IP6_ECN_decapsulate",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "hsr: Fix uninit-value access in fill_frame_info()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=484b4833c604c0adcf19eac1ca14b60b757355b5",
+      "hash": "484b4833c604c0adcf19eac1ca14b60b757355b5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "william.xuanziyang@huawei.com",
+      "author-name": "Ziyang Xuan",
+      "date": "2023-09-08T10:17:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in hsr_forward_skb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "382d4cd1847517ffcb1800fd462b625db7b2ebea",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/03d9c195daed8fca30b642783f35657aa7e32209",
+  "syzkaller-commit": "03d9c195daed8fca30b642783f35657aa7e32209",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1705e7b0680000",
+      "saved_to": "/home/lcj/paired_patches/bf7e6250c7ce248f3ec9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1c042b915972fa1a",
+      "saved_to": "/home/lcj/paired_patches/bf7e6250c7ce248f3ec9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=145a9a33a80000",
+      "saved_to": "/home/lcj/paired_patches/bf7e6250c7ce248f3ec9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=124b04c0680000",
+      "saved_to": "/home/lcj/paired_patches/bf7e6250c7ce248f3ec9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

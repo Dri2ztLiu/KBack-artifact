@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=fc7c8fd9d09e32d373c32dcea8df28b7ac7e0c23
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+ioctl$IOCTL_GET_NCIDEV_IDX(r0, 0x0, &(0x7f00000000c0)=<r1=>0x0)
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+bpf$PROG_LOAD(0x5, &(0x7f0000000340)={0x0, 0x1c, &(0x7f00000006c0)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32, @ANYBLOB="0000000000000000b702000014000000b7030000000000008500000083000000bf090000000000005509010000000000950000000000000018110000", @ANYRES32, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+r3 = syz_genetlink_get_family_id$nfc(&(0x7f0000000100), r2)
+sendmsg$NFC_CMD_DEV_UP(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000440)=ANY=[@ANYBLOB="1c000000", @ANYRES16=r3, @ANYBLOB="010000000000000000000200000008000100", @ANYRES32=r1], 0x1c}}, 0x0)
+write$nci(r0, &(0x7f0000000740)=ANY=[@ANYBLOB="610501"], 0xf)

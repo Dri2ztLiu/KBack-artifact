@@ -1,0 +1,50 @@
+{
+  "extid": "b63d677d63bcac06cf90",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b63d677d63bcac06cf90",
+  "bug_title": "UBSAN: shift-out-of-bounds in s32ton (2)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "HID: core: Harden s32ton() against conversion to 0 bits",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a6b87bfc2ab5bccb7ad953693c85d9062aef3fdd",
+      "hash": "a6b87bfc2ab5bccb7ad953693c85d9062aef3fdd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "stern@rowland.harvard.edu",
+      "author-name": "Alan Stern",
+      "date": "2025-07-23T14:37:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in s32ton",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "0be23810e32e6d0a17df7c0ebad895ba2c210fc4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/03fcfc4b7385b545a89a3fc62bef4e1ec7532e0d",
+  "syzkaller-commit": "03fcfc4b7385b545a89a3fc62bef4e1ec7532e0d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16fe8382580000",
+      "saved_to": "/home/lcj/paired_patches/b63d677d63bcac06cf90/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=be9e2082003f81ff",
+      "saved_to": "/home/lcj/paired_patches/b63d677d63bcac06cf90/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=155bf0f0580000",
+      "saved_to": "/home/lcj/paired_patches/b63d677d63bcac06cf90/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11fe8382580000",
+      "saved_to": "/home/lcj/paired_patches/b63d677d63bcac06cf90/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

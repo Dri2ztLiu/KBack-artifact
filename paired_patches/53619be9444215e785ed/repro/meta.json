@@ -1,0 +1,50 @@
+{
+  "extid": "53619be9444215e785ed",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=53619be9444215e785ed",
+  "bug_title": "general protection fault in btf_decl_tag_resolve",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "bpf: Fix a btf decl_tag bug when tagging a function",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d7e7b42f4f956f2c68ad8cda87d750093dbba737",
+      "hash": "d7e7b42f4f956f2c68ad8cda87d750093dbba737",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yhs@fb.com",
+      "author-name": "Yonghong Song",
+      "date": "2022-02-03T19:17:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in btf_decl_tag_resolve",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "3aa430d33b8dd4d3f996af9966833c7a51834fb8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4ebb27982f8984ed57466f87099acc0b250a1b5c",
+  "syzkaller-commit": "4ebb27982f8984ed57466f87099acc0b250a1b5c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12b74ff0700000",
+      "saved_to": "/home/lcj/paired_patches/53619be9444215e785ed/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a6620d0aab7dd315",
+      "saved_to": "/home/lcj/paired_patches/53619be9444215e785ed/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10aba468700000",
+      "saved_to": "/home/lcj/paired_patches/53619be9444215e785ed/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10d8a40c700000",
+      "saved_to": "/home/lcj/paired_patches/53619be9444215e785ed/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

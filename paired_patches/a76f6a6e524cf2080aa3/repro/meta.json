@@ -1,0 +1,50 @@
+{
+  "extid": "a76f6a6e524cf2080aa3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a76f6a6e524cf2080aa3",
+  "bug_title": "KASAN: slab-out-of-bounds Read in __fscache_acquire_volume",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fscache: fix OOB Read in __fscache_acquire_volume",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9f0933ac026f7e54fe096797af9de20724e79097",
+      "hash": "9f0933ac026f7e54fe096797af9de20724e79097",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2022-11-21T16:31:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in __fscache_acquire_volume",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8379c0b31fbc5d20946f617f8e2fe4791e6f58c1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/071779164d7640bc97cdb04864e59dbb91db6469",
+  "syzkaller-commit": "071779164d7640bc97cdb04864e59dbb91db6469",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13d17357080000",
+      "saved_to": "/home/lcj/paired_patches/a76f6a6e524cf2080aa3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=911efaff115942bb",
+      "saved_to": "/home/lcj/paired_patches/a76f6a6e524cf2080aa3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15b0294d080000",
+      "saved_to": "/home/lcj/paired_patches/a76f6a6e524cf2080aa3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1552b3ad080000",
+      "saved_to": "/home/lcj/paired_patches/a76f6a6e524cf2080aa3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

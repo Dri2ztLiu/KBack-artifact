@@ -1,0 +1,50 @@
+{
+  "extid": "9446d5e0d25571e6a212",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9446d5e0d25571e6a212",
+  "bug_title": "WARNING in uvc_status_unregister",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "media: uvcvideo: Fix deadlock during uvc_probe",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a67f75c2b5ecf534eab416ce16c11fe780c4f8f6",
+      "hash": "a67f75c2b5ecf534eab416ce16c11fe780c4f8f6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ribalda@chromium.org",
+      "author-name": "Ricardo Ribalda",
+      "date": "2024-10-22T08:30:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in uvc_status_unregister",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ccb98ccef0e543c2bd4ef1a72270461957f3d8d0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1687fac4580000",
+      "saved_to": "/home/lcj/paired_patches/9446d5e0d25571e6a212/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=dc863cc90857c683",
+      "saved_to": "/home/lcj/paired_patches/9446d5e0d25571e6a212/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14ab56df980000",
+      "saved_to": "/home/lcj/paired_patches/9446d5e0d25571e6a212/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1766a8b0580000",
+      "saved_to": "/home/lcj/paired_patches/9446d5e0d25571e6a212/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

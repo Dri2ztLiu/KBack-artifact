@@ -1,0 +1,42 @@
+{
+  "extid": "553d90297e6d2f50dbc7",
+  "target_ref": "553d90297e6d2f50dbc7",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "58fca355ad37dcb5f785d9095db5f748b79c5dc2",
+      "branch": "linux-6.1",
+      "title": "UBSAN: array-index-out-of-bounds in diNewExt",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/gpu/drm/amd/display/dc/resource/dcn301/dcn301_resource.c"
+      ],
+      "symbols": [
+        "dcn301_stream_encoder_create",
+        "if",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

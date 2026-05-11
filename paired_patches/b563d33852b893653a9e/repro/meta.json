@@ -1,0 +1,50 @@
+{
+  "extid": "b563d33852b893653a9e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b563d33852b893653a9e",
+  "bug_title": "KASAN: use-after-free Read in cfusbl_device_notify",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "net: caif: Fix use-after-free in cfusbl_device_notify()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9781e98a97110f5e76999058368b4be76a788484",
+      "hash": "9781e98a97110f5e76999058368b4be76a788484",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2023-03-01T16:39:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in cfusbl_device_notify",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "92f20ff72066d8d7e2ffb655c2236259ac9d1c5d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a5dbd430e216c19b40593c047b622c3a8149a41d",
+  "syzkaller-commit": "a5dbd430e216c19b40593c047b622c3a8149a41d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13165188080000",
+      "saved_to": "/home/lcj/paired_patches/b563d33852b893653a9e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e771627480f67502",
+      "saved_to": "/home/lcj/paired_patches/b563d33852b893653a9e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1109448ff00000",
+      "saved_to": "/home/lcj/paired_patches/b563d33852b893653a9e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10f1dc4c080000",
+      "saved_to": "/home/lcj/paired_patches/b563d33852b893653a9e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

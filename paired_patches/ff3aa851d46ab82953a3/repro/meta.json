@@ -1,0 +1,60 @@
+{
+  "extid": "ff3aa851d46ab82953a3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ff3aa851d46ab82953a3",
+  "bug_title": "WARNING in __free_event",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "batman-adv: Fix double-hold of meshif when getting enabled",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=10a77965760c6e2b3eef483be33ae407004df894",
+      "hash": "10a77965760c6e2b3eef483be33ae407004df894",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sven@narfation.org",
+      "author-name": "Sven Eckelmann",
+      "date": "2025-04-14T18:05:37Z"
+    },
+    {
+      "title": "perf/core: Fix WARN_ON(!ctx) in __free_event() for partial init",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0ba3a4ab76fd3367b9cb680cad70182c896c795c",
+      "hash": "0ba3a4ab76fd3367b9cb680cad70182c896c795c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "gshahrouzi@gmail.com",
+      "author-name": "Gabriel Shahrouzi",
+      "date": "2025-04-05T20:30:36Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __free_event",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git",
+  "kernel-source-commit": "0a87d6bb6fd274cde3bf217a821153714374198f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/996a961865892d8b81ae3adccb482161e6994c41",
+  "syzkaller-commit": "996a961865892d8b81ae3adccb482161e6994c41",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1655c7cf980000",
+      "saved_to": "/home/lcj/paired_patches/ff3aa851d46ab82953a3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6631c78ce6cb228d",
+      "saved_to": "/home/lcj/paired_patches/ff3aa851d46ab82953a3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12295404580000",
+      "saved_to": "/home/lcj/paired_patches/ff3aa851d46ab82953a3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15440be4580000",
+      "saved_to": "/home/lcj/paired_patches/ff3aa851d46ab82953a3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

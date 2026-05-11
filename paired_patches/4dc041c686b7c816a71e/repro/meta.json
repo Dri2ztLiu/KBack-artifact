@@ -1,0 +1,50 @@
+{
+  "extid": "4dc041c686b7c816a71e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4dc041c686b7c816a71e",
+  "bug_title": "possible deadlock in bpf_map_mmap",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "bpf: avoid holding freeze_mutex during mmap operation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bc27c52eea189e8f7492d40739b7746d67b65beb",
+      "hash": "bc27c52eea189e8f7492d40739b7746d67b65beb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "andrii@kernel.org",
+      "author-name": "Andrii Nakryiko",
+      "date": "2025-01-29T01:22:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in bpf_map_mmap",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "6251d1776bc54fe0f16c44ff9a0a51f3eab8b695",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/968edaf491504462b98e794257533160d7087792",
+  "syzkaller-commit": "968edaf491504462b98e794257533160d7087792",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1673fcb0580000",
+      "saved_to": "/home/lcj/paired_patches/4dc041c686b7c816a71e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5408fc4cf982e2c4",
+      "saved_to": "/home/lcj/paired_patches/4dc041c686b7c816a71e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4dc041c686b7c816a71e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4dc041c686b7c816a71e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

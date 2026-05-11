@@ -1,0 +1,50 @@
+{
+  "extid": "105896fac213f26056f9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=105896fac213f26056f9",
+  "bug_title": "WARNING in init_timer_key",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "cfg80211: call cfg80211_leave_ocb when switching away from OCB",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a64b6a25dd9f984ed05fade603a00e2eae787d2f",
+      "hash": "a64b6a25dd9f984ed05fade603a00e2eae787d2f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ducheng2@gmail.com",
+      "author-name": "Du Cheng",
+      "date": "2021-04-28T06:39:41Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in init_timer_key",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7acac4b3196caee5e21fb5ea53f8bc124e6a16fc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e613994b8bbf6c2f1a76a1a49a9752482b582923",
+  "syzkaller-commit": "e613994b8bbf6c2f1a76a1a49a9752482b582923",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16913e62d00000",
+      "saved_to": "/home/lcj/paired_patches/105896fac213f26056f9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8a76e86e2a27b1c0",
+      "saved_to": "/home/lcj/paired_patches/105896fac213f26056f9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=131326d6d00000",
+      "saved_to": "/home/lcj/paired_patches/105896fac213f26056f9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=135721dcd00000",
+      "saved_to": "/home/lcj/paired_patches/105896fac213f26056f9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

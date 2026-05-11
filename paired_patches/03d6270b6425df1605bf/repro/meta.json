@@ -1,0 +1,50 @@
+{
+  "extid": "03d6270b6425df1605bf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=03d6270b6425df1605bf",
+  "bug_title": "KASAN: slab-use-after-free Read in set_powered_sync",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: MGMT: Fix slab-use-after-free Read in set_powered_sync",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0b882940665ca2849386ee459d4331aa2f8c4e7d",
+      "hash": "0b882940665ca2849386ee459d4331aa2f8c4e7d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2024-11-15T15:45:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in set_powered_sync",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "f723224742fc6d25f88a9d9036be4713398be65d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "syzkaller-commit": "9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=134babc7980000",
+      "saved_to": "/home/lcj/paired_patches/03d6270b6425df1605bf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=37742f4fda0d1b09",
+      "saved_to": "/home/lcj/paired_patches/03d6270b6425df1605bf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=139b0e00580000",
+      "saved_to": "/home/lcj/paired_patches/03d6270b6425df1605bf/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=110c589f980000",
+      "saved_to": "/home/lcj/paired_patches/03d6270b6425df1605bf/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

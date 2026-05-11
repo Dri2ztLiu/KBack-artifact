@@ -1,0 +1,81 @@
+{
+  "extid": "2676771ed06a6df166ad",
+  "target_ref": "2676771ed06a6df166ad",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "5d4e04bf3a0f098bd9033de3a5291810fa14c7a6",
+      "branch": "linux-6.1",
+      "title": "WARNING in sta_info_insert_rcu",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/wireless/mlme.c"
+      ],
+      "symbols": [
+        "cfg80211_mlme_auth",
+        "cfg80211_mlme_assoc",
+        "cfg80211_mlme_assoc",
+        "if",
+        "ether_addr_equal",
+        "if",
+        "if",
+        "ether_addr_equal",
+        "cfg80211_oper_and_ht_capa"
+      ],
+      "patterns": [
+        "rcu",
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "ddcaf49990615eb5659e8f06f5bab4bc3d65c4a5",
+      "branch": "linux-5.15",
+      "title": "WARNING in sta_info_insert_rcu",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "rcu",
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "cbfa1702aaf69b2311ea1b35e04f113c48368c67",
+      "branch": "linux-4.14",
+      "title": "WARNING in sta_info_insert_rcu",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "rcu",
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

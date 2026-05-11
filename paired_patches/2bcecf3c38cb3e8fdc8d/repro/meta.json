@@ -1,0 +1,50 @@
+{
+  "extid": "2bcecf3c38cb3e8fdc8d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2bcecf3c38cb3e8fdc8d",
+  "bug_title": "possible deadlock in bdev_release",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "nbd: fix lockdep deadlock warning",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8b428f42f3edfd62422aa7ad87049ab232a2eaa9",
+      "hash": "8b428f42f3edfd62422aa7ad87049ab232a2eaa9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ming.lei@redhat.com",
+      "author-name": "Ming Lei",
+      "date": "2025-07-09T11:17:44Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in bdev_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git",
+  "kernel-source-commit": "fda589c286040d9ba2d72a0eaf0a13945fc48026",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7368264b463a401571d2eb381f50ea2a758e9d05",
+  "syzkaller-commit": "7368264b463a401571d2eb381f50ea2a758e9d05",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13570aa2580000",
+      "saved_to": "/home/lcj/paired_patches/2bcecf3c38cb3e8fdc8d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2c9a189cff5437e6",
+      "saved_to": "/home/lcj/paired_patches/2bcecf3c38cb3e8fdc8d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2bcecf3c38cb3e8fdc8d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2bcecf3c38cb3e8fdc8d/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

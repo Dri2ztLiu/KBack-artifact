@@ -1,0 +1,60 @@
+{
+  "extid": "33841dc6aa3e1d86b78a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=33841dc6aa3e1d86b78a",
+  "bug_title": "WARNING: refcount bug in ax25_release (3)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "ax25: Fix refcount leak caused by setting SO_BINDTODEVICE sockopt",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bca0902e61731a75fc4860c8720168d9f1bae3b6",
+      "hash": "bca0902e61731a75fc4860c8720168d9f1bae3b6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "m.masimov@mt-integration.ru",
+      "author-name": "Murad Masimov",
+      "date": "2025-02-03T09:12:03Z"
+    },
+    {
+      "title": "ax25: Remove broken autobind",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f6efbabceb6b2914ee9bafb86d9a51feae9cce8",
+      "hash": "2f6efbabceb6b2914ee9bafb86d9a51feae9cce8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "m.masimov@mt-integration.ru",
+      "author-name": "Murad Masimov",
+      "date": "2025-03-17T10:53:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: refcount bug in ax25_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "586de92313fcab8ed84ac5f78f4d2aae2db92c59",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4e8d3850c5a6faa58d4a71c1d0b3f303b3b50670",
+  "syzkaller-commit": "4e8d3850c5a6faa58d4a71c1d0b3f303b3b50670",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1791c43f980000",
+      "saved_to": "/home/lcj/paired_patches/33841dc6aa3e1d86b78a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=27515cfdbafbb90d",
+      "saved_to": "/home/lcj/paired_patches/33841dc6aa3e1d86b78a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=116afe98580000",
+      "saved_to": "/home/lcj/paired_patches/33841dc6aa3e1d86b78a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14923c4c580000",
+      "saved_to": "/home/lcj/paired_patches/33841dc6aa3e1d86b78a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

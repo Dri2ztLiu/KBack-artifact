@@ -1,0 +1,50 @@
+{
+  "extid": "bed360704c521841c85d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bed360704c521841c85d",
+  "bug_title": "UBSAN: shift-out-of-bounds in ___bpf_prog_run",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "bpf: Fix up register-based shifts in interpreter to silence KUBSAN",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=28131e9d933339a92f78e7ab6429f4aaaa07061c",
+      "hash": "28131e9d933339a92f78e7ab6429f4aaaa07061c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "daniel@iogearbox.net",
+      "author-name": "Daniel Borkmann",
+      "date": "2021-06-16T09:25:11Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in ___bpf_prog_run",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0f4498cef9f5cd18d7c6639a2a902ec1edc5be4e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a8529b82fb3bb45832b08a099e7eb51707da9b37",
+  "syzkaller-commit": "a8529b82fb3bb45832b08a099e7eb51707da9b37",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12673d9ed00000",
+      "saved_to": "/home/lcj/paired_patches/bed360704c521841c85d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d4e9addca54f3b44",
+      "saved_to": "/home/lcj/paired_patches/bed360704c521841c85d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1085497cd00000",
+      "saved_to": "/home/lcj/paired_patches/bed360704c521841c85d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1424cd9ed00000",
+      "saved_to": "/home/lcj/paired_patches/bed360704c521841c85d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

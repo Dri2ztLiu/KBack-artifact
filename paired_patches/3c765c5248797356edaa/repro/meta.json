@@ -1,0 +1,50 @@
+{
+  "extid": "3c765c5248797356edaa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3c765c5248797356edaa",
+  "bug_title": "kernel BUG in ntfs_read_inode_mount",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "ntfs: add sanity check on allocation size",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=714fbf2647b1a33d914edd695d4da92029c7e7c0",
+      "hash": "714fbf2647b1a33d914edd695d4da92029c7e7c0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mudongliangabcd@gmail.com",
+      "author-name": "Dongliang Mu",
+      "date": "2022-03-22T21:38:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in ntfs_read_inode_mount",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d0a231f01e5b25bacd23e6edc7c979a18a517b2b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/723cfaf0e55347c804a236591f9d0070fc7f46cb",
+  "syzkaller-commit": "723cfaf0e55347c804a236591f9d0070fc7f46cb",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=174da3f7b00000",
+      "saved_to": "/home/lcj/paired_patches/3c765c5248797356edaa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=986ed422f1741853",
+      "saved_to": "/home/lcj/paired_patches/3c765c5248797356edaa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/3c765c5248797356edaa/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/3c765c5248797356edaa/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

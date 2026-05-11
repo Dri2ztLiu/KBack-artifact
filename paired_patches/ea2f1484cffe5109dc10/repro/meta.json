@@ -1,0 +1,50 @@
+{
+  "extid": "ea2f1484cffe5109dc10",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ea2f1484cffe5109dc10",
+  "bug_title": "WARNING in io_wqe_enqueue",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix false WARN_ONCE",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e6ab8991c5d0b0deae0961dc22c0edd1dee328f5",
+      "hash": "e6ab8991c5d0b0deae0961dc22c0edd1dee328f5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-06-17T17:13:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in io_wqe_enqueue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f88cd3fb9df228e5ce4e13ec3dbad671ddb2146e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0740de696b19a870c7208bd97f3194988281c282",
+  "syzkaller-commit": "0740de696b19a870c7208bd97f3194988281c282",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1691f8afd00000",
+      "saved_to": "/home/lcj/paired_patches/ea2f1484cffe5109dc10/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=82d85e75046e5e64",
+      "saved_to": "/home/lcj/paired_patches/ea2f1484cffe5109dc10/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10525947d00000",
+      "saved_to": "/home/lcj/paired_patches/ea2f1484cffe5109dc10/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16d5772fd00000",
+      "saved_to": "/home/lcj/paired_patches/ea2f1484cffe5109dc10/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

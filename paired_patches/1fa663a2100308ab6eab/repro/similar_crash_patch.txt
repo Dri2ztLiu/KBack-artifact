@@ -1,0 +1,99 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (3)
+TOP_SYMBOLS:
+  (none)
+TOP_KEYWORDS:
+  deadlock (3), rcu (3)
+
+Recommended next tool calls (example):
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=4, rows_scanned=4, candidates_kept=3, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: 6282921b6825fef6a1243e1c80063421d41e2576
+bug_url: https://syzkaller.appspot.com/bug?extid=dd758b3b2f560931e279
+title: possible deadlock in kvfree_call_rcu
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index c9a1e2286b3a..9625d9072c77 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 6
+-SUBLEVEL = 93
++SUBLEVEL = 94
+ EXTRAVERSION =
+ NAME = Pinguïn Aangedreven
+================================================================================
+
+branch: linux-6.1
+fix_commit: 563edd786f0a115e983594efe6b0ae26fb7678fa
+bug_url: https://syzkaller.appspot.com/bug?extid=e5952d44ee3e1993cddf
+title: possible deadlock in kvfree_call_rcu
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index ddb75912d2a8..23af31992b81 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 121
++SUBLEVEL = 122
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: c61bd26ae81a896c8660150b4e356153da30880a
+bug_url: https://syzkaller.appspot.com/bug?extid=cb88665052d93c3f0be3
+title: possible deadlock in kvfree_call_rcu
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 5cbfe2be72dd..bfc863d71978 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 159
++SUBLEVEL = 160
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================

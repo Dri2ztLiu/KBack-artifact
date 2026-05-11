@@ -1,0 +1,80 @@
+{
+  "extid": "65fa06e29859e41a83f3",
+  "target_ref": "65fa06e29859e41a83f3",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "ccd1cdca5cd433c8a5dff78b69a79b31d9b77ee1",
+      "branch": "linux-6.6",
+      "title": "KASAN: slab-out-of-bounds Read in dtReadFirst",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [
+        "VERSION"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "e4d90d63d385228b1e0bcf31cc15539bbbc28f7f",
+      "branch": "linux-6.1",
+      "title": "UBSAN: array-index-out-of-bounds in dtReadFirst",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "7a13c14ee59d4f6c5f4277a86516cbc73a1383a8",
+      "branch": "linux-5.15",
+      "title": "UBSAN: array-index-out-of-bounds in dtReadFirst",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/md/dm-table.c"
+      ],
+      "symbols": [
+        "realloc_argv",
+        "if",
+        "memcpy",
+        "if",
+        "if",
+        "memcpy"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

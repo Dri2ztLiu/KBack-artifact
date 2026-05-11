@@ -1,0 +1,50 @@
+{
+  "extid": "e2787430e752a92b8750",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e2787430e752a92b8750",
+  "bug_title": "WARNING in hfsplus_cat_read_inode",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "fs: hfsplus: remove WARN_ON() from hfsplus_cat_{read,write}_inode()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=81b21c0f0138ff5a499eafc3eb0578ad2a99622c",
+      "hash": "81b21c0f0138ff5a499eafc3eb0578ad2a99622c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2023-04-11T10:57:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hfsplus_cat_read_inode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8395ae05cb5a2e31d36106e8c85efa11cda849be",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9da18ae8fa827d046ef8da48cc23c97418553c23",
+  "syzkaller-commit": "9da18ae8fa827d046ef8da48cc23c97418553c23",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=127c8450480000",
+      "saved_to": "/home/lcj/paired_patches/e2787430e752a92b8750/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=85327a149d5f50f",
+      "saved_to": "/home/lcj/paired_patches/e2787430e752a92b8750/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17812764480000",
+      "saved_to": "/home/lcj/paired_patches/e2787430e752a92b8750/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16fb6c40480000",
+      "saved_to": "/home/lcj/paired_patches/e2787430e752a92b8750/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

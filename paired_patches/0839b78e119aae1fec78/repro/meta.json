@@ -1,0 +1,50 @@
+{
+  "extid": "0839b78e119aae1fec78",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0839b78e119aae1fec78",
+  "bug_title": "UBSAN: shift-out-of-bounds in nci_activate_target",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "nfc: nci: assert requested protocol is valid",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=354a6e707e29cb0c007176ee5b8db8be7bd2dee0",
+      "hash": "354a6e707e29cb0c007176ee5b8db8be7bd2dee0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jeremy@jcline.org",
+      "author-name": "Jeremy Cline",
+      "date": "2023-10-09T20:00:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in nci_activate_target",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a452483508d7b70b0f6c69e249ec0b3ea2330b5c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/22ae5830af1ab04e8042e534dd9baf750bc0d0ac",
+  "syzkaller-commit": "22ae5830af1ab04e8042e534dd9baf750bc0d0ac",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=167bddb4a80000",
+      "saved_to": "/home/lcj/paired_patches/0839b78e119aae1fec78/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7df0cabaf5becfdc",
+      "saved_to": "/home/lcj/paired_patches/0839b78e119aae1fec78/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12003f4aa80000",
+      "saved_to": "/home/lcj/paired_patches/0839b78e119aae1fec78/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=123fc664a80000",
+      "saved_to": "/home/lcj/paired_patches/0839b78e119aae1fec78/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

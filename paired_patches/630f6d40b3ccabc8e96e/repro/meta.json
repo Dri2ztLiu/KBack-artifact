@@ -1,0 +1,50 @@
+{
+  "extid": "630f6d40b3ccabc8e96e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=630f6d40b3ccabc8e96e",
+  "bug_title": "kernel BUG in jfs_truncate_nolock",
+  "bug_status": "fixed on 2025/09/04 16:56",
+  "fix_commits": [
+    {
+      "title": "jfs: Regular file corruption check",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2d04df8116426b6c7b9f8b9b371250f666a2a2fb",
+      "hash": "2d04df8116426b6c7b9f8b9b371250f666a2a2fb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2025-06-04T06:48:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in jfs_truncate_nolock",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f66bc387efbee59978e076ce9bf123ac353b389c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3d2f584ddab119da50e8a8d26765aa98d3b33c02",
+  "syzkaller-commit": "3d2f584ddab119da50e8a8d26765aa98d3b33c02",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16f05ed4580000",
+      "saved_to": "/home/lcj/paired_patches/630f6d40b3ccabc8e96e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5035170c334b10e0",
+      "saved_to": "/home/lcj/paired_patches/630f6d40b3ccabc8e96e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=158147f4580000",
+      "saved_to": "/home/lcj/paired_patches/630f6d40b3ccabc8e96e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1725f7f4580000",
+      "saved_to": "/home/lcj/paired_patches/630f6d40b3ccabc8e96e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

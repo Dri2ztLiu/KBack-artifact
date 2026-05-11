@@ -1,0 +1,70 @@
+{
+  "extid": "34008406ee9a31b13c73",
+  "target_ref": "34008406ee9a31b13c73",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "739a6c93cc755c0daf3a7e57e018a8c61047cd90",
+      "branch": "linux-6.1",
+      "title": "BUG: unable to handle kernel paging request in ir_raw_event_store_with_filter",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "kernel/rcu/tree.c"
+      ],
+      "symbols": [
+        "__call_rcu_common",
+        "if",
+        "if"
+      ],
+      "patterns": [
+        "rcu",
+        "NULL",
+        "null",
+        "WARN",
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "cf87f46fd34d6c19283d9625a7822f20d90b64a4",
+      "branch": "linux-5.15",
+      "title": "general protection fault in ir_raw_event_store_with_filter",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/gpu/drm/nouveau/nvkm/core/firmware.c"
+      ],
+      "symbols": [
+        "nvkm_firmware_dtor",
+        "nvkm_firmware_ctor",
+        "dma_unmap_single",
+        "kfree",
+        "dma_free_coherent",
+        "if",
+        "memcpy",
+        "if",
+        "kfree",
+        "if",
+        "memcpy"
+      ],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "c92878e123785b1fa2db",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c92878e123785b1fa2db",
+  "bug_title": "WARNING in iommufd_device_unbind",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "iommu: iommufd: fix WARNING in iommufd_device_unbind",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d9df72c6acd683adf6dd23c061f3a414ec00b1f8",
+      "hash": "d9df72c6acd683adf6dd23c061f3a414ec00b1f8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "surajsonawane0215@gmail.com",
+      "author-name": "Suraj Sonawane",
+      "date": "2024-11-23T19:59:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in iommufd_device_unbind",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c6d64479d6093a5c3d709d4cc992a5344877cc3c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/571351cb80e526bf973c8f11c46fa7f3bbc2da1e",
+  "syzkaller-commit": "571351cb80e526bf973c8f11c46fa7f3bbc2da1e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=123df378580000",
+      "saved_to": "/home/lcj/paired_patches/c92878e123785b1fa2db/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b3b3b2f3eaae51f9",
+      "saved_to": "/home/lcj/paired_patches/c92878e123785b1fa2db/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c92878e123785b1fa2db/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17da1bf7980000",
+      "saved_to": "/home/lcj/paired_patches/c92878e123785b1fa2db/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

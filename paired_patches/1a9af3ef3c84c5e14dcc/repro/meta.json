@@ -1,0 +1,50 @@
+{
+  "extid": "1a9af3ef3c84c5e14dcc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1a9af3ef3c84c5e14dcc",
+  "bug_title": "INFO: task hung in erofs_bread",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "erofs: avoid reading more for fragment maps",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=334c0e493c2aa3e843a80bb9f3862bb50360cb36",
+      "hash": "334c0e493c2aa3e843a80bb9f3862bb50360cb36",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hsiangkao@linux.alibaba.com",
+      "author-name": "Gao Xiang",
+      "date": "2025-09-16T08:48:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in erofs_bread",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "590b221ed4256fd6c34d3dea77aa5bd6e741bbc1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "syzkaller-commit": "e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11227b62580000",
+      "saved_to": "/home/lcj/paired_patches/1a9af3ef3c84c5e14dcc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=12a1d1f3a8199632",
+      "saved_to": "/home/lcj/paired_patches/1a9af3ef3c84c5e14dcc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12baf934580000",
+      "saved_to": "/home/lcj/paired_patches/1a9af3ef3c84c5e14dcc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17850e42580000",
+      "saved_to": "/home/lcj/paired_patches/1a9af3ef3c84c5e14dcc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

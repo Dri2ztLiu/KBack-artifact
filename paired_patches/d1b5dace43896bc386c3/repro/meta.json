@@ -1,0 +1,50 @@
+{
+  "extid": "d1b5dace43896bc386c3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d1b5dace43896bc386c3",
+  "bug_title": "INFO: task hung in v9fs_file_fsync",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "9p/trans_fd: p9_fd_request: kick rx thread if EPOLLIN",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e8fe3f07a357c39d429e02ca34f740692d88967a",
+      "hash": "e8fe3f07a357c39d429e02ca34f740692d88967a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "oleg@redhat.com",
+      "author-name": "Oleg Nesterov",
+      "date": "2025-08-19T16:10:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in v9fs_file_fsync",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "038d61fd642278bab63ee8ef722c50d10ab01e8f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1804e95e3ff848c11e87e8efe7560f03c011c081",
+  "syzkaller-commit": "1804e95e3ff848c11e87e8efe7560f03c011c081",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14fe1ba2580000",
+      "saved_to": "/home/lcj/paired_patches/d1b5dace43896bc386c3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=515ec0b49771bcd1",
+      "saved_to": "/home/lcj/paired_patches/d1b5dace43896bc386c3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=108e9234580000",
+      "saved_to": "/home/lcj/paired_patches/d1b5dace43896bc386c3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=170e9234580000",
+      "saved_to": "/home/lcj/paired_patches/d1b5dace43896bc386c3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

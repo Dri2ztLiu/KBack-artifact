@@ -1,0 +1,80 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  drivers/bluetooth/hci_bcsp.c (2)
+TOP_SYMBOLS:
+  bcsp_recv (2), BT_DBG (2)
+TOP_KEYWORDS:
+  BUG (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=bcsp_recv)
+  - viewcode(ref=<target_release>, path=drivers/bluetooth/hci_bcsp.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: ca94b2b036c22556c3a66f1b80f490882deef7a6
+bug_url: https://syzkaller.appspot.com/bug?extid=11e26c855707ac90e5df
+title: BUG: unable to handle kernel paging request in bcsp_recv
+relevance_score: 0
+
+ drivers/bluetooth/hci_bcsp.c | 3 +++
+ 1 file changed, 3 insertions(+)
+diff --git a/drivers/bluetooth/hci_bcsp.c b/drivers/bluetooth/hci_bcsp.c
+index 664d82d1e613..591abe6d63dd 100644
+--- a/drivers/bluetooth/hci_bcsp.c
++++ b/drivers/bluetooth/hci_bcsp.c
+@@ -582,6 +582,9 @@ static int bcsp_recv(struct hci_uart *hu, const void *data, int count)
+ 	struct bcsp_struct *bcsp = hu->priv;
+ 	const unsigned char *ptr;
+ 
++	if (!test_bit(HCI_UART_REGISTERED, &hu->flags))
++		return -EUNATCH;
++
+ 	BT_DBG("hu %p count %d rx_state %d rx_count %ld",
+ 	       hu, count, bcsp->rx_state, bcsp->rx_count);
+================================================================================
+
+branch: linux-5.15
+fix_commit: ca94b2b036c22556c3a66f1b80f490882deef7a6
+bug_url: https://syzkaller.appspot.com/bug?extid=0cedb2b90dfed8de7e56
+title: general protection fault in bcsp_recv
+relevance_score: 0
+
+ drivers/bluetooth/hci_bcsp.c | 3 +++
+ 1 file changed, 3 insertions(+)
+diff --git a/drivers/bluetooth/hci_bcsp.c b/drivers/bluetooth/hci_bcsp.c
+index 664d82d1e613..591abe6d63dd 100644
+--- a/drivers/bluetooth/hci_bcsp.c
++++ b/drivers/bluetooth/hci_bcsp.c
+@@ -582,6 +582,9 @@ static int bcsp_recv(struct hci_uart *hu, const void *data, int count)
+ 	struct bcsp_struct *bcsp = hu->priv;
+ 	const unsigned char *ptr;
+ 
++	if (!test_bit(HCI_UART_REGISTERED, &hu->flags))
++		return -EUNATCH;
++
+ 	BT_DBG("hu %p count %d rx_state %d rx_count %ld",
+ 	       hu, count, bcsp->rx_state, bcsp->rx_count);
+================================================================================

@@ -1,0 +1,50 @@
+{
+  "extid": "3c47b5843403a45aef57",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3c47b5843403a45aef57",
+  "bug_title": "possible deadlock in team_port_change_check (2)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "team: prevent adding a device which is already a team device lower",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3fff5da4ca2164bb4d0f1e6cd33f6eb8a0e73e50",
+      "hash": "3fff5da4ca2164bb4d0f1e6cd33f6eb8a0e73e50",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tavip@google.com",
+      "author-name": "Octavian Purdila",
+      "date": "2024-12-30T20:56:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in team_port_change_check",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3088d26962e802efa3aa5188f88f82a957f50b22",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2a20f901dbd7922a27b5625a8a442587c8c3df2c",
+  "syzkaller-commit": "2a20f901dbd7922a27b5625a8a442587c8c3df2c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=158eb4cc580000",
+      "saved_to": "/home/lcj/paired_patches/3c47b5843403a45aef57/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2a31f7155996562",
+      "saved_to": "/home/lcj/paired_patches/3c47b5843403a45aef57/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=138a64cc580000",
+      "saved_to": "/home/lcj/paired_patches/3c47b5843403a45aef57/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1030dfe4580000",
+      "saved_to": "/home/lcj/paired_patches/3c47b5843403a45aef57/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

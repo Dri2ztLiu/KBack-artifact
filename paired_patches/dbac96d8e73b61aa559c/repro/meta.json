@@ -1,0 +1,50 @@
+{
+  "extid": "dbac96d8e73b61aa559c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=dbac96d8e73b61aa559c",
+  "bug_title": "BUG: sleeping function called from invalid context in console_lock (2)",
+  "bug_status": "fixed on 2024/06/05 13:52",
+  "fix_commits": [
+    {
+      "title": "tty: add the option to have a tty reject a new ldisc",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6bd23e0c2bb6c65d4f5754d1456bc9a4427fc59b",
+      "hash": "6bd23e0c2bb6c65d4f5754d1456bc9a4427fc59b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "torvalds@linux-foundation.org",
+      "author-name": "Linus Torvalds",
+      "date": "2024-04-23T16:33:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in console_lock",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "13a2e429f644691fca70049ea1c75f135957c788",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/af24b0505c748561efb50f1d03c824d6642f6c0b",
+  "syzkaller-commit": "af24b0505c748561efb50f1d03c824d6642f6c0b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1425a9b3180000",
+      "saved_to": "/home/lcj/paired_patches/dbac96d8e73b61aa559c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c5d33c579b4e833f",
+      "saved_to": "/home/lcj/paired_patches/dbac96d8e73b61aa559c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16055427180000",
+      "saved_to": "/home/lcj/paired_patches/dbac96d8e73b61aa559c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=148146e3180000",
+      "saved_to": "/home/lcj/paired_patches/dbac96d8e73b61aa559c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

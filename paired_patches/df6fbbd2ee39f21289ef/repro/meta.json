@@ -1,0 +1,50 @@
+{
+  "extid": "df6fbbd2ee39f21289ef",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=df6fbbd2ee39f21289ef",
+  "bug_title": "general protection fault in __dentry_path (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "KVM: Initialize debugfs_dentry when a VM is created to avoid NULL deref",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5c697c367a66307a5d943c3449421aff2aa3ca4a",
+      "hash": "5c697c367a66307a5d943c3449421aff2aa3ca4a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "seanjc@google.com",
+      "author-name": "Sean Christopherson",
+      "date": "2022-04-15T00:46:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in __dentry_path",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "d12d7e1cfe38e0c36d28c7a9fbbc436ad0d17c14",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e22c3da3b05600c6c0f62142160839b4b7f82a62",
+  "syzkaller-commit": "e22c3da3b05600c6c0f62142160839b4b7f82a62",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=103a09b7700000",
+      "saved_to": "/home/lcj/paired_patches/df6fbbd2ee39f21289ef/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=58fcaf7d8df169a6",
+      "saved_to": "/home/lcj/paired_patches/df6fbbd2ee39f21289ef/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17f03688f00000",
+      "saved_to": "/home/lcj/paired_patches/df6fbbd2ee39f21289ef/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17903a8f700000",
+      "saved_to": "/home/lcj/paired_patches/df6fbbd2ee39f21289ef/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

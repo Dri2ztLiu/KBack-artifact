@@ -1,0 +1,50 @@
+{
+  "extid": "7f4d0ea3df4d4fa9a65f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7f4d0ea3df4d4fa9a65f",
+  "bug_title": "KMSAN: uninit-value in validate_xmit_skb",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "net: add more sanity check in virtio_net_hdr_to_skb()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9181d6f8a2bb32d158de66a84164fac05e3ddd18",
+      "hash": "9181d6f8a2bb32d158de66a84164fac05e3ddd18",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-01-12T12:28:16Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in validate_xmit_skb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fbafc3e621c3f4ded43720fdb1d6ce1728ec664e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17e8956ee80000",
+      "saved_to": "/home/lcj/paired_patches/7f4d0ea3df4d4fa9a65f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e0c7078a6b901aa3",
+      "saved_to": "/home/lcj/paired_patches/7f4d0ea3df4d4fa9a65f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=170f6981e80000",
+      "saved_to": "/home/lcj/paired_patches/7f4d0ea3df4d4fa9a65f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15e15379e80000",
+      "saved_to": "/home/lcj/paired_patches/7f4d0ea3df4d4fa9a65f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

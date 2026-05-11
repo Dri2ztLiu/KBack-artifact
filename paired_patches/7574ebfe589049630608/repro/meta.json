@@ -1,0 +1,50 @@
+{
+  "extid": "7574ebfe589049630608",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7574ebfe589049630608",
+  "bug_title": "WARNING in iommufd_access_destroy",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "iommufd: IOMMUFD_DESTROY should not increase the refcount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=99f98a7c0d6985d5507c8130a981972e4b7b3bdc",
+      "hash": "99f98a7c0d6985d5507c8130a981972e4b7b3bdc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jgg@nvidia.com",
+      "author-name": "Jason Gunthorpe",
+      "date": "2023-07-25T19:05:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in iommufd_access_destroy",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b6e6cc1f78c772e952495b7416c9ac9029f9390c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/35d9ecc508aef508b67ee7986a7abb0864e74f8e",
+  "syzkaller-commit": "35d9ecc508aef508b67ee7986a7abb0864e74f8e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=159330f4a80000",
+      "saved_to": "/home/lcj/paired_patches/7574ebfe589049630608/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6769a69bd0e144b4",
+      "saved_to": "/home/lcj/paired_patches/7574ebfe589049630608/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15825e1aa80000",
+      "saved_to": "/home/lcj/paired_patches/7574ebfe589049630608/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=123562dca80000",
+      "saved_to": "/home/lcj/paired_patches/7574ebfe589049630608/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

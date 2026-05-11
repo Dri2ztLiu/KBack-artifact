@@ -1,0 +1,50 @@
+{
+  "extid": "f3e749d4c662818ae439",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f3e749d4c662818ae439",
+  "bug_title": "WARNING: kmalloc bug in bpf_check",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "bpf: Add oversize check before call kvcalloc()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0e6491b559704da720f6da09dd0a52c4df44c514",
+      "hash": "0e6491b559704da720f6da09dd0a52c4df44c514",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cuibixuan@huawei.com",
+      "author-name": "Bixuan Cui",
+      "date": "2021-09-11T00:55:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: kmalloc bug in bpf_check",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a9c9a6f741cdaa2fa9ba24a790db8d07295761e3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f62a58290e2f1200a2b21f2707a9ff0394a2a724",
+  "syzkaller-commit": "f62a58290e2f1200a2b21f2707a9ff0394a2a724",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13277e2e300000",
+      "saved_to": "/home/lcj/paired_patches/f3e749d4c662818ae439/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c84ed2c3f57ace",
+      "saved_to": "/home/lcj/paired_patches/f3e749d4c662818ae439/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14ef3b33300000",
+      "saved_to": "/home/lcj/paired_patches/f3e749d4c662818ae439/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11e4cdf5300000",
+      "saved_to": "/home/lcj/paired_patches/f3e749d4c662818ae439/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

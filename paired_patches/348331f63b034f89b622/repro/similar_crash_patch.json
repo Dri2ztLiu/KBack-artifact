@@ -1,0 +1,57 @@
+{
+  "extid": "348331f63b034f89b622",
+  "target_ref": "348331f63b034f89b622",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "503bbde34cc3dd2acd231f277ba70c3f9ed22e59",
+      "branch": "linux-6.1",
+      "title": "WARNING in bcm5974_start_traffic/usb_submit_urb",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/usb/core/urb.c"
+      ],
+      "symbols": [
+        "usb_submit_urb",
+        "dev_WARN",
+        "dev_warn_once"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "f975f08c2e899ae2484407d7bba6bb7f8b6d9d40",
+      "branch": "linux-5.15",
+      "title": "WARNING in bcm5974_start_traffic/usb_submit_urb",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/firewire/core-cdev.c"
+      ],
+      "symbols": [],
+      "patterns": [
+        "overflow",
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

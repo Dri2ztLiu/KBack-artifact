@@ -1,0 +1,170 @@
+==================================================================
+BUG: KASAN: double-free in slab_free mm/slub.c:3801 [inline]
+BUG: KASAN: double-free in __kmem_cache_free+0xb8/0x2f0 mm/slub.c:3814
+Free of addr ffff88807e668000 by task syz-executor329/5017
+
+CPU: 0 PID: 5017 Comm: syz-executor329 Not tainted 6.5.0-rc5-syzkaller-00021-ga027b2eca0b7 #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2023
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:88 [inline]
+ dump_stack_lvl+0xd9/0x1b0 lib/dump_stack.c:106
+ print_address_description mm/kasan/report.c:364 [inline]
+ print_report+0xc4/0x620 mm/kasan/report.c:475
+ kasan_report_invalid_free+0xab/0xd0 mm/kasan/report.c:550
+ ____kasan_slab_free+0x183/0x1b0 mm/kasan/common.c:225
+ kasan_slab_free include/linux/kasan.h:162 [inline]
+ slab_free_hook mm/slub.c:1792 [inline]
+ slab_free_freelist_hook+0x10b/0x1e0 mm/slub.c:1818
+ slab_free mm/slub.c:3801 [inline]
+ __kmem_cache_free+0xb8/0x2f0 mm/slub.c:3814
+ diUnmount+0xf1/0x130 fs/jfs/jfs_imap.c:195
+ jfs_umount+0x18a/0x430 fs/jfs/jfs_umount.c:63
+ jfs_put_super+0x88/0x1d0 fs/jfs/super.c:194
+ generic_shutdown_super+0x158/0x480 fs/super.c:499
+ kill_block_super+0x64/0xb0 fs/super.c:1417
+ deactivate_locked_super+0x9a/0x170 fs/super.c:330
+ deactivate_super+0xde/0x100 fs/super.c:361
+ cleanup_mnt+0x222/0x3d0 fs/namespace.c:1254
+ task_work_run+0x14d/0x240 kernel/task_work.c:179
+ resume_user_mode_work include/linux/resume_user_mode.h:49 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:171 [inline]
+ exit_to_user_mode_prepare+0x210/0x240 kernel/entry/common.c:204
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:286 [inline]
+ syscall_exit_to_user_mode+0x1d/0x50 kernel/entry/common.c:297
+ do_syscall_64+0x44/0xb0 arch/x86/entry/common.c:86
+ entry_SYSCALL_64_after_hwframe+0x63/0xcd
+RIP: 0033:0x7fc81d6e8df7
+Code: 08 00 48 83 c4 08 5b 5d c3 66 2e 0f 1f 84 00 00 00 00 00 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 b0 ff ff ff f7 d8 64 89 02 b8
+RSP: 002b:00007ffc43bfba38 EFLAGS: 00000202 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007fc81d6e8df7
+RDX: 0000000000000000 RSI: 000000000000000a RDI: 00007ffc43bfbaf0
+RBP: 00007ffc43bfbaf0 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000202 R12: 00007ffc43bfcbb0
+R13: 0000555556f66700 R14: 431bde82d7b634db R15: 00007ffc43bfcb54
+ </TASK>
+
+Allocated by task 4461:
+ kasan_save_stack+0x33/0x50 mm/kasan/common.c:45
+ kasan_set_track+0x25/0x30 mm/kasan/common.c:52
+ ____kasan_kmalloc mm/kasan/common.c:374 [inline]
+ __kasan_kmalloc+0xa2/0xb0 mm/kasan/common.c:383
+ kasan_kmalloc include/linux/kasan.h:196 [inline]
+ __do_kmalloc_node mm/slab_common.c:985 [inline]
+ __kmalloc+0x5d/0x100 mm/slab_common.c:998
+ kmalloc include/linux/slab.h:586 [inline]
+ tomoyo_realpath_from_path+0xb9/0x710 security/tomoyo/realpath.c:251
+ tomoyo_get_realpath security/tomoyo/file.c:151 [inline]
+ tomoyo_check_open_permission+0x2aa/0x3b0 security/tomoyo/file.c:771
+ tomoyo_file_open security/tomoyo/tomoyo.c:332 [inline]
+ tomoyo_file_open+0xa8/0xd0 security/tomoyo/tomoyo.c:327
+ security_file_open+0x6a/0xe0 security/security.c:2797
+ do_dentry_open+0x538/0x1780 fs/open.c:901
+ do_open fs/namei.c:3636 [inline]
+ path_openat+0x19af/0x29c0 fs/namei.c:3793
+ do_filp_open+0x1de/0x430 fs/namei.c:3820
+ do_sys_openat2+0x176/0x1e0 fs/open.c:1407
+ do_sys_open fs/open.c:1422 [inline]
+ __do_sys_openat fs/open.c:1438 [inline]
+ __se_sys_openat fs/open.c:1433 [inline]
+ __x64_sys_openat+0x175/0x210 fs/open.c:1433
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x38/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x63/0xcd
+
+Freed by task 4461:
+ kasan_save_stack+0x33/0x50 mm/kasan/common.c:45
+ kasan_set_track+0x25/0x30 mm/kasan/common.c:52
+ kasan_save_free_info+0x2b/0x40 mm/kasan/generic.c:522
+ ____kasan_slab_free mm/kasan/common.c:236 [inline]
+ ____kasan_slab_free+0x15e/0x1b0 mm/kasan/common.c:200
+ kasan_slab_free include/linux/kasan.h:162 [inline]
+ slab_free_hook mm/slub.c:1792 [inline]
+ slab_free_freelist_hook+0x10b/0x1e0 mm/slub.c:1818
+ slab_free mm/slub.c:3801 [inline]
+ __kmem_cache_free+0xb8/0x2f0 mm/slub.c:3814
+ tomoyo_realpath_from_path+0x1a6/0x710 security/tomoyo/realpath.c:286
+ tomoyo_get_realpath security/tomoyo/file.c:151 [inline]
+ tomoyo_check_open_permission+0x2aa/0x3b0 security/tomoyo/file.c:771
+ tomoyo_file_open security/tomoyo/tomoyo.c:332 [inline]
+ tomoyo_file_open+0xa8/0xd0 security/tomoyo/tomoyo.c:327
+ security_file_open+0x6a/0xe0 security/security.c:2797
+ do_dentry_open+0x538/0x1780 fs/open.c:901
+ do_open fs/namei.c:3636 [inline]
+ path_openat+0x19af/0x29c0 fs/namei.c:3793
+ do_filp_open+0x1de/0x430 fs/namei.c:3820
+ do_sys_openat2+0x176/0x1e0 fs/open.c:1407
+ do_sys_open fs/open.c:1422 [inline]
+ __do_sys_openat fs/open.c:1438 [inline]
+ __se_sys_openat fs/open.c:1433 [inline]
+ __x64_sys_openat+0x175/0x210 fs/open.c:1433
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x38/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x63/0xcd
+
+The buggy address belongs to the object at ffff88807e668000
+ which belongs to the cache kmalloc-4k of size 4096
+The buggy address is located 0 bytes inside of
+ 4096-byte region [ffff88807e668000, ffff88807e669000)
+
+The buggy address belongs to the physical page:
+page:ffffea0001f99a00 refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x7e668
+head:ffffea0001f99a00 order:3 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0xfff00000010200(slab|head|node=0|zone=1|lastcpupid=0x7ff)
+page_type: 0xffffffff()
+raw: 00fff00000010200 ffff888012842140 dead000000000122 0000000000000000
+raw: 0000000000000000 0000000000040004 00000001ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd2040(__GFP_IO|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 4461, tgid 4461 (syslogd), ts 50449459117, free_ts 50444213775
+ set_page_owner include/linux/page_owner.h:31 [inline]
+ post_alloc_hook+0x2d2/0x350 mm/page_alloc.c:1570
+ prep_new_page mm/page_alloc.c:1577 [inline]
+ get_page_from_freelist+0x10a9/0x31e0 mm/page_alloc.c:3221
+ __alloc_pages+0x1d0/0x4a0 mm/page_alloc.c:4477
+ alloc_pages+0x1a9/0x270 mm/mempolicy.c:2292
+ alloc_slab_page mm/slub.c:1862 [inline]
+ allocate_slab+0x24e/0x380 mm/slub.c:2009
+ new_slab mm/slub.c:2062 [inline]
+ ___slab_alloc+0x8bc/0x1570 mm/slub.c:3215
+ __slab_alloc.constprop.0+0x56/0xa0 mm/slub.c:3314
+ __slab_alloc_node mm/slub.c:3367 [inline]
+ slab_alloc_node mm/slub.c:3460 [inline]
+ __kmem_cache_alloc_node+0x137/0x350 mm/slub.c:3509
+ __do_kmalloc_node mm/slab_common.c:984 [inline]
+ __kmalloc+0x4c/0x100 mm/slab_common.c:998
+ kmalloc include/linux/slab.h:586 [inline]
+ tomoyo_realpath_from_path+0xb9/0x710 security/tomoyo/realpath.c:251
+ tomoyo_get_realpath security/tomoyo/file.c:151 [inline]
+ tomoyo_check_open_permission+0x2aa/0x3b0 security/tomoyo/file.c:771
+ tomoyo_file_open security/tomoyo/tomoyo.c:332 [inline]
+ tomoyo_file_open+0xa8/0xd0 security/tomoyo/tomoyo.c:327
+ security_file_open+0x6a/0xe0 security/security.c:2797
+ do_dentry_open+0x538/0x1780 fs/open.c:901
+ do_open fs/namei.c:3636 [inline]
+ path_openat+0x19af/0x29c0 fs/namei.c:3793
+ do_filp_open+0x1de/0x430 fs/namei.c:3820
+page last free stack trace:
+ reset_page_owner include/linux/page_owner.h:24 [inline]
+ free_pages_prepare mm/page_alloc.c:1161 [inline]
+ free_unref_page_prepare+0x508/0xb90 mm/page_alloc.c:2348
+ free_unref_page+0x33/0x3b0 mm/page_alloc.c:2443
+ diMount+0x806/0x8d0 fs/jfs/jfs_imap.c:115
+ jfs_mount_rw+0x238/0x6f0 fs/jfs/jfs_mount.c:240
+ jfs_remount+0x51b/0x650 fs/jfs/super.c:454
+ legacy_reconfigure+0x119/0x180 fs/fs_context.c:634
+ reconfigure_super+0x44b/0xb10 fs/super.c:961
+ vfs_fsconfig_locked fs/fsopen.c:254 [inline]
+ __do_sys_fsconfig+0xb1b/0xda0 fs/fsopen.c:439
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x38/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x63/0xcd
+
+Memory state around the buggy address:
+ ffff88807e667f00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff88807e667f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+>ffff88807e668000: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                   ^
+ ffff88807e668080: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff88807e668100: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================

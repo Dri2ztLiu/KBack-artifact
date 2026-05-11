@@ -1,0 +1,50 @@
+{
+  "extid": "94d20db923b9f51be0df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=94d20db923b9f51be0df",
+  "bug_title": "WARNING in max_vclocks_store",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "ptp: Add a upper bound on max_vclocks",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e9f35294e18da82162004a2f35976e7031aaf7f9",
+      "hash": "e9f35294e18da82162004a2f35976e7031aaf7f9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "viswanathiyyappan@gmail.com",
+      "author-name": "I Viswanath",
+      "date": "2025-09-25T15:59:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in max_vclocks_store",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fb679c832b6497f19fffb8274c419783909c0912",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/807a3b61ca22f8988561c180eb47268ea6e244db",
+  "syzkaller-commit": "807a3b61ca22f8988561c180eb47268ea6e244db",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13650e34580000",
+      "saved_to": "/home/lcj/paired_patches/94d20db923b9f51be0df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fecbb496f75d3d61",
+      "saved_to": "/home/lcj/paired_patches/94d20db923b9f51be0df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1353ca62580000",
+      "saved_to": "/home/lcj/paired_patches/94d20db923b9f51be0df/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12775262580000",
+      "saved_to": "/home/lcj/paired_patches/94d20db923b9f51be0df/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "8f819e36e01022991cfa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8f819e36e01022991cfa",
+  "bug_title": "memory leak in vhci_write",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: L2CAP: Fix memory leak in vhci_write",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7c9524d929648935bac2bbb4c20437df8f9c3f42",
+      "hash": "7c9524d929648935bac2bbb4c20437df8f9c3f42",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yin31149@gmail.com",
+      "author-name": "Hawkins Jiawei",
+      "date": "2022-10-18T02:18:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in vhci_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7ebfc85e2cd7b08f518b526173e9a33b56b3913b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7a7cb3044bb1ce0ba83e549d64c152bb5dacb98a",
+  "syzkaller-commit": "7a7cb3044bb1ce0ba83e549d64c152bb5dacb98a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12960e3d080000",
+      "saved_to": "/home/lcj/paired_patches/8f819e36e01022991cfa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6e4b25d26c713a1b",
+      "saved_to": "/home/lcj/paired_patches/8f819e36e01022991cfa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=143c9fc3080000",
+      "saved_to": "/home/lcj/paired_patches/8f819e36e01022991cfa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11e8bd97080000",
+      "saved_to": "/home/lcj/paired_patches/8f819e36e01022991cfa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

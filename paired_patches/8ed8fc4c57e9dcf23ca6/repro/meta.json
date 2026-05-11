@@ -1,0 +1,50 @@
+{
+  "extid": "8ed8fc4c57e9dcf23ca6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8ed8fc4c57e9dcf23ca6",
+  "bug_title": "UBSAN: shift-out-of-bounds in tcf_pedit_init",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net/sched: act_pedit: sanitize shift argument before usage",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4d42d54a7d6aa6d29221d3fd4f2ae9503e94f011",
+      "hash": "4d42d54a7d6aa6d29221d3fd4f2ae9503e94f011",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pabeni@redhat.com",
+      "author-name": "Paolo Abeni",
+      "date": "2022-05-13T09:27:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in tcf_pedit_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "810c2f0a3f86158c1e02e74947b66d811473434a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9ad6612a0a3b4ab403e6db3bafc65dc098e83fc3",
+  "syzkaller-commit": "9ad6612a0a3b4ab403e6db3bafc65dc098e83fc3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1499ce1af00000",
+      "saved_to": "/home/lcj/paired_patches/8ed8fc4c57e9dcf23ca6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=331feb185f8828e0",
+      "saved_to": "/home/lcj/paired_patches/8ed8fc4c57e9dcf23ca6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1316078ef00000",
+      "saved_to": "/home/lcj/paired_patches/8ed8fc4c57e9dcf23ca6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=164e9749f00000",
+      "saved_to": "/home/lcj/paired_patches/8ed8fc4c57e9dcf23ca6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

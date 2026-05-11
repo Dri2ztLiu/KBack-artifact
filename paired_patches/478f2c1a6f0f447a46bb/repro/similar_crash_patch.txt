@@ -1,0 +1,136 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/udf/super.c (2), Makefile (1)
+TOP_SYMBOLS:
+  udf_load_logicalvol (4), udf_err (2)
+TOP_KEYWORDS:
+  WARN (3)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=udf_load_logicalvol)
+  - viewcode(ref=<target_release>, path=fs/udf/super.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=3, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: bb9c90ab9c5a1a933a0dfd302a3fde73642b2b06
+bug_url: https://syzkaller.appspot.com/bug?extid=8b744cf90a7a14692145
+title: WARNING in udf_process_sequence
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 116eb523392a..685a65992449 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 6
+-SUBLEVEL = 101
++SUBLEVEL = 102
+ EXTRAVERSION =
+ NAME = Pinguïn Aangedreven
+================================================================================
+
+branch: linux-6.1
+fix_commit: 1a11201668e8635602577dcf06f2e96c591d8819
+bug_url: https://syzkaller.appspot.com/bug?extid=a66f771803158bb11e66
+title: WARNING in udf_process_sequence
+relevance_score: 0
+
+ fs/udf/super.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+diff --git a/fs/udf/super.c b/fs/udf/super.c
+index 1c8a736b3309..b2f168b0a0d1 100644
+--- a/fs/udf/super.c
++++ b/fs/udf/super.c
+@@ -1440,7 +1440,7 @@ static int udf_load_logicalvol(struct super_block *sb, sector_t block,
+ 	struct genericPartitionMap *gpm;
+ 	uint16_t ident;
+ 	struct buffer_head *bh;
+-	unsigned int table_len;
++	unsigned int table_len, part_map_count;
+ 	int ret;
+ 
+ 	bh = udf_read_tagged(sb, block, block, &ident);
+@@ -1461,7 +1461,16 @@ static int udf_load_logicalvol(struct super_block *sb, sector_t block,
+ 					   "logical volume");
+ 	if (ret)
+ 		goto out_bh;
+-	ret = udf_sb_alloc_partition_maps(sb, le32_to_cpu(lvd->numPartitionMaps));
++
++	part_map_count = le32_to_cpu(lvd->numPartitionMaps);
++	if (part_map_count > table_len / sizeof(struct genericPartitionMap1)) {
++		udf_err(sb, "error loading logical volume descriptor: "
++			"Too many partition maps (%u > %u)\n", part_map_count,
++			table_len / (unsigned)sizeof(struct genericPartitionMap1));
++		ret = -EIO;
++		goto out_bh;
++	}
++	ret = udf_sb_alloc_partition_maps(sb, part_map_count);
+ 	if (ret)
+ 		goto out_bh;
+================================================================================
+
+branch: linux-5.15
+fix_commit: 1a11201668e8635602577dcf06f2e96c591d8819
+bug_url: https://syzkaller.appspot.com/bug?extid=16605f48927245445815
+title: WARNING in udf_process_sequence
+relevance_score: 0
+
+ fs/udf/super.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+diff --git a/fs/udf/super.c b/fs/udf/super.c
+index 1c8a736b3309..b2f168b0a0d1 100644
+--- a/fs/udf/super.c
++++ b/fs/udf/super.c
+@@ -1440,7 +1440,7 @@ static int udf_load_logicalvol(struct super_block *sb, sector_t block,
+ 	struct genericPartitionMap *gpm;
+ 	uint16_t ident;
+ 	struct buffer_head *bh;
+-	unsigned int table_len;
++	unsigned int table_len, part_map_count;
+ 	int ret;
+ 
+ 	bh = udf_read_tagged(sb, block, block, &ident);
+@@ -1461,7 +1461,16 @@ static int udf_load_logicalvol(struct super_block *sb, sector_t block,
+ 					   "logical volume");
+ 	if (ret)
+ 		goto out_bh;
+-	ret = udf_sb_alloc_partition_maps(sb, le32_to_cpu(lvd->numPartitionMaps));
++
++	part_map_count = le32_to_cpu(lvd->numPartitionMaps);
++	if (part_map_count > table_len / sizeof(struct genericPartitionMap1)) {
++		udf_err(sb, "error loading logical volume descriptor: "
++			"Too many partition maps (%u > %u)\n", part_map_count,
++			table_len / (unsigned)sizeof(struct genericPartitionMap1));
++		ret = -EIO;
++		goto out_bh;
++	}
++	ret = udf_sb_alloc_partition_maps(sb, part_map_count);
+ 	if (ret)
+ 		goto out_bh;
+================================================================================

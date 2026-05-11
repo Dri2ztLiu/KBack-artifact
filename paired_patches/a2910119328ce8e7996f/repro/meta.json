@@ -1,0 +1,50 @@
+{
+  "extid": "a2910119328ce8e7996f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a2910119328ce8e7996f",
+  "bug_title": "WARNING: refcount bug in __io_queue_sqe",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix link timeout refs",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a298232ee6b9a1d5d732aa497ff8be0d45b5bd82",
+      "hash": "a298232ee6b9a1d5d732aa497ff8be0d45b5bd82",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-05-07T20:06:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: refcount bug in __io_queue_sqe",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "16fc44d6387e260f4932e9248b985837324705d8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2bc8999a98bda25c1c6cad6f8ff4d2bb07ac3be2",
+  "syzkaller-commit": "2bc8999a98bda25c1c6cad6f8ff4d2bb07ac3be2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12dd80c1d00000",
+      "saved_to": "/home/lcj/paired_patches/a2910119328ce8e7996f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c0a6882014fd3d45",
+      "saved_to": "/home/lcj/paired_patches/a2910119328ce8e7996f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a2910119328ce8e7996f/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a2910119328ce8e7996f/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

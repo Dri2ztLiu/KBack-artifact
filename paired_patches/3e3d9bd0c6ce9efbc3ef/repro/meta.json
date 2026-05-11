@@ -1,0 +1,50 @@
+{
+  "extid": "3e3d9bd0c6ce9efbc3ef",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3e3d9bd0c6ce9efbc3ef",
+  "bug_title": "WARNING in io_uring_cancel_task_requests",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix sqo ownership false positive warning",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=70b2c60d3797bffe182dddb9bb55975b9be5889a",
+      "hash": "70b2c60d3797bffe182dddb9bb55975b9be5889a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-01-28T18:44:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in io_uring_cancel_task_requests",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "b01f250d83f6c3af5c77699dd14e7b48ee0b5383",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fc9fd31ee7998c8b747752791000ea4eef07b5c6",
+  "syzkaller-commit": "fc9fd31ee7998c8b747752791000ea4eef07b5c6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=138fc0acd00000",
+      "saved_to": "/home/lcj/paired_patches/3e3d9bd0c6ce9efbc3ef/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=725bc96dc234fda7",
+      "saved_to": "/home/lcj/paired_patches/3e3d9bd0c6ce9efbc3ef/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/3e3d9bd0c6ce9efbc3ef/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=155cd11cd00000",
+      "saved_to": "/home/lcj/paired_patches/3e3d9bd0c6ce9efbc3ef/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

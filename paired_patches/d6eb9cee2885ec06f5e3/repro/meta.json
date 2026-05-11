@@ -1,0 +1,50 @@
+{
+  "extid": "d6eb9cee2885ec06f5e3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d6eb9cee2885ec06f5e3",
+  "bug_title": "WARNING in __cfg80211_connect_result (2)",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "wifi: virt_wifi: avoid reporting connection success with wrong SSID",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b5d14b0c6716fad7f0c94ac6e1d6f60a49f985c7",
+      "hash": "b5d14b0c6716fad7f0c94ac6e1d6f60a49f985c7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "en-wei.wu@canonical.com",
+      "author-name": "En-Wei Wu",
+      "date": "2024-07-05T02:37:56Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __cfg80211_connect_result",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "a6a6a98094116b60e5523a571d9443c53325f5b1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/880c1ca1d9289d57d785f043306f8b243edf4197",
+  "syzkaller-commit": "880c1ca1d9289d57d785f043306f8b243edf4197",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=126b641a980000",
+      "saved_to": "/home/lcj/paired_patches/d6eb9cee2885ec06f5e3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e78fc116033e0ab7",
+      "saved_to": "/home/lcj/paired_patches/d6eb9cee2885ec06f5e3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13d426c1980000",
+      "saved_to": "/home/lcj/paired_patches/d6eb9cee2885ec06f5e3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12a8b81a980000",
+      "saved_to": "/home/lcj/paired_patches/d6eb9cee2885ec06f5e3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

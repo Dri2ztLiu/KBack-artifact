@@ -1,0 +1,50 @@
+{
+  "extid": "614e82b88a1a4973e534",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=614e82b88a1a4973e534",
+  "bug_title": "KMSAN: uninit-value in ieee80211_sta_tx_notify (2)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "mac80211: track only QoS data frames for admission control",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d5e568c3a4ec2ddd23e7dc5ad5b0c64e4f22981a",
+      "hash": "d5e568c3a4ec2ddd23e7dc5ad5b0c64e4f22981a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2021-11-22T11:47:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ieee80211_sta_tx_notify",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "85cfd6e539bdadb976104684b4533b81de0d9073",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3cd800e43d452c348a66ba475143831d94969a24",
+  "syzkaller-commit": "3cd800e43d452c348a66ba475143831d94969a24",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=147a7ae8700000",
+      "saved_to": "/home/lcj/paired_patches/614e82b88a1a4973e534/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=52fea0b3c2d8ffdf",
+      "saved_to": "/home/lcj/paired_patches/614e82b88a1a4973e534/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/614e82b88a1a4973e534/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/614e82b88a1a4973e534/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "extid": "6641a61fe0e2e89ae8c5",
+  "target_ref": "6641a61fe0e2e89ae8c5",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "5593530e56943182ebb6d81eca8a3be6db6dbba4",
+      "branch": "linux-4.19",
+      "title": "WARNING in xfrm_state_fini",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/tipc/core.c"
+      ],
+      "symbols": [
+        "tipc_init_net",
+        "tipc_init_net",
+        "tipc_exit_net",
+        "tipc_init",
+        "tipc_init",
+        "tipc_init",
+        "if",
+        "tipc_socket_stop",
+        "tipc_socket_stop",
+        "if",
+        "tipc_socket_stop",
+        "tipc_socket_stop"
+      ],
+      "patterns": [
+        "WARN",
+        "spin_lock",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "dbb2483b2a46fbaf833cfb5deb5ed9cace9c7399",
+      "branch": "linux-4.14",
+      "title": "WARNING in xfrm_state_fini",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "include/net/xfrm.h",
+        "net/ipv6/xfrm6_tunnel.c",
+        "net/key/af_key.c",
+        "net/xfrm/xfrm_state.c",
+        "net/xfrm/xfrm_user.c"
+      ],
+      "symbols": [
+        "xfrm_state_kern",
+        "xfrm6_tunnel_net_exit",
+        "parse_ipsecrequest",
+        "xfrm_state_fini",
+        "validate_tmpl",
+        "switch",
+        "xfrm_state_flush",
+        "xfrm_state_flush",
+        "if",
+        "xfrm_state_flush",
+        "xfrm_state_flush",
+        "switch",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "atomic",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

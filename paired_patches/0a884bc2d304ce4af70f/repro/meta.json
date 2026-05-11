@@ -1,0 +1,50 @@
+{
+  "extid": "0a884bc2d304ce4af70f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0a884bc2d304ce4af70f",
+  "bug_title": "WARNING in __dev_queue_xmit (5)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "netdev-genl: avoid empty messages in queue dump",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5eb70dbebf32c2fd1f2814c654ae17fc47d6e859",
+      "hash": "5eb70dbebf32c2fd1f2814c654ae17fc47d6e859",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2024-12-18T02:25:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __dev_queue_xmit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c2ee9f594da826bea183ed14f2cc029c719bf4da",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/15fa29791c1707abd7faed4110e284d0ccb72fae",
+  "syzkaller-commit": "15fa29791c1707abd7faed4110e284d0ccb72fae",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1219c287980000",
+      "saved_to": "/home/lcj/paired_patches/0a884bc2d304ce4af70f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1673a5aaa7e19b23",
+      "saved_to": "/home/lcj/paired_patches/0a884bc2d304ce4af70f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16443640580000",
+      "saved_to": "/home/lcj/paired_patches/0a884bc2d304ce4af70f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12ee4c30580000",
+      "saved_to": "/home/lcj/paired_patches/0a884bc2d304ce4af70f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

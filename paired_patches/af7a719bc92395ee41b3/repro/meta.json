@@ -1,0 +1,50 @@
+{
+  "extid": "af7a719bc92395ee41b3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=af7a719bc92395ee41b3",
+  "bug_title": "general protection fault in reweight_entity",
+  "bug_status": "fixed on 2022/02/23 11:01",
+  "fix_commits": [
+    {
+      "title": "BACKPORT: sched/fair: Fix fault in reweight_entity",
+      "link": "https://android.googlesource.com/kernel/common/+/13765de8148f71fa795e0a6607de37c49ea5915a^!",
+      "hash": "13765de8148f71fa795e0a6607de37c49ea5915a",
+      "repo": "https://android.googlesource.com/kernel/common",
+      "branch": "android13-5.10-lts",
+      "author": "tadeusz.struk@linaro.org",
+      "author-name": "Tadeusz Struk",
+      "date": "2022-02-06T21:37:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in reweight_entity",
+  "kernel-source-git": "https://android.googlesource.com/kernel/common",
+  "kernel-source-commit": "86e6176a42401c8014ac34e305b8e3c55eba9351",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8b9ca619df135211a89cc19719f2705d0016045d",
+  "syzkaller-commit": "8b9ca619df135211a89cc19719f2705d0016045d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11ced71c700000",
+      "saved_to": "/home/lcj/paired_patches/af7a719bc92395ee41b3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2c44fc9aa7a9c888",
+      "saved_to": "/home/lcj/paired_patches/af7a719bc92395ee41b3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=128a74ac700000",
+      "saved_to": "/home/lcj/paired_patches/af7a719bc92395ee41b3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1729f108700000",
+      "saved_to": "/home/lcj/paired_patches/af7a719bc92395ee41b3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "0be96567042453c0c820",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0be96567042453c0c820",
+  "bug_title": "UBSAN: shift-out-of-bounds in blkstol2",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "fs/jfs: fix shift exponent db_agl2size negative",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fad376fce0af58deebc5075b8539dc05bf639af3",
+      "hash": "fad376fce0af58deebc5075b8539dc05bf639af3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jfs-discussion@lists.sourceforge.net",
+      "author-name": "Liu Shixin via Jfs-discussion",
+      "date": "2022-11-03T03:01:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in blkstol2",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "4d48f589d294ddc5e01d3b0dc7cecc55324c05ca",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a1d8560a0437774e9da5f9e4bd86671acdd5b2ee",
+  "syzkaller-commit": "a1d8560a0437774e9da5f9e4bd86671acdd5b2ee",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11f47e46880000",
+      "saved_to": "/home/lcj/paired_patches/0be96567042453c0c820/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2c4b7d600a5739a6",
+      "saved_to": "/home/lcj/paired_patches/0be96567042453c0c820/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=101ed1ce880000",
+      "saved_to": "/home/lcj/paired_patches/0be96567042453c0c820/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12f70161880000",
+      "saved_to": "/home/lcj/paired_patches/0be96567042453c0c820/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

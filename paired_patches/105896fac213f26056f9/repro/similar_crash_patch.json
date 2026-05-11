@@ -1,0 +1,52 @@
+{
+  "extid": "105896fac213f26056f9",
+  "target_ref": "105896fac213f26056f9",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "e4d90d63d385228b1e0bcf31cc15539bbbc28f7f",
+      "branch": "linux-6.1",
+      "title": "WARNING in init_timer_key",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "4735586da88ed2254ada53bbe19ce4fe968a1e7b",
+      "branch": "linux-5.15",
+      "title": "WARNING in init_timer_key",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

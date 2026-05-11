@@ -1,0 +1,50 @@
+{
+  "extid": "8c0ac31aa9681abb9e2d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8c0ac31aa9681abb9e2d",
+  "bug_title": "KASAN: use-after-free Read in ip6_fragment (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "ipv6: avoid use-after-free in ip6_fragment()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=803e84867de59a1e5d126666d25eb4860cfd2ebe",
+      "hash": "803e84867de59a1e5d126666d25eb4860cfd2ebe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2022-12-06T10:13:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in ip6_fragment",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4312098baf37ee17a8350725e6e0d0e8590252d4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/12c66417513689207e96cb377eba36af9bf78535",
+  "syzkaller-commit": "12c66417513689207e96cb377eba36af9bf78535",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10cd6509880000",
+      "saved_to": "/home/lcj/paired_patches/8c0ac31aa9681abb9e2d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=436ee340148d5197",
+      "saved_to": "/home/lcj/paired_patches/8c0ac31aa9681abb9e2d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8c0ac31aa9681abb9e2d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8c0ac31aa9681abb9e2d/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

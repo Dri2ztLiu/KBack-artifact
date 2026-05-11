@@ -1,0 +1,60 @@
+{
+  "extid": "5186630949e3c55f0799",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5186630949e3c55f0799",
+  "bug_title": "WARNING in hid_output_report",
+  "bug_status": "fixed on 2024/07/09 19:14",
+  "fix_commits": [
+    {
+      "title": "HID: core: remove unnecessary WARN_ON() in implement()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4aa2dcfbad538adf7becd0034a3754e1bd01b2b5",
+      "hash": "4aa2dcfbad538adf7becd0034a3754e1bd01b2b5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2024-05-17T14:19:14Z"
+    },
+    {
+      "title": "net: usb: rtl8150 fix unintiatilzed variables in rtl8150_get_link_ksettings",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fba383985354e83474f95f36d7c65feb75dba19d",
+      "hash": "fba383985354e83474f95f36d7c65feb75dba19d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "oneukum@suse.com",
+      "author-name": "Oliver Neukum",
+      "date": "2024-06-19T13:28:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hid_output_report",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cf87f46fd34d6c19283d9625a7822f20d90b64a4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9026e14289eaf45a00ddddb8730f2092b956d99a",
+  "syzkaller-commit": "9026e14289eaf45a00ddddb8730f2092b956d99a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=134f10cc980000",
+      "saved_to": "/home/lcj/paired_patches/5186630949e3c55f0799/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6d14c12b661fb43",
+      "saved_to": "/home/lcj/paired_patches/5186630949e3c55f0799/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15fb1078980000",
+      "saved_to": "/home/lcj/paired_patches/5186630949e3c55f0799/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=173c5c5c980000",
+      "saved_to": "/home/lcj/paired_patches/5186630949e3c55f0799/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

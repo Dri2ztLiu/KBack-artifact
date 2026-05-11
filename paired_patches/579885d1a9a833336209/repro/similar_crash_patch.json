@@ -1,0 +1,130 @@
+{
+  "extid": "579885d1a9a833336209",
+  "target_ref": "579885d1a9a833336209",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "a89b48fe9308d976d9dcb2112e264d647f7efce4",
+      "branch": "linux-4.19",
+      "title": "possible deadlock in pipe_lock (2)",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "deadlock"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "146d62e5a5867fbf84490d82455718bfb10fe824",
+      "branch": "linux-4.19",
+      "title": "possible deadlock in pipe_lock",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/overlayfs/inode.c",
+        "fs/overlayfs/namei.c",
+        "fs/overlayfs/overlayfs.h",
+        "fs/overlayfs/ovl_entry.h",
+        "fs/overlayfs/super.c",
+        "fs/overlayfs/util.c"
+      ],
+      "symbols": [
+        "ovl_lookup_inode",
+        "ovl_lookup_single",
+        "ovl_lookup",
+        "ovl_clear_flag",
+        "ovl_inode_params",
+        "ovl_sb",
+        "ovl_fs",
+        "ovl_free_fs",
+        "ovl_free_fs",
+        "ovl_get_upper",
+        "ovl_get_upper",
+        "ovl_make_workdir",
+        "ovl_make_workdir",
+        "ovl_get_workdir",
+        "ovl_get_indexdir",
+        "ovl_get_fsid",
+        "ovl_get_lower_layers",
+        "ovl_get_lower_layers",
+        "ovl_get_lowerstack",
+        "ovl_get_lowerstack",
+        "ovl_fill_super",
+        "ovl_fill_super",
+        "ovl_fill_super",
+        "ovl_fill_super",
+        "ovl_inuse_unlock",
+        "if",
+        "iput",
+        "if",
+        "if",
+        "if",
+        "iput",
+        "unlock_new_inode",
+        "if",
+        "if",
+        "iput",
+        "iput",
+        "iput",
+        "for",
+        "for",
+        "iput",
+        "if",
+        "if",
+        "pr_err",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "pr_err",
+        "if",
+        "iput",
+        "if",
+        "if",
+        "pr_err",
+        "pr_err",
+        "dput",
+        "if",
+        "pr_err",
+        "dput",
+        "if",
+        "if",
+        "if",
+        "for",
+        "if",
+        "if",
+        "if",
+        "spin_lock",
+        "spin_unlock"
+      ],
+      "patterns": [
+        "deadlock",
+        "NULL",
+        "null",
+        "WARN",
+        "spin_lock"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

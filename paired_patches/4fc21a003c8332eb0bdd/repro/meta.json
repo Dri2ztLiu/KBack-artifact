@@ -1,0 +1,50 @@
+{
+  "extid": "4fc21a003c8332eb0bdd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4fc21a003c8332eb0bdd",
+  "bug_title": "WARNING in vkms_vblank_simulate (2)",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "drm/vkms: fix misuse of WARN_ON",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b4142fc4d52d051d4d8df1fb6c569e5b445d369e",
+      "hash": "b4142fc4d52d051d4d8df1fb6c569e5b445d369e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dvyukov@google.com",
+      "author-name": "Dmitry Vyukov",
+      "date": "2021-03-20T13:28:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in vkms_vblank_simulate",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2a1d7946fa53cea2083e5981ff55a8176ab2be6b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/36c88236dfc6146c2c536718c8930886cf31adbe",
+  "syzkaller-commit": "36c88236dfc6146c2c536718c8930886cf31adbe",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17403499d00000",
+      "saved_to": "/home/lcj/paired_patches/4fc21a003c8332eb0bdd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=76c0382ceab56d34",
+      "saved_to": "/home/lcj/paired_patches/4fc21a003c8332eb0bdd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=144128d5d00000",
+      "saved_to": "/home/lcj/paired_patches/4fc21a003c8332eb0bdd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13212bf9d00000",
+      "saved_to": "/home/lcj/paired_patches/4fc21a003c8332eb0bdd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

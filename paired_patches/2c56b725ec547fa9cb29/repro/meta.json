@@ -1,0 +1,50 @@
+{
+  "extid": "2c56b725ec547fa9cb29",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2c56b725ec547fa9cb29",
+  "bug_title": "general protection fault in sg_alloc_append_table_from_pages",
+  "bug_status": "fixed on 2023/02/24 13:51",
+  "fix_commits": [
+    {
+      "title": "udmabuf: validate ubuf->pagecount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2b6dd600dd72573c23ea180b5b0b2f1813405882",
+      "hash": "2b6dd600dd72573c23ea180b5b0b2f1813405882",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-12-30T14:26:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in sg_alloc_append_table_from_pages",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d1587f7bfe9a0f97a75d42ac1489aeda551106bc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2ca0d3855c36da0994766801f4b5067a74824437",
+  "syzkaller-commit": "2ca0d3855c36da0994766801f4b5067a74824437",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12932603b00000",
+      "saved_to": "/home/lcj/paired_patches/2c56b725ec547fa9cb29/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=32f9fa260d7413b4",
+      "saved_to": "/home/lcj/paired_patches/2c56b725ec547fa9cb29/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15f0a31bb00000",
+      "saved_to": "/home/lcj/paired_patches/2c56b725ec547fa9cb29/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=164830f7b00000",
+      "saved_to": "/home/lcj/paired_patches/2c56b725ec547fa9cb29/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

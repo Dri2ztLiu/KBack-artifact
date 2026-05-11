@@ -1,0 +1,50 @@
+{
+  "extid": "dcd3e13cf4472f2e0ba1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=dcd3e13cf4472f2e0ba1",
+  "bug_title": "memory leak in mld_newpack",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "usbnet: Fix memory leak in usbnet_disconnect()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a43206156263fbaf1f2b7f96257441f331e91bb7",
+      "hash": "a43206156263fbaf1f2b7f96257441f331e91bb7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "peilin.ye@bytedance.com",
+      "author-name": "Peilin Ye",
+      "date": "2022-09-23T04:25:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in mld_newpack",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6879c2d3b96039ff1668b4328a4d0dd3ea952cff",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/dd9a85ff356d74a765888403f1b70faece9e642b",
+  "syzkaller-commit": "dd9a85ff356d74a765888403f1b70faece9e642b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1259b680880000",
+      "saved_to": "/home/lcj/paired_patches/dcd3e13cf4472f2e0ba1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a4afe4efcad47dde",
+      "saved_to": "/home/lcj/paired_patches/dcd3e13cf4472f2e0ba1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15078ed5080000",
+      "saved_to": "/home/lcj/paired_patches/dcd3e13cf4472f2e0ba1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11842b37080000",
+      "saved_to": "/home/lcj/paired_patches/dcd3e13cf4472f2e0ba1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

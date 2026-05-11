@@ -1,0 +1,50 @@
+{
+  "extid": "2d788f4f7cb660dac4b7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2d788f4f7cb660dac4b7",
+  "bug_title": "general protection fault in find_mergeable_anon_vma",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "fork: avoid inappropriate uprobe access to invalid mm",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8ac662f5da19f5873fdd94c48a5cdb45b2e1b58f",
+      "hash": "8ac662f5da19f5873fdd94c48a5cdb45b2e1b58f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lorenzo.stoakes@oracle.com",
+      "author-name": "Lorenzo Stoakes",
+      "date": "2024-12-10T17:24:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in find_mergeable_anon_vma",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "feffde684ac29a3b7aec82d2df850fbdbdee55e4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b50eb251af3b122fb1b2c574dde0c3d16f6a8cfd",
+  "syzkaller-commit": "b50eb251af3b122fb1b2c574dde0c3d16f6a8cfd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=159548df980000",
+      "saved_to": "/home/lcj/paired_patches/2d788f4f7cb660dac4b7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=50c7a61469ce77e7",
+      "saved_to": "/home/lcj/paired_patches/2d788f4f7cb660dac4b7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2d788f4f7cb660dac4b7/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2d788f4f7cb660dac4b7/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

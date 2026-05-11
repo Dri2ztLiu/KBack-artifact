@@ -1,0 +1,50 @@
+{
+  "extid": "03e3e228510223dabd34",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=03e3e228510223dabd34",
+  "bug_title": "general protection fault in smc_pnet_add (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net/smc: Fix NULL pointer dereference in smc_pnet_find_ib()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d22f4f977236f97e01255a80bca2ea93a8094fc8",
+      "hash": "d22f4f977236f97e01255a80bca2ea93a8094fc8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kgraul@linux.ibm.com",
+      "author-name": "Karsten Graul",
+      "date": "2022-04-08T15:10:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in smc_pnet_add",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "c79fcc27be90b308b3fa90811aefafdd4078668c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9e8eaa75a18a5cf8102e862be692c0781759e51b",
+  "syzkaller-commit": "9e8eaa75a18a5cf8102e862be692c0781759e51b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=145fe4ee700000",
+      "saved_to": "/home/lcj/paired_patches/03e3e228510223dabd34/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4e9585407e09f75f",
+      "saved_to": "/home/lcj/paired_patches/03e3e228510223dabd34/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13094216700000",
+      "saved_to": "/home/lcj/paired_patches/03e3e228510223dabd34/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17920c11700000",
+      "saved_to": "/home/lcj/paired_patches/03e3e228510223dabd34/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

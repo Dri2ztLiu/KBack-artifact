@@ -1,0 +1,50 @@
+{
+  "extid": "1f2eb3e8cd123ffce499",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1f2eb3e8cd123ffce499",
+  "bug_title": "UBSAN: array-index-out-of-bounds in FSE_decompress_wksp_body_bmi2",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "zstd: Fix array-index-out-of-bounds UBSAN warning",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=77618db346455129424fadbbaec596a09feaf3bb",
+      "hash": "77618db346455129424fadbbaec596a09feaf3bb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "terrelln@fb.com",
+      "author-name": "Nick Terrell",
+      "date": "2023-10-12T19:55:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in FSE_decompress_wksp_body_bmi2",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "382d4cd1847517ffcb1800fd462b625db7b2ebea",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7ba13a158b1ad89a23920bb64208ba34fed27b08",
+  "syzkaller-commit": "7ba13a158b1ad89a23920bb64208ba34fed27b08",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14a3cadfa80000",
+      "saved_to": "/home/lcj/paired_patches/1f2eb3e8cd123ffce499/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1b32f62c755c3a9c",
+      "saved_to": "/home/lcj/paired_patches/1f2eb3e8cd123ffce499/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1f2eb3e8cd123ffce499/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1f2eb3e8cd123ffce499/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

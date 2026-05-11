@@ -1,0 +1,50 @@
+{
+  "extid": "01affb1491750534256d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=01affb1491750534256d",
+  "bug_title": "KCSAN: data-race in process_one_work / process_one_work",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "workqueue: Fix race condition in wq->stats incrementation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=70e1683ca3a6474360af1d3a020a9a98c8492cc0",
+      "hash": "70e1683ca3a6474360af1d3a020a9a98c8492cc0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jiayuan.chen@linux.dev",
+      "author-name": "Jiayuan Chen",
+      "date": "2025-04-23T16:17:42Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in process_one_work / process_one_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "25aa0bebba72b318e71fe205bfd1236550cc9534",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/da3c3ef8d98b7ba08828daa5b40f59b2dbc0ceaf",
+  "syzkaller-commit": "da3c3ef8d98b7ba08828daa5b40f59b2dbc0ceaf",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12348169a80000",
+      "saved_to": "/home/lcj/paired_patches/01affb1491750534256d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a1abf5b066126c86",
+      "saved_to": "/home/lcj/paired_patches/01affb1491750534256d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/01affb1491750534256d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16def407a80000",
+      "saved_to": "/home/lcj/paired_patches/01affb1491750534256d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

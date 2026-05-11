@@ -1,0 +1,50 @@
+{
+  "extid": "da0a9c9721e36db712e8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=da0a9c9721e36db712e8",
+  "bug_title": "possible deadlock in __flush_workqueue",
+  "bug_status": "fixed on 2024/08/06 11:02",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_core: cancel all works upon hci_unregister_dev()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0d151a103775dd9645c78c97f77d6e2a5298d913",
+      "hash": "0d151a103775dd9645c78c97f77d6e2a5298d913",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2024-06-10T11:00:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in __flush_workqueue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "17712b7ea0756799635ba159cc773082230ed028",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1786a2a82636054a2b049857ef8b011c7e539fb6",
+  "syzkaller-commit": "1786a2a82636054a2b049857ef8b011c7e539fb6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10ec58d9980000",
+      "saved_to": "/home/lcj/paired_patches/da0a9c9721e36db712e8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fbd68ab0b66eda34",
+      "saved_to": "/home/lcj/paired_patches/da0a9c9721e36db712e8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/da0a9c9721e36db712e8/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/da0a9c9721e36db712e8/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

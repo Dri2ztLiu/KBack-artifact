@@ -1,0 +1,50 @@
+{
+  "extid": "4fec412f59eba8c01b77",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4fec412f59eba8c01b77",
+  "bug_title": "UBSAN: shift-out-of-bounds in ext2_fill_super",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "ext2: Check block size validity during mount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=62aeb94433fcec80241754b70d0d1836d5926b0a",
+      "hash": "62aeb94433fcec80241754b70d0d1836d5926b0a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2023-03-01T10:59:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in ext2_fill_super",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "14f8db1c0f9a79c4256c48e45f50e5db74d55109",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/90c93c40627cb0ac3c2c7cb99d807fd4c137adcb",
+  "syzkaller-commit": "90c93c40627cb0ac3c2c7cb99d807fd4c137adcb",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14f3356c280000",
+      "saved_to": "/home/lcj/paired_patches/4fec412f59eba8c01b77/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a837a8ba7e88bb45",
+      "saved_to": "/home/lcj/paired_patches/4fec412f59eba8c01b77/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=176cf86c280000",
+      "saved_to": "/home/lcj/paired_patches/4fec412f59eba8c01b77/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=106d8d14280000",
+      "saved_to": "/home/lcj/paired_patches/4fec412f59eba8c01b77/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "6f8cd9a0155b366d227f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6f8cd9a0155b366d227f",
+  "bug_title": "memory leak in z_erofs_do_read_page",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "erofs: Fix pcluster memleak when its block address is zero",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c42c0ffe81176940bd5dead474216b7198d77675",
+      "hash": "c42c0ffe81176940bd5dead474216b7198d77675",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chenzhongjin@huawei.com",
+      "author-name": "Chen Zhongjin",
+      "date": "2022-12-05T03:49:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in z_erofs_do_read_page",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ef4d3ea40565a781c25847e9cb96c1bd9f462bc6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4c2a66e8f105ab184bc7ed6d8ca283a5a3c03045",
+  "syzkaller-commit": "4c2a66e8f105ab184bc7ed6d8ca283a5a3c03045",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=151226d5880000",
+      "saved_to": "/home/lcj/paired_patches/6f8cd9a0155b366d227f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=979161df0e247659",
+      "saved_to": "/home/lcj/paired_patches/6f8cd9a0155b366d227f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1549a85b880000",
+      "saved_to": "/home/lcj/paired_patches/6f8cd9a0155b366d227f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1102d8d5880000",
+      "saved_to": "/home/lcj/paired_patches/6f8cd9a0155b366d227f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

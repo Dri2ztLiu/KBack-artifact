@@ -1,0 +1,59 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/core/filter.c (1)
+TOP_SYMBOLS:
+  DEFINE_PER_CPU (1)
+TOP_KEYWORDS:
+  WARN (1), BUG (1), net (1), bpf (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=DEFINE_PER_CPU)
+  - viewcode(ref=<target_release>, path=net/core/filter.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=2, rows_scanned=2, candidates_kept=1, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: dacc15e9cb248d19e5fc63c54bef0b9b55007761
+bug_url: https://syzkaller.appspot.com/bug?extid=6a277a9044a785b43d58
+title: WARNING in skb_ensure_writable
+relevance_score: 0
+
+ net/core/filter.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+diff --git a/net/core/filter.c b/net/core/filter.c
+index 1d8b271ef8cc..7a0741391353 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -1655,6 +1655,11 @@ static DEFINE_PER_CPU(struct bpf_scratchpad, bpf_sp);
+ static inline int __bpf_try_make_writable(struct sk_buff *skb,
+ 					  unsigned int write_len)
+ {
++#ifdef CONFIG_DEBUG_NET
++	/* Avoid a splat in pskb_may_pull_reason() */
++	if (write_len > INT_MAX)
++		return -EINVAL;
++#endif
+ 	return skb_ensure_writable(skb, write_len);
+ }
+================================================================================

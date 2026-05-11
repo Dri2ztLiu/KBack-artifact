@@ -1,0 +1,50 @@
+{
+  "extid": "aafb3f37cfeb6534c4ac",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=aafb3f37cfeb6534c4ac",
+  "bug_title": "WARNING in rmqueue",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "erofs: stop parsing non-compact HEAD index if clusterofs is invalid",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cc4efd3dd2ac9f89143e5d881609747ecff04164",
+      "hash": "cc4efd3dd2ac9f89143e5d881609747ecff04164",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hsiangkao@linux.alibaba.com",
+      "author-name": "Gao Xiang",
+      "date": "2023-04-10T17:37:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in rmqueue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b7b275e60bcd5f89771e865a8239325f86d9927d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/247de55b7ea6f9f235a407518b10c1496c8b25b3",
+  "syzkaller-commit": "247de55b7ea6f9f235a407518b10c1496c8b25b3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1513fb9b880000",
+      "saved_to": "/home/lcj/paired_patches/aafb3f37cfeb6534c4ac/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2325e409a9a893e1",
+      "saved_to": "/home/lcj/paired_patches/aafb3f37cfeb6534c4ac/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15685e8d880000",
+      "saved_to": "/home/lcj/paired_patches/aafb3f37cfeb6534c4ac/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15dde8a1880000",
+      "saved_to": "/home/lcj/paired_patches/aafb3f37cfeb6534c4ac/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

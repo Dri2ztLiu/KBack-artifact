@@ -1,0 +1,50 @@
+{
+  "extid": "afa2ca5171d93e44b348",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=afa2ca5171d93e44b348",
+  "bug_title": "KASAN: use-after-free Read in jbd2_journal_wait_updates",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "jbd2: fix use-after-free of transaction_t race",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cc16eecae687912238ee6efbff71ad31e2bc414e",
+      "hash": "cc16eecae687912238ee6efbff71ad31e2bc414e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "riteshh@linux.ibm.com",
+      "author-name": "Ritesh Harjani",
+      "date": "2022-02-10T15:37:11Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in jbd2_journal_wait_updates",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "b6ad6261d27708567b309fdb3102b12c42a070cc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6e821dbf79b49f1952fc147f237aa0f396790edc",
+  "syzkaller-commit": "6e821dbf79b49f1952fc147f237aa0f396790edc",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14106a7c700000",
+      "saved_to": "/home/lcj/paired_patches/afa2ca5171d93e44b348/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b41a243aa9878175",
+      "saved_to": "/home/lcj/paired_patches/afa2ca5171d93e44b348/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=125732d4700000",
+      "saved_to": "/home/lcj/paired_patches/afa2ca5171d93e44b348/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10320c0a700000",
+      "saved_to": "/home/lcj/paired_patches/afa2ca5171d93e44b348/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

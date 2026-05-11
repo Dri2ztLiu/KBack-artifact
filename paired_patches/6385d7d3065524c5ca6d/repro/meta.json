@@ -1,0 +1,50 @@
+{
+  "extid": "6385d7d3065524c5ca6d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6385d7d3065524c5ca6d",
+  "bug_title": "WARNING in ext4_xattr_block_set (2)",
+  "bug_status": "fixed on 2023/07/01 16:05",
+  "fix_commits": [
+    {
+      "title": "ext4: don't clear SB_RDONLY when remounting r/w until quota is re-enabled",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a44be64bbecb15a452496f60db6eacfee2b59c79",
+      "hash": "a44be64bbecb15a452496f60db6eacfee2b59c79",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tytso@mit.edu",
+      "author-name": "Theodore Ts'o",
+      "date": "2023-05-06T01:02:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ext4_xattr_block_set",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ba0ad6ed89fd5dada3b7b65ef2b08e95d449d4ab",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c7a5e2a09a3a40010fbf66b9cceeda1a5ca9f3cf",
+  "syzkaller-commit": "c7a5e2a09a3a40010fbf66b9cceeda1a5ca9f3cf",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1650024c280000",
+      "saved_to": "/home/lcj/paired_patches/6385d7d3065524c5ca6d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=38526bf24c8d961b",
+      "saved_to": "/home/lcj/paired_patches/6385d7d3065524c5ca6d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12dde60a280000",
+      "saved_to": "/home/lcj/paired_patches/6385d7d3065524c5ca6d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1494e1f2280000",
+      "saved_to": "/home/lcj/paired_patches/6385d7d3065524c5ca6d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "8baacc4139f12fa77909",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8baacc4139f12fa77909",
+  "bug_title": "BUG: sleeping function called from invalid context in dummy_dequeue",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "USB: gadget: dummy-hcd: Fix locking bug in RT-enabled kernels",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8d63c83d8eb922f6c316320f50c82fa88d099bea",
+      "hash": "8d63c83d8eb922f6c316320f50c82fa88d099bea",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "stern@rowland.harvard.edu",
+      "author-name": "Alan Stern",
+      "date": "2025-08-25T16:00:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in dummy_dequeue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8d245acc1e884e89f0808f64d6af3fc91d4903a0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bf27483f963359281b2d9b6d6efd36289f82e282",
+  "syzkaller-commit": "bf27483f963359281b2d9b6d6efd36289f82e282",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17714ef0580000",
+      "saved_to": "/home/lcj/paired_patches/8baacc4139f12fa77909/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e1e1566c7726877e",
+      "saved_to": "/home/lcj/paired_patches/8baacc4139f12fa77909/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14d5ea34580000",
+      "saved_to": "/home/lcj/paired_patches/8baacc4139f12fa77909/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13317062580000",
+      "saved_to": "/home/lcj/paired_patches/8baacc4139f12fa77909/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

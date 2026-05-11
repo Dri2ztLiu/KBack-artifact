@@ -1,0 +1,58 @@
+{
+  "extid": "4caeae4c7103813598ae",
+  "target_ref": "4caeae4c7103813598ae",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "9cd3fd2054c3b3055163accbf2f31a4426f10317",
+      "branch": "linux-4.19",
+      "title": "general protection fault in em_cmp_match",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/sched/ematch.c"
+      ],
+      "symbols": [
+        "tcf_em_validate",
+        "if"
+      ],
+      "patterns": [
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "9cd3fd2054c3b3055163accbf2f31a4426f10317",
+      "branch": "linux-4.14",
+      "title": "general protection fault in em_cmp_match",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/sched/ematch.c"
+      ],
+      "symbols": [
+        "tcf_em_validate",
+        "if"
+      ],
+      "patterns": [
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

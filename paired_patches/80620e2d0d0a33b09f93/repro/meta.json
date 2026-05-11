@@ -1,0 +1,50 @@
+{
+  "extid": "80620e2d0d0a33b09f93",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=80620e2d0d0a33b09f93",
+  "bug_title": "KASAN: slab-use-after-free Write in iommufd_eventq_fops_release",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "iommufd: Fix race during abort for file descriptors",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e034bf045b12852a24d5d33f2451850818ba0c1",
+      "hash": "4e034bf045b12852a24d5d33f2451850818ba0c1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jgg@nvidia.com",
+      "author-name": "Jason Gunthorpe",
+      "date": "2025-09-16T23:47:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Write in iommufd_eventq_fops_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "22f20375f5b71f30c0d6896583b93b6e4bba7279",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "syzkaller-commit": "e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=174dcb62580000",
+      "saved_to": "/home/lcj/paired_patches/80620e2d0d0a33b09f93/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9ea369e307c9d48f",
+      "saved_to": "/home/lcj/paired_patches/80620e2d0d0a33b09f93/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17403642580000",
+      "saved_to": "/home/lcj/paired_patches/80620e2d0d0a33b09f93/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17795934580000",
+      "saved_to": "/home/lcj/paired_patches/80620e2d0d0a33b09f93/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

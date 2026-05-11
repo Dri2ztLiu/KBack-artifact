@@ -1,0 +1,50 @@
+{
+  "extid": "f427adf9324b92652ccc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f427adf9324b92652ccc",
+  "bug_title": "kernel BUG at fs/notify/dnotify/dnotify.c:LINE! (2)",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "fuse: fix bad inode",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5d069dbe8aaf2a197142558b6fb2978189ba3454",
+      "hash": "5d069dbe8aaf2a197142558b6fb2978189ba3454",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mszeredi@redhat.com",
+      "author-name": "Miklos Szeredi",
+      "date": "2020-12-10T14:33:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "27bba9c532a8d21050b94224ffd310ad0058c353",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/680688040fc26d17a49a9663fbbd6a716c6247b6",
+  "syzkaller-commit": "680688040fc26d17a49a9663fbbd6a716c6247b6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=149d4c9e500000",
+      "saved_to": "/home/lcj/paired_patches/f427adf9324b92652ccc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=330f3436df12fd44",
+      "saved_to": "/home/lcj/paired_patches/f427adf9324b92652ccc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17162d4d500000",
+      "saved_to": "/home/lcj/paired_patches/f427adf9324b92652ccc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11d3f015500000",
+      "saved_to": "/home/lcj/paired_patches/f427adf9324b92652ccc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

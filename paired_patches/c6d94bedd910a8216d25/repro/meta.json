@@ -1,0 +1,50 @@
+{
+  "extid": "c6d94bedd910a8216d25",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c6d94bedd910a8216d25",
+  "bug_title": "WARNING: kmalloc bug in wnd_init",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Add rough attr alloc_size check",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c4a8ba334262e9a5c158d618a4820e1b9c12495c",
+      "hash": "c4a8ba334262e9a5c158d618a4820e1b9c12495c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-08-19T13:26:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: kmalloc bug in wnd_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "90d35da658da8cff0d4ecbb5113f5fac9d00eb72",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f39a7eed7e2634a9f836f1922833d4b4d5b0f770",
+  "syzkaller-commit": "f39a7eed7e2634a9f836f1922833d4b4d5b0f770",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17beedf2180000",
+      "saved_to": "/home/lcj/paired_patches/c6d94bedd910a8216d25/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=119d08814b43915b",
+      "saved_to": "/home/lcj/paired_patches/c6d94bedd910a8216d25/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15cdacfe180000",
+      "saved_to": "/home/lcj/paired_patches/c6d94bedd910a8216d25/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=101d9fce180000",
+      "saved_to": "/home/lcj/paired_patches/c6d94bedd910a8216d25/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

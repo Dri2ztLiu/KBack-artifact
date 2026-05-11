@@ -1,0 +1,50 @@
+{
+  "extid": "b718ec84a87b7e73ade4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b718ec84a87b7e73ade4",
+  "bug_title": "possible deadlock in hfs_find_init",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "hfs: add lock nesting notation to hfs_find_init",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b3b2177a2d795e35dc11597b2609eb1e7e57e570",
+      "hash": "b3b2177a2d795e35dc11597b2609eb1e7e57e570",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "desmondcheongzx@gmail.com",
+      "author-name": "Desmond Cheong Zhi Xi",
+      "date": "2021-07-15T04:27:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "43f70c960180c11d64ee3e9e53075fe1acd43ff1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cc402841ba1e067327a4adaf0a65335e47b5e83c",
+  "syzkaller-commit": "cc402841ba1e067327a4adaf0a65335e47b5e83c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1029c7fb800000",
+      "saved_to": "/home/lcj/paired_patches/b718ec84a87b7e73ade4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=191a2635dcad1c46",
+      "saved_to": "/home/lcj/paired_patches/b718ec84a87b7e73ade4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1533ef87800000",
+      "saved_to": "/home/lcj/paired_patches/b718ec84a87b7e73ade4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10eeb8a7800000",
+      "saved_to": "/home/lcj/paired_patches/b718ec84a87b7e73ade4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

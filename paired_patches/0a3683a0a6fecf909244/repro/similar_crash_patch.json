@@ -1,0 +1,46 @@
+{
+  "extid": "0a3683a0a6fecf909244",
+  "target_ref": "0a3683a0a6fecf909244",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "4fdadd5b0f0c723c812842454f8cca1619f2e731",
+      "branch": "linux-6.1",
+      "title": "WARNING in iomap_iter",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/erofs/inode.c",
+        "fs/erofs/internal.h",
+        "fs/erofs/zmap.c"
+      ],
+      "symbols": [
+        "erofs_fill_inode",
+        "erofs_try_to_free_cached_page",
+        "z_erofs_load_lz4_config",
+        "if",
+        "set_bit"
+      ],
+      "patterns": [
+        "race",
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

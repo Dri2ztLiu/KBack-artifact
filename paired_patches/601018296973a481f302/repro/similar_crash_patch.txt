@@ -1,0 +1,96 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/f2fs/inode.c (1), Makefile (1)
+TOP_SYMBOLS:
+  do_read_inode (2), f2fs_put_page (2), f2fs_handle_error (2)
+TOP_KEYWORDS:
+  out-of-bounds (1), UBSAN (1), use-after-free (1), KASAN (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=do_read_inode)
+  - viewcode(ref=<target_release>, path=fs/f2fs/inode.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=4, rows_scanned=4, candidates_kept=2, skipped=2
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=2, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 958ccbbf1ce716d77c7cfa79ace50a421c1eed73
+bug_url: https://syzkaller.appspot.com/bug?extid=9310fd5227844fb4dafc
+title: UBSAN: array-index-out-of-bounds in f2fs_iget
+relevance_score: 0
+
+ fs/f2fs/inode.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+diff --git a/fs/f2fs/inode.c b/fs/f2fs/inode.c
+index 09e986b050c6..e81725c922cd 100644
+--- a/fs/f2fs/inode.c
++++ b/fs/f2fs/inode.c
+@@ -475,6 +475,12 @@ static int do_read_inode(struct inode *inode)
+ 		fi->i_inline_xattr_size = 0;
+ 	}
+ 
++	if (!sanity_check_inode(inode, node_page)) {
++		f2fs_put_page(node_page, 1);
++		f2fs_handle_error(sbi, ERROR_CORRUPTED_INODE);
++		return -EFSCORRUPTED;
++	}
++
+ 	/* check data exist */
+ 	if (f2fs_has_inline_data(inode) && !f2fs_exist_data(inode))
+ 		__recover_inline_status(inode, node_page);
+@@ -544,12 +550,6 @@ static int do_read_inode(struct inode *inode)
+ 	f2fs_init_read_extent_tree(inode, node_page);
+ 	f2fs_init_age_extent_tree(inode);
+ 
+-	if (!sanity_check_inode(inode, node_page)) {
+-		f2fs_put_page(node_page, 1);
+-		f2fs_handle_error(sbi, ERROR_CORRUPTED_INODE);
+-		return -EFSCORRUPTED;
+-	}
+-
+ 	if (!sanity_check_extent_cache(inode)) {
+ 		f2fs_put_page(node_page, 1);
+ 		f2fs_handle_error(sbi, ERROR_CORRUPTED_INODE);
+================================================================================
+
+branch: linux-5.15
+fix_commit: 68efe5a6c16a05391e3d96025b41e9bf573f968c
+bug_url: https://syzkaller.appspot.com/bug?extid=0b1e85354f790743db08
+title: KASAN: use-after-free Read in f2fs_iget
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 3589269e63a2..4cf20e566a87 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 196
++SUBLEVEL = 197
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================

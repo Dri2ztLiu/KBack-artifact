@@ -1,0 +1,50 @@
+{
+  "extid": "1fd9b69cde42967d1add",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1fd9b69cde42967d1add",
+  "bug_title": "general protection fault in tls_init",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "mptcp: remove tcp ulp setsockopt support",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=404cd9a22150f24acf23a8df2ad0c094ba379f57",
+      "hash": "404cd9a22150f24acf23a8df2ad0c094ba379f57",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2021-12-14T23:16:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in tls_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3498e7f2bb415e447354a3debef6738d9655768c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/63eeac0211717f83d52631540a150a4c5844e0f9",
+  "syzkaller-commit": "63eeac0211717f83d52631540a150a4c5844e0f9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13fa07eeb00000",
+      "saved_to": "/home/lcj/paired_patches/1fd9b69cde42967d1add/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=33f08a46bc9aea3d",
+      "saved_to": "/home/lcj/paired_patches/1fd9b69cde42967d1add/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1fd9b69cde42967d1add/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1fd9b69cde42967d1add/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

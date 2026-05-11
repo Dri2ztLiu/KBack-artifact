@@ -1,0 +1,50 @@
+{
+  "extid": "de6565462ab540f50e47",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=de6565462ab540f50e47",
+  "bug_title": "WARNING in inet_sock_destruct (4)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "tcp: Correct signedness in skb remaining space calculation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3a5f2871adc0c61c61869f37f3e697d97f03d8c",
+      "hash": "d3a5f2871adc0c61c61869f37f3e697d97f03d8c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jiayuan.chen@linux.dev",
+      "author-name": "Jiayuan Chen",
+      "date": "2025-07-07T05:41:11Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in inet_sock_destruct",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ab68d7eb7b1a64f3f4710da46cc5f93c6c154942",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d9a046cf66ed7650b10bc0e6a567e089644d9004",
+  "syzkaller-commit": "d9a046cf66ed7650b10bc0e6a567e089644d9004",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16ab0bf8580000",
+      "saved_to": "/home/lcj/paired_patches/de6565462ab540f50e47/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3c2347dd6174fbe2",
+      "saved_to": "/home/lcj/paired_patches/de6565462ab540f50e47/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=147e4ce4580000",
+      "saved_to": "/home/lcj/paired_patches/de6565462ab540f50e47/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17f887df980000",
+      "saved_to": "/home/lcj/paired_patches/de6565462ab540f50e47/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "e67ea9c235b13b4f0020",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e67ea9c235b13b4f0020",
+  "bug_title": "possible deadlock in xsk_notifier (3)",
+  "bug_status": "fixed on 2025/10/09 01:14",
+  "fix_commits": [
+    {
+      "title": "net: lapbether: ignore ops-locked netdevs",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=53898ebabe843bfa7baea9dae152797d5d0563c9",
+      "hash": "53898ebabe843bfa7baea9dae152797d5d0563c9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sdf@fomichev.me",
+      "author-name": "Stanislav Fomichev",
+      "date": "2025-08-06T21:37:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in xsk_notifier",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "91325f31afc1026de28665cf1a7b6e157fa4d39d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/22ec1469fe8c0ba256de07e8f97fa7b375b522bd",
+  "syzkaller-commit": "22ec1469fe8c0ba256de07e8f97fa7b375b522bd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10d20da2580000",
+      "saved_to": "/home/lcj/paired_patches/e67ea9c235b13b4f0020/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=412ee2f8b704a5e6",
+      "saved_to": "/home/lcj/paired_patches/e67ea9c235b13b4f0020/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e67ea9c235b13b4f0020/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e67ea9c235b13b4f0020/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

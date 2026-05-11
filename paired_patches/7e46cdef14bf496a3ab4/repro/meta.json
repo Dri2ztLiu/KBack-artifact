@@ -1,0 +1,50 @@
+{
+  "extid": "7e46cdef14bf496a3ab4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7e46cdef14bf496a3ab4",
+  "bug_title": "WARNING in push_jmp_history",
+  "bug_status": "fixed on 2024/11/14 10:09",
+  "fix_commits": [
+    {
+      "title": "bpf: Force checkpoint when jmp history is too long",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=aa30eb3260b2dea3a68d3c42a39f9a09c5e99cee",
+      "hash": "aa30eb3260b2dea3a68d3c42a39f9a09c5e99cee",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eddyz87@gmail.com",
+      "author-name": "Eduard Zingerman",
+      "date": "2024-10-29T17:26:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in push_jmp_history",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "c02d24a5af66a9806922391493205a344749f2c4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d7906effc263366a8b067258cec67072b29aa5e0",
+  "syzkaller-commit": "d7906effc263366a8b067258cec67072b29aa5e0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11c2db80580000",
+      "saved_to": "/home/lcj/paired_patches/7e46cdef14bf496a3ab4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=94f9caf16c0af42d",
+      "saved_to": "/home/lcj/paired_patches/7e46cdef14bf496a3ab4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16f4c327980000",
+      "saved_to": "/home/lcj/paired_patches/7e46cdef14bf496a3ab4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10b82707980000",
+      "saved_to": "/home/lcj/paired_patches/7e46cdef14bf496a3ab4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

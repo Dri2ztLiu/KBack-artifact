@@ -1,0 +1,228 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (3), net/ipv4/tcp_bpf.c (2), mm/slub.c (1)
+TOP_SYMBOLS:
+  tcp_bpf_send_verdict (5), free_to_pcs_bulk (3), sk_msg_free (2), VERSION (1), sk_msg_return (1), sk_mem_uncharge (1), sk_msg_free_partial (1), sk_mem_charge (1)
+TOP_KEYWORDS:
+  WARN (6), net (6), bpf (2), atomic (1), NULL (1), null (1), slab (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=tcp_bpf_send_verdict)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=15, rows_scanned=15, candidates_kept=6, skipped=9
+skip_breakdown: skip_upstream=5, skip_non_linux_branch=3, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+errors(sample):
+  - candidate_build: bug_url=/bug?extid=c1a0107529554d81d3a6
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: b71e635feefc852405b14620a7fc58c4c80c0f73
+bug_url: https://syzkaller.appspot.com/bug?extid=c1ff5aa334cbeba54710
+title: WARNING in inet_sock_destruct (2)
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 665b79aa21b8..9d38125263fb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ VERSION = 6
+ PATCHLEVEL = 19
+ SUBLEVEL = 0
+-EXTRAVERSION = -rc4
++EXTRAVERSION = -rc5
+ NAME = Baby Opossum Posse
+ 
+ # *DOCUMENTATION*
+================================================================================
+
+branch: linux-6.6
+fix_commit: a3967baad4d533dc254c31e0d221e51c8d223d58
+bug_url: https://syzkaller.appspot.com/bug?extid=760a14df6e917e1c4c61
+title: WARNING in inet_sock_destruct
+relevance_score: 0
+
+ net/ipv4/tcp_bpf.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
+index ba581785adb4..a268e1595b22 100644
+--- a/net/ipv4/tcp_bpf.c
++++ b/net/ipv4/tcp_bpf.c
+@@ -408,8 +408,11 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 		if (!psock->cork) {
+ 			psock->cork = kzalloc(sizeof(*psock->cork),
+ 					      GFP_ATOMIC | __GFP_NOWARN);
+-			if (!psock->cork)
++			if (!psock->cork) {
++				sk_msg_free(sk, msg);
++				*copied = 0;
+ 				return -ENOMEM;
++			}
+ 		}
+ 		memcpy(psock->cork, msg, sizeof(*msg));
+ 		return 0;
+================================================================================
+
+branch: linux-6.1
+fix_commit: ca70b8baf2bd125b2a4d96e76db79375c07d7ff2
+bug_url: https://syzkaller.appspot.com/bug?extid=c5cee91f2c5d71790061
+title: WARNING in inet_sock_destruct
+relevance_score: 0
+
+ net/ipv4/tcp_bpf.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
+index 370993c03d31..99cef92e6290 100644
+--- a/net/ipv4/tcp_bpf.c
++++ b/net/ipv4/tcp_bpf.c
+@@ -441,7 +441,6 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 			cork = true;
+ 			psock->cork = NULL;
+ 		}
+-		sk_msg_return(sk, msg, tosend);
+ 		release_sock(sk);
+ 
+ 		origsize = msg->sg.size;
+@@ -453,8 +452,9 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 			sock_put(sk_redir);
+ 
+ 		lock_sock(sk);
++		sk_mem_uncharge(sk, sent);
+ 		if (unlikely(ret < 0)) {
+-			int free = sk_msg_free_nocharge(sk, msg);
++			int free = sk_msg_free(sk, msg);
+ 
+ 			if (!cork)
+ 				*copied -= free;
+@@ -468,7 +468,7 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 		break;
+ 	case __SK_DROP:
+ 	default:
+-		sk_msg_free_partial(sk, msg, tosend);
++		sk_msg_free(sk, msg);
+ 		sk_msg_apply_bytes(psock, tosend);
+ 		*copied -= (tosend + delta);
+ 		return -EACCES;
+@@ -484,11 +484,8 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 		}
+ 		if (msg &&
+ 		    msg->sg.data[msg->sg.start].page_link &&
+-		    msg->sg.data[msg->sg.start].length) {
+-			if (eval == __SK_REDIRECT)
+-				sk_mem_charge(sk, tosend - sent);
++		    msg->sg.data[msg->sg.start].length)
+ 			goto more_data;
+-		}
+ 	}
+ 	return ret;
+ }
+================================================================================
+
+branch: linux-5.15
+fix_commit: 6da43bbeb6918164f7287269881a5f861ae09d7e
+bug_url: https://syzkaller.appspot.com/bug?id=772e7943c6b9c558280573887e1e3a751b36cdea
+title: WARNING in inet_sock_destruct
+relevance_score: 0
+
+ mm/slub.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+diff --git a/mm/slub.c b/mm/slub.c
+index f1a5373eee7b..a787687a0d59 100644
+--- a/mm/slub.c
++++ b/mm/slub.c
+@@ -6332,8 +6332,6 @@ static void free_to_pcs_bulk(struct kmem_cache *s, size_t size, void **p)
+ 
+ 		if (unlikely(!slab_free_hook(s, p[i], init, false))) {
+ 			p[i] = p[--size];
+-			if (!size)
+-				goto flush_remote;
+ 			continue;
+ 		}
+ 
+@@ -6348,6 +6346,9 @@ static void free_to_pcs_bulk(struct kmem_cache *s, size_t size, void **p)
+ 		i++;
+ 	}
+ 
++	if (!size)
++		goto flush_remote;
++
+ next_batch:
+ 	if (!local_trylock(&s->cpu_sheaves->lock))
+ 		goto fallback;
+@@ -6402,6 +6403,9 @@ static void free_to_pcs_bulk(struct kmem_cache *s, size_t size, void **p)
+ 		goto next_batch;
+ 	}
+ 
++	if (remote_nr)
++		goto flush_remote;
++
+ 	return;
+ 
+ no_empty:
+================================================================================
+
+branch: linux-5.15
+fix_commit: 68efe5a6c16a05391e3d96025b41e9bf573f968c
+bug_url: https://syzkaller.appspot.com/bug?extid=c0e2e58f45917625155b
+title: WARNING in inet_sock_destruct (2)
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 3589269e63a2..4cf20e566a87 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 196
++SUBLEVEL = 197
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================
+
+branch: linux-4.14
+fix_commit: 01364dad1d4577e27a57729d41053f661bb8a5b9
+bug_url: https://syzkaller.appspot.com/bug?extid=aa53e7ab323a68c05267
+title: WARNING in inet_sock_destruct
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 9a524b5c1d55..edc6b62bd892 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 173
++SUBLEVEL = 174
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

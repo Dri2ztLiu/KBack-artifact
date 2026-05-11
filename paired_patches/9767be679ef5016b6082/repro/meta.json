@@ -1,0 +1,50 @@
+{
+  "extid": "9767be679ef5016b6082",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9767be679ef5016b6082",
+  "bug_title": "KMSAN: uninit-value in pagecache_write",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fs: ext4: initialize fsdata in pagecache_write()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=956510c0c7439e90b8103aaeaf4da92878c622f0",
+      "hash": "956510c0c7439e90b8103aaeaf4da92878c622f0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "glider@google.com",
+      "author-name": "Alexander Potapenko",
+      "date": "2022-11-21T11:21:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in pagecache_write",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "968c2729e5763bc9855a45f77d8ec821212fb9c2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4bfd3c279e5de1138c3f3a23760890fa81b7f15e",
+  "syzkaller-commit": "4bfd3c279e5de1138c3f3a23760890fa81b7f15e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e20e26880000",
+      "saved_to": "/home/lcj/paired_patches/9767be679ef5016b6082/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=131312b26465c190",
+      "saved_to": "/home/lcj/paired_patches/9767be679ef5016b6082/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9767be679ef5016b6082/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9767be679ef5016b6082/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

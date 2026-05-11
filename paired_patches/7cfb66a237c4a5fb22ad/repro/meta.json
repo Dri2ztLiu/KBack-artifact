@@ -1,0 +1,50 @@
+{
+  "extid": "7cfb66a237c4a5fb22ad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7cfb66a237c4a5fb22ad",
+  "bug_title": "possible deadlock in posix_clock_unregister",
+  "bug_status": "fixed on 2025/10/09 01:15",
+  "fix_commits": [
+    {
+      "title": "ptp: prevent possible ABBA deadlock in ptp_clock_freerun()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2efe41234dbd0a83fdb7cd38226c2f70039a2cd3",
+      "hash": "2efe41234dbd0a83fdb7cd38226c2f70039a2cd3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "aha310510@gmail.com",
+      "author-name": "Jeongjun Park",
+      "date": "2025-07-28T06:26:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in posix_clock_unregister",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "dfc0f6373094dd88e1eaf76c44f2ff01b65db851",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/22ec1469fe8c0ba256de07e8f97fa7b375b522bd",
+  "syzkaller-commit": "22ec1469fe8c0ba256de07e8f97fa7b375b522bd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16d62da2580000",
+      "saved_to": "/home/lcj/paired_patches/7cfb66a237c4a5fb22ad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fc3f2c190ebad30b",
+      "saved_to": "/home/lcj/paired_patches/7cfb66a237c4a5fb22ad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/7cfb66a237c4a5fb22ad/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/7cfb66a237c4a5fb22ad/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

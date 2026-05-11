@@ -1,0 +1,50 @@
+{
+  "extid": "a8f26a403c169b7593fe",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a8f26a403c169b7593fe",
+  "bug_title": "general protection fault in __d_add",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix null-ptr-deref on inode->i_op in ntfs_lookup()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=254e69f284d7270e0abdc023ee53b71401c3ba0c",
+      "hash": "254e69f284d7270e0abdc023ee53b71401c3ba0c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zhangpeng362@huawei.com",
+      "author-name": "ZhangPeng",
+      "date": "2022-11-25T10:21:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in __d_add",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "493ffd6605b2d3d4dc7008ab927dba319f36671f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5bcf0c31a14edd29532df8af88f246446873fe93",
+  "syzkaller-commit": "5bcf0c31a14edd29532df8af88f246446873fe93",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11708484880000",
+      "saved_to": "/home/lcj/paired_patches/a8f26a403c169b7593fe/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d19f5d16783f901",
+      "saved_to": "/home/lcj/paired_patches/a8f26a403c169b7593fe/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16d7c1a4880000",
+      "saved_to": "/home/lcj/paired_patches/a8f26a403c169b7593fe/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1269583a880000",
+      "saved_to": "/home/lcj/paired_patches/a8f26a403c169b7593fe/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "858dc7a2f7ef07c2c219",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=858dc7a2f7ef07c2c219",
+  "bug_title": "KASAN: vmalloc-out-of-bounds Write in imageblit",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "tty: Fix out-of-bound vmalloc access in imageblit",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3b0c406124719b625b1aba431659f5cdc24a982c",
+      "hash": "3b0c406124719b625b1aba431659f5cdc24a982c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "igormtorrente@gmail.com",
+      "author-name": "Igor Matheus Andrade Torrente",
+      "date": "2021-06-28T13:45:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: vmalloc-out-of-bounds Write in imageblit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f40ddce88593482919761f74910f42f4b84c004b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/98682e5e2aefc9aad61354f4f3ac93be96002a2a",
+  "syzkaller-commit": "98682e5e2aefc9aad61354f4f3ac93be96002a2a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14935ff4d00000",
+      "saved_to": "/home/lcj/paired_patches/858dc7a2f7ef07c2c219/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=51ab7ccaffffc30c",
+      "saved_to": "/home/lcj/paired_patches/858dc7a2f7ef07c2c219/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=138b494cd00000",
+      "saved_to": "/home/lcj/paired_patches/858dc7a2f7ef07c2c219/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15f53924d00000",
+      "saved_to": "/home/lcj/paired_patches/858dc7a2f7ef07c2c219/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

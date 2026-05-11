@@ -1,0 +1,50 @@
+{
+  "extid": "3ab78ff125b7979e45f9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3ab78ff125b7979e45f9",
+  "bug_title": "general protection fault in bpf_get_attach_cookie_tracing",
+  "bug_status": "fixed on 2024/06/18 10:18",
+  "fix_commits": [
+    {
+      "title": "bpf: Set run context for rawtp test_run callback",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d0d1df8ba18abc57f28fb3bc053b2bf319367f2c",
+      "hash": "d0d1df8ba18abc57f28fb3bc053b2bf319367f2c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jolsa@kernel.org",
+      "author-name": "Jiri Olsa",
+      "date": "2024-06-04T15:00:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in bpf_get_attach_cookie_tracing",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "fb66df20a7201e60f2b13d7f95d031b31a8831d3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/34889ee3b09e7b4d381828377aa6173bfcc36cc7",
+  "syzkaller-commit": "34889ee3b09e7b4d381828377aa6173bfcc36cc7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15e9f3e6980000",
+      "saved_to": "/home/lcj/paired_patches/3ab78ff125b7979e45f9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=48c05addbb27f3b0",
+      "saved_to": "/home/lcj/paired_patches/3ab78ff125b7979e45f9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17764bec980000",
+      "saved_to": "/home/lcj/paired_patches/3ab78ff125b7979e45f9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16345f72980000",
+      "saved_to": "/home/lcj/paired_patches/3ab78ff125b7979e45f9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

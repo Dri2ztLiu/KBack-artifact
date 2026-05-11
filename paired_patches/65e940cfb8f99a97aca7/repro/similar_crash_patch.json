@@ -1,0 +1,70 @@
+{
+  "extid": "65e940cfb8f99a97aca7",
+  "target_ref": "65e940cfb8f99a97aca7",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "731ab1f9828800df871c5a7ab9ffe965317d3f15",
+      "branch": "linux-6.1",
+      "title": "KASAN: slab-out-of-bounds Read in ntfs_listxattr",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ntfs3/xattr.c"
+      ],
+      "symbols": [
+        "ntfs_list_ea",
+        "if",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "e88c4cfcb7b888ac374916806f86c17d8ecaeb67",
+      "branch": "linux-5.15",
+      "title": "KASAN: slab-out-of-bounds Read in ntfs_listxattr",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/smb/client/fs_context.c",
+        "fs/smb/client/fs_context.h"
+      ],
+      "symbols": [
+        "smb3_fs_context_validate",
+        "smb3_fs_context_parse_param",
+        "cifs_param",
+        "if",
+        "pr_notice",
+        "if",
+        "pr_notice",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "afb726d49f84c8d95ee1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=afb726d49f84c8d95ee1",
+  "bug_title": "riscv/fixes boot error: kernel BUG in __phys_addr_symbol",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "riscv: Fix wrong usage of lm_alias() when splitting a huge linear mapping",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c29fc621e1a49949a14c7fa031dd4760087bfb29",
+      "hash": "c29fc621e1a49949a14c7fa031dd4760087bfb29",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "alexghiti@rivosinc.com",
+      "author-name": "Alexandre Ghiti",
+      "date": "2023-12-12T19:54:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "riscv/fixes boot error: kernel BUG in __phys_addr_symbol",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git",
+  "kernel-source-commit": "eb46a0076501a63fb1cb5f4ed3c604ceed1327b0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4f9530a3b62297342999c9097c77dde726522618",
+  "syzkaller-commit": "4f9530a3b62297342999c9097c77dde726522618",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=141dbac9e80000",
+      "saved_to": "/home/lcj/paired_patches/afb726d49f84c8d95ee1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a5c1ede998d7cef2",
+      "saved_to": "/home/lcj/paired_patches/afb726d49f84c8d95ee1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/afb726d49f84c8d95ee1/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/afb726d49f84c8d95ee1/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

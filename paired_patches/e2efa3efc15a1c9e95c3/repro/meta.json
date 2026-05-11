@@ -1,0 +1,60 @@
+{
+  "extid": "e2efa3efc15a1c9e95c3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e2efa3efc15a1c9e95c3",
+  "bug_title": "kernel BUG in ext4_get_group_info",
+  "bug_status": "fixed on 2023/07/01 16:05",
+  "fix_commits": [
+    {
+      "title": "ext4: allow ext4_get_group_info() to fail",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5354b2af34064a4579be8bc0e2f15a7b70f14b5f",
+      "hash": "5354b2af34064a4579be8bc0e2f15a7b70f14b5f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tytso@mit.edu",
+      "author-name": "Theodore Ts'o",
+      "date": "2023-04-29T04:06:28Z"
+    },
+    {
+      "title": "ext4: remove a BUG_ON in ext4_mb_release_group_pa()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=463808f237cf73e98a1a45ff7460c2406a150a0b",
+      "hash": "463808f237cf73e98a1a45ff7460c2406a150a0b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tytso@mit.edu",
+      "author-name": "Theodore Ts'o",
+      "date": "2023-04-29T20:14:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in ext4_get_group_info",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5a57b48fdfcb1e196292665d87fac46180344f8a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f325deb023e4e2fb9197004be1b3da738680429c",
+  "syzkaller-commit": "f325deb023e4e2fb9197004be1b3da738680429c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1152ff6dc80000",
+      "saved_to": "/home/lcj/paired_patches/e2efa3efc15a1c9e95c3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c35b3803e5ad668",
+      "saved_to": "/home/lcj/paired_patches/e2efa3efc15a1c9e95c3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16229c21c80000",
+      "saved_to": "/home/lcj/paired_patches/e2efa3efc15a1c9e95c3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10d1d1cdc80000",
+      "saved_to": "/home/lcj/paired_patches/e2efa3efc15a1c9e95c3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "e27f3dbdab04e43b9f73",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e27f3dbdab04e43b9f73",
+  "bug_title": "UBSAN: shift-out-of-bounds in set_flicker",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "media: gspca: cpia1: shift-out-of-bounds in set_flicker",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=099be1822d1f095433f4b08af9cc9d6308ec1953",
+      "hash": "099be1822d1f095433f4b08af9cc9d6308ec1953",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "coolrrsh@gmail.com",
+      "author-name": "Rajeshwar R Shinde",
+      "date": "2023-08-30T07:44:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in set_flicker",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1c41041124bd14dd6610da256a3da4e5b74ce6b1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/500bfdc41735bc8d617cbfd4f1ab6b5980c8f1e5",
+  "syzkaller-commit": "500bfdc41735bc8d617cbfd4f1ab6b5980c8f1e5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10b3b4df680000",
+      "saved_to": "/home/lcj/paired_patches/e27f3dbdab04e43b9f73/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1ffa1cec3b40f3ce",
+      "saved_to": "/home/lcj/paired_patches/e27f3dbdab04e43b9f73/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e27f3dbdab04e43b9f73/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=136b8f17680000",
+      "saved_to": "/home/lcj/paired_patches/e27f3dbdab04e43b9f73/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

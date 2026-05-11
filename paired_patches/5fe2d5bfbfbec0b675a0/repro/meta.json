@@ -1,0 +1,50 @@
+{
+  "extid": "5fe2d5bfbfbec0b675a0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5fe2d5bfbfbec0b675a0",
+  "bug_title": "KASAN: slab-out-of-bounds Read in hci_cmd_sync_alloc",
+  "bug_status": "fixed on 2025/07/31 15:53",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: MGMT: reject malformed HCI_CMD_SYNC commands",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=03f1700b9b4d4f2fed3165370f3c23db76553178",
+      "hash": "03f1700b9b4d4f2fed3165370f3c23db76553178",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2025-05-22T18:16:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in hci_cmd_sync_alloc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8bac8898fe398ffa3e09075ecea2be511725fb0b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/85a5a23f228f2de970f578bf3b452a23a222c09d",
+  "syzkaller-commit": "85a5a23f228f2de970f578bf3b452a23a222c09d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=177a0f74580000",
+      "saved_to": "/home/lcj/paired_patches/5fe2d5bfbfbec0b675a0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=541aa584278da96c",
+      "saved_to": "/home/lcj/paired_patches/5fe2d5bfbfbec0b675a0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1025f368580000",
+      "saved_to": "/home/lcj/paired_patches/5fe2d5bfbfbec0b675a0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=102d6774580000",
+      "saved_to": "/home/lcj/paired_patches/5fe2d5bfbfbec0b675a0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

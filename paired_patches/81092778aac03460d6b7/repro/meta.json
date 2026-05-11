@@ -1,0 +1,50 @@
+{
+  "extid": "81092778aac03460d6b7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=81092778aac03460d6b7",
+  "bug_title": "kernel BUG in ocfs2_truncate_inline",
+  "bug_status": "fixed on 2024/11/14 10:09",
+  "fix_commits": [
+    {
+      "title": "ocfs2: pass u64 to ocfs2_truncate_inline maybe overflow",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bc0a2f3a73fcdac651fca64df39306d1e5ebe3b0",
+      "hash": "bc0a2f3a73fcdac651fca64df39306d1e5ebe3b0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2024-10-16T11:43:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in ocfs2_truncate_inline",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "360c1f1f24c6ab1dfe422a81a90cc07f53f378c1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d7906effc263366a8b067258cec67072b29aa5e0",
+  "syzkaller-commit": "d7906effc263366a8b067258cec67072b29aa5e0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13694d27980000",
+      "saved_to": "/home/lcj/paired_patches/81092778aac03460d6b7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f8af0b3195caed62",
+      "saved_to": "/home/lcj/paired_patches/81092778aac03460d6b7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1608479f980000",
+      "saved_to": "/home/lcj/paired_patches/81092778aac03460d6b7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17f6d380580000",
+      "saved_to": "/home/lcj/paired_patches/81092778aac03460d6b7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

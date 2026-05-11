@@ -1,0 +1,116 @@
+INFO: task syz-executor149:5843 blocked for more than 143 seconds.
+      Not tainted 6.16.0-syzkaller #0
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz-executor149 state:D stack:25448 pid:5843  tgid:5843  ppid:5840   task_flags:0x400140 flags:0x00004006
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5397 [inline]
+ __schedule+0x16aa/0x4c90 kernel/sched/core.c:6786
+ __schedule_loop kernel/sched/core.c:6864 [inline]
+ schedule+0x165/0x360 kernel/sched/core.c:6879
+ io_schedule+0x81/0xe0 kernel/sched/core.c:7724
+ folio_wait_bit_common+0x6b0/0xb90 mm/filemap.c:1317
+ folio_wait_writeback+0xb0/0x100 mm/page-writeback.c:3126
+ __filemap_fdatawait_range+0x147/0x230 mm/filemap.c:539
+ file_write_and_wait_range+0x275/0x330 mm/filemap.c:798
+ v9fs_file_fsync+0xcf/0x1a0 fs/9p/vfs_file.c:418
+ generic_write_sync include/linux/fs.h:3031 [inline]
+ netfs_file_write_iter+0x3d8/0x4a0 fs/netfs/buffered_write.c:494
+ new_sync_write fs/read_write.c:593 [inline]
+ vfs_write+0x54b/0xa90 fs/read_write.c:686
+ ksys_write+0x145/0x250 fs/read_write.c:738
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xfa/0x3b0 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7ff4c7d355c9
+RSP: 002b:00007fffe0030e78 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007ff4c7d355c9
+RDX: 0000000000007fec RSI: 0000200000000300 RDI: 0000000000000006
+RBP: 0030656c69662f2e R08: 0000000074342610 R09: 0000000074342610
+R10: 0000000074342610 R11: 0000000000000246 R12: 0000200000000180
+R13: 00007ff4c7d7e1bc R14: 00007fffe0030ea0 R15: 00007fffe0030e90
+ </TASK>
+
+Showing all locks held in the system:
+1 lock held by khungtaskd/31:
+ #0: ffffffff8e13f0e0 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:331 [inline]
+ #0: ffffffff8e13f0e0 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:841 [inline]
+ #0: ffffffff8e13f0e0 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x2e/0x180 kernel/locking/lockdep.c:6770
+2 locks held by kworker/u8:5/1083:
+ #0: ffff88801a489148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3213 [inline]
+ #0: ffff88801a489148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x9b4/0x17b0 kernel/workqueue.c:3321
+ #1: ffffc90003b7fbc0 ((work_completion)(&rreq->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3214 [inline]
+ #1: ffffc90003b7fbc0 ((work_completion)(&rreq->work)){+.+.}-{0:0}, at: process_scheduled_works+0x9ef/0x17b0 kernel/workqueue.c:3321
+2 locks held by getty/5594:
+ #0: ffff88803542a0a0 (&tty->ldisc_sem){++++}-{0:0}, at: tty_ldisc_ref_wait+0x25/0x70 drivers/tty/tty_ldisc.c:243
+ #1: ffffc9000333b2f0 (&ldata->atomic_read_lock){+.+.}-{4:4}, at: n_tty_read+0x43e/0x1400 drivers/tty/n_tty.c:2222
+1 lock held by syz-executor149/5843:
+ #0: ffff888076758428 (sb_writers#8){.+.+}-{0:0}, at: file_start_write include/linux/fs.h:3096 [inline]
+ #0: ffff888076758428 (sb_writers#8){.+.+}-{0:0}, at: vfs_write+0x211/0xa90 fs/read_write.c:682
+
+=============================================
+
+NMI backtrace for cpu 0
+CPU: 0 UID: 0 PID: 31 Comm: khungtaskd Not tainted 6.16.0-syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x189/0x250 lib/dump_stack.c:120
+ nmi_cpu_backtrace+0x39e/0x3d0 lib/nmi_backtrace.c:113
+ nmi_trigger_cpumask_backtrace+0x17a/0x300 lib/nmi_backtrace.c:62
+ trigger_all_cpu_backtrace include/linux/nmi.h:158 [inline]
+ check_hung_uninterruptible_tasks kernel/hung_task.c:307 [inline]
+ watchdog+0xfee/0x1030 kernel/hung_task.c:470
+ kthread+0x70e/0x8a0 kernel/kthread.c:464
+ ret_from_fork+0x3fc/0x770 arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>
+Sending NMI from CPU 0 to CPUs 1:
+NMI backtrace for cpu 1
+CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Not tainted 6.16.0-syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+RIP: 0010:bitmap_and include/linux/bitmap.h:326 [inline]
+RIP: 0010:cpumask_and include/linux/cpumask.h:705 [inline]
+RIP: 0010:sched_balance_rq+0x2b1/0x57a0 kernel/sched/fair.c:11773
+Code: 89 00 4c 89 bc 24 20 04 00 00 48 81 c3 48 01 00 00 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 82 89 89 00 0f b6 1b <48> c7 c0 08 b4 a0 8f 48 c1 e8 03 42 80 3c 28 00 74 0c 48 c7 c7 08
+RSP: 0018:ffffc90000a08780 EFLAGS: 00000246
+RAX: 1ffff110036dd829 RBX: 0000000000000003 RCX: 0000000000000001
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffc90000a08ba0
+RBP: ffffc90000a08c38 R08: ffffc90000a08ba7 R09: 0000000000000000
+R10: ffffc90000a08b60 R11: fffff52000141175 R12: 1ffff110036dd809
+R13: dffffc0000000000 R14: ffff8880b8723e38 R15: ffffc90000a08b98
+FS:  0000000000000000(0000) GS:ffff888125d57000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055f46ed14168 CR3: 000000000df38000 CR4: 00000000003526f0
+Call Trace:
+ <IRQ>
+ sched_balance_domains+0x49f/0x9e0 kernel/sched/fair.c:12243
+ _nohz_idle_balance+0x59d/0x810 kernel/sched/fair.c:12678
+ handle_softirqs+0x283/0x870 kernel/softirq.c:579
+ __do_softirq kernel/softirq.c:613 [inline]
+ invoke_softirq kernel/softirq.c:453 [inline]
+ __irq_exit_rcu+0xca/0x1f0 kernel/softirq.c:680
+ irq_exit_rcu+0x9/0x30 kernel/softirq.c:696
+ instr_sysvec_call_function_single arch/x86/kernel/smp.c:266 [inline]
+ sysvec_call_function_single+0xa3/0xc0 arch/x86/kernel/smp.c:266
+ </IRQ>
+ <TASK>
+ asm_sysvec_call_function_single+0x1a/0x20 arch/x86/include/asm/idtentry.h:709
+RIP: 0010:pv_native_safe_halt+0x13/0x20 arch/x86/kernel/paravirt.c:82
+Code: 53 de 02 00 cc cc cc 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 66 90 0f 00 2d d3 ad 21 00 f3 0f 1e fa fb f4 <c3> cc cc cc cc cc cc cc cc cc cc cc cc 90 90 90 90 90 90 90 90 90
+RSP: 0018:ffffc90000197de0 EFLAGS: 000002c2
+RAX: d99c2d48826b7800 RBX: ffffffff81976918 RCX: d99c2d48826b7800
+RDX: 0000000000000001 RSI: ffffffff8d982fba RDI: ffffffff8be1ba40
+RBP: ffffc90000197f20 R08: ffff8880b8732f5b R09: 1ffff110170e65eb
+R10: dffffc0000000000 R11: ffffed10170e65ec R12: ffffffff8fa0b3f0
+R13: 0000000000000001 R14: 0000000000000001 R15: 1ffff11003ad3b40
+ arch_safe_halt arch/x86/include/asm/paravirt.h:107 [inline]
+ default_idle+0x13/0x20 arch/x86/kernel/process.c:749
+ default_idle_call+0x74/0xb0 kernel/sched/idle.c:117
+ cpuidle_idle_call kernel/sched/idle.c:185 [inline]
+ do_idle+0x1e8/0x510 kernel/sched/idle.c:325
+ cpu_startup_entry+0x44/0x60 kernel/sched/idle.c:423
+ start_secondary+0x101/0x110 arch/x86/kernel/smpboot.c:315
+ common_startup_64+0x13e/0x147
+ </TASK>
+INFO: NMI handler (nmi_cpu_backtrace_handler) took too long to run: 1.244 msecs

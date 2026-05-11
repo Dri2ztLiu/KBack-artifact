@@ -1,0 +1,50 @@
+{
+  "extid": "a3e6acd85ded5c16a709",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a3e6acd85ded5c16a709",
+  "bug_title": "general protection fault in hugetlbfs_parse_param",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "hugetlbfs: fix null-ptr-deref in hugetlbfs_parse_param()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=26215b7ee923b9251f7bb12c4e5f09dc465d35f2",
+      "hash": "26215b7ee923b9251f7bb12c4e5f09dc465d35f2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yin31149@gmail.com",
+      "author-name": "Hawkins Jiawei",
+      "date": "2022-10-20T23:16:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in hugetlbfs_parse_param",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "a72b55bc981b62f7186600d06d1824f1d0612b27",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b31320fc8f3519e40494f64ebf77c13d16284bfd",
+  "syzkaller-commit": "b31320fc8f3519e40494f64ebf77c13d16284bfd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1302eee2880000",
+      "saved_to": "/home/lcj/paired_patches/a3e6acd85ded5c16a709/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=200524babbc01b2a",
+      "saved_to": "/home/lcj/paired_patches/a3e6acd85ded5c16a709/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16678bd6880000",
+      "saved_to": "/home/lcj/paired_patches/a3e6acd85ded5c16a709/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15bbe2d2880000",
+      "saved_to": "/home/lcj/paired_patches/a3e6acd85ded5c16a709/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

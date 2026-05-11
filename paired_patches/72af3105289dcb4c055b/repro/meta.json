@@ -1,0 +1,50 @@
+{
+  "extid": "72af3105289dcb4c055b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=72af3105289dcb4c055b",
+  "bug_title": "WARNING in do_proc_control/usb_submit_urb",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "USB: core: Fix incorrect pipe calculation in do_proc_control()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0863f1927323110e3d0d69f6adb6a91018a9a3c",
+      "hash": "b0863f1927323110e3d0d69f6adb6a91018a9a3c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "stern@rowland.harvard.edu",
+      "author-name": "Alan Stern",
+      "date": "2021-07-12T18:54:36Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in do_proc_control/usb_submit_urb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "ee268dee405b4710e179426a431ffe0cdee14f13",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4846d5c1dcbf362c2e9949b24feca9670ca9b4b9",
+  "syzkaller-commit": "4846d5c1dcbf362c2e9949b24feca9670ca9b4b9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15e1aee4300000",
+      "saved_to": "/home/lcj/paired_patches/72af3105289dcb4c055b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=59e1e3bbc3afca75",
+      "saved_to": "/home/lcj/paired_patches/72af3105289dcb4c055b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=102541c4300000",
+      "saved_to": "/home/lcj/paired_patches/72af3105289dcb4c055b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=116443fc300000",
+      "saved_to": "/home/lcj/paired_patches/72af3105289dcb4c055b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

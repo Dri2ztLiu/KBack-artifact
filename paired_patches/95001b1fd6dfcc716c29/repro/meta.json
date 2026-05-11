@@ -1,0 +1,50 @@
+{
+  "extid": "95001b1fd6dfcc716c29",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=95001b1fd6dfcc716c29",
+  "bug_title": "KASAN: use-after-free Read in ar5523_cmd_tx_cb",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "wifi: ar5523: Fix use-after-free on ar5523_cmd() timed out",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b6702a942a069c2a975478d719e98d83cdae1797",
+      "hash": "b6702a942a069c2a975478d719e98d83cdae1797",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2022-10-09T18:32:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in ar5523_cmd_tx_cb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b6e7fdfd6f6a8bf88fcdb4a45da52c42ba238c25",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5bb7001449cd1dae6cbff2d660374d6d17cbd2c4",
+  "syzkaller-commit": "5bb7001449cd1dae6cbff2d660374d6d17cbd2c4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=167ca531880000",
+      "saved_to": "/home/lcj/paired_patches/95001b1fd6dfcc716c29/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=24d192d47d02d9e1",
+      "saved_to": "/home/lcj/paired_patches/95001b1fd6dfcc716c29/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=168af4f9880000",
+      "saved_to": "/home/lcj/paired_patches/95001b1fd6dfcc716c29/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17123331880000",
+      "saved_to": "/home/lcj/paired_patches/95001b1fd6dfcc716c29/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

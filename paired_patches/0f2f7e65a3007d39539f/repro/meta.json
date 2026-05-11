@@ -1,0 +1,60 @@
+{
+  "extid": "0f2f7e65a3007d39539f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0f2f7e65a3007d39539f",
+  "bug_title": "WARNING in ext2_fill_super",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "ext2: Add sanity checks for group and filesystem size",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d766f2d1e3e3bd44024a7f971ffcf8b8fbb7c5d2",
+      "hash": "d766f2d1e3e3bd44024a7f971ffcf8b8fbb7c5d2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2022-09-14T15:24:42Z"
+    },
+    {
+      "title": "ext2: Use kvmalloc() for group descriptor array",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e7c7fbb9a8574ebd89cc05db49d806c7476863ad",
+      "hash": "e7c7fbb9a8574ebd89cc05db49d806c7476863ad",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2022-09-14T15:29:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ext2_fill_super",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "680fb5b009e85889e5d2bb9ed6212154a55cab7c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/26a13b3872cf54f3e68ec48a93c9866423fc3304",
+  "syzkaller-commit": "26a13b3872cf54f3e68ec48a93c9866423fc3304",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16e39fc3080000",
+      "saved_to": "/home/lcj/paired_patches/0f2f7e65a3007d39539f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4557ad2600fc45f4",
+      "saved_to": "/home/lcj/paired_patches/0f2f7e65a3007d39539f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1546af0d080000",
+      "saved_to": "/home/lcj/paired_patches/0f2f7e65a3007d39539f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14ea730d080000",
+      "saved_to": "/home/lcj/paired_patches/0f2f7e65a3007d39539f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

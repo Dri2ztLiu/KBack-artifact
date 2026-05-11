@@ -1,0 +1,39 @@
+{
+  "extid": "161412ccaeff20ce4dde",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=161412ccaeff20ce4dde",
+  "bug_title": "WARNING in tracepoint_add_func (2)",
+  "bug_status": "auto-obsoleted due to no activity on 2025/07/05 09:42",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in tracepoint_add_func",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1e1ba8d23dae91e6a9cfeb1236b02749e8a49ab3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/20510e8871e31b24ba7dfd19ee03a482ae2ad722",
+  "syzkaller-commit": "20510e8871e31b24ba7dfd19ee03a482ae2ad722",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=104f6198580000",
+      "saved_to": "/home/lcj/paired_patches/161412ccaeff20ce4dde/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4444a7da3861fcf5",
+      "saved_to": "/home/lcj/paired_patches/161412ccaeff20ce4dde/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/161412ccaeff20ce4dde/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/161412ccaeff20ce4dde/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

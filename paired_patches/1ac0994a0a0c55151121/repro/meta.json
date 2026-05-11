@@ -1,0 +1,50 @@
+{
+  "extid": "1ac0994a0a0c55151121",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1ac0994a0a0c55151121",
+  "bug_title": "KASAN: invalid-free in packet_set_ring",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "net/packet: rx_owner_map depends on pg_vec",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec6af094ea28f0f2dda1a6a33b14cd57e36a9755",
+      "hash": "ec6af094ea28f0f2dda1a6a33b14cd57e36a9755",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "willemb@google.com",
+      "author-name": "Willem de Bruijn",
+      "date": "2021-12-15T14:39:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: invalid-free in packet_set_ring",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a763d5a5abd65797aec3dd1bf01fe2ccbec32967",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/49ca1f59e37fcf63dc38a6bd2b60fcc47a0a708e",
+  "syzkaller-commit": "49ca1f59e37fcf63dc38a6bd2b60fcc47a0a708e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10dac069b00000",
+      "saved_to": "/home/lcj/paired_patches/1ac0994a0a0c55151121/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5247c9e141823545",
+      "saved_to": "/home/lcj/paired_patches/1ac0994a0a0c55151121/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13760cf5b00000",
+      "saved_to": "/home/lcj/paired_patches/1ac0994a0a0c55151121/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1065ce4db00000",
+      "saved_to": "/home/lcj/paired_patches/1ac0994a0a0c55151121/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

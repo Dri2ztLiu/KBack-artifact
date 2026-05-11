@@ -1,0 +1,116 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (2), arch/x86/mm/maccess.c (1)
+TOP_SYMBOLS:
+  copy_from_kernel_nofault_allowed (1)
+TOP_KEYWORDS:
+  out-of-bounds (1), KASAN (1), BUG (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=copy_from_kernel_nofault_allowed)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=9, rows_scanned=9, candidates_kept=3, skipped=6
+skip_breakdown: skip_upstream=4, skip_non_linux_branch=2, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: f2295faba5e8249ae4082791bfc1664c88fff83a
+bug_url: https://syzkaller.appspot.com/bug?extid=65da5dbeacebf1b0fb83
+title: KASAN: stack-out-of-bounds Write in copy_from_kernel_nofault
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index e46a57006a34..c73cb678fb9a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 87
++SUBLEVEL = 88
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: c79648372d02944bf4a54d87e3901db05d0ac82e
+bug_url: https://syzkaller.appspot.com/bug?extid=87280fbdce4b4b86260d
+title: Internal error in copy_from_kernel_nofault
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 86a5048e9816..6bc80f4cfd7e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 188
++SUBLEVEL = 189
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================
+
+branch: linux-5.15
+fix_commit: 32019c659ecfe1d92e3bf9fcdfbb11a7c70acd58
+bug_url: https://syzkaller.appspot.com/bug?extid=96daa2fe3463c3f8e0b0
+title: BUG: unable to handle kernel paging request in copy_from_kernel_nofault
+relevance_score: 0
+
+ arch/x86/mm/maccess.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+diff --git a/arch/x86/mm/maccess.c b/arch/x86/mm/maccess.c
+index 6993f026adec..42115ac079cf 100644
+--- a/arch/x86/mm/maccess.c
++++ b/arch/x86/mm/maccess.c
+@@ -3,6 +3,8 @@
+ #include <linux/uaccess.h>
+ #include <linux/kernel.h>
+ 
++#include <asm/vsyscall.h>
++
+ #ifdef CONFIG_X86_64
+ bool copy_from_kernel_nofault_allowed(const void *unsafe_src, size_t size)
+ {
+@@ -15,6 +17,14 @@ bool copy_from_kernel_nofault_allowed(const void *unsafe_src, size_t size)
+ 	if (vaddr < TASK_SIZE_MAX + PAGE_SIZE)
+ 		return false;
+ 
++	/*
++	 * Reading from the vsyscall page may cause an unhandled fault in
++	 * certain cases.  Though it is at an address above TASK_SIZE_MAX, it is
++	 * usually considered as a user space address.
++	 */
++	if (is_vsyscall_vaddr(vaddr))
++		return false;
++
+ 	/*
+ 	 * Allow everything during early boot before 'x86_virt_bits'
+ 	 * is initialized.  Needed for instruction decoding in early
+================================================================================

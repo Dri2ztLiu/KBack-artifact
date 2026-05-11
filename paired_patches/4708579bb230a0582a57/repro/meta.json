@@ -1,0 +1,50 @@
+{
+  "extid": "4708579bb230a0582a57",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4708579bb230a0582a57",
+  "bug_title": "UBSAN: shift-out-of-bounds in gfs2_dir_read (2)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "gfs2: Validate i_depth for exhash directories",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=557c024ca7250bb65ae60f16c02074106c2f197b",
+      "hash": "557c024ca7250bb65ae60f16c02074106c2f197b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "anprice@redhat.com",
+      "author-name": "Andrew Price",
+      "date": "2025-07-16T13:12:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in gfs2_dir_read",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "347e9f5043c89695b01e66b3ed111755afcf1911",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d8fc733505f5adb1a84287028b9aabb4f8c56cf9",
+  "syzkaller-commit": "d8fc733505f5adb1a84287028b9aabb4f8c56cf9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14f8c7d4580000",
+      "saved_to": "/home/lcj/paired_patches/4708579bb230a0582a57/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f62a2ef17395702a",
+      "saved_to": "/home/lcj/paired_patches/4708579bb230a0582a57/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12fc70f0580000",
+      "saved_to": "/home/lcj/paired_patches/4708579bb230a0582a57/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12d4fd82580000",
+      "saved_to": "/home/lcj/paired_patches/4708579bb230a0582a57/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

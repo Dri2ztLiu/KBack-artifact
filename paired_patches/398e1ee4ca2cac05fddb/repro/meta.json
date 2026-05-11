@@ -1,0 +1,50 @@
+{
+  "extid": "398e1ee4ca2cac05fddb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=398e1ee4ca2cac05fddb",
+  "bug_title": "WARNING in taprio_get_start_time (2)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "net/sched: taprio: enforce minimum value for picos_per_byte",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ae8508b25def57982493c48694ef135973bfabe0",
+      "hash": "ae8508b25def57982493c48694ef135973bfabe0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "takamitz@amazon.co.jp",
+      "author-name": "Takamitsu Iwai",
+      "date": "2025-07-28T17:31:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in taprio_get_start_time",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "b549faa950e6bde8563be17165cea5d799def8d3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/98683f8f094a4a5418f62711143436a99522360e",
+  "syzkaller-commit": "98683f8f094a4a5418f62711143436a99522360e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1403d10c580000",
+      "saved_to": "/home/lcj/paired_patches/398e1ee4ca2cac05fddb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c07f08ee4bcfb276",
+      "saved_to": "/home/lcj/paired_patches/398e1ee4ca2cac05fddb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/398e1ee4ca2cac05fddb/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/398e1ee4ca2cac05fddb/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

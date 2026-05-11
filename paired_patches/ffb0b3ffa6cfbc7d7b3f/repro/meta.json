@@ -1,0 +1,50 @@
+{
+  "extid": "ffb0b3ffa6cfbc7d7b3f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ffb0b3ffa6cfbc7d7b3f",
+  "bug_title": "WARNING in __i2c_transfer",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "i2c: bail out early when RDWR parameters are wrong",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=71581562ee36032d2d574a9b23ad4af6d6a64cf7",
+      "hash": "71581562ee36032d2d574a9b23ad4af6d6a64cf7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "wsa+renesas@sang-engineering.com",
+      "author-name": "Wolfram Sang",
+      "date": "2021-03-12T11:57:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __i2c_transfer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "28806e4d9b97865b450d72156e9ad229f2067f0b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/429d8a6becba0a60e99331e293e6117597e9e530",
+  "syzkaller-commit": "429d8a6becba0a60e99331e293e6117597e9e530",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=174194b2d00000",
+      "saved_to": "/home/lcj/paired_patches/ffb0b3ffa6cfbc7d7b3f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6bcf96204c1b8e77",
+      "saved_to": "/home/lcj/paired_patches/ffb0b3ffa6cfbc7d7b3f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14345f0ad00000",
+      "saved_to": "/home/lcj/paired_patches/ffb0b3ffa6cfbc7d7b3f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1083223ad00000",
+      "saved_to": "/home/lcj/paired_patches/ffb0b3ffa6cfbc7d7b3f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "a2c4601efc75848ba321",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a2c4601efc75848ba321",
+  "bug_title": "WARNING in u32_change",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net: sched: cls_u32: Avoid memcpy() false-positive warning",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7cba18332e3635aaae60e4e7d4e52849de50d91b",
+      "hash": "7cba18332e3635aaae60e4e7d4e52849de50d91b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "keescook@chromium.org",
+      "author-name": "Kees Cook",
+      "date": "2022-09-27T15:37:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in u32_change",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "483fed3b5dc8ce3644c83d24240cf5756fb0993e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/380f82fb6ebefdaa2b4e4f84d34a9019900f0b89",
+  "syzkaller-commit": "380f82fb6ebefdaa2b4e4f84d34a9019900f0b89",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11fa9e54880000",
+      "saved_to": "/home/lcj/paired_patches/a2c4601efc75848ba321/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=849cb9f70f15b1ba",
+      "saved_to": "/home/lcj/paired_patches/a2c4601efc75848ba321/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=152b15f8880000",
+      "saved_to": "/home/lcj/paired_patches/a2c4601efc75848ba321/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13bc196f080000",
+      "saved_to": "/home/lcj/paired_patches/a2c4601efc75848ba321/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

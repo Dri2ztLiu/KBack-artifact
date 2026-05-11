@@ -1,0 +1,50 @@
+{
+  "extid": "7a4842f0b1801230a989",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7a4842f0b1801230a989",
+  "bug_title": "KASAN: slab-out-of-bounds Read in udf_get_filelongad (2)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "udf: refactor inode_bmap() to handle error",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c226964ec786f3797ed389a16392ce4357697d24",
+      "hash": "c226964ec786f3797ed389a16392ce4357697d24",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zhaomengmeng@kylinos.cn",
+      "author-name": "Zhao Mengmeng",
+      "date": "2024-10-01T11:54:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in udf_get_filelongad",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "67784a74e258a467225f0e68335df77acd67b7ab",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0dd5519859184becadc00b15215de6e437d7aec8",
+  "syzkaller-commit": "0dd5519859184becadc00b15215de6e437d7aec8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=136543db980000",
+      "saved_to": "/home/lcj/paired_patches/7a4842f0b1801230a989/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=660f6eb11f9c7dc5",
+      "saved_to": "/home/lcj/paired_patches/7a4842f0b1801230a989/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13608f33980000",
+      "saved_to": "/home/lcj/paired_patches/7a4842f0b1801230a989/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10f2ea63980000",
+      "saved_to": "/home/lcj/paired_patches/7a4842f0b1801230a989/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

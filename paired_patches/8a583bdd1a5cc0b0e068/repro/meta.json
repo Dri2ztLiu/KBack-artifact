@@ -1,0 +1,50 @@
+{
+  "extid": "8a583bdd1a5cc0b0e068",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8a583bdd1a5cc0b0e068",
+  "bug_title": "WARNING: suspicious RCU usage in mpls_getroute",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "mpls: Use rcu_dereference_rtnl() in mpls_route_input_rcu().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6dbb0d97c5096072c78a6abffe393584e57ae945",
+      "hash": "6dbb0d97c5096072c78a6abffe393584e57ae945",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-06-16T20:15:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: suspicious RCU usage in mpls_getroute",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5cdb2c77c4c3d36bdee83d9231649941157f8204",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fa44301a1a289400e65667b9c05c597655d36157",
+  "syzkaller-commit": "fa44301a1a289400e65667b9c05c597655d36157",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13bc6ad4580000",
+      "saved_to": "/home/lcj/paired_patches/8a583bdd1a5cc0b0e068/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=87b7b87abbf1a67f",
+      "saved_to": "/home/lcj/paired_patches/8a583bdd1a5cc0b0e068/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8a583bdd1a5cc0b0e068/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8a583bdd1a5cc0b0e068/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

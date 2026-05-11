@@ -1,0 +1,60 @@
+{
+  "extid": "5ba06978f34abb058571",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5ba06978f34abb058571",
+  "bug_title": "WARNING in dev_index_reserve",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "net: validate veth and vxcan peer ifindexes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f534f6581ec084fe94d6759f7672bd009794b07e",
+      "hash": "f534f6581ec084fe94d6759f7672bd009794b07e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2023-08-19T01:26:02Z"
+    },
+    {
+      "title": "rtnetlink: Reject negative ifindexes in RTM_NEWLINK",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=30188bd7838c16a98a520db1fe9df01ffc6ed368",
+      "hash": "30188bd7838c16a98a520db1fe9df01ffc6ed368",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "idosch@nvidia.com",
+      "author-name": "Ido Schimmel",
+      "date": "2023-08-23T06:43:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in dev_index_reserve",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "7eb6deb3f55678216a6a0e956846c04958093ea5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6b4158254bde639c89214e6f8f9db7f09e1d96c0",
+  "syzkaller-commit": "6b4158254bde639c89214e6f8f9db7f09e1d96c0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10e4124ba80000",
+      "saved_to": "/home/lcj/paired_patches/5ba06978f34abb058571/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=17d2eea6923f9381",
+      "saved_to": "/home/lcj/paired_patches/5ba06978f34abb058571/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1127f35fa80000",
+      "saved_to": "/home/lcj/paired_patches/5ba06978f34abb058571/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17671defa80000",
+      "saved_to": "/home/lcj/paired_patches/5ba06978f34abb058571/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,284 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/jfs/jfs_dinode.h (1), fs/jfs/jfs_imap.c (1), fs/jfs/jfs_incore.h (1), fs/jfs/jfs_txnmgr.c (1), fs/jfs/jfs_xtree.c (1), fs/jfs/jfs_xtree.h (1), arch/x86/kernel/alternative.c (1), fs/jfs/jfs_extent.c (1)
+TOP_SYMBOLS:
+  diWrite (3), its_alloc (2), dinode (1), jfs_inode_info (1), txLock (1), xtLog (1), xtSplitRoot (1), xtAppend (1), xadlist (1), its_init_thunk (1)
+TOP_KEYWORDS:
+  out-of-bounds (3), UBSAN (3), NULL (1), null (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=diWrite)
+  - viewcode(ref=<target_release>, path=fs/jfs/jfs_dinode.h, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=5, rows_scanned=5, candidates_kept=3, skipped=2
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: a779ed754e52d582b8c0e17959df063108bd0656
+bug_url: https://syzkaller.appspot.com/bug?extid=67f714a53ce18d5b542e
+title: UBSAN: shift-out-of-bounds in extAlloc
+relevance_score: 0
+
+ fs/jfs/jfs_dinode.h |  2 +-
+ fs/jfs/jfs_imap.c   |  6 +++---
+ fs/jfs/jfs_incore.h |  2 +-
+ fs/jfs/jfs_txnmgr.c |  4 ++--
+ fs/jfs/jfs_xtree.c  |  4 ++--
+ fs/jfs/jfs_xtree.h  | 37 +++++++++++++++++++++++--------------
+ 6 files changed, 32 insertions(+), 23 deletions(-)
+diff --git a/fs/jfs/jfs_dinode.h b/fs/jfs/jfs_dinode.h
+index 6b231d0d0071..603aae17a693 100644
+--- a/fs/jfs/jfs_dinode.h
++++ b/fs/jfs/jfs_dinode.h
+@@ -96,7 +96,7 @@ struct dinode {
+ #define di_gengen	u._file._u1._imap._gengen
+ 
+ 			union {
+-				xtpage_t _xtroot;
++				xtroot_t _xtroot;
+ 				struct {
+ 					u8 unused[16];	/* 16: */
+ 					dxd_t _dxd;	/* 16: */
+diff --git a/fs/jfs/jfs_imap.c b/fs/jfs/jfs_imap.c
+index 1b267eec3f36..394e0af0e5df 100644
+--- a/fs/jfs/jfs_imap.c
++++ b/fs/jfs/jfs_imap.c
+@@ -670,7 +670,7 @@ int diWrite(tid_t tid, struct inode *ip)
+ 		 * This is the special xtree inside the directory for storing
+ 		 * the directory table
+ 		 */
+-		xtpage_t *p, *xp;
++		xtroot_t *p, *xp;
+ 		xad_t *xad;
+ 
+ 		jfs_ip->xtlid = 0;
+@@ -684,7 +684,7 @@ int diWrite(tid_t tid, struct inode *ip)
+ 		 * copy xtree root from inode to dinode:
+ 		 */
+ 		p = &jfs_ip->i_xtroot;
+-		xp = (xtpage_t *) &dp->di_dirtable;
++		xp = (xtroot_t *) &dp->di_dirtable;
+ 		lv = ilinelock->lv;
+ 		for (n = 0; n < ilinelock->index; n++, lv++) {
+ 			memcpy(&xp->xad[lv->offset], &p->xad[lv->offset],
+@@ -713,7 +713,7 @@ int diWrite(tid_t tid, struct inode *ip)
+ 	 *	regular file: 16 byte (XAD slot) granularity
+ 	 */
+ 	if (type & tlckXTREE) {
+-		xtpage_t *p, *xp;
++		xtroot_t *p, *xp;
+ 		xad_t *xad;
+ 
+ 		/*
+diff --git a/fs/jfs/jfs_incore.h b/fs/jfs/jfs_incore.h
+index 721def69e732..dd4264aa9bed 100644
+--- a/fs/jfs/jfs_incore.h
++++ b/fs/jfs/jfs_incore.h
+@@ -66,7 +66,7 @@ struct jfs_inode_info {
+ 	lid_t	xtlid;		/* lid of xtree lock on directory */
+ 	union {
+ 		struct {
+-			xtpage_t _xtroot;	/* 288: xtree root */
++			xtroot_t _xtroot;	/* 288: xtree root */
+ 			struct inomap *_imap;	/* 4: inode map header	*/
+ 		} file;
+ 		struct {
+diff --git a/fs/jfs/jfs_txnmgr.c b/fs/jfs/jfs_txnmgr.c
+index ce4b4760fcb1..dccc8b3f1045 100644
+--- a/fs/jfs/jfs_txnmgr.c
++++ b/fs/jfs/jfs_txnmgr.c
+@@ -783,7 +783,7 @@ struct tlock *txLock(tid_t tid, struct inode *ip, struct metapage * mp,
+ 			if (mp->xflag & COMMIT_PAGE)
+ 				p = (xtpage_t *) mp->data;
+ 			else
+-				p = &jfs_ip->i_xtroot;
++				p = (xtpage_t *) &jfs_ip->i_xtroot;
+ 			xtlck->lwm.offset =
+ 			    le16_to_cpu(p->header.nextindex);
+ 		}
+@@ -1676,7 +1676,7 @@ static void xtLog(struct jfs_log * log, struct tblock * tblk, struct lrd * lrd,
+ 
+ 	if (tlck->type & tlckBTROOT) {
+ 		lrd->log.redopage.type |= cpu_to_le16(LOG_BTROOT);
+-		p = &JFS_IP(ip)->i_xtroot;
++		p = (xtpage_t *) &JFS_IP(ip)->i_xtroot;
+ 		if (S_ISDIR(ip->i_mode))
+ 			lrd->log.redopage.type |=
+ 			    cpu_to_le16(LOG_DIR_XTREE);
+diff --git a/fs/jfs/jfs_xtree.c b/fs/jfs/jfs_xtree.c
+index 2d304cee884c..5ee618d17e77 100644
+--- a/fs/jfs/jfs_xtree.c
++++ b/fs/jfs/jfs_xtree.c
+@@ -1213,7 +1213,7 @@ xtSplitRoot(tid_t tid,
+ 	struct xtlock *xtlck;
+ 	int rc;
+ 
+-	sp = &JFS_IP(ip)->i_xtroot;
++	sp = (xtpage_t *) &JFS_IP(ip)->i_xtroot;
+ 
+ 	INCREMENT(xtStat.split);
+ 
+@@ -2098,7 +2098,7 @@ int xtAppend(tid_t tid,		/* transaction id */
+  */
+ void xtInitRoot(tid_t tid, struct inode *ip)
+ {
+-	xtpage_t *p;
++	xtroot_t *p;
+ 
+ 	/*
+ 	 * acquire a transaction lock on the root
+diff --git a/fs/jfs/jfs_xtree.h b/fs/jfs/jfs_xtree.h
+index ad7592191d76..0f6cf5a1ce75 100644
+--- a/fs/jfs/jfs_xtree.h
++++ b/fs/jfs/jfs_xtree.h
+@@ -65,24 +65,33 @@ struct xadlist {
+ #define XTPAGEMAXSLOT	256
+ #define XTENTRYSTART	2
+ 
+-/*
+- *	xtree page:
+- */
+-typedef union {
+-	struct xtheader {
+-		__le64 next;	/* 8: */
+-		__le64 prev;	/* 8: */
++struct xtheader {
++	__le64 next;	/* 8: */
++	__le64 prev;	/* 8: */
+ 
+-		u8 flag;	/* 1: */
+-		u8 rsrvd1;	/* 1: */
+-		__le16 nextindex;	/* 2: next index = number of entries */
+-		__le16 maxentry;	/* 2: max number of entries */
+-		__le16 rsrvd2;	/* 2: */
++	u8 flag;	/* 1: */
++	u8 rsrvd1;	/* 1: */
++	__le16 nextindex;	/* 2: next index = number of entries */
++	__le16 maxentry;	/* 2: max number of entries */
++	__le16 rsrvd2;	/* 2: */
+ 
+-		pxd_t self;	/* 8: self */
+-	} header;		/* (32) */
++	pxd_t self;	/* 8: self */
++};
+ 
++/*
++ *	xtree root (in inode):
++ */
++typedef union {
++	struct xtheader header;
+ 	xad_t xad[XTROOTMAXSLOT];	/* 16 * maxentry: xad array */
++} xtroot_t;
++
++/*
++ *	xtree page:
++ */
++typedef union {
++	struct xtheader header;
++	xad_t xad[XTPAGEMAXSLOT];	/* 16 * maxentry: xad array */
+ } xtpage_t;
+ 
+ /*
+================================================================================
+
+branch: linux-5.15
+fix_commit: 1a80a098c606b285fb0a13aa992af4f86da1ff06
+bug_url: https://syzkaller.appspot.com/bug?extid=fd9bfadbf8265184a6b7
+title: UBSAN: shift-out-of-bounds in extAlloc (2)
+relevance_score: 0
+
+ arch/x86/kernel/alternative.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+index 48fd04e90114..45bcff181cba 100644
+--- a/arch/x86/kernel/alternative.c
++++ b/arch/x86/kernel/alternative.c
+@@ -133,7 +133,9 @@ static bool cfi_paranoid __ro_after_init;
+ 
+ #ifdef CONFIG_MITIGATION_ITS
+ 
++#ifdef CONFIG_MODULES
+ static struct module *its_mod;
++#endif
+ static void *its_page;
+ static unsigned int its_offset;
+ 
+@@ -171,6 +173,7 @@ static void *its_init_thunk(void *thunk, int reg)
+ 	return thunk + offset;
+ }
+ 
++#ifdef CONFIG_MODULES
+ void its_init_mod(struct module *mod)
+ {
+ 	if (!cpu_feature_enabled(X86_FEATURE_INDIRECT_THUNK_ITS))
+@@ -209,6 +212,7 @@ void its_free_mod(struct module *mod)
+ 	}
+ 	kfree(mod->its_page_array);
+ }
++#endif /* CONFIG_MODULES */
+ 
+ static void *its_alloc(void)
+ {
+@@ -217,6 +221,7 @@ static void *its_alloc(void)
+ 	if (!page)
+ 		return NULL;
+ 
++#ifdef CONFIG_MODULES
+ 	if (its_mod) {
+ 		void *tmp = krealloc(its_mod->its_page_array,
+ 				     (its_mod->its_num_pages+1) * sizeof(void *),
+@@ -229,6 +234,7 @@ static void *its_alloc(void)
+ 
+ 		execmem_make_temp_rw(page, PAGE_SIZE);
+ 	}
++#endif /* CONFIG_MODULES */
+ 
+ 	return no_free_ptr(page);
+ }
+================================================================================
+
+branch: linux-5.15
+fix_commit: 0225e10972fa809728b8d4c1bd2772b3ec3fdb57
+bug_url: https://syzkaller.appspot.com/bug?extid=101992cd74f73e92da5d
+title: UBSAN: shift-out-of-bounds in extAlloc
+relevance_score: 0
+
+ fs/jfs/jfs_extent.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+diff --git a/fs/jfs/jfs_extent.c b/fs/jfs/jfs_extent.c
+index adaa9ad50d4c..63d21822d309 100644
+--- a/fs/jfs/jfs_extent.c
++++ b/fs/jfs/jfs_extent.c
+@@ -311,6 +311,11 @@ extBalloc(struct inode *ip, s64 hint, s64 * nblocks, s64 * blkno)
+ 	 * blocks in the map. in that case, we'll start off with the
+ 	 * maximum free.
+ 	 */
++
++	/* give up if no space left */
++	if (bmp->db_maxfreebud == -1)
++		return -ENOSPC;
++
+ 	max = (s64) 1 << bmp->db_maxfreebud;
+ 	if (*nblocks >= max && *nblocks > nbperpage)
+ 		nb = nblks = (max > nbperpage) ? max : nbperpage;
+================================================================================

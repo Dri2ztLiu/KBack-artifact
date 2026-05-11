@@ -1,0 +1,62 @@
+{
+  "extid": "555908813b2ea35dae9a",
+  "target_ref": "555908813b2ea35dae9a",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "75c4a8154cb6c7239fb55d5550f481f6765fb83c",
+      "branch": "linux-6.1",
+      "title": "WARNING in ath6kl_htc_pipe_rx_complete",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/net/wireless/ath/ath6kl/htc_pipe.c"
+      ],
+      "symbols": [
+        "ath6kl_htc_pipe_rx_complete",
+        "if",
+        "ath6kl_err",
+        "if",
+        "ath6kl_dbg"
+      ],
+      "patterns": [
+        "NULL",
+        "null",
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "4d6d4c7f541d7027beed4fb86eb2c451bd8d6fff",
+      "branch": "linux-5.15",
+      "title": "WARNING in ath6kl_htc_pipe_rx_complete",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "include/linux/compiler.h"
+      ],
+      "symbols": [],
+      "patterns": [
+        "race",
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

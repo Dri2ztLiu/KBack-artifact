@@ -1,0 +1,50 @@
+{
+  "extid": "d273f7d7f58afd93be48",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d273f7d7f58afd93be48",
+  "bug_title": "WARNING in ext2_get_group_desc",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "ext2: Add more validity checks for inode counts",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa78f336937240d1bc598db817d638086060e7e9",
+      "hash": "fa78f336937240d1bc598db817d638086060e7e9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2022-07-26T11:13:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ext2_get_group_desc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c658cabbfd32527060c2367f405bafb4e5815c6e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/95cb00d1ffccfb9043ac5d91ff8103bbb9befae8",
+  "syzkaller-commit": "95cb00d1ffccfb9043ac5d91ff8103bbb9befae8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14c70794080000",
+      "saved_to": "/home/lcj/paired_patches/d273f7d7f58afd93be48/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cf350e66d4493550",
+      "saved_to": "/home/lcj/paired_patches/d273f7d7f58afd93be48/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d273f7d7f58afd93be48/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d273f7d7f58afd93be48/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

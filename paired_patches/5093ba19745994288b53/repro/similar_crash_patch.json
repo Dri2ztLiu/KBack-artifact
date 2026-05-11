@@ -1,0 +1,46 @@
+{
+  "extid": "5093ba19745994288b53",
+  "target_ref": "5093ba19745994288b53",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "ff91059932401894e6c86341915615c5eb0eca48",
+      "branch": "linux-6.1",
+      "title": "WARNING in __mod_timer",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/core/sock_map.c"
+      ],
+      "symbols": [
+        "__sock_map_delete",
+        "sock_hash_delete_elem",
+        "if",
+        "spin_lock_bh",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "spin_lock",
+        "net",
+        "bpf"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

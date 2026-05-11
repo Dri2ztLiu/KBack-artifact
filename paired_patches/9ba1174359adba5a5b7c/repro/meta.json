@@ -1,0 +1,50 @@
+{
+  "extid": "9ba1174359adba5a5b7c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9ba1174359adba5a5b7c",
+  "bug_title": "general protection fault in br_switchdev_fdb_notify",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: bridge: validate the NUD_PERMANENT bit when adding an extern_learn FDB entry",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0541a6293298fb52789de389dfb27ef54df81f73",
+      "hash": "0541a6293298fb52789de389dfb27ef54df81f73",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "vladimir.oltean@nxp.com",
+      "author-name": "Vladimir Oltean",
+      "date": "2021-08-01T23:17:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in br_switchdev_fdb_notify",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "b11f0a4c0c81ff062cd3696eadd46266489bca8e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9a4781d43abfb86fe8521cb6fb084519e237454c",
+  "syzkaller-commit": "9a4781d43abfb86fe8521cb6fb084519e237454c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=168e997a300000",
+      "saved_to": "/home/lcj/paired_patches/9ba1174359adba5a5b7c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=914a8107c0ffdc14",
+      "saved_to": "/home/lcj/paired_patches/9ba1174359adba5a5b7c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=163c441a300000",
+      "saved_to": "/home/lcj/paired_patches/9ba1174359adba5a5b7c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1247bf2e300000",
+      "saved_to": "/home/lcj/paired_patches/9ba1174359adba5a5b7c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

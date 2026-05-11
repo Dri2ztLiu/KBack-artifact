@@ -1,0 +1,50 @@
+{
+  "extid": "332fe1e67018625f63c9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=332fe1e67018625f63c9",
+  "bug_title": "WARNING in l2tp_exit_net",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "net/l2tp: fix warning in l2tp_exit_net found by syzbot",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5d066766c5f1252f98ff859265bcd1a5b52ac46c",
+      "hash": "5d066766c5f1252f98ff859265bcd1a5b52ac46c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jchapman@katalix.com",
+      "author-name": "James Chapman",
+      "date": "2024-11-18T14:04:11Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in l2tp_exit_net",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "ccb35037c48a16dfa377e3af3be2c164e73d54f0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3a4654820e658eac4775498511ddef4f1019ed67",
+  "syzkaller-commit": "3a4654820e658eac4775498511ddef4f1019ed67",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13c34e30580000",
+      "saved_to": "/home/lcj/paired_patches/332fe1e67018625f63c9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a9d1c42858837b59",
+      "saved_to": "/home/lcj/paired_patches/332fe1e67018625f63c9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/332fe1e67018625f63c9/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=136a36a7980000",
+      "saved_to": "/home/lcj/paired_patches/332fe1e67018625f63c9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

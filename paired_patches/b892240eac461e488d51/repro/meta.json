@@ -1,0 +1,50 @@
+{
+  "extid": "b892240eac461e488d51",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b892240eac461e488d51",
+  "bug_title": "KASAN: slab-out-of-bounds Read in ntfs_trim_fs",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix slab-out-of-bounds read in ntfs_trim_fs",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=557d19675a470bb0a98beccec38c5dc3735c20fa",
+      "hash": "557d19675a470bb0a98beccec38c5dc3735c20fa",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "abdun.nihaal@gmail.com",
+      "author-name": "Abdun Nihaal",
+      "date": "2022-10-01T07:00:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in ntfs_trim_fs",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b229b6ca5abbd63ff40c1396095b1b36b18139c3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2a71366bacf3bf9a3a1a149e631fb15a7d0f2077",
+  "syzkaller-commit": "2a71366bacf3bf9a3a1a149e631fb15a7d0f2077",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10f934de880000",
+      "saved_to": "/home/lcj/paired_patches/b892240eac461e488d51/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a66c6c673fb555e8",
+      "saved_to": "/home/lcj/paired_patches/b892240eac461e488d51/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1168eb26880000",
+      "saved_to": "/home/lcj/paired_patches/b892240eac461e488d51/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=173ad446880000",
+      "saved_to": "/home/lcj/paired_patches/b892240eac461e488d51/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

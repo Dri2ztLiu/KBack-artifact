@@ -1,0 +1,50 @@
+{
+  "extid": "fc519d7875f2d9186c1f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fc519d7875f2d9186c1f",
+  "bug_title": "KASAN: slab-out-of-bounds Read in orangefs_debug_write",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "orangefs: fix a oob in orangefs_debug_write",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f7c848431632598ff9bce57a659db6af60d75b39",
+      "hash": "f7c848431632598ff9bce57a659db6af60d75b39",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hubcap@omnibond.com",
+      "author-name": "Mike Marshall",
+      "date": "2025-01-08T19:21:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in orangefs_debug_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "56e6a3499e14716b9a28a307bb6d18c10e95301e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1070f818580000",
+      "saved_to": "/home/lcj/paired_patches/fc519d7875f2d9186c1f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=86dd15278dbfe19f",
+      "saved_to": "/home/lcj/paired_patches/fc519d7875f2d9186c1f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=115476df980000",
+      "saved_to": "/home/lcj/paired_patches/fc519d7875f2d9186c1f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=140fe6c4580000",
+      "saved_to": "/home/lcj/paired_patches/fc519d7875f2d9186c1f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

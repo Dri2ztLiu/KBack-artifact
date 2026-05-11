@@ -1,0 +1,50 @@
+{
+  "extid": "1071ad60cd7df39fdadb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1071ad60cd7df39fdadb",
+  "bug_title": "WARNING in tcindex_alloc_perfect_hash",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: sched: fix warning in tcindex_alloc_perfect_hash",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3f2db250099f46988088800052cdf2332c7aba61",
+      "hash": "3f2db250099f46988088800052cdf2332c7aba61",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-06-25T20:23:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in tcindex_alloc_perfect_hash",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c54b245d011855ea91c5beff07f1db74143ce614",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a4fccb01b582ae08ca1ff64c8e5730c138f5e8ed",
+  "syzkaller-commit": "a4fccb01b582ae08ca1ff64c8e5730c138f5e8ed",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1700cc88300000",
+      "saved_to": "/home/lcj/paired_patches/1071ad60cd7df39fdadb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c3f38590c3dd9308",
+      "saved_to": "/home/lcj/paired_patches/1071ad60cd7df39fdadb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10e02394300000",
+      "saved_to": "/home/lcj/paired_patches/1071ad60cd7df39fdadb/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=170b8e5fd00000",
+      "saved_to": "/home/lcj/paired_patches/1071ad60cd7df39fdadb/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

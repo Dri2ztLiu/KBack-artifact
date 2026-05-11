@@ -1,0 +1,50 @@
+{
+  "extid": "e2ce9e275ecc70a30b72",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e2ce9e275ecc70a30b72",
+  "bug_title": "KASAN: slab-use-after-free Read in ib_register_device",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "RDMA/core: Fix \"KASAN: slab-use-after-free Read in ib_register_device\" problem",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d0706bfd3ee40923c001c6827b786a309e2a8713",
+      "hash": "d0706bfd3ee40923c001c6827b786a309e2a8713",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yanjun.zhu@linux.dev",
+      "author-name": "Zhu Yanjun",
+      "date": "2025-05-06T15:10:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in ib_register_device",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "02ddfb981de88a2c15621115dd7be2431252c568",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c6b4fb399236b655a39701fd51c33522caa06811",
+  "syzkaller-commit": "c6b4fb399236b655a39701fd51c33522caa06811",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13654270580000",
+      "saved_to": "/home/lcj/paired_patches/e2ce9e275ecc70a30b72/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9f5bd2a76d9d0b4e",
+      "saved_to": "/home/lcj/paired_patches/e2ce9e275ecc70a30b72/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e2ce9e275ecc70a30b72/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e2ce9e275ecc70a30b72/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

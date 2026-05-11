@@ -1,0 +1,50 @@
+{
+  "extid": "531502bbbe51d2f769f4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=531502bbbe51d2f769f4",
+  "bug_title": "KASAN: slab-use-after-free Read in thread_group_cputime (2)",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "io_uring: fix use-after-free of sq->thread in __io_uring_show_fdinfo()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac0b8b327a5677dc6fecdf353d808161525b1ff0",
+      "hash": "ac0b8b327a5677dc6fecdf353d808161525b1ff0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "superman.xpt@gmail.com",
+      "author-name": "Penglei Jiang",
+      "date": "2025-06-10T17:18:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in thread_group_cputime",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "546bce579204685a0b204beebab98c3aa496e651",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a4fa04ef178601d46ebb3b4233c05c736fbaf9b3",
+  "syzkaller-commit": "a4fa04ef178601d46ebb3b4233c05c736fbaf9b3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13a4e6f4580000",
+      "saved_to": "/home/lcj/paired_patches/531502bbbe51d2f769f4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=bc44e21a0b824ef8",
+      "saved_to": "/home/lcj/paired_patches/531502bbbe51d2f769f4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/531502bbbe51d2f769f4/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/531502bbbe51d2f769f4/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "extid": "2bef95d3ab4daa10155b",
+  "target_ref": "2bef95d3ab4daa10155b",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "dffb5c6ff09c51ed585e3e7665143df103867fc8",
+      "branch": "linux-4.14",
+      "title": "KASAN: use-after-free Read in sco_sock_timeout",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "use-after-free",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

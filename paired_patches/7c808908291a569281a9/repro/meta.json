@@ -1,0 +1,50 @@
+{
+  "extid": "7c808908291a569281a9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7c808908291a569281a9",
+  "bug_title": "divide error in dbAllocAG",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "jfs: add sanity check for agwidth in dbMount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ddf2846f22e8575d6b4b6a66f2100f168b8cd73d",
+      "hash": "ddf2846f22e8575d6b4b6a66f2100f168b8cd73d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2025-02-20T11:24:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "divide error in dbAllocAG",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7af08b57bcb9ebf78675c50069c54125c0a8b795",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5df2386563cbffa1bbbb9d0b8ec1eebb98d051ae",
+  "syzkaller-commit": "5df2386563cbffa1bbbb9d0b8ec1eebb98d051ae",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=116dcd30580000",
+      "saved_to": "/home/lcj/paired_patches/7c808908291a569281a9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=29e5eaaea951b791",
+      "saved_to": "/home/lcj/paired_patches/7c808908291a569281a9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=156dcd30580000",
+      "saved_to": "/home/lcj/paired_patches/7c808908291a569281a9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=162573c0580000",
+      "saved_to": "/home/lcj/paired_patches/7c808908291a569281a9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

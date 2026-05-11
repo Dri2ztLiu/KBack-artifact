@@ -1,0 +1,50 @@
+{
+  "extid": "d55757faa9b80590767b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d55757faa9b80590767b",
+  "bug_title": "KASAN: null-ptr-deref Read in __free_pages",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "watch_queue: Fix NULL dereference in error cleanup",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a635415a064e77bcfbf43da413fd9dfe0bbed9cb",
+      "hash": "a635415a064e77bcfbf43da413fd9dfe0bbed9cb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2022-03-21T08:11:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: null-ptr-deref Read in __free_pages",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "56e337f2cf1326323844927a04e9dbce9a244835",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/dfa9a8ed6b12b102fe3625ca8fc786aa86d54a5a",
+  "syzkaller-commit": "dfa9a8ed6b12b102fe3625ca8fc786aa86d54a5a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=163ffb03700000",
+      "saved_to": "/home/lcj/paired_patches/d55757faa9b80590767b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d35f9bc6884af6c9",
+      "saved_to": "/home/lcj/paired_patches/d55757faa9b80590767b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=127bd083700000",
+      "saved_to": "/home/lcj/paired_patches/d55757faa9b80590767b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=134e4e91700000",
+      "saved_to": "/home/lcj/paired_patches/d55757faa9b80590767b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

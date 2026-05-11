@@ -1,0 +1,60 @@
+{
+  "extid": "082fa4af80a5bb1a9843",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=082fa4af80a5bb1a9843",
+  "bug_title": "general protection fault in cache_first_page",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "Squashfs: fix handling and sanity checking of xattr_ids count",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f65c4bbbd682b0877b669828b4e033b8d5d0a2dc",
+      "hash": "f65c4bbbd682b0877b669828b4e033b8d5d0a2dc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "phillip@squashfs.org.uk",
+      "author-name": "Phillip Lougher",
+      "date": "2023-01-27T06:18:42Z"
+    },
+    {
+      "title": "squashfs: harden sanity check in squashfs_read_xattr_id_table",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=72e544b1b28325fe78a4687b980871a7e4101f76",
+      "hash": "72e544b1b28325fe78a4687b980871a7e4101f76",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pchelkin@ispras.ru",
+      "author-name": "Fedor Pchelkin",
+      "date": "2023-01-17T10:52:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in cache_first_page",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "88603b6dc419445847923fcb7fe5080067a30f98",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ab32d50881df9f96f2af301aadca62ad00b7e099",
+  "syzkaller-commit": "ab32d50881df9f96f2af301aadca62ad00b7e099",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1268e984480000",
+      "saved_to": "/home/lcj/paired_patches/082fa4af80a5bb1a9843/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=46221e8203c7aca6",
+      "saved_to": "/home/lcj/paired_patches/082fa4af80a5bb1a9843/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16e758ec480000",
+      "saved_to": "/home/lcj/paired_patches/082fa4af80a5bb1a9843/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10d010aa480000",
+      "saved_to": "/home/lcj/paired_patches/082fa4af80a5bb1a9843/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "422188bce66e76020e55",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=422188bce66e76020e55",
+  "bug_title": "KASAN: slab-use-after-free Read in chaoskey_disconnect",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "USB: chaoskey: fail open after removal",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=422dc0a4d12d0b80dd3aab3fe5943f665ba8f041",
+      "hash": "422dc0a4d12d0b80dd3aab3fe5943f665ba8f041",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "oneukum@suse.com",
+      "author-name": "Oliver Neukum",
+      "date": "2024-10-02T13:21:41Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in chaoskey_disconnect",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0babf683783ddca06551537c6781e413cfe8d27b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/08d8a73310b526269767424900bc13ab3e0b7ca5",
+  "syzkaller-commit": "08d8a73310b526269767424900bc13ab3e0b7ca5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=118e6407980000",
+      "saved_to": "/home/lcj/paired_patches/422188bce66e76020e55/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=28869f34c32848cf",
+      "saved_to": "/home/lcj/paired_patches/422188bce66e76020e55/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/422188bce66e76020e55/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/422188bce66e76020e55/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

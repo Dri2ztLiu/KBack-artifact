@@ -1,0 +1,50 @@
+{
+  "extid": "478f2c1a6f0f447a46bb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=478f2c1a6f0f447a46bb",
+  "bug_title": "WARNING in udf_process_sequence",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "udf: Verify partition map count",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a11201668e8635602577dcf06f2e96c591d8819",
+      "hash": "1a11201668e8635602577dcf06f2e96c591d8819",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2025-07-11T17:01:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in udf_process_sequence",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "bc9ff192a6c940d9a26e21a0a82f2667067aaf5f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3cda49cfaa8556b73277ccd7e75952f0f2de2d74",
+  "syzkaller-commit": "3cda49cfaa8556b73277ccd7e75952f0f2de2d74",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16993a8c580000",
+      "saved_to": "/home/lcj/paired_patches/478f2c1a6f0f447a46bb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=bd2783a0a99d4ed0",
+      "saved_to": "/home/lcj/paired_patches/478f2c1a6f0f447a46bb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14160d82580000",
+      "saved_to": "/home/lcj/paired_patches/478f2c1a6f0f447a46bb/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1406868c580000",
+      "saved_to": "/home/lcj/paired_patches/478f2c1a6f0f447a46bb/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "b0c03d76056ef6cd12a6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b0c03d76056ef6cd12a6",
+  "bug_title": "possible deadlock in dev_set_allmulti",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "net: vlan: don't propagate flags on open",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=27b918007d96402aba10ed52a6af8015230f1793",
+      "hash": "27b918007d96402aba10ed52a6af8015230f1793",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sdf@fomichev.me",
+      "author-name": "Stanislav Fomichev",
+      "date": "2025-03-13T10:06:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in dev_set_allmulti",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cfb2e2c57aef75a414c0f18445c7441df5bc13be",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2a6ededbf54a9f8ac036ad0ebfc673934f93fde9",
+  "syzkaller-commit": "2a6ededbf54a9f8ac036ad0ebfc673934f93fde9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1074ba3f980000",
+      "saved_to": "/home/lcj/paired_patches/b0c03d76056ef6cd12a6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a972ee73c2fcf8ca",
+      "saved_to": "/home/lcj/paired_patches/b0c03d76056ef6cd12a6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/b0c03d76056ef6cd12a6/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/b0c03d76056ef6cd12a6/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

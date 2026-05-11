@@ -1,0 +1,50 @@
+{
+  "extid": "71271244f206d17f6441",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=71271244f206d17f6441",
+  "bug_title": "WARNING in x86_emulate_instruction",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "KVM: X86: Fix warning caused by stale emulation context",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=da6393cdd8aaa354b3a2437cd73ebb34cac958e3",
+      "hash": "da6393cdd8aaa354b3a2437cd73ebb34cac958e3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "wanpengli@tencent.com",
+      "author-name": "Wanpeng Li",
+      "date": "2021-05-28T00:01:36Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in x86_emulate_instruction",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8ac91e6c6033ebc12c5c1e4aa171b81a662bd70f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a343ba6b077a3efe7feb57783dcbb7496d2c3572",
+  "syzkaller-commit": "a343ba6b077a3efe7feb57783dcbb7496d2c3572",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1568be55d00000",
+      "saved_to": "/home/lcj/paired_patches/71271244f206d17f6441/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=dddb87edd6431081",
+      "saved_to": "/home/lcj/paired_patches/71271244f206d17f6441/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=134683fdd00000",
+      "saved_to": "/home/lcj/paired_patches/71271244f206d17f6441/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12d1f89bd00000",
+      "saved_to": "/home/lcj/paired_patches/71271244f206d17f6441/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

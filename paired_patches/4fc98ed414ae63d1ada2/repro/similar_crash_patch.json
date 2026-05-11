@@ -1,0 +1,78 @@
+{
+  "extid": "4fc98ed414ae63d1ada2",
+  "target_ref": "4fc98ed414ae63d1ada2",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "c1172e65aad4b115392ea4c6e61e56e5b9b69df4",
+      "branch": "linux-6.1",
+      "title": "INFO: task hung in z_erofs_runqueue",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/erofs/zdata.c"
+      ],
+      "symbols": [
+        "pickup_page_for_submission",
+        "pickup_page_for_submission",
+        "z_erofs_submit_queue",
+        "z_erofs_submit_queue",
+        "z_erofs_submit_queue",
+        "DBG_BUGON",
+        "if",
+        "if",
+        "if",
+        "unlock_page",
+        "if",
+        "if",
+        "unlock_page",
+        "DBG_BUGON",
+        "DBG_BUGON",
+        "DBG_BUGON",
+        "if",
+        "if",
+        "if",
+        "if"
+      ],
+      "patterns": [
+        "stall",
+        "hung",
+        "NULL",
+        "null",
+        "BUG",
+        "folio"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "3c17fc4839052076b9f27f22551d0d0bd8557822",
+      "branch": "linux-5.15",
+      "title": "INFO: task hung in z_erofs_runqueue",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "hung"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

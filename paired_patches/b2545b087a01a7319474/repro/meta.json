@@ -1,0 +1,60 @@
+{
+  "extid": "b2545b087a01a7319474",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b2545b087a01a7319474",
+  "bug_title": "WARNING in hci_conn_del",
+  "bug_status": "fixed on 2024/08/06 11:02",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: Ignore too large handle values in BIG",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=015d79c96d62cd8a4a359fcf5be40d58088c936b",
+      "hash": "015d79c96d62cd8a4a359fcf5be40d58088c936b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2024-06-17T11:09:37Z"
+    },
+    {
+      "title": "bluetooth/hci: disallow setting handle bigger than HCI_CONN_HANDLE_MAX",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1cc18c2ab2e8c54c355ea7c0423a636e415a0c23",
+      "hash": "1cc18c2ab2e8c54c355ea7c0423a636e415a0c23",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2024-06-20T19:27:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hci_conn_del",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a5131c3fdf2608f1c15f3809e201cf540eb28489",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fdb4c10ce6d49163d1f57463d7ca0ae22b71e765",
+  "syzkaller-commit": "fdb4c10ce6d49163d1f57463d7ca0ae22b71e765",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16098620980000",
+      "saved_to": "/home/lcj/paired_patches/b2545b087a01a7319474/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e4f7e6f2d15a8e15",
+      "saved_to": "/home/lcj/paired_patches/b2545b087a01a7319474/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1092d884980000",
+      "saved_to": "/home/lcj/paired_patches/b2545b087a01a7319474/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=172eb63f180000",
+      "saved_to": "/home/lcj/paired_patches/b2545b087a01a7319474/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

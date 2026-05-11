@@ -1,0 +1,50 @@
+{
+  "extid": "241c815bda521982cb49",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=241c815bda521982cb49",
+  "bug_title": "UBSAN: array-index-out-of-bounds in diFree",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "jfs: Fix array-index-out-of-bounds in diFree",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f73f969b2eb39ad8056f6c7f3a295fa2f85e313a",
+      "hash": "f73f969b2eb39ad8056f6c7f3a295fa2f85e313a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "aha310510@gmail.com",
+      "author-name": "Jeongjun Park",
+      "date": "2024-05-30T13:28:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in diFree",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "73e931504f8e0d42978bfcda37b323dbbd1afc08",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b294e901e293e41b6374f056dcc8d4329780455c",
+  "syzkaller-commit": "b294e901e293e41b6374f056dcc8d4329780455c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16713a1a980000",
+      "saved_to": "/home/lcj/paired_patches/241c815bda521982cb49/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1ace69f521989b1f",
+      "saved_to": "/home/lcj/paired_patches/241c815bda521982cb49/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16c581c1980000",
+      "saved_to": "/home/lcj/paired_patches/241c815bda521982cb49/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12c581c1980000",
+      "saved_to": "/home/lcj/paired_patches/241c815bda521982cb49/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

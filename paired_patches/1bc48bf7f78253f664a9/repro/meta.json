@@ -1,0 +1,50 @@
+{
+  "extid": "1bc48bf7f78253f664a9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1bc48bf7f78253f664a9",
+  "bug_title": "possible deadlock in _destroy_id",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "RDMA/cma: Fix deadlock on &lock in rdma_cma_listen_on_all() error unwind",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dd37d2f59eb839d51b988f6668ce5f0d533b23fd",
+      "hash": "dd37d2f59eb839d51b988f6668ce5f0d533b23fd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jgg@nvidia.com",
+      "author-name": "Jason Gunthorpe",
+      "date": "2020-11-25T15:07:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "2052923327794192c5d884623b5ee5fec1867bda",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0767f13fbd87c99aea7893eb64199b76be42cd61",
+  "syzkaller-commit": "0767f13fbd87c99aea7893eb64199b76be42cd61",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=119383f6500000",
+      "saved_to": "/home/lcj/paired_patches/1bc48bf7f78253f664a9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2c4fb58b6526b3c1",
+      "saved_to": "/home/lcj/paired_patches/1bc48bf7f78253f664a9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17dd63f6500000",
+      "saved_to": "/home/lcj/paired_patches/1bc48bf7f78253f664a9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1169239a500000",
+      "saved_to": "/home/lcj/paired_patches/1bc48bf7f78253f664a9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

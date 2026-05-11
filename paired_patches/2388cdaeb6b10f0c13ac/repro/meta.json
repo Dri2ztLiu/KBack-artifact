@@ -1,0 +1,60 @@
+{
+  "extid": "2388cdaeb6b10f0c13ac",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2388cdaeb6b10f0c13ac",
+  "bug_title": "WARNING in kcov_remote_start (5)",
+  "bug_status": "fixed on 2024/10/22 14:56",
+  "fix_commits": [
+    {
+      "title": "kcov: properly check for softirq context",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7d4df2dad312f270d62fecb0e5c8b086c6d7dcfc",
+      "hash": "7d4df2dad312f270d62fecb0e5c8b086c6d7dcfc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "andreyknvl@gmail.com",
+      "author-name": "Andrey Konovalov",
+      "date": "2024-07-29T02:21:58Z"
+    },
+    {
+      "title": "usb: gadget: dummy_hcd: execute hrtimer callback in softirq context",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9313d139aa25e572d860f6f673b73a20f32d7f93",
+      "hash": "9313d139aa25e572d860f6f673b73a20f32d7f93",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "andreyknvl@gmail.com",
+      "author-name": "Andrey Konovalov",
+      "date": "2024-09-04T01:30:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in kcov_remote_start",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c2ee9f594da826bea183ed14f2cc029c719bf4da",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a93682b3599755b030b6c0211c22e56f5e0848f1",
+  "syzkaller-commit": "a93682b3599755b030b6c0211c22e56f5e0848f1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=107b0a5f980000",
+      "saved_to": "/home/lcj/paired_patches/2388cdaeb6b10f0c13ac/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=41330fd2db03893d",
+      "saved_to": "/home/lcj/paired_patches/2388cdaeb6b10f0c13ac/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2388cdaeb6b10f0c13ac/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2388cdaeb6b10f0c13ac/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "9981a614060dcee6eeca",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9981a614060dcee6eeca",
+  "bug_title": "WARNING in j1939_xtp_rx_abort_one",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "can: j1939: fix errant WARN_ON_ONCE in j1939_session_deactivate",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d0553680f94c49bbe0e39eb50d033ba563b4212d",
+      "hash": "d0553680f94c49bbe0e39eb50d033ba563b4212d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "william.xuanziyang@huawei.com",
+      "author-name": "Ziyang Xuan",
+      "date": "2021-09-06T09:42:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in j1939_xtp_rx_abort_one",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "97ec4d559d939743e8af83628be5af8da610d9dc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a63719e71f9e7c2496a8eef09aa58118deb0c0bc",
+  "syzkaller-commit": "a63719e71f9e7c2496a8eef09aa58118deb0c0bc",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16186ab1480000",
+      "saved_to": "/home/lcj/paired_patches/9981a614060dcee6eeca/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d9ae5b42fb4fb92a",
+      "saved_to": "/home/lcj/paired_patches/9981a614060dcee6eeca/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1411a65e480000",
+      "saved_to": "/home/lcj/paired_patches/9981a614060dcee6eeca/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1638ba0e480000",
+      "saved_to": "/home/lcj/paired_patches/9981a614060dcee6eeca/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

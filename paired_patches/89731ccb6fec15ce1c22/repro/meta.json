@@ -1,0 +1,50 @@
+{
+  "extid": "89731ccb6fec15ce1c22",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=89731ccb6fec15ce1c22",
+  "bug_title": "kernel panic: smack: Failed to initialize cipso DOI.",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "smackfs: use __GFP_NOFAIL for smk_cipso_doi()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f91488ee15bd3cac467e2d6a361fc2d34d1052ae",
+      "hash": "f91488ee15bd3cac467e2d6a361fc2d34d1052ae",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@i-love.sakura.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2021-10-19T11:54:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1b649e0bcae71c118c1333e02249a7510ba7f70a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e8e6c7d21dbd86f502f66737883b1a0c3ae8eeb1",
+  "syzkaller-commit": "e8e6c7d21dbd86f502f66737883b1a0c3ae8eeb1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11cbc5d3e00000",
+      "saved_to": "/home/lcj/paired_patches/89731ccb6fec15ce1c22/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4ac76c43beddbd9",
+      "saved_to": "/home/lcj/paired_patches/89731ccb6fec15ce1c22/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1390bb03e00000",
+      "saved_to": "/home/lcj/paired_patches/89731ccb6fec15ce1c22/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1202c375e00000",
+      "saved_to": "/home/lcj/paired_patches/89731ccb6fec15ce1c22/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

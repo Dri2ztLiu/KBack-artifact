@@ -1,0 +1,50 @@
+{
+  "extid": "0e964fad69a9c462bc1e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0e964fad69a9c462bc1e",
+  "bug_title": "INFO: rcu detected stall in syscall_exit_to_user_mode",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "mac80211-hwsim: fix late beacon hrtimer handling",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=313bbd1990b6ddfdaa7da098d0c56b098a833572",
+      "hash": "313bbd1990b6ddfdaa7da098d0c56b098a833572",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2021-09-15T09:29:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: rcu detected stall in syscall_exit_to_user_mode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "23d04328444a8fa0ca060c5e532220dac8e8bc26",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b28851a42332f6c5bc36155d3737ca9c89c4d2d3",
+  "syzkaller-commit": "b28851a42332f6c5bc36155d3737ca9c89c4d2d3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13efb586700000",
+      "saved_to": "/home/lcj/paired_patches/0e964fad69a9c462bc1e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=15187fc11a461d83",
+      "saved_to": "/home/lcj/paired_patches/0e964fad69a9c462bc1e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0e964fad69a9c462bc1e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0e964fad69a9c462bc1e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "fae49d997eb56fa7c74d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fae49d997eb56fa7c74d",
+  "bug_title": "general protection fault in kernel_sock_shutdown (3)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "sctp: add mutual exclusion in proc_sctp_do_udp_port()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=10206302af856791fbcc27a33ed3c3eb09b2793d",
+      "hash": "10206302af856791fbcc27a33ed3c3eb09b2793d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2025-03-31T09:15:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in kernel_sock_shutdown",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d082ecbc71e9e0bf49883ee4afd435a77a5101b6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d34966d146f584d390b49f213d1fccd59548dc6d",
+  "syzkaller-commit": "d34966d146f584d390b49f213d1fccd59548dc6d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12e27fdf980000",
+      "saved_to": "/home/lcj/paired_patches/fae49d997eb56fa7c74d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b1635bf4c5557b92",
+      "saved_to": "/home/lcj/paired_patches/fae49d997eb56fa7c74d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/fae49d997eb56fa7c74d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15d197a4580000",
+      "saved_to": "/home/lcj/paired_patches/fae49d997eb56fa7c74d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

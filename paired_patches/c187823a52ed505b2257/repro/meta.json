@@ -1,0 +1,50 @@
+{
+  "extid": "c187823a52ed505b2257",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c187823a52ed505b2257",
+  "bug_title": "WARNING in bond_xdp_get_xmit_slave (2)",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "bonding: Fix unnecessary warnings and logs from bond_xdp_get_xmit_slave()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0cbfd45fbcf0cb26d85c981b91c62fe73cdee01c",
+      "hash": "0cbfd45fbcf0cb26d85c981b91c62fe73cdee01c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jiwonaid0@gmail.com",
+      "author-name": "Jiwon Kim",
+      "date": "2024-09-18T14:06:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in bond_xdp_get_xmit_slave",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "73e931504f8e0d42978bfcda37b323dbbd1afc08",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b294e901e293e41b6374f056dcc8d4329780455c",
+  "syzkaller-commit": "b294e901e293e41b6374f056dcc8d4329780455c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13cf9325980000",
+      "saved_to": "/home/lcj/paired_patches/c187823a52ed505b2257/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1ace69f521989b1f",
+      "saved_to": "/home/lcj/paired_patches/c187823a52ed505b2257/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c187823a52ed505b2257/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c187823a52ed505b2257/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

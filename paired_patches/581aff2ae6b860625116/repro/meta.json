@@ -1,0 +1,50 @@
+{
+  "extid": "581aff2ae6b860625116",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=581aff2ae6b860625116",
+  "bug_title": "general protection fault in sctp_rcv",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "sctp: break out if skb_header_pointer returns NULL in sctp_rcv_ootb",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f7e745f8e94492a8ac0b0a26e25f2b19d342918f",
+      "hash": "f7e745f8e94492a8ac0b0a26e25f2b19d342918f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lucien.xin@gmail.com",
+      "author-name": "Xin Long",
+      "date": "2021-09-23T04:05:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in sctp_rcv",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "3106a0847525befe3e22fc723909d1b21eb0d520",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8cac236e8c3741446e540b2fe0702086a4ae4c17",
+  "syzkaller-commit": "8cac236e8c3741446e540b2fe0702086a4ae4c17",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11c036ad300000",
+      "saved_to": "/home/lcj/paired_patches/581aff2ae6b860625116/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6d93fe4341f98704",
+      "saved_to": "/home/lcj/paired_patches/581aff2ae6b860625116/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/581aff2ae6b860625116/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/581aff2ae6b860625116/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "3f497b07aa3baf2fb4d0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3f497b07aa3baf2fb4d0",
+  "bug_title": "KMSAN: uninit-value in __nla_validate_parse (3)",
+  "bug_status": "fixed on 2024/03/26 19:49",
+  "fix_commits": [
+    {
+      "title": "netlink: add nla be16/32 types to minlen array",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9a0d18853c280f6a0ee99f91619f2442a17a323a",
+      "hash": "9a0d18853c280f6a0ee99f91619f2442a17a323a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-02-21T17:27:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in __nla_validate_parse",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f2e367d6ad3bdc527c2b14e759c2f010d6b2b7a1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8d446f1521b580230a60c9ae228bf0c26312c80b",
+  "syzkaller-commit": "8d446f1521b580230a60c9ae228bf0c26312c80b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1433db72180000",
+      "saved_to": "/home/lcj/paired_patches/3f497b07aa3baf2fb4d0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1b015d567058472",
+      "saved_to": "/home/lcj/paired_patches/3f497b07aa3baf2fb4d0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/3f497b07aa3baf2fb4d0/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/3f497b07aa3baf2fb4d0/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

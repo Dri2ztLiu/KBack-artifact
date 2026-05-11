@@ -1,0 +1,50 @@
+{
+  "extid": "d371efea57d5aeab877b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d371efea57d5aeab877b",
+  "bug_title": "general protection fault in f2fs_check_opt_consistency",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to avoid NULL pointer dereference in f2fs_check_quota_consistency()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=930a9a6ee8e7ffa20af4bffbfc2bbd21d83bf81c",
+      "hash": "930a9a6ee8e7ffa20af4bffbfc2bbd21d83bf81c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2025-08-18T02:09:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in f2fs_check_opt_consistency",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0e39a731820ad26533eb988cef27ad2506063b5b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/22ec1469fe8c0ba256de07e8f97fa7b375b522bd",
+  "syzkaller-commit": "22ec1469fe8c0ba256de07e8f97fa7b375b522bd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16d96842580000",
+      "saved_to": "/home/lcj/paired_patches/d371efea57d5aeab877b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=13f39c6a0380a209",
+      "saved_to": "/home/lcj/paired_patches/d371efea57d5aeab877b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15a125a2580000",
+      "saved_to": "/home/lcj/paired_patches/d371efea57d5aeab877b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12c22c34580000",
+      "saved_to": "/home/lcj/paired_patches/d371efea57d5aeab877b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

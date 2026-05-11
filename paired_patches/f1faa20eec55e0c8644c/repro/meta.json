@@ -1,0 +1,50 @@
+{
+  "extid": "f1faa20eec55e0c8644c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f1faa20eec55e0c8644c",
+  "bug_title": "KASAN: null-ptr-deref Read in txBegin",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "FS: JFS: Fix null-ptr-deref Read in txBegin",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=47cfdc338d674d38f4b2f22b7612cc6a2763ba27",
+      "hash": "47cfdc338d674d38f4b2f22b7612cc6a2763ba27",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mirimmad17@gmail.com",
+      "author-name": "Immad Mir",
+      "date": "2023-06-23T13:44:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: null-ptr-deref Read in txBegin",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "dad9774deaf1cf8e8f7483310dfb2690310193d2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/09ffe269727719aad37ea8145eb57fefb0097165",
+  "syzkaller-commit": "09ffe269727719aad37ea8145eb57fefb0097165",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13334113280000",
+      "saved_to": "/home/lcj/paired_patches/f1faa20eec55e0c8644c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2cbd298d0aff1140",
+      "saved_to": "/home/lcj/paired_patches/f1faa20eec55e0c8644c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12e81cc0a80000",
+      "saved_to": "/home/lcj/paired_patches/f1faa20eec55e0c8644c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1473abf3280000",
+      "saved_to": "/home/lcj/paired_patches/f1faa20eec55e0c8644c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

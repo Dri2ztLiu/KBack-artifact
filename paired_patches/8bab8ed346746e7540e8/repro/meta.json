@@ -1,0 +1,50 @@
+{
+  "extid": "8bab8ed346746e7540e8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8bab8ed346746e7540e8",
+  "bug_title": "general protection fault in btf_type_id_size",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "bpf: Dont allow vmlinux BTF to be used in map_create and prog_load.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=350a5c4dd2452ea999cc5e1d4a8dbf12de2f97ef",
+      "hash": "350a5c4dd2452ea999cc5e1d4a8dbf12de2f97ef",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ast@kernel.org",
+      "author-name": "Alexei Starovoitov",
+      "date": "2021-03-08T12:32:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in btf_type_id_size",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "6185266c5a853bb0f2a459e3ff594546f277609b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/06ed56cd22e24a55c40d152880b66b108834c8f2",
+  "syzkaller-commit": "06ed56cd22e24a55c40d152880b66b108834c8f2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11887b46d00000",
+      "saved_to": "/home/lcj/paired_patches/8bab8ed346746e7540e8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e2d5ba72abae4f14",
+      "saved_to": "/home/lcj/paired_patches/8bab8ed346746e7540e8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=158426dad00000",
+      "saved_to": "/home/lcj/paired_patches/8bab8ed346746e7540e8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=139778aed00000",
+      "saved_to": "/home/lcj/paired_patches/8bab8ed346746e7540e8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

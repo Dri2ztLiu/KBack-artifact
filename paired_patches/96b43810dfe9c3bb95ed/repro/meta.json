@@ -1,0 +1,50 @@
+{
+  "extid": "96b43810dfe9c3bb95ed",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=96b43810dfe9c3bb95ed",
+  "bug_title": "memory leak in iovec_from_user",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "io_uring: free iovec if file assignment fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=323b190ba2debbcc03c01d2edaf1ec6b43e6ae43",
+      "hash": "323b190ba2debbcc03c01d2edaf1ec6b43e6ae43",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "axboe@kernel.dk",
+      "author-name": "Jens Axboe",
+      "date": "2022-04-17T03:14:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in iovec_from_user",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ce522ba9ef7e2d9fb22a39eb3371c0c64e2a433e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/dacb3f1c44e9c527b8bb595e3b37a43ca7733cc0",
+  "syzkaller-commit": "dacb3f1c44e9c527b8bb595e3b37a43ca7733cc0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1100db60f00000",
+      "saved_to": "/home/lcj/paired_patches/96b43810dfe9c3bb95ed/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b8f1a3425e05af27",
+      "saved_to": "/home/lcj/paired_patches/96b43810dfe9c3bb95ed/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17b428af700000",
+      "saved_to": "/home/lcj/paired_patches/96b43810dfe9c3bb95ed/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13c45d88f00000",
+      "saved_to": "/home/lcj/paired_patches/96b43810dfe9c3bb95ed/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

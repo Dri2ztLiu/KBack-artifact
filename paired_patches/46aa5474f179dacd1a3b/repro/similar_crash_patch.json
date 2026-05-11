@@ -1,0 +1,105 @@
+{
+  "extid": "46aa5474f179dacd1a3b",
+  "target_ref": "46aa5474f179dacd1a3b",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "8faabc041a001140564f718dabe37753e88b37fa",
+      "branch": "linux-6.1",
+      "title": "general protection fault in cleanup_bearer",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/mctp/route.c",
+        "net/mctp/test/route-test.c"
+      ],
+      "symbols": [
+        "mctp_route_input",
+        "mctp_route_input",
+        "mctp_route_input",
+        "mctp_route_input",
+        "mctp_route_input",
+        "mctp_route_input",
+        "mctp_route_input",
+        "mctp_test_route_input_multiple_nets_key",
+        "sock_queue_rcv_skb",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "if",
+        "sock_queue_rcv_skb",
+        "if",
+        "if",
+        "if",
+        "kfree_skb",
+        "kfree_skb",
+        "__mctp_route_test_init",
+        "lock_sock",
+        "WRITE_ONCE",
+        "release_sock",
+        "KUNIT_ASSERT_NOT_ERR_OR_NULL",
+        "skb_get",
+        "mctp_test_skb_set_dev",
+        "KUNIT_EXPECT_NE",
+        "KUNIT_EXPECT_EQ",
+        "kfree_skb",
+        "__mctp_route_test_fini",
+        "__mctp_route_test_init",
+        "lock_sock",
+        "WRITE_ONCE",
+        "release_sock",
+        "for",
+        "KUNIT_ASSERT_NOT_ERR_OR_NULL",
+        "skb_get",
+        "mctp_test_skb_set_dev",
+        "KUNIT_EXPECT_EQ",
+        "KUNIT_EXPECT_NE",
+        "KUNIT_EXPECT_EQ",
+        "kfree_skb",
+        "KUNIT_EXPECT_EQ",
+        "kfree_skb",
+        "__mctp_route_test_fini",
+        "KUNIT_CASE",
+        "KUNIT_CASE"
+      ],
+      "patterns": [
+        "refcount",
+        "race",
+        "NULL",
+        "null",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "963e654022cc32d72c184b4ab86a76226b3e3b8d",
+      "branch": "linux-5.15",
+      "title": "general protection fault in cleanup_bearer",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

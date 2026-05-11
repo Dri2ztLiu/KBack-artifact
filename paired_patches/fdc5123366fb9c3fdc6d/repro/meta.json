@@ -1,0 +1,50 @@
+{
+  "extid": "fdc5123366fb9c3fdc6d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fdc5123366fb9c3fdc6d",
+  "bug_title": "WARNING in __rate_control_send_low",
+  "bug_status": "fixed on 2024/05/22 23:08",
+  "fix_commits": [
+    {
+      "title": "wifi: mac80211: don't use rate mask for scanning",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ab9177d83c040eba58387914077ebca56f14fae6",
+      "hash": "ab9177d83c040eba58387914077ebca56f14fae6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2024-03-26T21:08:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __rate_control_send_low",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "13a2e429f644691fca70049ea1c75f135957c788",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/af24b0505c748561efb50f1d03c824d6642f6c0b",
+  "syzkaller-commit": "af24b0505c748561efb50f1d03c824d6642f6c0b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=117afcbf180000",
+      "saved_to": "/home/lcj/paired_patches/fdc5123366fb9c3fdc6d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d239903bd07761e5",
+      "saved_to": "/home/lcj/paired_patches/fdc5123366fb9c3fdc6d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=141a3353180000",
+      "saved_to": "/home/lcj/paired_patches/fdc5123366fb9c3fdc6d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13be201b180000",
+      "saved_to": "/home/lcj/paired_patches/fdc5123366fb9c3fdc6d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

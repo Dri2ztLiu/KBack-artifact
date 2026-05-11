@@ -1,0 +1,50 @@
+{
+  "extid": "ebd7072191e2eddd7d6e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ebd7072191e2eddd7d6e",
+  "bug_title": "kernel BUG in f2fs_put_super",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to drop meta_inode's page cache in f2fs_put_super()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a4639380bbe66172df329f8b54aa7d2e943f0f64",
+      "hash": "a4639380bbe66172df329f8b54aa7d2e943f0f64",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2023-09-05T04:57:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in f2fs_put_super",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3006adf3be79cde4d14b1800b963b82b6e5572e0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/db17ad9f74e0dd4957ca80d1e7fe4478aa57c9da",
+  "syzkaller-commit": "db17ad9f74e0dd4957ca80d1e7fe4478aa57c9da",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=160bf992680000",
+      "saved_to": "/home/lcj/paired_patches/ebd7072191e2eddd7d6e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=57da1ac039c4c78a",
+      "saved_to": "/home/lcj/paired_patches/ebd7072191e2eddd7d6e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ebd7072191e2eddd7d6e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ebd7072191e2eddd7d6e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

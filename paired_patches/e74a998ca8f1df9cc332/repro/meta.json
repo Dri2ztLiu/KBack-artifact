@@ -1,0 +1,50 @@
+{
+  "extid": "e74a998ca8f1df9cc332",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e74a998ca8f1df9cc332",
+  "bug_title": "WARNING in pvr2_i2c_core_done",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: pvrusb2: fix warning in pvr2_i2c_core_done",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f8194e5e63fdcb349e8da9eef9e574d5b1d687cb",
+      "hash": "f8194e5e63fdcb349e8da9eef9e574d5b1d687cb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mail@anirudhrb.com",
+      "author-name": "Anirudh Rayabharam",
+      "date": "2021-05-04T17:08:58Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in pvr2_i2c_core_done",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0c18f29aae7ce3dadd26d8ee3505d07cc982df75",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/aba2b2fb3544d9e42991237c13d8cada421deda5",
+  "syzkaller-commit": "aba2b2fb3544d9e42991237c13d8cada421deda5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11663258300000",
+      "saved_to": "/home/lcj/paired_patches/e74a998ca8f1df9cc332/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=42ecca11b759d96c",
+      "saved_to": "/home/lcj/paired_patches/e74a998ca8f1df9cc332/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=125d9b84300000",
+      "saved_to": "/home/lcj/paired_patches/e74a998ca8f1df9cc332/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12d35400300000",
+      "saved_to": "/home/lcj/paired_patches/e74a998ca8f1df9cc332/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "ec941d6e24f633a59172",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ec941d6e24f633a59172",
+  "bug_title": "possible deadlock in sock_hash_delete_elem (2)",
+  "bug_status": "fixed on 2024/06/11 03:41",
+  "fix_commits": [
+    {
+      "title": "bpf: Allow delete from sockmap/sockhash only if update is allowed",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=98e948fb60d41447fd8d2d0c3b8637fc6b6dc26d",
+      "hash": "98e948fb60d41447fd8d2d0c3b8637fc6b6dc26d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jakub@cloudflare.com",
+      "author-name": "Jakub Sitnicki",
+      "date": "2024-05-27T11:20:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in sock_hash_delete_elem",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "aea27a92a41dae14843f92c79e9e42d8f570105c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fdb4c10ce6d49163d1f57463d7ca0ae22b71e765",
+  "syzkaller-commit": "fdb4c10ce6d49163d1f57463d7ca0ae22b71e765",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=164d73d4980000",
+      "saved_to": "/home/lcj/paired_patches/ec941d6e24f633a59172/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6d14c12b661fb43",
+      "saved_to": "/home/lcj/paired_patches/ec941d6e24f633a59172/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15b73182980000",
+      "saved_to": "/home/lcj/paired_patches/ec941d6e24f633a59172/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1385b63f180000",
+      "saved_to": "/home/lcj/paired_patches/ec941d6e24f633a59172/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

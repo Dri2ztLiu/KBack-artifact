@@ -1,0 +1,50 @@
+{
+  "extid": "c88a7030da47945a3cc3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c88a7030da47945a3cc3",
+  "bug_title": "WARNING in mntput_no_expire (2)",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "Make sure nd->path.mnt and nd->path.dentry are always valid pointers",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7d01ef7585c07afaf487759a48486228cd065726",
+      "hash": "7d01ef7585c07afaf487759a48486228cd065726",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "viro@zeniv.linux.org.uk",
+      "author-name": "Al Viro",
+      "date": "2021-04-06T16:33:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in mntput_no_expire",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d19cc4bfbff1ae72c3505a00fb8ce0d3fa519e6c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "syzkaller-commit": "6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12f4cc31d00000",
+      "saved_to": "/home/lcj/paired_patches/c88a7030da47945a3cc3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d1a3d65a48dbd1bc",
+      "saved_to": "/home/lcj/paired_patches/c88a7030da47945a3cc3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=137694a1d00000",
+      "saved_to": "/home/lcj/paired_patches/c88a7030da47945a3cc3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12f50d11d00000",
+      "saved_to": "/home/lcj/paired_patches/c88a7030da47945a3cc3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

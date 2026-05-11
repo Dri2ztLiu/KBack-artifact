@@ -1,0 +1,50 @@
+{
+  "extid": "5134cdf021c4ed5aaa5f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5134cdf021c4ed5aaa5f",
+  "bug_title": "memory leak in rds_send_probe",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: rds: fix memory leak in rds_recvmsg",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=49bfcbfd989a8f1f23e705759a6bb099de2cff9f",
+      "hash": "49bfcbfd989a8f1f23e705759a6bb099de2cff9f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-06-08T08:06:41Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5ee88057889bbca5f5bb96031b62b3756b33e164",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/65a7a8540d29e72622fca06522587f7e66539fd3",
+  "syzkaller-commit": "65a7a8540d29e72622fca06522587f7e66539fd3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12592f0b500000",
+      "saved_to": "/home/lcj/paired_patches/5134cdf021c4ed5aaa5f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=850b6de5f8959443",
+      "saved_to": "/home/lcj/paired_patches/5134cdf021c4ed5aaa5f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=136ff0e7500000",
+      "saved_to": "/home/lcj/paired_patches/5134cdf021c4ed5aaa5f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12e5fb98d00000",
+      "saved_to": "/home/lcj/paired_patches/5134cdf021c4ed5aaa5f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

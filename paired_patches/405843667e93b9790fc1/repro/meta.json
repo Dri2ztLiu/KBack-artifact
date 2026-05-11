@@ -1,0 +1,50 @@
+{
+  "extid": "405843667e93b9790fc1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=405843667e93b9790fc1",
+  "bug_title": "WARNING in cfg80211_inform_single_bss_frame_data",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "mac80211: fix skb length check in ieee80211_scan_rx()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e298aa358f0ca658406d524b6639fe389cb6e11e",
+      "hash": "e298aa358f0ca658406d524b6639fe389cb6e11e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ducheng2@gmail.com",
+      "author-name": "Du Cheng",
+      "date": "2021-05-10T04:16:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in cfg80211_inform_single_bss_frame_data",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6642d600b541b81931fb1ab0c041b0d68f77be7e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fc9fd31ee7998c8b747752791000ea4eef07b5c6",
+  "syzkaller-commit": "fc9fd31ee7998c8b747752791000ea4eef07b5c6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=169f06bf500000",
+      "saved_to": "/home/lcj/paired_patches/405843667e93b9790fc1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=96b123631a6700e9",
+      "saved_to": "/home/lcj/paired_patches/405843667e93b9790fc1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=173e9028d00000",
+      "saved_to": "/home/lcj/paired_patches/405843667e93b9790fc1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13fdeca0d00000",
+      "saved_to": "/home/lcj/paired_patches/405843667e93b9790fc1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

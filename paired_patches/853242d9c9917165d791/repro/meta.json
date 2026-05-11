@@ -1,0 +1,50 @@
+{
+  "extid": "853242d9c9917165d791",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=853242d9c9917165d791",
+  "bug_title": "KMSAN: uninit-value in ___bpf_prog_run (4)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "ppp: Fix KMSAN uninit-value warning with bpf",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4c2d14c40a68678d885eab4008a0129646805bae",
+      "hash": "4c2d14c40a68678d885eab4008a0129646805bae",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jiayuan.chen@linux.dev",
+      "author-name": "Jiayuan Chen",
+      "date": "2025-02-28T14:14:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ___bpf_prog_run",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "06afb0f36106ecb839c5e2509905e68c1e2677de",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/68da6d951a345757b69b764ceb8dda1e9d65b038",
+  "syzkaller-commit": "68da6d951a345757b69b764ceb8dda1e9d65b038",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10e87b78580000",
+      "saved_to": "/home/lcj/paired_patches/853242d9c9917165d791/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ef9abe59471e0aee",
+      "saved_to": "/home/lcj/paired_patches/853242d9c9917165d791/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=102a975f980000",
+      "saved_to": "/home/lcj/paired_patches/853242d9c9917165d791/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=103481c0580000",
+      "saved_to": "/home/lcj/paired_patches/853242d9c9917165d791/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

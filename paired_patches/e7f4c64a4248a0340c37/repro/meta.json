@@ -1,0 +1,50 @@
+{
+  "extid": "e7f4c64a4248a0340c37",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e7f4c64a4248a0340c37",
+  "bug_title": "memory leak in hdcs_probe_1x00",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: gscpa/stv06xx: fix memory leak",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f4e6644cd876c844cdb3bea2dd7051787d5ae25",
+      "hash": "4f4e6644cd876c844cdb3bea2dd7051787d5ae25",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hverkuil-cisco@xs4all.nl",
+      "author-name": "Hans Verkuil",
+      "date": "2021-04-08T10:31:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in hdcs_probe_1x00",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2c87f7a38f930ef6f6a7bdd04aeb82ce3971b54b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/76f7fc952d5c6a94c61aa2628568ffddb533272a",
+  "syzkaller-commit": "76f7fc952d5c6a94c61aa2628568ffddb533272a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=139ad9b6d00000",
+      "saved_to": "/home/lcj/paired_patches/e7f4c64a4248a0340c37/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3dfc598676a6f0b5",
+      "saved_to": "/home/lcj/paired_patches/e7f4c64a4248a0340c37/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1689a292d00000",
+      "saved_to": "/home/lcj/paired_patches/e7f4c64a4248a0340c37/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=123a6632d00000",
+      "saved_to": "/home/lcj/paired_patches/e7f4c64a4248a0340c37/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

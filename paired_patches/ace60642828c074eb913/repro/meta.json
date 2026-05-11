@@ -1,0 +1,50 @@
+{
+  "extid": "ace60642828c074eb913",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ace60642828c074eb913",
+  "bug_title": "possible deadlock in lock_system_sleep",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "PM: hibernate: Avoid deadlock in hibernate_compressor_param_set()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=52323ed1444ea5c2a5f1754ea0a2d9c8c216ccdf",
+      "hash": "52323ed1444ea5c2a5f1754ea0a2d9c8c216ccdf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lizhi.xu@windriver.com",
+      "author-name": "Lizhi Xu",
+      "date": "2025-02-24T01:31:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in lock_system_sleep",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6537cfb395f352782918d8ee7b7f10ba2cc3cbf2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cbd8edabd77d676c77120894f85f37dbf22d32a1",
+  "syzkaller-commit": "cbd8edabd77d676c77120894f85f37dbf22d32a1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10b127f8580000",
+      "saved_to": "/home/lcj/paired_patches/ace60642828c074eb913/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=61cbf5ac8a063ad4",
+      "saved_to": "/home/lcj/paired_patches/ace60642828c074eb913/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1432cba4580000",
+      "saved_to": "/home/lcj/paired_patches/ace60642828c074eb913/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13e71498580000",
+      "saved_to": "/home/lcj/paired_patches/ace60642828c074eb913/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

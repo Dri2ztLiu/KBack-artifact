@@ -1,0 +1,50 @@
+{
+  "extid": "04afcb3d2c840447559a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=04afcb3d2c840447559a",
+  "bug_title": "KASAN: slab-out-of-bounds Read in taprio_dequeue_from_txq",
+  "bug_status": "fixed on 2023/09/28 17:51",
+  "fix_commits": [
+    {
+      "title": "net/sched: taprio: fix slab-out-of-bounds Read in taprio_dequeue_from_txq",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=be3618d9651002cd5ff190dbfc6cf78f03e34e27",
+      "hash": "be3618d9651002cd5ff190dbfc6cf78f03e34e27",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "shaozhengchao@huawei.com",
+      "author-name": "Zhengchao Shao",
+      "date": "2023-06-08T06:27:56Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in taprio_dequeue_from_txq",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cc3c44c9fda264c6d401be04e95449a57c1231c6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ecca8a243762a781257ba0b65291bca940e13e9c",
+  "syzkaller-commit": "ecca8a243762a781257ba0b65291bca940e13e9c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e3ee2a280000",
+      "saved_to": "/home/lcj/paired_patches/04afcb3d2c840447559a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4340592eb0a0a7c5",
+      "saved_to": "/home/lcj/paired_patches/04afcb3d2c840447559a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/04afcb3d2c840447559a/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=153c01dc280000",
+      "saved_to": "/home/lcj/paired_patches/04afcb3d2c840447559a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

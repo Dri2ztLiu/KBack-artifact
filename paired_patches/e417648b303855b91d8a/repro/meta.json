@@ -1,0 +1,50 @@
+{
+  "extid": "e417648b303855b91d8a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e417648b303855b91d8a",
+  "bug_title": "WARNING in __i2c_transfer (2)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "i2c: validate user data in compat ioctl",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bb436283e25aaf1533ce061605d23a9564447bdf",
+      "hash": "bb436283e25aaf1533ce061605d23a9564447bdf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-12-30T22:47:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __i2c_transfer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9eaa88c7036eda3f6c215f87ca693594cf90559b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/44068e196185e2f5a7c94629b6245cdde008b140",
+  "syzkaller-commit": "44068e196185e2f5a7c94629b6245cdde008b140",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12b40349b00000",
+      "saved_to": "/home/lcj/paired_patches/e417648b303855b91d8a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fa556098924b78f0",
+      "saved_to": "/home/lcj/paired_patches/e417648b303855b91d8a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14c33bcdb00000",
+      "saved_to": "/home/lcj/paired_patches/e417648b303855b91d8a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=122192dbb00000",
+      "saved_to": "/home/lcj/paired_patches/e417648b303855b91d8a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

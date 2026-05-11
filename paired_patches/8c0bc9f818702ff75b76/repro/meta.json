@@ -1,0 +1,50 @@
+{
+  "extid": "8c0bc9f818702ff75b76",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8c0bc9f818702ff75b76",
+  "bug_title": "WARNING in hfsplus_free_extents",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "hfsplus: remove mutex_lock check in hfsplus_free_extents",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fcb96956c921f1aae7e7b477f2435c56f77a31b4",
+      "hash": "fcb96956c921f1aae7e7b477f2435c56f77a31b4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "frank.li@vivo.com",
+      "author-name": "Yangtao Li",
+      "date": "2025-05-29T06:18:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hfsplus_free_extents",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7a13c14ee59d4f6c5f4277a86516cbc73a1383a8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ce7952f4e369f2440b2bc369868df305c42bf7d6",
+  "syzkaller-commit": "ce7952f4e369f2440b2bc369868df305c42bf7d6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1398e774580000",
+      "saved_to": "/home/lcj/paired_patches/8c0bc9f818702ff75b76/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a42a9d552788177b",
+      "saved_to": "/home/lcj/paired_patches/8c0bc9f818702ff75b76/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13d63774580000",
+      "saved_to": "/home/lcj/paired_patches/8c0bc9f818702ff75b76/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13880b68580000",
+      "saved_to": "/home/lcj/paired_patches/8c0bc9f818702ff75b76/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

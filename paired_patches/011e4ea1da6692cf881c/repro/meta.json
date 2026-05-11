@@ -1,0 +1,50 @@
+{
+  "extid": "011e4ea1da6692cf881c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=011e4ea1da6692cf881c",
+  "bug_title": "possible deadlock in pipe_write",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "fs/pipe: Fix lockdep false-positive in watchqueue pipe_write()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=055ca83559912f2cfd91c9441427bac4caf3c74e",
+      "hash": "055ca83559912f2cfd91c9441427bac4caf3c74e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jannh@google.com",
+      "author-name": "Jann Horn",
+      "date": "2023-11-24T15:08:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in pipe_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f5837722ffecbbedf1b1dbab072a063565f0dad1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=114f7bbee80000",
+      "saved_to": "/home/lcj/paired_patches/011e4ea1da6692cf881c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=da1c95d4e55dda83",
+      "saved_to": "/home/lcj/paired_patches/011e4ea1da6692cf881c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1451fdc9e80000",
+      "saved_to": "/home/lcj/paired_patches/011e4ea1da6692cf881c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14f09609e80000",
+      "saved_to": "/home/lcj/paired_patches/011e4ea1da6692cf881c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

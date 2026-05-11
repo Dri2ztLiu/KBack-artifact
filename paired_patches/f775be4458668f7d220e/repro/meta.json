@@ -1,0 +1,50 @@
+{
+  "extid": "f775be4458668f7d220e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f775be4458668f7d220e",
+  "bug_title": "general protection fault in __smc_diag_dump (4)",
+  "bug_status": "fixed on 2025/11/18 08:45",
+  "fix_commits": [
+    {
+      "title": "net/smc: fix general protection fault in __smc_diag_dump",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f584239a9ed25057496bf397c370cc5163dde419",
+      "hash": "f584239a9ed25057496bf397c370cc5163dde419",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "wangliang74@huawei.com",
+      "author-name": "Wang Liang",
+      "date": "2025-10-17T02:48:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in __smc_diag_dump",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5aca7966d2a7255ba92fd5e63268dd767b223aa5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "syzkaller-commit": "e2beed91937c0ace342f19a2e9afb67adb3a828a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14b04c7c580000",
+      "saved_to": "/home/lcj/paired_patches/f775be4458668f7d220e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8f01d8629880e620",
+      "saved_to": "/home/lcj/paired_patches/f775be4458668f7d220e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=115a9f62580000",
+      "saved_to": "/home/lcj/paired_patches/f775be4458668f7d220e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17aec534580000",
+      "saved_to": "/home/lcj/paired_patches/f775be4458668f7d220e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

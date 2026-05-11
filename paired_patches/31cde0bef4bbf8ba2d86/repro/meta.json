@@ -1,0 +1,50 @@
+{
+  "extid": "31cde0bef4bbf8ba2d86",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=31cde0bef4bbf8ba2d86",
+  "bug_title": "WARNING in ovs_dp_reset_user_features",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "openvswitch: switch from WARN to pr_warn",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd954cc1919e35cb92f78671cab6e42d661945a3",
+      "hash": "fd954cc1919e35cb92f78671cab6e42d661945a3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "aconole@redhat.com",
+      "author-name": "Aaron Conole",
+      "date": "2022-10-25T10:50:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ovs_dp_reset_user_features",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e8bc52cb8df80c31c73c726ab58ea9746e9ff734",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "syzkaller-commit": "aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=121c8da2880000",
+      "saved_to": "/home/lcj/paired_patches/31cde0bef4bbf8ba2d86/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7579993da6496f03",
+      "saved_to": "/home/lcj/paired_patches/31cde0bef4bbf8ba2d86/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1792461a880000",
+      "saved_to": "/home/lcj/paired_patches/31cde0bef4bbf8ba2d86/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12173a34880000",
+      "saved_to": "/home/lcj/paired_patches/31cde0bef4bbf8ba2d86/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

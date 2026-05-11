@@ -1,0 +1,35 @@
+{
+  "extid": "6596516dd2b635ba2350",
+  "target_ref": "6596516dd2b635ba2350",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "c3038e718a19fc596f7b1baba0f83d5146dc7784",
+      "branch": "linux-4.19",
+      "title": "general protection fault in find_match",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

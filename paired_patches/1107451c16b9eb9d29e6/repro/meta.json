@@ -1,0 +1,50 @@
+{
+  "extid": "1107451c16b9eb9d29e6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1107451c16b9eb9d29e6",
+  "bug_title": "kernel BUG in __hfsplus_setxattr",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "hfsplus: don't use BUG_ON() in hfsplus_create_attributes_file()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c7c6363ca186747ebc2df10c8a1a51e66e0e32d9",
+      "hash": "c7c6363ca186747ebc2df10c8a1a51e66e0e32d9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2025-07-15T05:17:56Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in __hfsplus_setxattr",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4d872d51bc9d7b899c1f61534e3dbde72613f627",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/16256247d9c41cf4980c36db3841ddd674a04b58",
+  "syzkaller-commit": "16256247d9c41cf4980c36db3841ddd674a04b58",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=178167a8580000",
+      "saved_to": "/home/lcj/paired_patches/1107451c16b9eb9d29e6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=77b023e9ae0dbb6a",
+      "saved_to": "/home/lcj/paired_patches/1107451c16b9eb9d29e6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14a8c654580000",
+      "saved_to": "/home/lcj/paired_patches/1107451c16b9eb9d29e6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=117d3b8c580000",
+      "saved_to": "/home/lcj/paired_patches/1107451c16b9eb9d29e6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "4fa4a2d1f5a5ee06f006",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4fa4a2d1f5a5ee06f006",
+  "bug_title": "INFO: task hung in unix_dgram_sendmsg",
+  "bug_status": "fixed on 2024/03/25 11:41",
+  "fix_commits": [
+    {
+      "title": "af_unix: Fix task hung while purging oob_skb in GC.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=25236c91b5ab4a26a56ba2e79b8060cf4e047839",
+      "hash": "25236c91b5ab4a26a56ba2e79b8060cf4e047839",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2024-02-09T22:04:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in unix_dgram_sendmsg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1f719a2f3fa67665578c759ac34fd3d3690c1a20",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7f07e9b0e2d1b715e875a446eea8399f9bb8a4b2",
+  "syzkaller-commit": "7f07e9b0e2d1b715e875a446eea8399f9bb8a4b2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=179d9b5c180000",
+      "saved_to": "/home/lcj/paired_patches/4fa4a2d1f5a5ee06f006/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=53985487b59d9442",
+      "saved_to": "/home/lcj/paired_patches/4fa4a2d1f5a5ee06f006/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=141c0cec180000",
+      "saved_to": "/home/lcj/paired_patches/4fa4a2d1f5a5ee06f006/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1636f042180000",
+      "saved_to": "/home/lcj/paired_patches/4fa4a2d1f5a5ee06f006/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

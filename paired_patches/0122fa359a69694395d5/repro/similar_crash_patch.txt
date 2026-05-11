@@ -1,0 +1,81 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  drivers/input/input-mt.c (1), Makefile (1)
+TOP_SYMBOLS:
+  input_mt_init_slots (1), VERSION (1)
+TOP_KEYWORDS:
+  WARN (2)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=input_mt_init_slots)
+  - viewcode(ref=<target_release>, path=drivers/input/input-mt.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=2, rows_scanned=2, candidates_kept=2, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 99d3bf5f7377d42f8be60a6b9cb60fb0be34dceb
+bug_url: https://syzkaller.appspot.com/bug?extid=2df60626c75e6a7751f4
+title: WARNING in input_mt_init_slots
+relevance_score: 0
+
+ drivers/input/input-mt.c | 3 +++
+ 1 file changed, 3 insertions(+)
+diff --git a/drivers/input/input-mt.c b/drivers/input/input-mt.c
+index 14b53dac1253..6b04a674f832 100644
+--- a/drivers/input/input-mt.c
++++ b/drivers/input/input-mt.c
+@@ -46,6 +46,9 @@ int input_mt_init_slots(struct input_dev *dev, unsigned int num_slots,
+ 		return 0;
+ 	if (mt)
+ 		return mt->num_slots != num_slots ? -EINVAL : 0;
++	/* Arbitrary limit for avoiding too large memory allocation. */
++	if (num_slots > 1024)
++		return -EINVAL;
+ 
+ 	mt = kzalloc(struct_size(mt, slots, num_slots), GFP_KERNEL);
+ 	if (!mt)
+================================================================================
+
+branch: linux-5.15
+fix_commit: da3ea35007d0af457a0afc87e84fddaebc4e0b63
+bug_url: https://syzkaller.appspot.com/bug?id=a07d42fd02ada1caf456346dd8053ca6125f4d02
+title: WARNING in input_mt_init_slots
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index b1f3bf584d4a..2966d5fbbf17 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ VERSION = 6
+ PATCHLEVEL = 11
+ SUBLEVEL = 0
+-EXTRAVERSION = -rc6
++EXTRAVERSION = -rc7
+ NAME = Baby Opossum Posse
+ 
+ # *DOCUMENTATION*
+================================================================================

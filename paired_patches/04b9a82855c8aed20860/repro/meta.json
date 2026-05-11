@@ -1,0 +1,50 @@
+{
+  "extid": "04b9a82855c8aed20860",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=04b9a82855c8aed20860",
+  "bug_title": "KMSAN: uninit-value in do_output_route4",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "ipvs: fix uninit-value for saddr in do_output_route4",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e34090d7214e0516eb8722aee295cb2507317c07",
+      "hash": "e34090d7214e0516eb8722aee295cb2507317c07",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ja@ssi.bg",
+      "author-name": "Julian Anastasov",
+      "date": "2025-05-02T22:01:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in do_output_route4",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "02ddfb981de88a2c15621115dd7be2431252c568",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a4fa04ef178601d46ebb3b4233c05c736fbaf9b3",
+  "syzkaller-commit": "a4fa04ef178601d46ebb3b4233c05c736fbaf9b3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15a95cd4580000",
+      "saved_to": "/home/lcj/paired_patches/04b9a82855c8aed20860/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9dc42c34a3f5c357",
+      "saved_to": "/home/lcj/paired_patches/04b9a82855c8aed20860/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/04b9a82855c8aed20860/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/04b9a82855c8aed20860/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

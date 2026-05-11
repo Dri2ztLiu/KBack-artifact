@@ -1,0 +1,50 @@
+{
+  "extid": "a36aac327960ff474804",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a36aac327960ff474804",
+  "bug_title": "WARNING in do_check",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "bpf: handle jset (if a & b ...) as a jump in CFG computation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3157f7e2999616ac91f4d559a8566214f74000a5",
+      "hash": "3157f7e2999616ac91f4d559a8566214f74000a5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eddyz87@gmail.com",
+      "author-name": "Eduard Zingerman",
+      "date": "2025-06-13T17:53:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in do_check",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git",
+  "kernel-source-commit": "1c66f4a3612c194f9b76e46e478bffa23398bf43",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/98683f8f094a4a5418f62711143436a99522360e",
+  "syzkaller-commit": "98683f8f094a4a5418f62711143436a99522360e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1053b682580000",
+      "saved_to": "/home/lcj/paired_patches/a36aac327960ff474804/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=73696606574e3967",
+      "saved_to": "/home/lcj/paired_patches/a36aac327960ff474804/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11a9ee0c580000",
+      "saved_to": "/home/lcj/paired_patches/a36aac327960ff474804/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1392610c580000",
+      "saved_to": "/home/lcj/paired_patches/a36aac327960ff474804/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

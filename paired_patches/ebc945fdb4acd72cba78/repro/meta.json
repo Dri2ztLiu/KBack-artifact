@@ -1,0 +1,50 @@
+{
+  "extid": "ebc945fdb4acd72cba78",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ebc945fdb4acd72cba78",
+  "bug_title": "KCSAN: data-race in rxrpc_send_data / rxrpc_set_call_completion",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "rxrpc: Fix potential data race in rxrpc_wait_to_be_connected()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2b5fdc0f5caa505afe34d608e2eefadadf2ee67a",
+      "hash": "2b5fdc0f5caa505afe34d608e2eefadadf2ee67a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2023-04-25T12:56:35Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in rxrpc_send_data / rxrpc_set_call_completion",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "148341f0a2f53b5e8808d093333d85170586a15d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/41147e3e361ee2d3b0109b5ab618354e96aa2ba5",
+  "syzkaller-commit": "41147e3e361ee2d3b0109b5ab618354e96aa2ba5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=115f9c0dc80000",
+      "saved_to": "/home/lcj/paired_patches/ebc945fdb4acd72cba78/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=54d63ee086ae78d0",
+      "saved_to": "/home/lcj/paired_patches/ebc945fdb4acd72cba78/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ebc945fdb4acd72cba78/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ebc945fdb4acd72cba78/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

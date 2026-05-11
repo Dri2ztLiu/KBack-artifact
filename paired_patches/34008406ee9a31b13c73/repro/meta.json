@@ -1,0 +1,50 @@
+{
+  "extid": "34008406ee9a31b13c73",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=34008406ee9a31b13c73",
+  "bug_title": "general protection fault in ir_raw_event_store_with_filter",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "media: streamzap: fix race between device disconnection and urb callback",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f656cfbc7a293a039d6a0c7100e1c846845148c1",
+      "hash": "f656cfbc7a293a039d6a0c7100e1c846845148c1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "m.masimov@mt-integration.ru",
+      "author-name": "Murad Masimov",
+      "date": "2025-01-13T10:51:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in ir_raw_event_store_with_filter",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4a5df37964673effcd9f84041f7423206a5ae5f2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cfe3a04a188eb9a2c407783d8d6e6f55a4b30886",
+  "syzkaller-commit": "cfe3a04a188eb9a2c407783d8d6e6f55a4b30886",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15add2e8580000",
+      "saved_to": "/home/lcj/paired_patches/34008406ee9a31b13c73/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4fca5d6b7cd3e6f",
+      "saved_to": "/home/lcj/paired_patches/34008406ee9a31b13c73/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=145adb5f980000",
+      "saved_to": "/home/lcj/paired_patches/34008406ee9a31b13c73/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=128eb2c0580000",
+      "saved_to": "/home/lcj/paired_patches/34008406ee9a31b13c73/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

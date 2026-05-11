@@ -1,0 +1,50 @@
+{
+  "extid": "7534f060ebda6b8b51b3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7534f060ebda6b8b51b3",
+  "bug_title": "KASAN: vmalloc-out-of-bounds Read in acpi_nfit_ctl (2)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "acpi: nfit: vmalloc-out-of-bounds Read in acpi_nfit_ctl",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=265e98f72bac6c41a4492d3e30a8e5fd22fe0779",
+      "hash": "265e98f72bac6c41a4492d3e30a8e5fd22fe0779",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "surajsonawane0215@gmail.com",
+      "author-name": "Suraj Sonawane",
+      "date": "2024-11-18T16:26:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: vmalloc-out-of-bounds Read in acpi_nfit_ctl",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2e1b3cc9d7f790145a80cb705b168f05dab65df2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/da38b4c931f2882f34163d41ac10bfc78112afc8",
+  "syzkaller-commit": "da38b4c931f2882f34163d41ac10bfc78112afc8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11f9b587980000",
+      "saved_to": "/home/lcj/paired_patches/7534f060ebda6b8b51b3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=11254d3590b16717",
+      "saved_to": "/home/lcj/paired_patches/7534f060ebda6b8b51b3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16418e30580000",
+      "saved_to": "/home/lcj/paired_patches/7534f060ebda6b8b51b3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12170f40580000",
+      "saved_to": "/home/lcj/paired_patches/7534f060ebda6b8b51b3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

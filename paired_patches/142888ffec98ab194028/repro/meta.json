@@ -1,0 +1,50 @@
+{
+  "extid": "142888ffec98ab194028",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=142888ffec98ab194028",
+  "bug_title": "KMSAN: uninit-value in video_usercopy (2)",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: v4l2-core: ignore native time32 ioctls on 64-bit",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c344f07aa1b4ba38ca8fabe407a2afe2f436323c",
+      "hash": "c344f07aa1b4ba38ca8fabe407a2afe2f436323c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "arnd@arndb.de",
+      "author-name": "Arnd Bergmann",
+      "date": "2021-06-14T10:34:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in video_usercopy",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "5e561f94df413430b9b23cd9ce89bc5adba52478",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8cac236e8c3741446e540b2fe0702086a4ae4c17",
+  "syzkaller-commit": "8cac236e8c3741446e540b2fe0702086a4ae4c17",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=113e7013300000",
+      "saved_to": "/home/lcj/paired_patches/142888ffec98ab194028/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ad91c207930201c5",
+      "saved_to": "/home/lcj/paired_patches/142888ffec98ab194028/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/142888ffec98ab194028/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/142888ffec98ab194028/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

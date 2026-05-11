@@ -1,0 +1,77 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (1), mm/zswap.c (1)
+TOP_SYMBOLS:
+  (none)
+TOP_KEYWORDS:
+  deadlock (2)
+
+Recommended next tool calls (example):
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 09045dae0d902f9f78901a26c7ff1714976a38f9
+bug_url: https://syzkaller.appspot.com/bug?extid=9d8847efe150ee2e2bcb
+title: possible deadlock in hfsplus_file_truncate
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index c627e0bdb19f..35fc0d62898d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 52
++SUBLEVEL = 53
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: d3d1556696c1a993eec54ac585fe5bf677e07474
+bug_url: https://syzkaller.appspot.com/bug?id=86ed08f9bf01d26ad615ecae652c21dfb0d9b73d
+title: possible deadlock in hfsplus_file_truncate
+relevance_score: 0
+
+ mm/zswap.c | 1 -
+ 1 file changed, 1 deletion(-)
+diff --git a/mm/zswap.c b/mm/zswap.c
+index 449914ea9919..162013952074 100644
+--- a/mm/zswap.c
++++ b/mm/zswap.c
+@@ -190,7 +190,6 @@ static struct shrinker *zswap_shrinker;
+  *              section for context.
+  * pool - the zswap_pool the entry's data is in
+  * handle - zpool allocation handle that stores the compressed page data
+- * value - value of the same-value filled pages which have same content
+  * objcg - the obj_cgroup that the compressed memory is charged to
+  * lru - handle to the pool's lru used to evict pages.
+  */
+================================================================================

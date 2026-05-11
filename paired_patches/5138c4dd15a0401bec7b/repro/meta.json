@@ -1,0 +1,50 @@
+{
+  "extid": "5138c4dd15a0401bec7b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5138c4dd15a0401bec7b",
+  "bug_title": "general protection fault in j1939_netdev_notify (2)",
+  "bug_status": "fixed on 2021/04/09 19:46",
+  "fix_commits": [
+    {
+      "title": "net: introduce CAN specific pointer in the struct net_device",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e096a18867a5a989b510f6999d9c6b6622e8f7b",
+      "hash": "4e096a18867a5a989b510f6999d9c6b6622e8f7b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "o.rempel@pengutronix.de",
+      "author-name": "Oleksij Rempel",
+      "date": "2021-02-24T22:32:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d635a69dd4981cc51f90293f5f64268620ed1565",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f213e07ead587b07a84e60c356520bce7277166c",
+  "syzkaller-commit": "f213e07ead587b07a84e60c356520bce7277166c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=179f9613500000",
+      "saved_to": "/home/lcj/paired_patches/5138c4dd15a0401bec7b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c3556e4856b17a95",
+      "saved_to": "/home/lcj/paired_patches/5138c4dd15a0401bec7b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10f2f30f500000",
+      "saved_to": "/home/lcj/paired_patches/5138c4dd15a0401bec7b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12955123500000",
+      "saved_to": "/home/lcj/paired_patches/5138c4dd15a0401bec7b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

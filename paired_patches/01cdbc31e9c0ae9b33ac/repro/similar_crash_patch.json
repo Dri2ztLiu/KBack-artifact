@@ -1,0 +1,68 @@
+{
+  "extid": "01cdbc31e9c0ae9b33ac",
+  "target_ref": "01cdbc31e9c0ae9b33ac",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "e269d79c7d35aa3808b1f3c1737d63dab504ddc8",
+      "branch": "linux-6.1",
+      "title": "WARNING in skb_checksum_help",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "include/linux/virtio_net.h"
+      ],
+      "symbols": [
+        "virtio_net_hdr_to_skb",
+        "virtio_net_hdr_to_skb",
+        "if",
+        "if",
+        "skb_shinfo",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "e269d79c7d35aa3808b1f3c1737d63dab504ddc8",
+      "branch": "linux-5.15",
+      "title": "WARNING in skb_checksum_help",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "include/linux/virtio_net.h"
+      ],
+      "symbols": [
+        "virtio_net_hdr_to_skb",
+        "virtio_net_hdr_to_skb",
+        "if",
+        "if",
+        "skb_shinfo",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

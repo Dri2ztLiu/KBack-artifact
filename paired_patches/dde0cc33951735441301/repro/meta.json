@@ -1,0 +1,50 @@
+{
+  "extid": "dde0cc33951735441301",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=dde0cc33951735441301",
+  "bug_title": "WARNING: suspicious RCU usage in getname_flags",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "rcu: Reject RCU_LOCKDEP_WARN() false positives",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3066820034b5dd4e89bd74a7739c51c2d6f5e554",
+      "hash": "3066820034b5dd4e89bd74a7739c51c2d6f5e554",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paulmck@kernel.org",
+      "author-name": "Paul E. McKenney",
+      "date": "2021-04-05T16:51:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: suspicious RCU usage in getname_flags",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2bb25b3a748af6f11df42298e80b9863ed23f2b3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "syzkaller-commit": "6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=105efb1ad00000",
+      "saved_to": "/home/lcj/paired_patches/dde0cc33951735441301/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=78ef1d159159890",
+      "saved_to": "/home/lcj/paired_patches/dde0cc33951735441301/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/dde0cc33951735441301/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/dde0cc33951735441301/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

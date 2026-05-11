@@ -1,0 +1,54 @@
+{
+  "extid": "15cd994e273307bf5cfa",
+  "target_ref": "15cd994e273307bf5cfa",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "59456c9cc40c8f75b5a7efa0fe1f211d9c6fcaf1",
+      "branch": "linux-4.19",
+      "title": "kernel BUG at fs/ext4/ext4.h:LINE!",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "9d5c0b3a8e1a8b6c4969f630803103978e8d17b6",
+      "branch": "linux-4.14",
+      "title": "kernel BUG in ext4_mb_load_buddy_gfp",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

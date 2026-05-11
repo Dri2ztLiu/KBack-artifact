@@ -1,0 +1,50 @@
+{
+  "extid": "f9238a0a31f9b5603fef",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f9238a0a31f9b5603fef",
+  "bug_title": "BUG: unable to handle kernel NULL pointer dereference in do_pagemap_scan",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "proc: fix the issue of proc_mem_open returning NULL",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=65c66047259fad1b868d4454bc5af95b46a5f954",
+      "hash": "65c66047259fad1b868d4454bc5af95b46a5f954",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "superman.xpt@gmail.com",
+      "author-name": "Penglei Jiang",
+      "date": "2025-04-04T06:33:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel NULL pointer dereference in do_pagemap_scan",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5f583a3162ffd9f7999af76b8ab634ce2dac9f90",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/edc5149ad2ab7a38db6b3bcb1b594e0264a92163",
+  "syzkaller-commit": "edc5149ad2ab7a38db6b3bcb1b594e0264a92163",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11f85aea980000",
+      "saved_to": "/home/lcj/paired_patches/f9238a0a31f9b5603fef/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d3143c4150f769d2",
+      "saved_to": "/home/lcj/paired_patches/f9238a0a31f9b5603fef/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10804151980000",
+      "saved_to": "/home/lcj/paired_patches/f9238a0a31f9b5603fef/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=160e148e980000",
+      "saved_to": "/home/lcj/paired_patches/f9238a0a31f9b5603fef/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

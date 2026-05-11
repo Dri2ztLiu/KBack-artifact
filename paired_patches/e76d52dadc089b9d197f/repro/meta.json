@@ -1,0 +1,50 @@
+{
+  "extid": "e76d52dadc089b9d197f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e76d52dadc089b9d197f",
+  "bug_title": "upstream test error: KMSAN: uninit-value in mctp_dump_addrinfo",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "net: mctp: Don't access ifa_index when missing",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f11cf946c0a92c560a890d68e4775723353599e1",
+      "hash": "f11cf946c0a92c560a890d68e4775723353599e1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "matt@codeconstruct.com.au",
+      "author-name": "Matt Johnston",
+      "date": "2025-05-08T05:18:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "upstream test error: KMSAN: uninit-value in mctp_dump_addrinfo",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3ce9925823c7d6bb0e6eb951bf2db0e9e182582d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/77908e5f2ae80bee6d434bca762a25a0a5fc6a83",
+  "syzkaller-commit": "77908e5f2ae80bee6d434bca762a25a0a5fc6a83",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=174e9670580000",
+      "saved_to": "/home/lcj/paired_patches/e76d52dadc089b9d197f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3ddec817dde34cc5",
+      "saved_to": "/home/lcj/paired_patches/e76d52dadc089b9d197f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e76d52dadc089b9d197f/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e76d52dadc089b9d197f/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

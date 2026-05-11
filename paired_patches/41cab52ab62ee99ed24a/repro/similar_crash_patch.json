@@ -1,0 +1,39 @@
+{
+  "extid": "41cab52ab62ee99ed24a",
+  "target_ref": "41cab52ab62ee99ed24a",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "bfe62a454542cfad3379f6ef5680b125f41e20f4",
+      "branch": "linux-6.1",
+      "title": "WARNING in __skb_flow_dissect",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [
+        "VERSION"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

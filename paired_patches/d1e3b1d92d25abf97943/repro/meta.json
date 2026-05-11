@@ -1,0 +1,50 @@
+{
+  "extid": "d1e3b1d92d25abf97943",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d1e3b1d92d25abf97943",
+  "bug_title": "general protection fault in legacy_parse_param",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "LSM: general protection fault in legacy_parse_param",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ecff30575b5ad0eda149aadad247b7f75411fd47",
+      "hash": "ecff30575b5ad0eda149aadad247b7f75411fd47",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "casey@schaufler-ca.com",
+      "author-name": "Casey Schaufler",
+      "date": "2022-01-27T04:51:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in legacy_parse_param",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "77dd11439b86e3f7990e4c0c9e0b67dca82750ba",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b318694d0fc0781d0bc1e3aebfb916aa36731024",
+  "syzkaller-commit": "b318694d0fc0781d0bc1e3aebfb916aa36731024",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15522c96300000",
+      "saved_to": "/home/lcj/paired_patches/d1e3b1d92d25abf97943/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2fd902af77ff1e56",
+      "saved_to": "/home/lcj/paired_patches/d1e3b1d92d25abf97943/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16216eb1300000",
+      "saved_to": "/home/lcj/paired_patches/d1e3b1d92d25abf97943/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=126d084d300000",
+      "saved_to": "/home/lcj/paired_patches/d1e3b1d92d25abf97943/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "d69a7cc8c683c2cb7506",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d69a7cc8c683c2cb7506",
+  "bug_title": "KCSAN: data-race in p9_conn_cancel / p9_write_work (7)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "9p/trans_fd: mark concurrent read and writes to p9_conn->err",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fbc0283fbeae27b88448c90305e738991457fee2",
+      "hash": "fbc0283fbeae27b88448c90305e738991457fee2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ignacio@iencinas.com",
+      "author-name": "Ignacio Encinas",
+      "date": "2025-03-18T21:39:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in p9_conn_cancel / p9_write_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "21e4543a2e2f8538373d1d19264c4bae6f13e798",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7e3bd60dd6c8f783f5a418c64aa75f6818236dc4",
+  "syzkaller-commit": "7e3bd60dd6c8f783f5a418c64aa75f6818236dc4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13999878580000",
+      "saved_to": "/home/lcj/paired_patches/d69a7cc8c683c2cb7506/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=523b0e2f15224775",
+      "saved_to": "/home/lcj/paired_patches/d69a7cc8c683c2cb7506/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d69a7cc8c683c2cb7506/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d69a7cc8c683c2cb7506/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

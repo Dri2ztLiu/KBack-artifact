@@ -1,0 +1,148 @@
+==================================================================
+BUG: KASAN: slab-use-after-free in unix_stream_read_actor+0xa7/0xc0 net/unix/af_unix.c:2866
+Read of size 4 at addr ffff88807f041904 by task syz-executor222/5856
+
+CPU: 0 PID: 5856 Comm: syz-executor222 Not tainted 6.6.0-syzkaller-16176-g1b907d050735 #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 10/09/2023
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:88 [inline]
+ dump_stack_lvl+0xd9/0x1b0 lib/dump_stack.c:106
+ print_address_description mm/kasan/report.c:364 [inline]
+ print_report+0xc4/0x620 mm/kasan/report.c:475
+ kasan_report+0xda/0x110 mm/kasan/report.c:588
+ unix_stream_read_actor+0xa7/0xc0 net/unix/af_unix.c:2866
+ unix_stream_recv_urg net/unix/af_unix.c:2587 [inline]
+ unix_stream_read_generic+0x19a5/0x2480 net/unix/af_unix.c:2666
+ unix_stream_recvmsg+0x189/0x1b0 net/unix/af_unix.c:2903
+ sock_recvmsg_nosec net/socket.c:1044 [inline]
+ sock_recvmsg+0xe2/0x170 net/socket.c:1066
+ ____sys_recvmsg+0x21f/0x5c0 net/socket.c:2803
+ ___sys_recvmsg+0x115/0x1a0 net/socket.c:2845
+ __sys_recvmsg+0x114/0x1e0 net/socket.c:2875
+ do_syscall_x64 arch/x86/entry/common.c:51 [inline]
+ do_syscall_64+0x3f/0x110 arch/x86/entry/common.c:82
+ entry_SYSCALL_64_after_hwframe+0x63/0x6b
+RIP: 0033:0x7fc5ada23559
+Code: 28 00 00 00 75 05 48 83 c4 28 c3 e8 51 18 00 00 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fc5ad9a2228 EFLAGS: 00000246 ORIG_RAX: 000000000000002f
+RAX: ffffffffffffffda RBX: 0000000000000035 RCX: 00007fc5ada23559
+RDX: 0000000040010083 RSI: 0000000020000140 RDI: 0000000000000004
+RBP: 00007fc5adaad348 R08: 00007fc5ad9a26c0 R09: 00007fc5ad9a26c0
+R10: 0000000000000000 R11: 0000000000000246 R12: 00007fc5adaad340
+R13: 00007fc5adaad34c R14: 00007ffe7c8d85a0 R15: 00007ffe7c8d8688
+ </TASK>
+
+Allocated by task 5854:
+ kasan_save_stack+0x33/0x50 mm/kasan/common.c:45
+ kasan_set_track+0x25/0x30 mm/kasan/common.c:52
+ __kasan_slab_alloc+0x81/0x90 mm/kasan/common.c:328
+ kasan_slab_alloc include/linux/kasan.h:188 [inline]
+ slab_post_alloc_hook mm/slab.h:763 [inline]
+ slab_alloc_node mm/slub.c:3478 [inline]
+ kmem_cache_alloc_node+0x180/0x3c0 mm/slub.c:3523
+ __alloc_skb+0x287/0x330 net/core/skbuff.c:641
+ alloc_skb include/linux/skbuff.h:1286 [inline]
+ alloc_skb_with_frags+0xe4/0x710 net/core/skbuff.c:6331
+ sock_alloc_send_pskb+0x7e4/0x970 net/core/sock.c:2780
+ sock_alloc_send_skb include/net/sock.h:1884 [inline]
+ queue_oob net/unix/af_unix.c:2147 [inline]
+ unix_stream_sendmsg+0xb5f/0x10a0 net/unix/af_unix.c:2301
+ sock_sendmsg_nosec net/socket.c:730 [inline]
+ __sock_sendmsg+0xd5/0x180 net/socket.c:745
+ ____sys_sendmsg+0x6ac/0x940 net/socket.c:2584
+ ___sys_sendmsg+0x135/0x1d0 net/socket.c:2638
+ __sys_sendmsg+0x117/0x1e0 net/socket.c:2667
+ do_syscall_x64 arch/x86/entry/common.c:51 [inline]
+ do_syscall_64+0x3f/0x110 arch/x86/entry/common.c:82
+ entry_SYSCALL_64_after_hwframe+0x63/0x6b
+
+Freed by task 5854:
+ kasan_save_stack+0x33/0x50 mm/kasan/common.c:45
+ kasan_set_track+0x25/0x30 mm/kasan/common.c:52
+ kasan_save_free_info+0x2b/0x40 mm/kasan/generic.c:522
+ ____kasan_slab_free mm/kasan/common.c:236 [inline]
+ ____kasan_slab_free+0x15b/0x1b0 mm/kasan/common.c:200
+ kasan_slab_free include/linux/kasan.h:164 [inline]
+ slab_free_hook mm/slub.c:1800 [inline]
+ slab_free_freelist_hook+0x114/0x1e0 mm/slub.c:1826
+ slab_free mm/slub.c:3809 [inline]
+ kmem_cache_free+0xf8/0x340 mm/slub.c:3831
+ kfree_skbmem+0xef/0x1b0 net/core/skbuff.c:1015
+ __kfree_skb net/core/skbuff.c:1073 [inline]
+ consume_skb net/core/skbuff.c:1288 [inline]
+ consume_skb+0xdf/0x170 net/core/skbuff.c:1282
+ queue_oob net/unix/af_unix.c:2178 [inline]
+ unix_stream_sendmsg+0xd49/0x10a0 net/unix/af_unix.c:2301
+ sock_sendmsg_nosec net/socket.c:730 [inline]
+ __sock_sendmsg+0xd5/0x180 net/socket.c:745
+ ____sys_sendmsg+0x6ac/0x940 net/socket.c:2584
+ ___sys_sendmsg+0x135/0x1d0 net/socket.c:2638
+ __sys_sendmsg+0x117/0x1e0 net/socket.c:2667
+ do_syscall_x64 arch/x86/entry/common.c:51 [inline]
+ do_syscall_64+0x3f/0x110 arch/x86/entry/common.c:82
+ entry_SYSCALL_64_after_hwframe+0x63/0x6b
+
+The buggy address belongs to the object at ffff88807f0418c0
+ which belongs to the cache skbuff_head_cache of size 240
+The buggy address is located 68 bytes inside of
+ freed 240-byte region [ffff88807f0418c0, ffff88807f0419b0)
+
+The buggy address belongs to the physical page:
+page:ffffea0001fc1040 refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x7f041
+flags: 0xfff00000000800(slab|node=0|zone=1|lastcpupid=0x7ff)
+page_type: 0xffffffff()
+raw: 00fff00000000800 ffff88814225a640 dead000000000122 0000000000000000
+raw: 0000000000000000 00000000000c000c 00000001ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 0, migratetype Unmovable, gfp_mask 0x12cc0(GFP_KERNEL|__GFP_NOWARN|__GFP_NORETRY), pid 5849, tgid 5838 (syz-executor222), ts 94694135656, free_ts 94528374814
+ set_page_owner include/linux/page_owner.h:31 [inline]
+ post_alloc_hook+0x2cf/0x340 mm/page_alloc.c:1537
+ prep_new_page mm/page_alloc.c:1544 [inline]
+ get_page_from_freelist+0xa25/0x36c0 mm/page_alloc.c:3312
+ __alloc_pages+0x1d0/0x4a0 mm/page_alloc.c:4568
+ alloc_pages_mpol+0x258/0x5f0 mm/mempolicy.c:2133
+ alloc_slab_page mm/slub.c:1870 [inline]
+ allocate_slab+0x251/0x380 mm/slub.c:2017
+ new_slab mm/slub.c:2070 [inline]
+ ___slab_alloc+0x8c7/0x1580 mm/slub.c:3223
+ __slab_alloc.constprop.0+0x56/0xa0 mm/slub.c:3322
+ __slab_alloc_node mm/slub.c:3375 [inline]
+ slab_alloc_node mm/slub.c:3468 [inline]
+ kmem_cache_alloc_node+0x132/0x3c0 mm/slub.c:3523
+ __alloc_skb+0x287/0x330 net/core/skbuff.c:641
+ alloc_skb include/linux/skbuff.h:1286 [inline]
+ alloc_skb_with_frags+0xe4/0x710 net/core/skbuff.c:6331
+ sock_alloc_send_pskb+0x7e4/0x970 net/core/sock.c:2780
+ sock_alloc_send_skb include/net/sock.h:1884 [inline]
+ queue_oob net/unix/af_unix.c:2147 [inline]
+ unix_stream_sendmsg+0xb5f/0x10a0 net/unix/af_unix.c:2301
+ sock_sendmsg_nosec net/socket.c:730 [inline]
+ __sock_sendmsg+0xd5/0x180 net/socket.c:745
+ ____sys_sendmsg+0x6ac/0x940 net/socket.c:2584
+ ___sys_sendmsg+0x135/0x1d0 net/socket.c:2638
+ __sys_sendmsg+0x117/0x1e0 net/socket.c:2667
+page last free stack trace:
+ reset_page_owner include/linux/page_owner.h:24 [inline]
+ free_pages_prepare mm/page_alloc.c:1137 [inline]
+ free_unref_page_prepare+0x4f8/0xa90 mm/page_alloc.c:2347
+ free_unref_page+0x33/0x3b0 mm/page_alloc.c:2487
+ vfree mm/vmalloc.c:2842 [inline]
+ vfree+0x3fb/0xe40 mm/vmalloc.c:2807
+ delayed_vfree_work+0x56/0x70 mm/vmalloc.c:2763
+ process_one_work+0x884/0x15c0 kernel/workqueue.c:2630
+ process_scheduled_works kernel/workqueue.c:2703 [inline]
+ worker_thread+0x8b9/0x1290 kernel/workqueue.c:2784
+ kthread+0x33c/0x440 kernel/kthread.c:388
+ ret_from_fork+0x45/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x11/0x20 arch/x86/entry/entry_64.S:242
+
+Memory state around the buggy address:
+ ffff88807f041800: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fc fc
+ ffff88807f041880: fc fc fc fc fc fc fc fc fa fb fb fb fb fb fb fb
+>ffff88807f041900: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                   ^
+ ffff88807f041980: fb fb fb fb fb fb fc fc fc fc fc fc fc fc fc fc
+ ffff88807f041a00: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================

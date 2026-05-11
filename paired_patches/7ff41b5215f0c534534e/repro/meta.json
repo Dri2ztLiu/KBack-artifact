@@ -1,0 +1,50 @@
+{
+  "extid": "7ff41b5215f0c534534e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7ff41b5215f0c534534e",
+  "bug_title": "BUG: soft lockup in rose_loopback_timer",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "net: rose: lock the socket in rose_bind()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a1300691aed9ee852b0a9192e29e2bdc2411a7e6",
+      "hash": "a1300691aed9ee852b0a9192e29e2bdc2411a7e6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2025-02-03T17:08:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: soft lockup in rose_loopback_timer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "573067a5a685c238d90270ffb6efae6b26c72fed",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/444551c40edde85b5e4900ae27d432bd1da7079c",
+  "syzkaller-commit": "444551c40edde85b5e4900ae27d432bd1da7079c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13d5c2f8580000",
+      "saved_to": "/home/lcj/paired_patches/7ff41b5215f0c534534e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cd7202b56d469648",
+      "saved_to": "/home/lcj/paired_patches/7ff41b5215f0c534534e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1663aadf980000",
+      "saved_to": "/home/lcj/paired_patches/7ff41b5215f0c534534e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15f4ffe8580000",
+      "saved_to": "/home/lcj/paired_patches/7ff41b5215f0c534534e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

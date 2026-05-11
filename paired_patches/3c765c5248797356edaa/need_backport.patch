@@ -1,0 +1,33 @@
+commit 714fbf2647b1a33d914edd695d4da92029c7e7c0
+Author: Dongliang Mu <mudongliangabcd@gmail.com>
+Date:   Tue Mar 22 14:38:39 2022 -0700
+
+    ntfs: add sanity check on allocation size
+    
+    ntfs_read_inode_mount invokes ntfs_malloc_nofs with zero allocation
+    size.  It triggers one BUG in the __ntfs_malloc function.
+    
+    Fix this by adding sanity check on ni->attr_list_size.
+    
+    Link: https://lkml.kernel.org/r/20220120094914.47736-1-dzm91@hust.edu.cn
+    Reported-by: syzbot+3c765c5248797356edaa@syzkaller.appspotmail.com
+    Signed-off-by: Dongliang Mu <mudongliangabcd@gmail.com>
+    Acked-by: Anton Altaparmakov <anton@tuxera.com>
+    Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+    Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+
+diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
+index 4474adb393ca..517b71c73aa9 100644
+--- a/fs/ntfs/inode.c
++++ b/fs/ntfs/inode.c
+@@ -1881,6 +1881,10 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 		}
+ 		/* Now allocate memory for the attribute list. */
+ 		ni->attr_list_size = (u32)ntfs_attr_size(a);
++		if (!ni->attr_list_size) {
++			ntfs_error(sb, "Attr_list_size is zero");
++			goto put_err_out;
++		}
+ 		ni->attr_list = ntfs_malloc_nofs(ni->attr_list_size);
+ 		if (!ni->attr_list) {
+ 			ntfs_error(sb, "Not enough memory to allocate buffer "

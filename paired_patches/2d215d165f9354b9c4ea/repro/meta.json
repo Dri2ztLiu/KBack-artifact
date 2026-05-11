@@ -1,0 +1,50 @@
+{
+  "extid": "2d215d165f9354b9c4ea",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2d215d165f9354b9c4ea",
+  "bug_title": "KASAN: slab-out-of-bounds Write in fuse_dev_do_write",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "fuse: Block access to folio overlimit",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9d81ba6d49a7457784f0b6a71046818b86ec7e44",
+      "hash": "9d81ba6d49a7457784f0b6a71046818b86ec7e44",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2025-08-27T01:45:55Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Write in fuse_dev_do_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cf6fc5eefc5bbbbff92a085039ff74cdbd065c29",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bf27483f963359281b2d9b6d6efd36289f82e282",
+  "syzkaller-commit": "bf27483f963359281b2d9b6d6efd36289f82e282",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12be3fa2580000",
+      "saved_to": "/home/lcj/paired_patches/2d215d165f9354b9c4ea/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b7511150b112b9c3",
+      "saved_to": "/home/lcj/paired_patches/2d215d165f9354b9c4ea/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=152a8c42580000",
+      "saved_to": "/home/lcj/paired_patches/2d215d165f9354b9c4ea/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=175e5062580000",
+      "saved_to": "/home/lcj/paired_patches/2d215d165f9354b9c4ea/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

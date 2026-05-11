@@ -1,0 +1,39 @@
+{
+  "extid": "316db8a1191938280eb6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=316db8a1191938280eb6",
+  "bug_title": "KASAN: slab-use-after-free Read in ovl_dentry_update_reval",
+  "bug_status": "auto-obsoleted due to no activity on 2024/10/09 18:32",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in ovl_dentry_update_reval",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9903efbddba0d14133b5a3c75088b558d2e34ac3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b294e901e293e41b6374f056dcc8d4329780455c",
+  "syzkaller-commit": "b294e901e293e41b6374f056dcc8d4329780455c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=106cb1a9980000",
+      "saved_to": "/home/lcj/paired_patches/316db8a1191938280eb6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d29e97614bab40fc",
+      "saved_to": "/home/lcj/paired_patches/316db8a1191938280eb6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/316db8a1191938280eb6/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/316db8a1191938280eb6/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

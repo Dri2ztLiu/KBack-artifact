@@ -1,0 +1,50 @@
+{
+  "extid": "7bb7cd3595533513a9e7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7bb7cd3595533513a9e7",
+  "bug_title": "WARNING in hfs_write_inode",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "hfs/hfsplus: avoid WARN_ON() for sanity check, use proper error handling",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cb7a95af78d29442b8294683eca4897544b8ef46",
+      "hash": "cb7a95af78d29442b8294683eca4897544b8ef46",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "torvalds@linux-foundation.org",
+      "author-name": "Linus Torvalds",
+      "date": "2023-01-04T19:06:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hfs_write_inode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "88603b6dc419445847923fcb7fe5080067a30f98",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ab32d50881df9f96f2af301aadca62ad00b7e099",
+  "syzkaller-commit": "ab32d50881df9f96f2af301aadca62ad00b7e099",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12a5c50c480000",
+      "saved_to": "/home/lcj/paired_patches/7bb7cd3595533513a9e7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9babfdc3dd4772d0",
+      "saved_to": "/home/lcj/paired_patches/7bb7cd3595533513a9e7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1448f348480000",
+      "saved_to": "/home/lcj/paired_patches/7bb7cd3595533513a9e7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11868684480000",
+      "saved_to": "/home/lcj/paired_patches/7bb7cd3595533513a9e7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

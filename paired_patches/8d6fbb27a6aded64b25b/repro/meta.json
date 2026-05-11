@@ -1,0 +1,50 @@
+{
+  "extid": "8d6fbb27a6aded64b25b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8d6fbb27a6aded64b25b",
+  "bug_title": "KASAN: slab-out-of-bounds Read in run_unpack",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix slab-out-of-bounds read in run_unpack",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=887bfc546097fbe8071dac13b2fef73b77920899",
+      "hash": "887bfc546097fbe8071dac13b2fef73b77920899",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yin31149@gmail.com",
+      "author-name": "Hawkins Jiawei",
+      "date": "2022-09-23T11:09:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in run_unpack",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f9ff5644bcc04221bae56f922122f2b7f5d24d62",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/05494336991504e3c6137b89eeddd492e17af6b6",
+  "syzkaller-commit": "05494336991504e3c6137b89eeddd492e17af6b6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12e30e9f880000",
+      "saved_to": "/home/lcj/paired_patches/8d6fbb27a6aded64b25b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c163713cf9186fe7",
+      "saved_to": "/home/lcj/paired_patches/8d6fbb27a6aded64b25b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10a35d8b880000",
+      "saved_to": "/home/lcj/paired_patches/8d6fbb27a6aded64b25b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14eccfaf880000",
+      "saved_to": "/home/lcj/paired_patches/8d6fbb27a6aded64b25b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

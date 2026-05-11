@@ -1,0 +1,50 @@
+{
+  "extid": "85992ace37d5b7b51635",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=85992ace37d5b7b51635",
+  "bug_title": "UBSAN: shift-out-of-bounds in iova_bitmap_alloc",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "iommufd/iova_bitmap: Fix shift-out-of-bounds in iova_bitmap_offset_to_index()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e24c1551059268b37f6f40639883eafb281b8b9c",
+      "hash": "e24c1551059268b37f6f40639883eafb281b8b9c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "qasdev00@gmail.com",
+      "author-name": "Qasim Ijaz",
+      "date": "2025-01-13T22:38:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in iova_bitmap_alloc",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "09a0fa92e5b45e99cf435b2fbf5ebcf889cf8780",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "syzkaller-commit": "f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17168dc4580000",
+      "saved_to": "/home/lcj/paired_patches/85992ace37d5b7b51635/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4ef22c4fce5135b4",
+      "saved_to": "/home/lcj/paired_patches/85992ace37d5b7b51635/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=159e8ef8580000",
+      "saved_to": "/home/lcj/paired_patches/85992ace37d5b7b51635/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=121fbedf980000",
+      "saved_to": "/home/lcj/paired_patches/85992ace37d5b7b51635/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

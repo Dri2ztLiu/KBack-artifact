@@ -1,0 +1,50 @@
+{
+  "extid": "ad24705d3fd6463b18c6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ad24705d3fd6463b18c6",
+  "bug_title": "WARNING in nsim_map_alloc_elem",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "netdevsim: Avoid allocation warnings triggered from user space",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d0b80a9edb1a029ff913e81b47540e57ad034329",
+      "hash": "d0b80a9edb1a029ff913e81b47540e57ad034329",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2022-07-26T21:36:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in nsim_map_alloc_elem",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git",
+  "kernel-source-commit": "b77ffb30cfc5f58e957571d8541c6a7e3da19221",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/775344bcdc412431da5fa825b1012f0290fc8064",
+  "syzkaller-commit": "775344bcdc412431da5fa825b1012f0290fc8064",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=132e6f9a080000",
+      "saved_to": "/home/lcj/paired_patches/ad24705d3fd6463b18c6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=386b986585586629",
+      "saved_to": "/home/lcj/paired_patches/ad24705d3fd6463b18c6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16d71a9c080000",
+      "saved_to": "/home/lcj/paired_patches/ad24705d3fd6463b18c6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=102ad7c6080000",
+      "saved_to": "/home/lcj/paired_patches/ad24705d3fd6463b18c6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

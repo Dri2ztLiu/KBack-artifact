@@ -1,0 +1,50 @@
+{
+  "extid": "a25ee9d20d31e483ba7b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a25ee9d20d31e483ba7b",
+  "bug_title": "KASAN: slab-use-after-free Write in __xfrm_state_delete",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "xfrm: xfrm_alloc_spi shouldn't use 0 as SPI",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cd8ae32e4e4652db55bce6b9c79267d8946765a9",
+      "hash": "cd8ae32e4e4652db55bce6b9c79267d8946765a9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sd@queasysnail.net",
+      "author-name": "Sabrina Dubroca",
+      "date": "2025-08-29T08:54:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Write in __xfrm_state_delete",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "71ca59e234454b10149e5218f06348897bfee94e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "syzkaller-commit": "d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12e71162580000",
+      "saved_to": "/home/lcj/paired_patches/a25ee9d20d31e483ba7b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=807fffde4ddbe9ec",
+      "saved_to": "/home/lcj/paired_patches/a25ee9d20d31e483ba7b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=172ce312580000",
+      "saved_to": "/home/lcj/paired_patches/a25ee9d20d31e483ba7b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10248134580000",
+      "saved_to": "/home/lcj/paired_patches/a25ee9d20d31e483ba7b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

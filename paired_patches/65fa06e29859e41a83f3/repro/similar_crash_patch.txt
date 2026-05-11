@@ -1,0 +1,106 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (2), drivers/md/dm-table.c (1)
+TOP_SYMBOLS:
+  memcpy (2), VERSION (1), realloc_argv (1)
+TOP_KEYWORDS:
+  out-of-bounds (3), UBSAN (2), KASAN (1), slab (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=memcpy)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=5, rows_scanned=5, candidates_kept=3, skipped=2
+skip_breakdown: skip_upstream=2, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: ccd1cdca5cd433c8a5dff78b69a79b31d9b77ee1
+bug_url: https://syzkaller.appspot.com/bug?extid=1bf0cad7a945867a458d
+title: KASAN: slab-out-of-bounds Read in dtReadFirst
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index e404e4767944..3cd00b62cde9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ VERSION = 6
+ PATCHLEVEL = 19
+ SUBLEVEL = 0
+-EXTRAVERSION = -rc1
++EXTRAVERSION = -rc2
+ NAME = Baby Opossum Posse
+ 
+ # *DOCUMENTATION*
+================================================================================
+
+branch: linux-6.1
+fix_commit: e4d90d63d385228b1e0bcf31cc15539bbbc28f7f
+bug_url: https://syzkaller.appspot.com/bug?extid=c91d8e1bcb467d1a75ff
+title: UBSAN: array-index-out-of-bounds in dtReadFirst
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index ca304cece572..cc153c731405 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 118
++SUBLEVEL = 119
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: 7a13c14ee59d4f6c5f4277a86516cbc73a1383a8
+bug_url: https://syzkaller.appspot.com/bug?extid=77ed0aca57849509422b
+title: UBSAN: array-index-out-of-bounds in dtReadFirst
+relevance_score: 0
+
+ drivers/md/dm-table.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+diff --git a/drivers/md/dm-table.c b/drivers/md/dm-table.c
+index 53759dbbe9d6..9e175c5e0634 100644
+--- a/drivers/md/dm-table.c
++++ b/drivers/md/dm-table.c
+@@ -523,9 +523,10 @@ static char **realloc_argv(unsigned int *size, char **old_argv)
+ 		gfp = GFP_NOIO;
+ 	}
+ 	argv = kmalloc_array(new_size, sizeof(*argv), gfp);
+-	if (argv && old_argv) {
+-		memcpy(argv, old_argv, *size * sizeof(*argv));
++	if (argv) {
+ 		*size = new_size;
++		if (old_argv)
++			memcpy(argv, old_argv, *size * sizeof(*argv));
+ 	}
+ 
+ 	kfree(old_argv);
+================================================================================

@@ -1,0 +1,50 @@
+{
+  "extid": "03110230a11411024147",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=03110230a11411024147",
+  "bug_title": "KASAN: use-after-free Read in ath9k_hif_usb_rx_cb (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "ath9k: fix use-after-free in ath9k_hif_usb_rx_cb",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0ac4827f78c7ffe8eef074bc010e7e34bc22f533",
+      "hash": "0ac4827f78c7ffe8eef074bc010e7e34bc22f533",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2022-06-13T18:43:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in ath9k_hif_usb_rx_cb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "200e340f2196d7fd427a5810d06e893b932f145a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a6201f1167d158d5a0538c3d29bc3b2bebb0a4fd",
+  "syzkaller-commit": "a6201f1167d158d5a0538c3d29bc3b2bebb0a4fd",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=174e79dd080000",
+      "saved_to": "/home/lcj/paired_patches/03110230a11411024147/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f2886ebe3c7b3459",
+      "saved_to": "/home/lcj/paired_patches/03110230a11411024147/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1321d6c3080000",
+      "saved_to": "/home/lcj/paired_patches/03110230a11411024147/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=170bdb53080000",
+      "saved_to": "/home/lcj/paired_patches/03110230a11411024147/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

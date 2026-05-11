@@ -1,0 +1,50 @@
+{
+  "extid": "58b51ac2b04e388ab7b0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=58b51ac2b04e388ab7b0",
+  "bug_title": "kernel BUG in binder_alloc_deferred_release",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "android: binder: stop saving a pointer to the VMA",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a43cfc87caaf46710c8027a8c23b8a55f1078f19",
+      "hash": "a43cfc87caaf46710c8027a8c23b8a55f1078f19",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Liam.Howlett@oracle.com",
+      "author-name": "Liam R. Howlett",
+      "date": "2022-06-21T01:09:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in binder_alloc_deferred_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "6012273897fefb12566580efedee10bb06e5e6ed",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1719ee24e741afb177677e9644f1c74aef1060fb",
+  "syzkaller-commit": "1719ee24e741afb177677e9644f1c74aef1060fb",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=174b91a7f00000",
+      "saved_to": "/home/lcj/paired_patches/58b51ac2b04e388ab7b0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b4154677977b1776",
+      "saved_to": "/home/lcj/paired_patches/58b51ac2b04e388ab7b0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=113e407ff00000",
+      "saved_to": "/home/lcj/paired_patches/58b51ac2b04e388ab7b0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1024e510080000",
+      "saved_to": "/home/lcj/paired_patches/58b51ac2b04e388ab7b0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

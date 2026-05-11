@@ -1,0 +1,50 @@
+{
+  "extid": "a0d1f7e26910be4dc171",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a0d1f7e26910be4dc171",
+  "bug_title": "KASAN: slab-out-of-bounds Read in btrfs_qgroup_inherit",
+  "bug_status": "fixed on 2024/08/06 11:02",
+  "fix_commits": [
+    {
+      "title": "btrfs: always do the basic checks for btrfs_qgroup_inherit structure",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=724d8042cef84496ddb4492dc120291f997ae26b",
+      "hash": "724d8042cef84496ddb4492dc120291f997ae26b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "wqu@suse.com",
+      "author-name": "Qu Wenruo",
+      "date": "2024-06-24T05:40:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in btrfs_qgroup_inherit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2ab79514109578fc4b6df90633d500cf281eb689",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/11f2afa5a3c8cc88e10b001d6eb8790c8a3b91a7",
+  "syzkaller-commit": "11f2afa5a3c8cc88e10b001d6eb8790c8a3b91a7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17948fb4980000",
+      "saved_to": "/home/lcj/paired_patches/a0d1f7e26910be4dc171/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=eb72437243175f22",
+      "saved_to": "/home/lcj/paired_patches/a0d1f7e26910be4dc171/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12e69a16980000",
+      "saved_to": "/home/lcj/paired_patches/a0d1f7e26910be4dc171/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12d4179a980000",
+      "saved_to": "/home/lcj/paired_patches/a0d1f7e26910be4dc171/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

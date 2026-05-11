@@ -1,0 +1,39 @@
+{
+  "extid": "55c12726619ff85ce1f6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=55c12726619ff85ce1f6",
+  "bug_title": "KASAN: slab-use-after-free Read in tipc_aead_encrypt_done",
+  "bug_status": "auto-obsoleted due to no activity on 2024/08/26 21:55",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in tipc_aead_encrypt_done",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e0cce98fe279b64f4a7d81b7f5c3a23d80b92fbc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/34889ee3b09e7b4d381828377aa6173bfcc36cc7",
+  "syzkaller-commit": "34889ee3b09e7b4d381828377aa6173bfcc36cc7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10c71f1a980000",
+      "saved_to": "/home/lcj/paired_patches/55c12726619ff85ce1f6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=238430243a58f702",
+      "saved_to": "/home/lcj/paired_patches/55c12726619ff85ce1f6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/55c12726619ff85ce1f6/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/55c12726619ff85ce1f6/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

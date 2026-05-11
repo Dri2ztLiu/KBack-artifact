@@ -1,0 +1,50 @@
+{
+  "extid": "8c652f14a0fde76ff11d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8c652f14a0fde76ff11d",
+  "bug_title": "INFO: trying to register non-static key in ntfs_file_release",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Additional check in ntfs_file_release",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=031d6f608290c847ba6378322d0986d08d1a645a",
+      "hash": "031d6f608290c847ba6378322d0986d08d1a645a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-09-04T09:57:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in ntfs_file_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "20371ba120635d9ab7fc7670497105af8f33eb08",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ee2602b8aa3e172d05dbaff914a78720b3dd04f9",
+  "syzkaller-commit": "ee2602b8aa3e172d05dbaff914a78720b3dd04f9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13a80129980000",
+      "saved_to": "/home/lcj/paired_patches/8c652f14a0fde76ff11d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d806687521800cad",
+      "saved_to": "/home/lcj/paired_patches/8c652f14a0fde76ff11d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8c652f14a0fde76ff11d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8c652f14a0fde76ff11d/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "extid": "3f6a670108ce43356017",
+  "target_ref": "3f6a670108ce43356017",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "f66af88e33212b57ea86da2c5d66c0d9d5c46344",
+      "branch": "linux-5.15",
+      "title": "KASAN: use-after-free Read in qd_unlock",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/gfs2/super.c",
+        "fs/gfs2/util.c"
+      ],
+      "symbols": [
+        "gfs2_make_fs_ro",
+        "gfs2_put_super",
+        "signal_our_withdraw",
+        "wait_event_timeout",
+        "gfs2_log_is_empty",
+        "if",
+        "if",
+        "gfs2_quota_cleanup",
+        "gfs2_make_fs_ro",
+        "if",
+        "kthread_stop",
+        "if",
+        "kthread_stop",
+        "wait_event_timeout",
+        "gfs2_log_is_empty"
+      ],
+      "patterns": [
+        "use-after-free",
+        "NULL",
+        "null",
+        "KASAN",
+        "WARN",
+        "mutex"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

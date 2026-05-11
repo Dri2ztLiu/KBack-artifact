@@ -1,0 +1,50 @@
+{
+  "extid": "0abd373e2e50d704db87",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0abd373e2e50d704db87",
+  "bug_title": "INFO: task hung in vhost_work_dev_flush",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "vhost: fix hung thread due to erroneous iotlb entries",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2ae38cf3d91837a493cb2093c87700ff3cbe667",
+      "hash": "e2ae38cf3d91837a493cb2093c87700ff3cbe667",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mail@anirudhrb.com",
+      "author-name": "Anirudh Rayabharam",
+      "date": "2022-03-05T09:55:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in vhost_work_dev_flush",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e6251ab4551f51fa4cee03523e08051898c3ce82",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0b33604d8e2793b82ec89abecf82d92b82e3d410",
+  "syzkaller-commit": "0b33604d8e2793b82ec89abecf82d92b82e3d410",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11dcf52c700000",
+      "saved_to": "/home/lcj/paired_patches/0abd373e2e50d704db87/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=266de9da75c71a45",
+      "saved_to": "/home/lcj/paired_patches/0abd373e2e50d704db87/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16ca671c700000",
+      "saved_to": "/home/lcj/paired_patches/0abd373e2e50d704db87/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=108514a4700000",
+      "saved_to": "/home/lcj/paired_patches/0abd373e2e50d704db87/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,67 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/core/sock_map.c (1)
+TOP_SYMBOLS:
+  __sock_map_delete (1), sock_hash_delete_elem (1), spin_lock_bh (1)
+TOP_KEYWORDS:
+  WARN (1), spin_lock (1), net (1), bpf (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=__sock_map_delete)
+  - viewcode(ref=<target_release>, path=net/core/sock_map.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=2, rows_scanned=2, candidates_kept=1, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: ff91059932401894e6c86341915615c5eb0eca48
+bug_url: https://syzkaller.appspot.com/bug?extid=12d910b559660fec2af0
+title: WARNING in __mod_timer
+relevance_score: 0
+
+ net/core/sock_map.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+diff --git a/net/core/sock_map.c b/net/core/sock_map.c
+index 27d733c0f65e..8598466a3805 100644
+--- a/net/core/sock_map.c
++++ b/net/core/sock_map.c
+@@ -411,6 +411,9 @@ static int __sock_map_delete(struct bpf_stab *stab, struct sock *sk_test,
+ 	struct sock *sk;
+ 	int err = 0;
+ 
++	if (irqs_disabled())
++		return -EOPNOTSUPP; /* locks here are hardirq-unsafe */
++
+ 	spin_lock_bh(&stab->lock);
+ 	sk = *psk;
+ 	if (!sk_test || sk_test == sk)
+@@ -933,6 +936,9 @@ static long sock_hash_delete_elem(struct bpf_map *map, void *key)
+ 	struct bpf_shtab_elem *elem;
+ 	int ret = -ENOENT;
+ 
++	if (irqs_disabled())
++		return -EOPNOTSUPP; /* locks here are hardirq-unsafe */
++
+ 	hash = sock_hash_bucket_hash(key, key_size);
+ 	bucket = sock_hash_select_bucket(htab, hash);
+================================================================================

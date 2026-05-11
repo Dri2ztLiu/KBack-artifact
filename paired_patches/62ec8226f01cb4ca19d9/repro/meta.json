@@ -1,0 +1,50 @@
+{
+  "extid": "62ec8226f01cb4ca19d9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=62ec8226f01cb4ca19d9",
+  "bug_title": "KMSAN: uninit-value in lan78xx_reset",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "net: usb: lan78xx: Fix lost EEPROM read timeout error(-ETIMEDOUT) in lan78xx_read_raw_eeprom",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=49bdb63ff64469a6de8ea901aef123c75be9bbe7",
+      "hash": "49bdb63ff64469a6de8ea901aef123c75be9bbe7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "bhanuseshukumar@gmail.com",
+      "author-name": "Bhanu Seshu Kumar Valluri",
+      "date": "2025-09-30T08:49:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in lan78xx_reset",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7f7072574127c9e971cad83a0274e86f6275c0d5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/49379ee008e5f2af6e551c2e23fcd6b1ebb4d5c2",
+  "syzkaller-commit": "49379ee008e5f2af6e551c2e23fcd6b1ebb4d5c2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13b8d942580000",
+      "saved_to": "/home/lcj/paired_patches/62ec8226f01cb4ca19d9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3efb3c89344fb053",
+      "saved_to": "/home/lcj/paired_patches/62ec8226f01cb4ca19d9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17ca65cd980000",
+      "saved_to": "/home/lcj/paired_patches/62ec8226f01cb4ca19d9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14731214580000",
+      "saved_to": "/home/lcj/paired_patches/62ec8226f01cb4ca19d9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

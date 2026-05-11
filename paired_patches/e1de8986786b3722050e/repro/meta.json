@@ -1,0 +1,50 @@
+{
+  "extid": "e1de8986786b3722050e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e1de8986786b3722050e",
+  "bug_title": "memory leak in cinergyt2_fe_attach",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: dvd_usb: memory leak in cinergyt2_fe_attach",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9ad1efee086e0e913914fa2b2173efb830bad68c",
+      "hash": "9ad1efee086e0e913914fa2b2173efb830bad68c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mudongliangabcd@gmail.com",
+      "author-name": "Dongliang Mu",
+      "date": "2021-05-25T13:06:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6279d812eab67a6df6b22fa495201db6f2305924",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c104d4a3bfc1f83e7ed33b4dca70e099402ce39f",
+  "syzkaller-commit": "c104d4a3bfc1f83e7ed33b4dca70e099402ce39f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11012ba8d00000",
+      "saved_to": "/home/lcj/paired_patches/e1de8986786b3722050e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=67a7baec24faba80",
+      "saved_to": "/home/lcj/paired_patches/e1de8986786b3722050e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17de98af500000",
+      "saved_to": "/home/lcj/paired_patches/e1de8986786b3722050e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12b3b9c0d00000",
+      "saved_to": "/home/lcj/paired_patches/e1de8986786b3722050e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

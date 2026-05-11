@@ -1,0 +1,50 @@
+{
+  "extid": "9204e7399656300bf271",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9204e7399656300bf271",
+  "bug_title": "INFO: task hung in nfnetlink_rcv_msg (3)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "netfilter: ipset: Rework long task execution when adding/deleting entries",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5e29dc36bd5e2166b834ceb19990d9e68a734d7d",
+      "hash": "5e29dc36bd5e2166b834ceb19990d9e68a734d7d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kadlec@netfilter.org",
+      "author-name": "Jozsef Kadlecsik",
+      "date": "2022-12-30T12:24:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in nfnetlink_rcv_msg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0d1409e4ff08aa4a9a254d3f723410db32aa7552",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67be1ae742603edad9c97d30b6ed69f9bbe2ffa8",
+  "syzkaller-commit": "67be1ae742603edad9c97d30b6ed69f9bbe2ffa8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17bd0607880000",
+      "saved_to": "/home/lcj/paired_patches/9204e7399656300bf271/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4edf421741552bc3",
+      "saved_to": "/home/lcj/paired_patches/9204e7399656300bf271/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=137cde67880000",
+      "saved_to": "/home/lcj/paired_patches/9204e7399656300bf271/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13456bdb880000",
+      "saved_to": "/home/lcj/paired_patches/9204e7399656300bf271/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

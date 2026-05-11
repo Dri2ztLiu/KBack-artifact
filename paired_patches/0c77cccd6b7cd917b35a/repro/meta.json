@@ -1,0 +1,50 @@
+{
+  "extid": "0c77cccd6b7cd917b35a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0c77cccd6b7cd917b35a",
+  "bug_title": "BUG: stack guard page was hit in sock_close",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "atm: clip: Fix infinite recursive call of clip_push().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c489f3283dbfc0f3c00c312149cae90d27552c45",
+      "hash": "c489f3283dbfc0f3c00c312149cae90d27552c45",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-07-04T06:23:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: stack guard page was hit in sock_close",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d0b3b7b22dfa1f4b515fd3a295b3fd958f9e81af",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6e83b42dcfcd13c3b8e0d5c803cdcc424c0fbff9",
+  "syzkaller-commit": "6e83b42dcfcd13c3b8e0d5c803cdcc424c0fbff9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1428588c580000",
+      "saved_to": "/home/lcj/paired_patches/0c77cccd6b7cd917b35a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b2b65db779ece75e",
+      "saved_to": "/home/lcj/paired_patches/0c77cccd6b7cd917b35a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0c77cccd6b7cd917b35a/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0c77cccd6b7cd917b35a/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

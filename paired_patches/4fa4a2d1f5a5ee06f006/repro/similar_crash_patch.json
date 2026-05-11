@@ -1,0 +1,52 @@
+{
+  "extid": "4fa4a2d1f5a5ee06f006",
+  "target_ref": "4fa4a2d1f5a5ee06f006",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "8b4118fabd6eb75fed19483b04dab3a036886489",
+      "branch": "linux-6.1",
+      "title": "INFO: task hung in unix_dgram_sendmsg",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "hung"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "458ce51d0356ee60c93f9f807d9827cf2a41643d",
+      "branch": "linux-5.15",
+      "title": "INFO: task hung in unix_dgram_sendmsg",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "hung"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

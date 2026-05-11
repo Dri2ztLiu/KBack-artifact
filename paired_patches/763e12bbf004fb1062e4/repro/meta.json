@@ -1,0 +1,50 @@
+{
+  "extid": "763e12bbf004fb1062e4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=763e12bbf004fb1062e4",
+  "bug_title": "WARNING: ODEBUG bug in io_sq_offload_create",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "io_uring/sqpoll: don't put task_struct on tctx setup failure",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f2320f1dd6f6f82cb2c7aff23a12bab537bdea89",
+      "hash": "f2320f1dd6f6f82cb2c7aff23a12bab537bdea89",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "axboe@kernel.dk",
+      "author-name": "Jens Axboe",
+      "date": "2025-06-17T12:43:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: ODEBUG bug in io_sq_offload_create",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8c6bc74c7f8910ed4c969ccec52e98716f98700a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5f4b362dd3e6002bc038df522a090cd629d834a8",
+  "syzkaller-commit": "5f4b362dd3e6002bc038df522a090cd629d834a8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=141e25d4580000",
+      "saved_to": "/home/lcj/paired_patches/763e12bbf004fb1062e4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1ab5c40b21ee326a",
+      "saved_to": "/home/lcj/paired_patches/763e12bbf004fb1062e4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10c5710c580000",
+      "saved_to": "/home/lcj/paired_patches/763e12bbf004fb1062e4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13ea3d70580000",
+      "saved_to": "/home/lcj/paired_patches/763e12bbf004fb1062e4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

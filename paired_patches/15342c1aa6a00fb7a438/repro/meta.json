@@ -1,0 +1,50 @@
+{
+  "extid": "15342c1aa6a00fb7a438",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=15342c1aa6a00fb7a438",
+  "bug_title": "UBSAN: shift-out-of-bounds in dbAllocAG",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fs: jfs: fix shift-out-of-bounds in dbAllocAG",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=898f706695682b9954f280d95e49fa86ffa55d08",
+      "hash": "898f706695682b9954f280d95e49fa86ffa55d08",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mudongliangabcd@gmail.com",
+      "author-name": "Dongliang Mu",
+      "date": "2022-10-18T13:48:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in dbAllocAG",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e8bc52cb8df80c31c73c726ab58ea9746e9ff734",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "syzkaller-commit": "aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13f05e34880000",
+      "saved_to": "/home/lcj/paired_patches/15342c1aa6a00fb7a438/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1b85abe77fd80fd6",
+      "saved_to": "/home/lcj/paired_patches/15342c1aa6a00fb7a438/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11c4e8c8880000",
+      "saved_to": "/home/lcj/paired_patches/15342c1aa6a00fb7a438/repro/repro.c",
+      "ok": false,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13484b5c880000",
+      "saved_to": "/home/lcj/paired_patches/15342c1aa6a00fb7a438/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

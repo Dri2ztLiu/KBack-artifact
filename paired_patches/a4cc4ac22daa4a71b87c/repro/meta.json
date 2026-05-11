@@ -1,0 +1,50 @@
+{
+  "extid": "a4cc4ac22daa4a71b87c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a4cc4ac22daa4a71b87c",
+  "bug_title": "WARNING in remove_proc_entry (8)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "nfs: Clean up /proc/net/rpc/nfs when nfs_fs_proc_net_init() fails.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e8d6f3ab59468e230f3253efe5cb63efa35289f7",
+      "hash": "e8d6f3ab59468e230f3253efe5cb63efa35289f7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-06-12T21:52:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in remove_proc_entry",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7595b66ae9de667bf35a8c99e8f1bfc4792e207e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/26d77996cd6057592f0d7212c9017e8b62be66e8",
+  "syzkaller-commit": "26d77996cd6057592f0d7212c9017e8b62be66e8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10735182580000",
+      "saved_to": "/home/lcj/paired_patches/a4cc4ac22daa4a71b87c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4ad206eb0100c6a2",
+      "saved_to": "/home/lcj/paired_patches/a4cc4ac22daa4a71b87c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a4cc4ac22daa4a71b87c/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12a21b70580000",
+      "saved_to": "/home/lcj/paired_patches/a4cc4ac22daa4a71b87c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "extid": "29c3c12f3214b85ad081",
+  "target_ref": "29c3c12f3214b85ad081",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "2d19be4653f5e74ed95560b69f94eb6791d49af3",
+      "branch": "linux-4.19",
+      "title": "general protection fault in tls_sk_proto_close",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "a6969ef522a36d3344c9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a6969ef522a36d3344c9",
+  "bug_title": "BUG: corrupted list in em28xx_init_extension",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "media: em28xx: add missing em28xx_close_extension",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2c98b8a3458df03abdc6945bbef67ef91d181938",
+      "hash": "2c98b8a3458df03abdc6945bbef67ef91d181938",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-07-29T20:23:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: corrupted list in em28xx_init_extension",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8cae8cd89f05f6de223d63e6d15e31c8ba9cf53b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1b201b48c59d619af21de7fcc5face22824c0285",
+  "syzkaller-commit": "1b201b48c59d619af21de7fcc5face22824c0285",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14631a5a300000",
+      "saved_to": "/home/lcj/paired_patches/a6969ef522a36d3344c9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=300aea483211c875",
+      "saved_to": "/home/lcj/paired_patches/a6969ef522a36d3344c9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14794b5a300000",
+      "saved_to": "/home/lcj/paired_patches/a6969ef522a36d3344c9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=119f92ec300000",
+      "saved_to": "/home/lcj/paired_patches/a6969ef522a36d3344c9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

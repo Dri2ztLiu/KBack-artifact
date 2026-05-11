@@ -1,0 +1,50 @@
+{
+  "extid": "47c24ca20a2fa01f082e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=47c24ca20a2fa01f082e",
+  "bug_title": "general protection fault in sctp_outq_tail",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "sctp: check send stream number after wait_for_sndbuf",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2584024b23552c00d95b50255e47bd18d306d31a",
+      "hash": "2584024b23552c00d95b50255e47bd18d306d31a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lucien.xin@gmail.com",
+      "author-name": "Xin Long",
+      "date": "2023-04-01T23:09:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in sctp_outq_tail",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "cdd28833100c18a469c85a1cc3de9f6bbbe6caa0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4fc6d98dc6e07cb8bfec99a0e049b31083fa09d1",
+  "syzkaller-commit": "4fc6d98dc6e07cb8bfec99a0e049b31083fa09d1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=131ee992c80000",
+      "saved_to": "/home/lcj/paired_patches/47c24ca20a2fa01f082e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cab35c936731a347",
+      "saved_to": "/home/lcj/paired_patches/47c24ca20a2fa01f082e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17f6e90ac80000",
+      "saved_to": "/home/lcj/paired_patches/47c24ca20a2fa01f082e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15d80ff4c80000",
+      "saved_to": "/home/lcj/paired_patches/47c24ca20a2fa01f082e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

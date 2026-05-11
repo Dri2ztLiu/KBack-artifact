@@ -1,0 +1,60 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/bluetooth/hci_event.c (1)
+TOP_SYMBOLS:
+  hci_phy_link_complete_evt (1), hci_dev_unlock (1)
+TOP_KEYWORDS:
+  net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=hci_phy_link_complete_evt)
+  - viewcode(ref=<target_release>, path=net/bluetooth/hci_event.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=1, rows_scanned=1, candidates_kept=1, skipped=0
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-4.19
+fix_commit: 6dfccd13db2ff2b709ef60a50163925d477549aa
+bug_url: https://syzkaller.appspot.com/bug?extid=9758f63eddf37e367cf2
+title: general protection fault in hci_event_packet
+relevance_score: 0
+
+ net/bluetooth/hci_event.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
+index f04963914366..e72982b69f6b 100644
+--- a/net/bluetooth/hci_event.c
++++ b/net/bluetooth/hci_event.c
+@@ -4941,6 +4941,11 @@ static void hci_phy_link_complete_evt(struct hci_dev *hdev,
+ 		return;
+ 	}
+ 
++	if (!hcon->amp_mgr) {
++		hci_dev_unlock(hdev);
++		return;
++	}
++
+ 	if (ev->status) {
+ 		hci_conn_del(hcon);
+ 		hci_dev_unlock(hdev);
+================================================================================

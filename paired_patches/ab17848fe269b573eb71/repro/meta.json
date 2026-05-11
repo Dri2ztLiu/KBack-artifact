@@ -1,0 +1,50 @@
+{
+  "extid": "ab17848fe269b573eb71",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ab17848fe269b573eb71",
+  "bug_title": "memory leak in do_seccomp (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "seccomp: Move copy_seccomp() to no failure path.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a1140cb215fa13dcec06d12ba0c3ee105633b7c4",
+      "hash": "a1140cb215fa13dcec06d12ba0c3ee105633b7c4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2022-08-23T15:45:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in do_seccomp",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "72a8e05d4f66b5af7854df4490e3135168694b6b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d91dd8ea00d74ae74acc65bc8e744802c7c72e31",
+  "syzkaller-commit": "d91dd8ea00d74ae74acc65bc8e744802c7c72e31",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=159d14dc080000",
+      "saved_to": "/home/lcj/paired_patches/ab17848fe269b573eb71/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=689b5fe7168a1260",
+      "saved_to": "/home/lcj/paired_patches/ab17848fe269b573eb71/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14cf8e42080000",
+      "saved_to": "/home/lcj/paired_patches/ab17848fe269b573eb71/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1464e72c080000",
+      "saved_to": "/home/lcj/paired_patches/ab17848fe269b573eb71/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "4f98876664c7337a4ae6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4f98876664c7337a4ae6",
+  "bug_title": "WARNING in bpf_prog_test_run_raw_tp",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "bpf: Reject too big ctx_size_in for raw_tp test run",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7ac6ad051150592557520b45773201b987ecfce3",
+      "hash": "7ac6ad051150592557520b45773201b987ecfce3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "songliubraving@fb.com",
+      "author-name": "Song Liu",
+      "date": "2021-01-14T03:31:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "f6e7a024bfe5e11d91ccff46bb576e3fb5a516ea",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b1c228e1773559f05fa98950902ab025d6ab946e",
+  "syzkaller-commit": "b1c228e1773559f05fa98950902ab025d6ab946e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1753c72f500000",
+      "saved_to": "/home/lcj/paired_patches/4f98876664c7337a4ae6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8aa30b9da402d224",
+      "saved_to": "/home/lcj/paired_patches/4f98876664c7337a4ae6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1773c767500000",
+      "saved_to": "/home/lcj/paired_patches/4f98876664c7337a4ae6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1004b248d00000",
+      "saved_to": "/home/lcj/paired_patches/4f98876664c7337a4ae6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

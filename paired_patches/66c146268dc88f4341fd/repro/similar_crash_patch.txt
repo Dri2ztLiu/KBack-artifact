@@ -1,0 +1,85 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/ocfs2/buffer_head_io.c (1), fs/ocfs2/alloc.c (1)
+TOP_SYMBOLS:
+  ocfs2_read_blocks (1), ocfs2_metadata_cache_io_unlock (1), __ocfs2_find_path (1), ocfs2_error (1), le16_to_cpu (1)
+TOP_KEYWORDS:
+  use-after-free (2), KASAN (2), NULL (1), null (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ocfs2_read_blocks)
+  - viewcode(ref=<target_release>, path=fs/ocfs2/buffer_head_io.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: c03a82b4a0c935774afa01fd6d128b444fd930a1
+bug_url: https://syzkaller.appspot.com/bug?extid=f8b0b16d348d536d9a6b
+title: KASAN: use-after-free Read in __ocfs2_find_path
+relevance_score: 0
+
+ fs/ocfs2/buffer_head_io.c | 1 -
+ 1 file changed, 1 deletion(-)
+diff --git a/fs/ocfs2/buffer_head_io.c b/fs/ocfs2/buffer_head_io.c
+index cdb9b9bdea1f..e62c7e1de4eb 100644
+--- a/fs/ocfs2/buffer_head_io.c
++++ b/fs/ocfs2/buffer_head_io.c
+@@ -235,7 +235,6 @@ int ocfs2_read_blocks(struct ocfs2_caching_info *ci, u64 block, int nr,
+ 		if (bhs[i] == NULL) {
+ 			bhs[i] = sb_getblk(sb, block++);
+ 			if (bhs[i] == NULL) {
+-				ocfs2_metadata_cache_io_unlock(ci);
+ 				status = -ENOMEM;
+ 				mlog_errno(status);
+ 				/* Don't forget to put previous bh! */
+================================================================================
+
+branch: linux-5.15
+fix_commit: a406aff8c05115119127c962cbbbbd202e1973ef
+bug_url: https://syzkaller.appspot.com/bug?extid=e41668d5154370928317
+title: KASAN: use-after-free Read in __ocfs2_find_path
+relevance_score: 0
+
+ fs/ocfs2/alloc.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+diff --git a/fs/ocfs2/alloc.c b/fs/ocfs2/alloc.c
+index 4414743b638e..b8ac85b548c7 100644
+--- a/fs/ocfs2/alloc.c
++++ b/fs/ocfs2/alloc.c
+@@ -1803,6 +1803,14 @@ static int __ocfs2_find_path(struct ocfs2_caching_info *ci,
+ 
+ 	el = root_el;
+ 	while (el->l_tree_depth) {
++		if (unlikely(le16_to_cpu(el->l_tree_depth) >= OCFS2_MAX_PATH_DEPTH)) {
++			ocfs2_error(ocfs2_metadata_cache_get_super(ci),
++				    "Owner %llu has invalid tree depth %u in extent list\n",
++				    (unsigned long long)ocfs2_metadata_cache_owner(ci),
++				    le16_to_cpu(el->l_tree_depth));
++			ret = -EROFS;
++			goto out;
++		}
+ 		if (le16_to_cpu(el->l_next_free_rec) == 0) {
+ 			ocfs2_error(ocfs2_metadata_cache_get_super(ci),
+ 				    "Owner %llu has empty extent list at depth %u\n",
+================================================================================

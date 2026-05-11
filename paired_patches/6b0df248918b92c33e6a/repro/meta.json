@@ -1,0 +1,50 @@
+{
+  "extid": "6b0df248918b92c33e6a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6b0df248918b92c33e6a",
+  "bug_title": "KASAN: slab-use-after-free Write in recv_work",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "nbd: don't allow reconnect after disconnect",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=844b8cdc681612ff24df62cdefddeab5772fadf1",
+      "hash": "844b8cdc681612ff24df62cdefddeab5772fadf1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yukuai3@huawei.com",
+      "author-name": "Yu Kuai",
+      "date": "2025-01-03T09:28:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Write in recv_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "276f98efb64a2c31c099465ace78d3054c662a0f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67cf53451a9e04583ca8397b8a2eba399e4fae22",
+  "syzkaller-commit": "67cf53451a9e04583ca8397b8a2eba399e4fae22",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1298c5a8580000",
+      "saved_to": "/home/lcj/paired_patches/6b0df248918b92c33e6a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b1635bf4c5557b92",
+      "saved_to": "/home/lcj/paired_patches/6b0df248918b92c33e6a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/6b0df248918b92c33e6a/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/6b0df248918b92c33e6a/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

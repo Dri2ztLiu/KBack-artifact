@@ -1,0 +1,50 @@
+{
+  "extid": "e9632e3eb038d93d6bc6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e9632e3eb038d93d6bc6",
+  "bug_title": "memory leak in ath9k_hif_usb_rx_cb",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "wifi: ath9k: hif_usb: clean up skbs if ath9k_hif_usb_rx_stream() fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0af54343a76263a12dbae7fafb64eb47c4a6ad38",
+      "hash": "0af54343a76263a12dbae7fafb64eb47c4a6ad38",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pchelkin@ispras.ru",
+      "author-name": "Fedor Pchelkin",
+      "date": "2023-01-04T12:36:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in ath9k_hif_usb_rx_cb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6f1f5caed5bfadd1cc8bdb0563eb8874dc3573ca",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b18f0a64c547e066dca1eba82a3ada7ef5e54741",
+  "syzkaller-commit": "b18f0a64c547e066dca1eba82a3ada7ef5e54741",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11354400480000",
+      "saved_to": "/home/lcj/paired_patches/e9632e3eb038d93d6bc6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=aa9d05fc5567240b",
+      "saved_to": "/home/lcj/paired_patches/e9632e3eb038d93d6bc6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10d07e77880000",
+      "saved_to": "/home/lcj/paired_patches/e9632e3eb038d93d6bc6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1138a5c0480000",
+      "saved_to": "/home/lcj/paired_patches/e9632e3eb038d93d6bc6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "c71bc336c5061153b502",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c71bc336c5061153b502",
+  "bug_title": "general protection fault in dccp_write_xmit (2)",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "net: Return error from sk_stream_wait_connect() if sk_wait_event() fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cac23b7d7627915d967ce25436d7aae26e88ed06",
+      "hash": "cac23b7d7627915d967ce25436d7aae26e88ed06",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2023-12-14T05:09:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in dccp_write_xmit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "89cdf9d556016a54ff6ddd62324aa5ec790c05cc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/45e9b83e7898237d71f11368ddd097422e2f328f",
+  "syzkaller-commit": "45e9b83e7898237d71f11368ddd097422e2f328f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=143c951f680000",
+      "saved_to": "/home/lcj/paired_patches/c71bc336c5061153b502/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f6659852f386d627",
+      "saved_to": "/home/lcj/paired_patches/c71bc336c5061153b502/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12ba703f680000",
+      "saved_to": "/home/lcj/paired_patches/c71bc336c5061153b502/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=103a7f97680000",
+      "saved_to": "/home/lcj/paired_patches/c71bc336c5061153b502/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

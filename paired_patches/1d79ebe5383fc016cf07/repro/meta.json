@@ -1,0 +1,50 @@
+{
+  "extid": "1d79ebe5383fc016cf07",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1d79ebe5383fc016cf07",
+  "bug_title": "VFS: Busy inodes after unmount (use-after-free) (3)",
+  "bug_status": "fixed on 2025/11/18 08:45",
+  "fix_commits": [
+    {
+      "title": "vfs: Don't leak disconnected dentries on umount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=56094ad3eaa21e6621396cc33811d8f72847a834",
+      "hash": "56094ad3eaa21e6621396cc33811d8f72847a834",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2025-10-02T15:55:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "VFS: Busy inodes after unmount (use-after-free)",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e53642b87a4f4b03a8d7e5f8507fc3cd0c595ea6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fd2207e7cf691493b5b81c50a8a625b4b71dd544",
+  "syzkaller-commit": "fd2207e7cf691493b5b81c50a8a625b4b71dd544",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1448a32f980000",
+      "saved_to": "/home/lcj/paired_patches/1d79ebe5383fc016cf07/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b944b1e5afd39857",
+      "saved_to": "/home/lcj/paired_patches/1d79ebe5383fc016cf07/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=145d5f34580000",
+      "saved_to": "/home/lcj/paired_patches/1d79ebe5383fc016cf07/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14f24342580000",
+      "saved_to": "/home/lcj/paired_patches/1d79ebe5383fc016cf07/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

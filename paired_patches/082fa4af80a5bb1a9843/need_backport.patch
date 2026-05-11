@@ -1,0 +1,35 @@
+commit 72e544b1b28325fe78a4687b980871a7e4101f76
+Author: Fedor Pchelkin <pchelkin@ispras.ru>
+Date:   Tue Jan 17 13:52:26 2023 +0300
+
+    squashfs: harden sanity check in squashfs_read_xattr_id_table
+    
+    While mounting a corrupted filesystem, a signed integer '*xattr_ids' can
+    become less than zero.  This leads to the incorrect computation of 'len'
+    and 'indexes' values which can cause null-ptr-deref in copy_bio_to_actor()
+    or out-of-bounds accesses in the next sanity checks inside
+    squashfs_read_xattr_id_table().
+    
+    Found by Linux Verification Center (linuxtesting.org) with Syzkaller.
+    
+    Link: https://lkml.kernel.org/r/20230117105226.329303-2-pchelkin@ispras.ru
+    Fixes: 506220d2ba21 ("squashfs: add more sanity checks in xattr id lookup")
+    Reported-by: <syzbot+082fa4af80a5bb1a9843@syzkaller.appspotmail.com>
+    Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
+    Signed-off-by: Alexey Khoroshilov <khoroshilov@ispras.ru>
+    Cc: Phillip Lougher <phillip@squashfs.org.uk>
+    Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+
+diff --git a/fs/squashfs/xattr_id.c b/fs/squashfs/xattr_id.c
+index 087cab8c78f4..f6d78cbc3e74 100644
+--- a/fs/squashfs/xattr_id.c
++++ b/fs/squashfs/xattr_id.c
+@@ -76,7 +76,7 @@ __le64 *squashfs_read_xattr_id_table(struct super_block *sb, u64 table_start,
+ 	/* Sanity check values */
+ 
+ 	/* there is always at least one xattr id */
+-	if (*xattr_ids == 0)
++	if (*xattr_ids <= 0)
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	len = SQUASHFS_XATTR_BLOCK_BYTES(*xattr_ids);

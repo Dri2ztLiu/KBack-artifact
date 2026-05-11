@@ -1,0 +1,50 @@
+{
+  "extid": "846bb38dc67fe62cc733",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=846bb38dc67fe62cc733",
+  "bug_title": "possible deadlock in rtnl_newlink",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "e1000: Move cancel_work_sync to avoid deadlock",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b4a8085ceefb7bbb12c2b71c55e71fc946c6929f",
+      "hash": "b4a8085ceefb7bbb12c2b71c55e71fc946c6929f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jdamato@fastly.com",
+      "author-name": "Joe Damato",
+      "date": "2025-06-03T16:34:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in rtnl_newlink",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b1427432d3b656fac71b3f42824ff4aea3c9f93b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ed351ea732d889c7798e7f0226bcaec65a8a6b52",
+  "syzkaller-commit": "ed351ea732d889c7798e7f0226bcaec65a8a6b52",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15c8b5f4580000",
+      "saved_to": "/home/lcj/paired_patches/846bb38dc67fe62cc733/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9fd1c9848687d742",
+      "saved_to": "/home/lcj/paired_patches/846bb38dc67fe62cc733/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17d9a8e8580000",
+      "saved_to": "/home/lcj/paired_patches/846bb38dc67fe62cc733/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12d21170580000",
+      "saved_to": "/home/lcj/paired_patches/846bb38dc67fe62cc733/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

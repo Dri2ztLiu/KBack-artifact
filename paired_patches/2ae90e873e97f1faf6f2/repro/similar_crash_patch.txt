@@ -1,0 +1,161 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/erofs/decompressor.c (1), Makefile (1)
+TOP_SYMBOLS:
+  DBG_BUGON (6), memcpy_to_page (4), memmove (3), flush_dcache_page (3), kunmap_local (3), z_erofs_lz4_decompress (1), PAGE_ALIGN (1), for (1)
+TOP_KEYWORDS:
+  use-after-free (2), KASAN (2), BUG (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=DBG_BUGON)
+  - viewcode(ref=<target_release>, path=fs/erofs/decompressor.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: 1ca01520148af399899ed66af5c78330bb9ecaf2
+bug_url: https://syzkaller.appspot.com/bug?extid=a94f033f5bdbb0bd6999
+title: KASAN: use-after-free Read in z_erofs_transform_plain
+relevance_score: 0
+
+ fs/erofs/decompressor.c | 81 ++++++++++++++++++++++++-----------------
+ 1 file changed, 48 insertions(+), 33 deletions(-)
+diff --git a/fs/erofs/decompressor.c b/fs/erofs/decompressor.c
+index e0d609c3958f..d08a6ee23ac5 100644
+--- a/fs/erofs/decompressor.c
++++ b/fs/erofs/decompressor.c
+@@ -320,43 +320,58 @@ static int z_erofs_lz4_decompress(struct z_erofs_decompress_req *rq,
+ static int z_erofs_transform_plain(struct z_erofs_decompress_req *rq,
+ 				   struct page **pagepool)
+ {
+-	const unsigned int inpages = PAGE_ALIGN(rq->inputsize) >> PAGE_SHIFT;
+-	const unsigned int outpages =
++	const unsigned int nrpages_in =
++		PAGE_ALIGN(rq->pageofs_in + rq->inputsize) >> PAGE_SHIFT;
++	const unsigned int nrpages_out =
+ 		PAGE_ALIGN(rq->pageofs_out + rq->outputsize) >> PAGE_SHIFT;
+-	const unsigned int righthalf = min_t(unsigned int, rq->outputsize,
+-					     PAGE_SIZE - rq->pageofs_out);
+-	const unsigned int lefthalf = rq->outputsize - righthalf;
+-	const unsigned int interlaced_offset =
+-		rq->alg == Z_EROFS_COMPRESSION_SHIFTED ? 0 : rq->pageofs_out;
+-	u8 *src;
+-
+-	if (outpages > 2 && rq->alg == Z_EROFS_COMPRESSION_SHIFTED) {
+-		DBG_BUGON(1);
+-		return -EFSCORRUPTED;
+-	}
+-
+-	if (rq->out[0] == *rq->in) {
+-		DBG_BUGON(rq->pageofs_out);
+-		return 0;
++	const unsigned int bs = rq->sb->s_blocksize;
++	unsigned int cur = 0, ni = 0, no, pi, po, insz, cnt;
++	u8 *kin;
++
++	DBG_BUGON(rq->outputsize > rq->inputsize);
++	if (rq->alg == Z_EROFS_COMPRESSION_INTERLACED) {
++		cur = bs - (rq->pageofs_out & (bs - 1));
++		pi = (rq->pageofs_in + rq->inputsize - cur) & ~PAGE_MASK;
++		cur = min(cur, rq->outputsize);
++		if (cur && rq->out[0]) {
++			kin = kmap_local_page(rq->in[nrpages_in - 1]);
++			if (rq->out[0] == rq->in[nrpages_in - 1]) {
++				memmove(kin + rq->pageofs_out, kin + pi, cur);
++				flush_dcache_page(rq->out[0]);
++			} else {
++				memcpy_to_page(rq->out[0], rq->pageofs_out,
++					       kin + pi, cur);
++			}
++			kunmap_local(kin);
++		}
++		rq->outputsize -= cur;
+ 	}
+ 
+-	src = kmap_local_page(rq->in[inpages - 1]) + rq->pageofs_in;
+-	if (rq->out[0])
+-		memcpy_to_page(rq->out[0], rq->pageofs_out,
+-			       src + interlaced_offset, righthalf);
+-
+-	if (outpages > inpages) {
+-		DBG_BUGON(!rq->out[outpages - 1]);
+-		if (rq->out[outpages - 1] != rq->in[inpages - 1]) {
+-			memcpy_to_page(rq->out[outpages - 1], 0, src +
+-					(interlaced_offset ? 0 : righthalf),
+-				       lefthalf);
+-		} else if (!interlaced_offset) {
+-			memmove(src, src + righthalf, lefthalf);
+-			flush_dcache_page(rq->in[inpages - 1]);
+-		}
++	for (; rq->outputsize; rq->pageofs_in = 0, cur += PAGE_SIZE, ni++) {
++		insz = min(PAGE_SIZE - rq->pageofs_in, rq->outputsize);
++		rq->outputsize -= insz;
++		if (!rq->in[ni])
++			continue;
++		kin = kmap_local_page(rq->in[ni]);
++		pi = 0;
++		do {
++			no = (rq->pageofs_out + cur + pi) >> PAGE_SHIFT;
++			po = (rq->pageofs_out + cur + pi) & ~PAGE_MASK;
++			DBG_BUGON(no >= nrpages_out);
++			cnt = min(insz - pi, PAGE_SIZE - po);
++			if (rq->out[no] == rq->in[ni]) {
++				memmove(kin + po,
++					kin + rq->pageofs_in + pi, cnt);
++				flush_dcache_page(rq->out[no]);
++			} else if (rq->out[no]) {
++				memcpy_to_page(rq->out[no], po,
++					       kin + rq->pageofs_in + pi, cnt);
++			}
++			pi += cnt;
++		} while (pi < insz);
++		kunmap_local(kin);
+ 	}
+-	kunmap_local(src);
++	DBG_BUGON(ni > nrpages_in);
+ 	return 0;
+ }
+================================================================================
+
+branch: linux-6.1
+fix_commit: f1bb70486c9c11d7e2d55240d4557f9fc575fbac
+bug_url: https://syzkaller.appspot.com/bug?extid=005786927870d2b071d4
+title: KASAN: use-after-free Read in z_erofs_transform_plain
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 9dd167178ab4..f5598d90093f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 76
++SUBLEVEL = 77
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================

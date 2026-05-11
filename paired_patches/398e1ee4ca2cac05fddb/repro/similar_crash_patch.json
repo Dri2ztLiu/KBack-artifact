@@ -1,0 +1,37 @@
+{
+  "extid": "398e1ee4ca2cac05fddb",
+  "target_ref": "398e1ee4ca2cac05fddb",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "344a09659766c83c42cdd4943318deabde89a9c3",
+      "branch": "linux-6.1",
+      "title": "WARNING in taprio_get_start_time",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

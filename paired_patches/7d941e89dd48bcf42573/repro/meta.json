@@ -1,0 +1,50 @@
+{
+  "extid": "7d941e89dd48bcf42573",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7d941e89dd48bcf42573",
+  "bug_title": "BUG: sleeping function called from invalid context in __ipv6_dev_mc_dec",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "rtnetlink: avoid RCU read lock when holding RTNL",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a100243d95a60d74ae9bb9df1f5f2192e9aed6a7",
+      "hash": "a100243d95a60d74ae9bb9df1f5f2192e9aed6a7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2021-05-08T18:00:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in __ipv6_dev_mc_dec",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "95aafe911db602d19b00d2a88c3d54a84119f5dc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/77e2b66864e69c17416614228723a1ebd3581ddc",
+  "syzkaller-commit": "77e2b66864e69c17416614228723a1ebd3581ddc",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=131a4445d00000",
+      "saved_to": "/home/lcj/paired_patches/7d941e89dd48bcf42573/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7668018815a66138",
+      "saved_to": "/home/lcj/paired_patches/7d941e89dd48bcf42573/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10003df5d00000",
+      "saved_to": "/home/lcj/paired_patches/7d941e89dd48bcf42573/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=122553f5d00000",
+      "saved_to": "/home/lcj/paired_patches/7d941e89dd48bcf42573/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

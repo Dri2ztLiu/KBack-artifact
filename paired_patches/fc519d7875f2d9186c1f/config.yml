@@ -1,0 +1,14 @@
+project: linux
+project_url: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/
+new_patch: f7c848431632598ff9bce57a659db6af60d75b39
+new_patch_parent: 9d89551994a430b50c4fffcb1e617a057fa76e20
+target_release: 3dbe889a1b829b4c07e0836ff853fe649e51ce4f
+sanitizer: 
+error_message: 
+tag: fc519d7875f2d9186c1f
+project_dir: /path/to/local/linux-stable
+patch_dataset_dir: /path/to/KBack-artifact/paired_patches/fc519d7875f2d9186c1f
+api_key: <REDACTED>
+api_url: <REDACTED>
+model: gpt-4o-mini
+oracle_enabled: false

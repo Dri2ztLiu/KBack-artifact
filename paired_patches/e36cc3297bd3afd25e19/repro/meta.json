@@ -1,0 +1,50 @@
+{
+  "extid": "e36cc3297bd3afd25e19",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e36cc3297bd3afd25e19",
+  "bug_title": "BUG: unable to handle kernel NULL pointer dereference in generic_file_read_iter",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Add missing direct_IO in ntfs_aops_cmpr",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8b26c8c376b29cf29710fbfd093df194cefe26ad",
+      "hash": "8b26c8c376b29cf29710fbfd093df194cefe26ad",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lizhi.xu@windriver.com",
+      "author-name": "Lizhi Xu",
+      "date": "2025-04-15T09:26:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel NULL pointer dereference in generic_file_read_iter",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0af2f6be1b4281385b618cb86ad946eded089ac8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1c65791efe9456a21463647b20027e6f8c2c21af",
+  "syzkaller-commit": "1c65791efe9456a21463647b20027e6f8c2c21af",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14823b4c580000",
+      "saved_to": "/home/lcj/paired_patches/e36cc3297bd3afd25e19/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=bae073f4634b7fd",
+      "saved_to": "/home/lcj/paired_patches/e36cc3297bd3afd25e19/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=161b0c04580000",
+      "saved_to": "/home/lcj/paired_patches/e36cc3297bd3afd25e19/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1441eb4c580000",
+      "saved_to": "/home/lcj/paired_patches/e36cc3297bd3afd25e19/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

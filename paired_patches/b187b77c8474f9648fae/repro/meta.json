@@ -1,0 +1,60 @@
+{
+  "extid": "b187b77c8474f9648fae",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b187b77c8474f9648fae",
+  "bug_title": "KASAN: use-after-free Read in __crypto_xor",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "crypto: pcrypt - Delay write to padata->info",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=68b6dea802cea0dbdd8bd7ccc60716b5a32a5d8a",
+      "hash": "68b6dea802cea0dbdd8bd7ccc60716b5a32a5d8a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "daniel.m.jordan@oracle.com",
+      "author-name": "Daniel Jordan",
+      "date": "2021-10-21T18:30:28Z"
+    },
+    {
+      "title": "net/tls: Fix flipped sign in tls_err_abort() calls",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=da353fac65fede6b8b4cfe207f0d9408e3121105",
+      "hash": "da353fac65fede6b8b4cfe207f0d9408e3121105",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "daniel.m.jordan@oracle.com",
+      "author-name": "Daniel Jordan",
+      "date": "2021-10-27T21:59:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in __crypto_xor",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7cca308cfdc0725363ac5943dca9dcd49cc1d2d5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d236a457274375e5273ac4e958722659929c469f",
+  "syzkaller-commit": "d236a457274375e5273ac4e958722659929c469f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1638f713300000",
+      "saved_to": "/home/lcj/paired_patches/b187b77c8474f9648fae/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c582b69de20dde2",
+      "saved_to": "/home/lcj/paired_patches/b187b77c8474f9648fae/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14e35915300000",
+      "saved_to": "/home/lcj/paired_patches/b187b77c8474f9648fae/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15108d33300000",
+      "saved_to": "/home/lcj/paired_patches/b187b77c8474f9648fae/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

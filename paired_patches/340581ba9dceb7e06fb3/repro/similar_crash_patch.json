@@ -1,0 +1,82 @@
+{
+  "extid": "340581ba9dceb7e06fb3",
+  "target_ref": "340581ba9dceb7e06fb3",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "985b67cd86392310d9e9326de941c22fc9340eec",
+      "branch": "linux-6.6",
+      "title": "WARNING in fscrypt_fname_siphash",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ext4/super.c"
+      ],
+      "symbols": [
+        "ext4_feature_set_ok",
+        "if",
+        "ext4_msg"
+      ],
+      "patterns": [
+        "WARN",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "985b67cd86392310d9e9326de941c22fc9340eec",
+      "branch": "linux-6.1",
+      "title": "WARNING in fscrypt_fname_siphash (2)",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ext4/super.c"
+      ],
+      "symbols": [
+        "ext4_feature_set_ok",
+        "if",
+        "ext4_msg"
+      ],
+      "patterns": [
+        "WARN",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "985b67cd86392310d9e9326de941c22fc9340eec",
+      "branch": "linux-5.15",
+      "title": "WARNING in fscrypt_fname_siphash",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ext4/super.c"
+      ],
+      "symbols": [
+        "ext4_feature_set_ok",
+        "if",
+        "ext4_msg"
+      ],
+      "patterns": [
+        "WARN",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

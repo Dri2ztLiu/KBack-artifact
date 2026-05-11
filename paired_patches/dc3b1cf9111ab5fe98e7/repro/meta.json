@@ -1,0 +1,50 @@
+{
+  "extid": "dc3b1cf9111ab5fe98e7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=dc3b1cf9111ab5fe98e7",
+  "bug_title": "KASAN: slab-out-of-bounds Write in hfs_asc2mac",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "hfs: Fix OOB Write in hfs_asc2mac",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c53ed55cb275344086e32a7080a6b19cb183650b",
+      "hash": "c53ed55cb275344086e32a7080a6b19cb183650b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zhangpeng362@huawei.com",
+      "author-name": "ZhangPeng",
+      "date": "2022-12-02T03:00:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Write in hfs_asc2mac",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "830b3c68c1fb1e9176028d02ef86f3cf76aa2476",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67be1ae742603edad9c97d30b6ed69f9bbe2ffa8",
+  "syzkaller-commit": "67be1ae742603edad9c97d30b6ed69f9bbe2ffa8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=115b0ecd880000",
+      "saved_to": "/home/lcj/paired_patches/dc3b1cf9111ab5fe98e7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=26d9ba6d9b746f4",
+      "saved_to": "/home/lcj/paired_patches/dc3b1cf9111ab5fe98e7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=129a4ea3880000",
+      "saved_to": "/home/lcj/paired_patches/dc3b1cf9111ab5fe98e7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=123f7333880000",
+      "saved_to": "/home/lcj/paired_patches/dc3b1cf9111ab5fe98e7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

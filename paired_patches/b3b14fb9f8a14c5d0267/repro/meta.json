@@ -1,0 +1,50 @@
+{
+  "extid": "b3b14fb9f8a14c5d0267",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b3b14fb9f8a14c5d0267",
+  "bug_title": "KASAN: slab-out-of-bounds Read in search_by_key (2)",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "reiserfs: fix uninit-value in comp_keys",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dd8f87f21dc3da2eaf46e7401173f935b90b13a8",
+      "hash": "dd8f87f21dc3da2eaf46e7401173f935b90b13a8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2023-12-26T07:16:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in search_by_key",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "610a9b8f49fbcf1100716370d3b5f6f884a2835a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=178fdbb5e80000",
+      "saved_to": "/home/lcj/paired_patches/b3b14fb9f8a14c5d0267/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e51fe20c3e51ba7f",
+      "saved_to": "/home/lcj/paired_patches/b3b14fb9f8a14c5d0267/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11bf347ee80000",
+      "saved_to": "/home/lcj/paired_patches/b3b14fb9f8a14c5d0267/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15bfdde9e80000",
+      "saved_to": "/home/lcj/paired_patches/b3b14fb9f8a14c5d0267/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

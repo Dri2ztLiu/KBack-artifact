@@ -1,0 +1,50 @@
+{
+  "extid": "0cb5bb0f4bf9e79db3b3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0cb5bb0f4bf9e79db3b3",
+  "bug_title": "inconsistent lock state in padata_do_parallel (2)",
+  "bug_status": "fixed on 2024/06/05 13:52",
+  "fix_commits": [
+    {
+      "title": "padata: Disable BH when taking works lock on MT path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=58329c4312031603bb1786b44265c26d5065fe72",
+      "hash": "58329c4312031603bb1786b44265c26d5065fe72",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "herbert@gondor.apana.org.au",
+      "author-name": "Herbert Xu",
+      "date": "2024-04-03T09:36:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "inconsistent lock state in padata_do_parallel",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "18737353cca01db58bb62256338cbb820c310bd7",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6baf506947ba27ed9ce775cf9351cb0886166083",
+  "syzkaller-commit": "6baf506947ba27ed9ce775cf9351cb0886166083",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e75529180000",
+      "saved_to": "/home/lcj/paired_patches/0cb5bb0f4bf9e79db3b3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f64ec427e98bccd7",
+      "saved_to": "/home/lcj/paired_patches/0cb5bb0f4bf9e79db3b3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0cb5bb0f4bf9e79db3b3/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0cb5bb0f4bf9e79db3b3/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

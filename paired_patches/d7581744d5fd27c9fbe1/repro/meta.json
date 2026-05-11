@@ -1,0 +1,50 @@
+{
+  "extid": "d7581744d5fd27c9fbe1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d7581744d5fd27c9fbe1",
+  "bug_title": "UBSAN: shift-out-of-bounds in load_balance",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "sched/fair: Fix shift-out-of-bounds in load_balance()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=39a2a6eb5c9b66ea7c8055026303b3aa681b49a5",
+      "hash": "39a2a6eb5c9b66ea7c8055026303b3aa681b49a5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "valentin.schneider@arm.com",
+      "author-name": "Valentin Schneider",
+      "date": "2021-03-06T11:40:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in load_balance",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c03c21ba6f4e95e406a1a7b4c34ef334b977c194",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fcc6d71be2c3ce7d9305c04fc2e87af554571bac",
+  "syzkaller-commit": "fcc6d71be2c3ce7d9305c04fc2e87af554571bac",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13d64f82d00000",
+      "saved_to": "/home/lcj/paired_patches/d7581744d5fd27c9fbe1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ec4c85e44cc3172e",
+      "saved_to": "/home/lcj/paired_patches/d7581744d5fd27c9fbe1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d7581744d5fd27c9fbe1/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=107f52bcd00000",
+      "saved_to": "/home/lcj/paired_patches/d7581744d5fd27c9fbe1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

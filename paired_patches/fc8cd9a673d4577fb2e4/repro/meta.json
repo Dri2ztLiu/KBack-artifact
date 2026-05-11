@@ -1,0 +1,50 @@
+{
+  "extid": "fc8cd9a673d4577fb2e4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fc8cd9a673d4577fb2e4",
+  "bug_title": "KASAN: slab-out-of-bounds Write in decode_data",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: 6pack: fix slab-out-of-bounds in decode_data",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=19d1532a187669ce86d5a2696eb7275310070793",
+      "hash": "19d1532a187669ce86d5a2696eb7275310070793",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-08-13T15:14:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f8788d86ab28f61f7b46eb6be375f8a726783636",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/59b57593586656c1d5be820aeed0e751087e6ac6",
+  "syzkaller-commit": "59b57593586656c1d5be820aeed0e751087e6ac6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=119b9fd9e00000",
+      "saved_to": "/home/lcj/paired_patches/fc8cd9a673d4577fb2e4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9833e26bab355358",
+      "saved_to": "/home/lcj/paired_patches/fc8cd9a673d4577fb2e4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=152d58f9e00000",
+      "saved_to": "/home/lcj/paired_patches/fc8cd9a673d4577fb2e4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=101b6529e00000",
+      "saved_to": "/home/lcj/paired_patches/fc8cd9a673d4577fb2e4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

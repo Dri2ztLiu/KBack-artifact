@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+make allyesconfig
+make -j `nproc` virt/kvm/kvm_main.o

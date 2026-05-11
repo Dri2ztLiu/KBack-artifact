@@ -1,0 +1,60 @@
+{
+  "extid": "4b87489410b4efd181bf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4b87489410b4efd181bf",
+  "bug_title": "KASAN: slab-use-after-free Read in dev_get_flags",
+  "bug_status": "fixed on 2025/05/06 23:55",
+  "fix_commits": [
+    {
+      "title": "RDMA/rxe: Remove the direct link to net_device",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2ac5415022d16d63d912a39a06f32f1f51140261",
+      "hash": "2ac5415022d16d63d912a39a06f32f1f51140261",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yanjun.zhu@linux.dev",
+      "author-name": "Zhu Yanjun",
+      "date": "2024-12-20T22:23:25Z"
+    },
+    {
+      "title": "RDMA/siw: Remove direct link to net_device",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=16b87037b48889d21854c8e97aec8a1baf2642b3",
+      "hash": "16b87037b48889d21854c8e97aec8a1baf2642b3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "bmt@zurich.ibm.com",
+      "author-name": "Bernard Metzler",
+      "date": "2024-12-12T15:18:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in dev_get_flags",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9197b73fd7bb263084a95d1c578b7ee0ad54dfb3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cd6fc0a3018e5d793bdcca6530622493f5e88307",
+  "syzkaller-commit": "cd6fc0a3018e5d793bdcca6530622493f5e88307",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=145dc430580000",
+      "saved_to": "/home/lcj/paired_patches/4b87489410b4efd181bf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=16e543edc81a3008",
+      "saved_to": "/home/lcj/paired_patches/4b87489410b4efd181bf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4b87489410b4efd181bf/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4b87489410b4efd181bf/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

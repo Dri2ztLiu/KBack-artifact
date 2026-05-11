@@ -1,0 +1,50 @@
+{
+  "extid": "1316233c4c6803382a8b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1316233c4c6803382a8b",
+  "bug_title": "general protection fault in clip_push",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "atm: clip: prevent NULL deref in clip_push()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b993ea46b3b601915ceaaf3c802adf11e7d6bac6",
+      "hash": "b993ea46b3b601915ceaaf3c802adf11e7d6bac6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2025-06-20T14:28:44Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in clip_push",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "41687a5c6f8b07ad0850d6c46452376d54fe9b65",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ed3e87f71e79614f39e963e510c1e594d35a2ea2",
+  "syzkaller-commit": "ed3e87f71e79614f39e963e510c1e594d35a2ea2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12933d0c580000",
+      "saved_to": "/home/lcj/paired_patches/1316233c4c6803382a8b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d11f52d3049c3790",
+      "saved_to": "/home/lcj/paired_patches/1316233c4c6803382a8b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11cff5d4580000",
+      "saved_to": "/home/lcj/paired_patches/1316233c4c6803382a8b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17365d0c580000",
+      "saved_to": "/home/lcj/paired_patches/1316233c4c6803382a8b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

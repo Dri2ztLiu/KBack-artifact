@@ -1,0 +1,50 @@
+{
+  "extid": "6cf5652d3df49fae2e3f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6cf5652d3df49fae2e3f",
+  "bug_title": "KASAN: use-after-free Read in netdev_unregister_kobject",
+  "bug_status": "fixed on 2024/12/16 09:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: fix use-after-free in device_for_each_child()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=27aabf27fd014ae037cc179c61b0bee7cff55b3d",
+      "hash": "27aabf27fd014ae037cc179c61b0bee7cff55b3d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2024-11-01T11:44:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in netdev_unregister_kobject",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3cdb455946193bb7ad13df15333c7fe0054db6c3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/af24b0505c748561efb50f1d03c824d6642f6c0b",
+  "syzkaller-commit": "af24b0505c748561efb50f1d03c824d6642f6c0b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13bd5520980000",
+      "saved_to": "/home/lcj/paired_patches/6cf5652d3df49fae2e3f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d239903bd07761e5",
+      "saved_to": "/home/lcj/paired_patches/6cf5652d3df49fae2e3f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=144067cb180000",
+      "saved_to": "/home/lcj/paired_patches/6cf5652d3df49fae2e3f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=172afcbf180000",
+      "saved_to": "/home/lcj/paired_patches/6cf5652d3df49fae2e3f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

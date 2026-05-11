@@ -1,0 +1,90 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  drivers/net/team/team_core.c (2)
+TOP_SYMBOLS:
+  team_port_add (2), NL_SET_ERR_MSG (2), netdev_err (2)
+TOP_KEYWORDS:
+  deadlock (2), net (2)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=team_port_add)
+  - viewcode(ref=<target_release>, path=drivers/net/team/team_core.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 3fff5da4ca2164bb4d0f1e6cd33f6eb8a0e73e50
+bug_url: https://syzkaller.appspot.com/bug?extid=4f4f84e5ae7cf9e36cc8
+title: possible deadlock in team_port_change_check
+relevance_score: 0
+
+ drivers/net/team/team_core.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+diff --git a/drivers/net/team/team_core.c b/drivers/net/team/team_core.c
+index c7690adec8db..dc7cbd6a9798 100644
+--- a/drivers/net/team/team_core.c
++++ b/drivers/net/team/team_core.c
+@@ -1175,6 +1175,13 @@ static int team_port_add(struct team *team, struct net_device *port_dev,
+ 		return -EBUSY;
+ 	}
+ 
++	if (netdev_has_upper_dev(port_dev, dev)) {
++		NL_SET_ERR_MSG(extack, "Device is already a lower device of the team interface");
++		netdev_err(dev, "Device %s is already a lower device of the team interface\n",
++			   portname);
++		return -EBUSY;
++	}
++
+ 	if (port_dev->features & NETIF_F_VLAN_CHALLENGED &&
+ 	    vlan_uses_dev(dev)) {
+ 		NL_SET_ERR_MSG(extack, "Device is VLAN challenged and team device has VLAN set up");
+================================================================================
+
+branch: linux-5.15
+fix_commit: 3fff5da4ca2164bb4d0f1e6cd33f6eb8a0e73e50
+bug_url: https://syzkaller.appspot.com/bug?extid=d167aea98ffde47388b5
+title: possible deadlock in team_port_change_check
+relevance_score: 0
+
+ drivers/net/team/team_core.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+diff --git a/drivers/net/team/team_core.c b/drivers/net/team/team_core.c
+index c7690adec8db..dc7cbd6a9798 100644
+--- a/drivers/net/team/team_core.c
++++ b/drivers/net/team/team_core.c
+@@ -1175,6 +1175,13 @@ static int team_port_add(struct team *team, struct net_device *port_dev,
+ 		return -EBUSY;
+ 	}
+ 
++	if (netdev_has_upper_dev(port_dev, dev)) {
++		NL_SET_ERR_MSG(extack, "Device is already a lower device of the team interface");
++		netdev_err(dev, "Device %s is already a lower device of the team interface\n",
++			   portname);
++		return -EBUSY;
++	}
++
+ 	if (port_dev->features & NETIF_F_VLAN_CHALLENGED &&
+ 	    vlan_uses_dev(dev)) {
+ 		NL_SET_ERR_MSG(extack, "Device is VLAN challenged and team device has VLAN set up");
+================================================================================

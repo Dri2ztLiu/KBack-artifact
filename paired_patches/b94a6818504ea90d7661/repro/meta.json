@@ -1,0 +1,50 @@
+{
+  "extid": "b94a6818504ea90d7661",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b94a6818504ea90d7661",
+  "bug_title": "general protection fault in nf_tproxy_laddr4",
+  "bug_status": "fixed on 2024/06/11 03:41",
+  "fix_commits": [
+    {
+      "title": "netfilter: tproxy: bail out if IP has been disabled on the device",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=21a673bddc8fd4873c370caf9ae70ffc6d47e8d3",
+      "hash": "21a673bddc8fd4873c370caf9ae70ffc6d47e8d3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-05-13T10:27:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in nf_tproxy_laddr4",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "6e7ffa180a532b6fe2e22aa6182e02ce988a43aa",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/de979bc20b2b73242b7d6fbbdf614a8cb4c574f4",
+  "syzkaller-commit": "de979bc20b2b73242b7d6fbbdf614a8cb4c574f4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=176df3bc980000",
+      "saved_to": "/home/lcj/paired_patches/b94a6818504ea90d7661/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3714fc09f933e505",
+      "saved_to": "/home/lcj/paired_patches/b94a6818504ea90d7661/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12526504980000",
+      "saved_to": "/home/lcj/paired_patches/b94a6818504ea90d7661/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16786a6c980000",
+      "saved_to": "/home/lcj/paired_patches/b94a6818504ea90d7661/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,143 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (5)
+TOP_SYMBOLS:
+  (none)
+TOP_KEYWORDS:
+  KASAN (3), use-after-free (2), out-of-bounds (1), slab (1)
+
+Recommended next tool calls (example):
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=12, rows_scanned=12, candidates_kept=5, skipped=7
+skip_breakdown: skip_upstream=5, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=2, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-4.19
+fix_commit: 555161ee1b7a74e77ca70fd14ed8a5137c8108ac
+bug_url: https://syzkaller.appspot.com/bug?extid=f516dd345e6d76742e0e
+title: KASAN: use-after-free Read in scatterwalk_copychunks
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 4bf6f24916bf..9cb471a75a1b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 19
+-SUBLEVEL = 75
++SUBLEVEL = 76
+ EXTRAVERSION =
+ NAME = "People's Front"
+================================================================================
+
+branch: linux-4.19
+fix_commit: 3f8a27f9e27bd78604c0709224cec0ec85a8b106
+bug_url: https://syzkaller.appspot.com/bug?extid=6db79dbcb84d882b32d0
+title: general protection fault in scatterwalk_copychunks
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index d9c39b3c05d5..d4e6f5d326b0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 19
+-SUBLEVEL = 210
++SUBLEVEL = 211
+ EXTRAVERSION =
+ NAME = "People's Front"
+================================================================================
+
+branch: linux-4.14
+fix_commit: f6e27dbb1afabcba436e346d6aa88a592a1436bb
+bug_url: https://syzkaller.appspot.com/bug?extid=b9e2e1efdc969e74853b
+title: KASAN: slab-out-of-bounds Read in scatterwalk_copychunks
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index ce521c48b35e..ad923d5eae1e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 145
++SUBLEVEL = 146
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================
+
+branch: linux-4.14
+fix_commit: 68d7a45eec101bc1550294c0e675a490c047b2e5
+bug_url: https://syzkaller.appspot.com/bug?extid=920a7eb5795273e180f6
+title: KASAN: use-after-free Read in scatterwalk_copychunks
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 94673d2a6a27..fcfef30ca9a6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 112
++SUBLEVEL = 113
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================
+
+branch: linux-4.14
+fix_commit: 01fd1694b93c92ad54fa684dac9c8068ecda8288
+bug_url: https://syzkaller.appspot.com/bug?extid=bc78bb581922f5035c8d
+title: general protection fault in scatterwalk_copychunks
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index be7290af771e..eefd21f3d1ec 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 140
++SUBLEVEL = 141
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

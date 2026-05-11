@@ -1,0 +1,214 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/tipc/core.c (1), include/net/xfrm.h (1), net/ipv6/xfrm6_tunnel.c (1), net/key/af_key.c (1), net/xfrm/xfrm_state.c (1), net/xfrm/xfrm_user.c (1)
+TOP_SYMBOLS:
+  tipc_socket_stop (4), xfrm_state_flush (4), tipc_init (3), tipc_init_net (2), switch (2), tipc_exit_net (1), xfrm_state_kern (1), xfrm6_tunnel_net_exit (1), parse_ipsecrequest (1), xfrm_state_fini (1)
+TOP_KEYWORDS:
+  WARN (2), net (2), spin_lock (1), atomic (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=tipc_socket_stop)
+  - viewcode(ref=<target_release>, path=net/tipc/core.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=9, rows_scanned=9, candidates_kept=2, skipped=7
+skip_breakdown: skip_upstream=3, skip_non_linux_branch=3, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-4.19
+fix_commit: 5593530e56943182ebb6d81eca8a3be6db6dbba4
+bug_url: https://syzkaller.appspot.com/bug?extid=a92feaebeca6bf1f6815
+title: WARNING in xfrm_state_fini
+relevance_score: 0
+
+ net/tipc/core.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+diff --git a/net/tipc/core.c b/net/tipc/core.c
+index 7d05d6823545..ddd2e0f67c07 100644
+--- a/net/tipc/core.c
++++ b/net/tipc/core.c
+@@ -68,10 +68,6 @@ static int __net_init tipc_init_net(struct net *net)
+ 	INIT_LIST_HEAD(&tn->node_list);
+ 	spin_lock_init(&tn->node_list_lock);
+ 
+-	err = tipc_socket_init();
+-	if (err)
+-		goto out_socket;
+-
+ 	err = tipc_sk_rht_init(net);
+ 	if (err)
+ 		goto out_sk_rht;
+@@ -98,8 +94,6 @@ static int __net_init tipc_init_net(struct net *net)
+ out_nametbl:
+ 	tipc_sk_rht_destroy(net);
+ out_sk_rht:
+-	tipc_socket_stop();
+-out_socket:
+ 	return err;
+ }
+ 
+@@ -110,7 +104,6 @@ static void __net_exit tipc_exit_net(struct net *net)
+ 	tipc_bcast_stop(net);
+ 	tipc_nametbl_stop(net);
+ 	tipc_sk_rht_destroy(net);
+-	tipc_socket_stop();
+ }
+ 
+ static struct pernet_operations tipc_net_ops = {
+@@ -146,6 +139,10 @@ static int __init tipc_init(void)
+ 	if (err)
+ 		goto out_pernet;
+ 
++	err = tipc_socket_init();
++	if (err)
++		goto out_socket;
++
+ 	err = tipc_bearer_setup();
+ 	if (err)
+ 		goto out_bearer;
+@@ -153,6 +150,8 @@ static int __init tipc_init(void)
+ 	pr_info("Started in single node mode\n");
+ 	return 0;
+ out_bearer:
++	tipc_socket_stop();
++out_socket:
+ 	unregister_pernet_subsys(&tipc_net_ops);
+ out_pernet:
+ 	tipc_unregister_sysctl();
+@@ -168,6 +167,7 @@ static int __init tipc_init(void)
+ static void __exit tipc_exit(void)
+ {
+ 	tipc_bearer_cleanup();
++	tipc_socket_stop();
+ 	unregister_pernet_subsys(&tipc_net_ops);
+ 	tipc_netlink_stop();
+ 	tipc_netlink_compat_stop();
+================================================================================
+
+branch: linux-4.14
+fix_commit: dbb2483b2a46fbaf833cfb5deb5ed9cace9c7399
+bug_url: https://syzkaller.appspot.com/bug?extid=9c5d791e3a8e4d8e5e8a
+title: WARNING in xfrm_state_fini
+relevance_score: 0
+
+ include/net/xfrm.h      | 17 +++++++++++++++++
+ net/ipv6/xfrm6_tunnel.c |  2 +-
+ net/key/af_key.c        |  4 +++-
+ net/xfrm/xfrm_state.c   |  2 +-
+ net/xfrm/xfrm_user.c    | 14 +-------------
+ 5 files changed, 23 insertions(+), 16 deletions(-)
+diff --git a/include/net/xfrm.h b/include/net/xfrm.h
+index 85386becbaea..902437dfbce7 100644
+--- a/include/net/xfrm.h
++++ b/include/net/xfrm.h
+@@ -1404,6 +1404,23 @@ static inline int xfrm_state_kern(const struct xfrm_state *x)
+ 	return atomic_read(&x->tunnel_users);
+ }
+ 
++static inline bool xfrm_id_proto_valid(u8 proto)
++{
++	switch (proto) {
++	case IPPROTO_AH:
++	case IPPROTO_ESP:
++	case IPPROTO_COMP:
++#if IS_ENABLED(CONFIG_IPV6)
++	case IPPROTO_ROUTING:
++	case IPPROTO_DSTOPTS:
++#endif
++		return true;
++	default:
++		return false;
++	}
++}
++
++/* IPSEC_PROTO_ANY only matches 3 IPsec protocols, 0 could match all. */
+ static inline int xfrm_id_proto_match(u8 proto, u8 userproto)
+ {
+ 	return (!userproto || proto == userproto ||
+diff --git a/net/ipv6/xfrm6_tunnel.c b/net/ipv6/xfrm6_tunnel.c
+index 12cb3aa990af..d9e5f6808811 100644
+--- a/net/ipv6/xfrm6_tunnel.c
++++ b/net/ipv6/xfrm6_tunnel.c
+@@ -345,7 +345,7 @@ static void __net_exit xfrm6_tunnel_net_exit(struct net *net)
+ 	unsigned int i;
+ 
+ 	xfrm_flush_gc();
+-	xfrm_state_flush(net, IPSEC_PROTO_ANY, false, true);
++	xfrm_state_flush(net, 0, false, true);
+ 
+ 	for (i = 0; i < XFRM6_TUNNEL_SPI_BYADDR_HSIZE; i++)
+ 		WARN_ON_ONCE(!hlist_empty(&xfrm6_tn->spi_byaddr[i]));
+diff --git a/net/key/af_key.c b/net/key/af_key.c
+index 5651c29cb5bd..4af1e1d60b9f 100644
+--- a/net/key/af_key.c
++++ b/net/key/af_key.c
+@@ -1951,8 +1951,10 @@ parse_ipsecrequest(struct xfrm_policy *xp, struct sadb_x_ipsecrequest *rq)
+ 
+ 	if (rq->sadb_x_ipsecrequest_mode == 0)
+ 		return -EINVAL;
++	if (!xfrm_id_proto_valid(rq->sadb_x_ipsecrequest_proto))
++		return -EINVAL;
+ 
+-	t->id.proto = rq->sadb_x_ipsecrequest_proto; /* XXX check proto */
++	t->id.proto = rq->sadb_x_ipsecrequest_proto;
+ 	if ((mode = pfkey_mode_to_xfrm(rq->sadb_x_ipsecrequest_mode)) < 0)
+ 		return -EINVAL;
+ 	t->mode = mode;
+diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
+index 1bb971f46fc6..178baaa037e5 100644
+--- a/net/xfrm/xfrm_state.c
++++ b/net/xfrm/xfrm_state.c
+@@ -2384,7 +2384,7 @@ void xfrm_state_fini(struct net *net)
+ 
+ 	flush_work(&net->xfrm.state_hash_work);
+ 	flush_work(&xfrm_state_gc_work);
+-	xfrm_state_flush(net, IPSEC_PROTO_ANY, false, true);
++	xfrm_state_flush(net, 0, false, true);
+ 
+ 	WARN_ON(!list_empty(&net->xfrm.state_all));
+ 
+diff --git a/net/xfrm/xfrm_user.c b/net/xfrm/xfrm_user.c
+index 8d4d52fd457b..6916931b1de1 100644
+--- a/net/xfrm/xfrm_user.c
++++ b/net/xfrm/xfrm_user.c
+@@ -1513,20 +1513,8 @@ static int validate_tmpl(int nr, struct xfrm_user_tmpl *ut, u16 family)
+ 			return -EINVAL;
+ 		}
+ 
+-		switch (ut[i].id.proto) {
+-		case IPPROTO_AH:
+-		case IPPROTO_ESP:
+-		case IPPROTO_COMP:
+-#if IS_ENABLED(CONFIG_IPV6)
+-		case IPPROTO_ROUTING:
+-		case IPPROTO_DSTOPTS:
+-#endif
+-		case IPSEC_PROTO_ANY:
+-			break;
+-		default:
++		if (!xfrm_id_proto_valid(ut[i].id.proto))
+ 			return -EINVAL;
+-		}
+-
+ 	}
+ 
+ 	return 0;
+================================================================================

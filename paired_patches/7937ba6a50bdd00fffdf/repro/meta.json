@@ -1,0 +1,50 @@
+{
+  "extid": "7937ba6a50bdd00fffdf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7937ba6a50bdd00fffdf",
+  "bug_title": "WARNING: ODEBUG bug in __mod_timer",
+  "bug_status": "fixed on 2023/09/28 17:51",
+  "fix_commits": [
+    {
+      "title": "debugobjects: Recheck debug_objects_enabled before reporting",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8b64d420fe2450f82848178506d3e3a0bd195539",
+      "hash": "8b64d420fe2450f82848178506d3e3a0bd195539",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2023-06-07T10:19:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: ODEBUG bug in __mod_timer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "44bf136283e567b2b62653be7630e7511da41da2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2b32bd342578ed1b9cdd4720af23a16d2eca96d8",
+  "syzkaller-commit": "2b32bd342578ed1b9cdd4720af23a16d2eca96d8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12ad72cfc80000",
+      "saved_to": "/home/lcj/paired_patches/7937ba6a50bdd00fffdf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ba413c0527139246",
+      "saved_to": "/home/lcj/paired_patches/7937ba6a50bdd00fffdf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/7937ba6a50bdd00fffdf/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/7937ba6a50bdd00fffdf/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

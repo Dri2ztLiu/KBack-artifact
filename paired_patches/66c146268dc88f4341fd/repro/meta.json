@@ -1,0 +1,50 @@
+{
+  "extid": "66c146268dc88f4341fd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=66c146268dc88f4341fd",
+  "bug_title": "KASAN: use-after-free Read in __ocfs2_find_path",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "ocfs2: validate l_tree_depth to avoid out-of-bounds access",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a406aff8c05115119127c962cbbbbd202e1973ef",
+      "hash": "a406aff8c05115119127c962cbbbbd202e1973ef",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kovalev@altlinux.org",
+      "author-name": "Vasiliy Kovalev",
+      "date": "2025-02-14T08:49:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in __ocfs2_find_path",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "43fb83c17ba2d63dfb798f0be7453ed55ca3f9c2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4b25d554e5643186ba6a09429089ac0275f7573b",
+  "syzkaller-commit": "4b25d554e5643186ba6a09429089ac0275f7573b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1036a75f980000",
+      "saved_to": "/home/lcj/paired_patches/66c146268dc88f4341fd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e796b1bf154f93a7",
+      "saved_to": "/home/lcj/paired_patches/66c146268dc88f4341fd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1236a75f980000",
+      "saved_to": "/home/lcj/paired_patches/66c146268dc88f4341fd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1436a75f980000",
+      "saved_to": "/home/lcj/paired_patches/66c146268dc88f4341fd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

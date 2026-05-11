@@ -1,0 +1,50 @@
+{
+  "extid": "7e0f89fb6cae5d002de0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7e0f89fb6cae5d002de0",
+  "bug_title": "possible deadlock in __netdev_update_features",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "macsec: sync features on RTM_NEWLINK",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0f82c3ba66c6b2e3cde0f255156a753b108ee9dc",
+      "hash": "0f82c3ba66c6b2e3cde0f255156a753b108ee9dc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sdf@fomichev.me",
+      "author-name": "Stanislav Fomichev",
+      "date": "2025-09-08T17:36:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in __netdev_update_features",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d69eb204c255c35abd9e8cb621484e8074c75eaa",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "syzkaller-commit": "d291dd2d58a1885c00a60561048b6ceb1bf1206a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14d36134580000",
+      "saved_to": "/home/lcj/paired_patches/7e0f89fb6cae5d002de0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c302bcfb26a48af",
+      "saved_to": "/home/lcj/paired_patches/7e0f89fb6cae5d002de0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16942962580000",
+      "saved_to": "/home/lcj/paired_patches/7e0f89fb6cae5d002de0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12942962580000",
+      "saved_to": "/home/lcj/paired_patches/7e0f89fb6cae5d002de0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

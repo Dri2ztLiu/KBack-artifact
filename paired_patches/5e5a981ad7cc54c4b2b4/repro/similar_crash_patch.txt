@@ -1,0 +1,540 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/core/skmsg.c (1), block/blk-core.c (1), block/blk-mq-sysfs.c (1), block/blk-sysfs.c (1), block/blk.h (1), block/elevator.c (1), include/linux/blkdev.h (1), drivers/remoteproc/qcom_q6v5_pil.c (1)
+TOP_SYMBOLS:
+  mutex_unlock (17), mutex_lock (13), lockdep_assert_held (6), kobject_uevent (6), blk_register_queue (4), sk_psock_skb_ingress_enqueue (3), sk_psock_skb_ingress (3), sk_psock_skb_ingress_self (2), blk_mq_sysfs_unregister (2), blk_mq_sysfs_register (2)
+TOP_KEYWORDS:
+  BUG (4), net (3), spin_lock (2), atomic (1), race (1), lockdep (1), WARN (1), mutex (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=mutex_unlock)
+  - viewcode(ref=<target_release>, path=net/core/skmsg.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=39, rows_scanned=30, candidates_kept=4, skipped=26
+skip_breakdown: skip_upstream=12, skip_non_linux_branch=10, skip_same_target_branch=0, skip_no_fix_commit=4, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-5.15
+fix_commit: 5ca2e29f6834c64c0e5a9ccf1278c21fb49b827e
+bug_url: https://syzkaller.appspot.com/bug?extid=49fbf22a9769a1d5038e
+title: kernel BUG in pskb_expand_head (2)
+relevance_score: 0
+
+ net/core/skmsg.c | 31 ++++++++++++++++---------------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
+diff --git a/net/core/skmsg.c b/net/core/skmsg.c
+index 9533b3e40ad7..276934673066 100644
+--- a/net/core/skmsg.c
++++ b/net/core/skmsg.c
+@@ -530,16 +530,22 @@ static int sk_psock_skb_ingress_enqueue(struct sk_buff *skb,
+ 					u32 off, u32 len,
+ 					struct sk_psock *psock,
+ 					struct sock *sk,
+-					struct sk_msg *msg)
++					struct sk_msg *msg,
++					bool take_ref)
+ {
+ 	int num_sge, copied;
+ 
++	/* skb_to_sgvec will fail when the total number of fragments in
++	 * frag_list and frags exceeds MAX_MSG_FRAGS. For example, the
++	 * caller may aggregate multiple skbs.
++	 */
+ 	num_sge = skb_to_sgvec(skb, msg->sg.data, off, len);
+ 	if (num_sge < 0) {
+ 		/* skb linearize may fail with ENOMEM, but lets simply try again
+ 		 * later if this happens. Under memory pressure we don't want to
+ 		 * drop the skb. We need to linearize the skb so that the mapping
+ 		 * in skb_to_sgvec can not error.
++		 * Note that skb_linearize requires the skb not to be shared.
+ 		 */
+ 		if (skb_linearize(skb))
+ 			return -EAGAIN;
+@@ -556,7 +562,7 @@ static int sk_psock_skb_ingress_enqueue(struct sk_buff *skb,
+ 	msg->sg.start = 0;
+ 	msg->sg.size = copied;
+ 	msg->sg.end = num_sge;
+-	msg->skb = skb;
++	msg->skb = take_ref ? skb_get(skb) : skb;
+ 
+ 	sk_psock_queue_msg(psock, msg);
+ 	sk_psock_data_ready(sk, psock);
+@@ -564,7 +570,7 @@ static int sk_psock_skb_ingress_enqueue(struct sk_buff *skb,
+ }
+ 
+ static int sk_psock_skb_ingress_self(struct sk_psock *psock, struct sk_buff *skb,
+-				     u32 off, u32 len);
++				     u32 off, u32 len, bool take_ref);
+ 
+ static int sk_psock_skb_ingress(struct sk_psock *psock, struct sk_buff *skb,
+ 				u32 off, u32 len)
+@@ -578,7 +584,7 @@ static int sk_psock_skb_ingress(struct sk_psock *psock, struct sk_buff *skb,
+ 	 * correctly.
+ 	 */
+ 	if (unlikely(skb->sk == sk))
+-		return sk_psock_skb_ingress_self(psock, skb, off, len);
++		return sk_psock_skb_ingress_self(psock, skb, off, len, true);
+ 	msg = sk_psock_create_ingress_msg(sk, skb);
+ 	if (!msg)
+ 		return -EAGAIN;
+@@ -590,7 +596,7 @@ static int sk_psock_skb_ingress(struct sk_psock *psock, struct sk_buff *skb,
+ 	 * into user buffers.
+ 	 */
+ 	skb_set_owner_r(skb, sk);
+-	err = sk_psock_skb_ingress_enqueue(skb, off, len, psock, sk, msg);
++	err = sk_psock_skb_ingress_enqueue(skb, off, len, psock, sk, msg, true);
+ 	if (err < 0)
+ 		kfree(msg);
+ 	return err;
+@@ -601,7 +607,7 @@ static int sk_psock_skb_ingress(struct sk_psock *psock, struct sk_buff *skb,
+  * because the skb is already accounted for here.
+  */
+ static int sk_psock_skb_ingress_self(struct sk_psock *psock, struct sk_buff *skb,
+-				     u32 off, u32 len)
++				     u32 off, u32 len, bool take_ref)
+ {
+ 	struct sk_msg *msg = alloc_sk_msg(GFP_ATOMIC);
+ 	struct sock *sk = psock->sk;
+@@ -610,7 +616,7 @@ static int sk_psock_skb_ingress_self(struct sk_psock *psock, struct sk_buff *skb
+ 	if (unlikely(!msg))
+ 		return -EAGAIN;
+ 	skb_set_owner_r(skb, sk);
+-	err = sk_psock_skb_ingress_enqueue(skb, off, len, psock, sk, msg);
++	err = sk_psock_skb_ingress_enqueue(skb, off, len, psock, sk, msg, take_ref);
+ 	if (err < 0)
+ 		kfree(msg);
+ 	return err;
+@@ -619,18 +625,13 @@ static int sk_psock_skb_ingress_self(struct sk_psock *psock, struct sk_buff *skb
+ static int sk_psock_handle_skb(struct sk_psock *psock, struct sk_buff *skb,
+ 			       u32 off, u32 len, bool ingress)
+ {
+-	int err = 0;
+-
+ 	if (!ingress) {
+ 		if (!sock_writeable(psock->sk))
+ 			return -EAGAIN;
+ 		return skb_send_sock(psock->sk, skb, off, len);
+ 	}
+-	skb_get(skb);
+-	err = sk_psock_skb_ingress(psock, skb, off, len);
+-	if (err < 0)
+-		kfree_skb(skb);
+-	return err;
++
++	return sk_psock_skb_ingress(psock, skb, off, len);
+ }
+ 
+ static void sk_psock_skb_state(struct sk_psock *psock,
+@@ -1019,7 +1020,7 @@ static int sk_psock_verdict_apply(struct sk_psock *psock, struct sk_buff *skb,
+ 				off = stm->offset;
+ 				len = stm->full_len;
+ 			}
+-			err = sk_psock_skb_ingress_self(psock, skb, off, len);
++			err = sk_psock_skb_ingress_self(psock, skb, off, len, false);
+ 		}
+ 		if (err < 0) {
+ 			spin_lock_bh(&psock->ingress_lock);
+================================================================================
+
+branch: linux-4.19
+fix_commit: cecf5d87ff2035127bb5a9ee054d0023a4a7cad3
+bug_url: https://syzkaller.appspot.com/bug?extid=f02b5dfb3cde2b2c8e57
+title: kernel BUG in pfkey_send_acquire
+relevance_score: 0
+
+ block/blk-core.c       |  1 +
+ block/blk-mq-sysfs.c   | 12 ++++-----
+ block/blk-sysfs.c      | 46 +++++++++++++++++++++--------------
+ block/blk.h            |  2 +-
+ block/elevator.c       | 55 ++++++++++++++++++++++++++++++++++++------
+ include/linux/blkdev.h |  1 +
+ 6 files changed, 84 insertions(+), 33 deletions(-)
+diff --git a/block/blk-core.c b/block/blk-core.c
+index 5d0d7441a443..77807a5d7f9e 100644
+--- a/block/blk-core.c
++++ b/block/blk-core.c
+@@ -520,6 +520,7 @@ struct request_queue *blk_alloc_queue_node(gfp_t gfp_mask, int node_id)
+ 	mutex_init(&q->blk_trace_mutex);
+ #endif
+ 	mutex_init(&q->sysfs_lock);
++	mutex_init(&q->sysfs_dir_lock);
+ 	spin_lock_init(&q->queue_lock);
+ 
+ 	init_waitqueue_head(&q->mq_freeze_wq);
+diff --git a/block/blk-mq-sysfs.c b/block/blk-mq-sysfs.c
+index 6ddde3774ebe..a0d3ce30fa08 100644
+--- a/block/blk-mq-sysfs.c
++++ b/block/blk-mq-sysfs.c
+@@ -270,7 +270,7 @@ void blk_mq_unregister_dev(struct device *dev, struct request_queue *q)
+ 	struct blk_mq_hw_ctx *hctx;
+ 	int i;
+ 
+-	lockdep_assert_held(&q->sysfs_lock);
++	lockdep_assert_held(&q->sysfs_dir_lock);
+ 
+ 	queue_for_each_hw_ctx(q, hctx, i)
+ 		blk_mq_unregister_hctx(hctx);
+@@ -320,7 +320,7 @@ int __blk_mq_register_dev(struct device *dev, struct request_queue *q)
+ 	int ret, i;
+ 
+ 	WARN_ON_ONCE(!q->kobj.parent);
+-	lockdep_assert_held(&q->sysfs_lock);
++	lockdep_assert_held(&q->sysfs_dir_lock);
+ 
+ 	ret = kobject_add(q->mq_kobj, kobject_get(&dev->kobj), "%s", "mq");
+ 	if (ret < 0)
+@@ -354,7 +354,7 @@ void blk_mq_sysfs_unregister(struct request_queue *q)
+ 	struct blk_mq_hw_ctx *hctx;
+ 	int i;
+ 
+-	mutex_lock(&q->sysfs_lock);
++	mutex_lock(&q->sysfs_dir_lock);
+ 	if (!q->mq_sysfs_init_done)
+ 		goto unlock;
+ 
+@@ -362,7 +362,7 @@ void blk_mq_sysfs_unregister(struct request_queue *q)
+ 		blk_mq_unregister_hctx(hctx);
+ 
+ unlock:
+-	mutex_unlock(&q->sysfs_lock);
++	mutex_unlock(&q->sysfs_dir_lock);
+ }
+ 
+ int blk_mq_sysfs_register(struct request_queue *q)
+@@ -370,7 +370,7 @@ int blk_mq_sysfs_register(struct request_queue *q)
+ 	struct blk_mq_hw_ctx *hctx;
+ 	int i, ret = 0;
+ 
+-	mutex_lock(&q->sysfs_lock);
++	mutex_lock(&q->sysfs_dir_lock);
+ 	if (!q->mq_sysfs_init_done)
+ 		goto unlock;
+ 
+@@ -381,7 +381,7 @@ int blk_mq_sysfs_register(struct request_queue *q)
+ 	}
+ 
+ unlock:
+-	mutex_unlock(&q->sysfs_lock);
++	mutex_unlock(&q->sysfs_dir_lock);
+ 
+ 	return ret;
+ }
+diff --git a/block/blk-sysfs.c b/block/blk-sysfs.c
+index 5b0b5224cfd4..107513495220 100644
+--- a/block/blk-sysfs.c
++++ b/block/blk-sysfs.c
+@@ -938,6 +938,7 @@ int blk_register_queue(struct gendisk *disk)
+ 	int ret;
+ 	struct device *dev = disk_to_dev(disk);
+ 	struct request_queue *q = disk->queue;
++	bool has_elevator = false;
+ 
+ 	if (WARN_ON(!q))
+ 		return -ENXIO;
+@@ -945,7 +946,6 @@ int blk_register_queue(struct gendisk *disk)
+ 	WARN_ONCE(blk_queue_registered(q),
+ 		  "%s is registering an already registered queue\n",
+ 		  kobject_name(&dev->kobj));
+-	blk_queue_flag_set(QUEUE_FLAG_REGISTERED, q);
+ 
+ 	/*
+ 	 * SCSI probing may synchronously create and destroy a lot of
+@@ -965,8 +965,7 @@ int blk_register_queue(struct gendisk *disk)
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Prevent changes through sysfs until registration is completed. */
+-	mutex_lock(&q->sysfs_lock);
++	mutex_lock(&q->sysfs_dir_lock);
+ 
+ 	ret = kobject_add(&q->kobj, kobject_get(&dev->kobj), "%s", "queue");
+ 	if (ret < 0) {
+@@ -987,26 +986,36 @@ int blk_register_queue(struct gendisk *disk)
+ 		blk_mq_debugfs_register(q);
+ 	}
+ 
+-	kobject_uevent(&q->kobj, KOBJ_ADD);
+-
+-	wbt_enable_default(q);
+-
+-	blk_throtl_register_queue(q);
+-
++	/*
++	 * The flag of QUEUE_FLAG_REGISTERED isn't set yet, so elevator
++	 * switch won't happen at all.
++	 */
+ 	if (q->elevator) {
+-		ret = elv_register_queue(q);
++		ret = elv_register_queue(q, false);
+ 		if (ret) {
+-			mutex_unlock(&q->sysfs_lock);
+-			kobject_uevent(&q->kobj, KOBJ_REMOVE);
++			mutex_unlock(&q->sysfs_dir_lock);
+ 			kobject_del(&q->kobj);
+ 			blk_trace_remove_sysfs(dev);
+ 			kobject_put(&dev->kobj);
+ 			return ret;
+ 		}
++		has_elevator = true;
+ 	}
++
++	mutex_lock(&q->sysfs_lock);
++	blk_queue_flag_set(QUEUE_FLAG_REGISTERED, q);
++	wbt_enable_default(q);
++	blk_throtl_register_queue(q);
++
++	/* Now everything is ready and send out KOBJ_ADD uevent */
++	kobject_uevent(&q->kobj, KOBJ_ADD);
++	if (has_elevator)
++		kobject_uevent(&q->elevator->kobj, KOBJ_ADD);
++	mutex_unlock(&q->sysfs_lock);
++
+ 	ret = 0;
+ unlock:
+-	mutex_unlock(&q->sysfs_lock);
++	mutex_unlock(&q->sysfs_dir_lock);
+ 	return ret;
+ }
+ EXPORT_SYMBOL_GPL(blk_register_queue);
+@@ -1021,6 +1030,7 @@ EXPORT_SYMBOL_GPL(blk_register_queue);
+ void blk_unregister_queue(struct gendisk *disk)
+ {
+ 	struct request_queue *q = disk->queue;
++	bool has_elevator;
+ 
+ 	if (WARN_ON(!q))
+ 		return;
+@@ -1035,25 +1045,25 @@ void blk_unregister_queue(struct gendisk *disk)
+ 	 * concurrent elv_iosched_store() calls.
+ 	 */
+ 	mutex_lock(&q->sysfs_lock);
+-
+ 	blk_queue_flag_clear(QUEUE_FLAG_REGISTERED, q);
++	has_elevator = !!q->elevator;
++	mutex_unlock(&q->sysfs_lock);
+ 
++	mutex_lock(&q->sysfs_dir_lock);
+ 	/*
+ 	 * Remove the sysfs attributes before unregistering the queue data
+ 	 * structures that can be modified through sysfs.
+ 	 */
+ 	if (queue_is_mq(q))
+ 		blk_mq_unregister_dev(disk_to_dev(disk), q);
+-	mutex_unlock(&q->sysfs_lock);
+ 
+ 	kobject_uevent(&q->kobj, KOBJ_REMOVE);
+ 	kobject_del(&q->kobj);
+ 	blk_trace_remove_sysfs(disk_to_dev(disk));
+ 
+-	mutex_lock(&q->sysfs_lock);
+-	if (q->elevator)
++	if (has_elevator)
+ 		elv_unregister_queue(q);
+-	mutex_unlock(&q->sysfs_lock);
++	mutex_unlock(&q->sysfs_dir_lock);
+ 
+ 	kobject_put(&disk_to_dev(disk)->kobj);
+ }
+diff --git a/block/blk.h b/block/blk.h
+index de6b2e146d6e..e4619fc5c99a 100644
+--- a/block/blk.h
++++ b/block/blk.h
+@@ -188,7 +188,7 @@ int elevator_init_mq(struct request_queue *q);
+ int elevator_switch_mq(struct request_queue *q,
+ 			      struct elevator_type *new_e);
+ void __elevator_exit(struct request_queue *, struct elevator_queue *);
+-int elv_register_queue(struct request_queue *q);
++int elv_register_queue(struct request_queue *q, bool uevent);
+ void elv_unregister_queue(struct request_queue *q);
+ 
+ static inline void elevator_exit(struct request_queue *q,
+diff --git a/block/elevator.c b/block/elevator.c
+index 03d923196569..4781c4205a5d 100644
+--- a/block/elevator.c
++++ b/block/elevator.c
+@@ -470,13 +470,16 @@ static struct kobj_type elv_ktype = {
+ 	.release	= elevator_release,
+ };
+ 
+-int elv_register_queue(struct request_queue *q)
++/*
++ * elv_register_queue is called from either blk_register_queue or
++ * elevator_switch, elevator switch is prevented from being happen
++ * in the two paths, so it is safe to not hold q->sysfs_lock.
++ */
++int elv_register_queue(struct request_queue *q, bool uevent)
+ {
+ 	struct elevator_queue *e = q->elevator;
+ 	int error;
+ 
+-	lockdep_assert_held(&q->sysfs_lock);
+-
+ 	error = kobject_add(&e->kobj, &q->kobj, "%s", "iosched");
+ 	if (!error) {
+ 		struct elv_fs_entry *attr = e->type->elevator_attrs;
+@@ -487,24 +490,34 @@ int elv_register_queue(struct request_queue *q)
+ 				attr++;
+ 			}
+ 		}
+-		kobject_uevent(&e->kobj, KOBJ_ADD);
++		if (uevent)
++			kobject_uevent(&e->kobj, KOBJ_ADD);
++
++		mutex_lock(&q->sysfs_lock);
+ 		e->registered = 1;
++		mutex_unlock(&q->sysfs_lock);
+ 	}
+ 	return error;
+ }
+ 
++/*
++ * elv_unregister_queue is called from either blk_unregister_queue or
++ * elevator_switch, elevator switch is prevented from being happen
++ * in the two paths, so it is safe to not hold q->sysfs_lock.
++ */
+ void elv_unregister_queue(struct request_queue *q)
+ {
+-	lockdep_assert_held(&q->sysfs_lock);
+-
+ 	if (q) {
+ 		struct elevator_queue *e = q->elevator;
+ 
+ 		kobject_uevent(&e->kobj, KOBJ_REMOVE);
+ 		kobject_del(&e->kobj);
++
++		mutex_lock(&q->sysfs_lock);
+ 		e->registered = 0;
+ 		/* Re-enable throttling in case elevator disabled it */
+ 		wbt_enable_default(q);
++		mutex_unlock(&q->sysfs_lock);
+ 	}
+ }
+ 
+@@ -567,10 +580,32 @@ int elevator_switch_mq(struct request_queue *q,
+ 	lockdep_assert_held(&q->sysfs_lock);
+ 
+ 	if (q->elevator) {
+-		if (q->elevator->registered)
++		if (q->elevator->registered) {
++			mutex_unlock(&q->sysfs_lock);
++
++			/*
++			 * Concurrent elevator switch can't happen becasue
++			 * sysfs write is always exclusively on same file.
++			 *
++			 * Also the elevator queue won't be freed after
++			 * sysfs_lock is released becasue kobject_del() in
++			 * blk_unregister_queue() waits for completion of
++			 * .store & .show on its attributes.
++			 */
+ 			elv_unregister_queue(q);
++
++			mutex_lock(&q->sysfs_lock);
++		}
+ 		ioc_clear_queue(q);
+ 		elevator_exit(q, q->elevator);
++
++		/*
++		 * sysfs_lock may be dropped, so re-check if queue is
++		 * unregistered. If yes, don't switch to new elevator
++		 * any more
++		 */
++		if (!blk_queue_registered(q))
++			return 0;
+ 	}
+ 
+ 	ret = blk_mq_init_sched(q, new_e);
+@@ -578,7 +613,11 @@ int elevator_switch_mq(struct request_queue *q,
+ 		goto out;
+ 
+ 	if (new_e) {
+-		ret = elv_register_queue(q);
++		mutex_unlock(&q->sysfs_lock);
++
++		ret = elv_register_queue(q, true);
++
++		mutex_lock(&q->sysfs_lock);
+ 		if (ret) {
+ 			elevator_exit(q, q->elevator);
+ 			goto out;
+diff --git a/include/linux/blkdev.h b/include/linux/blkdev.h
+index d5077f3fdfd6..1ac790178787 100644
+--- a/include/linux/blkdev.h
++++ b/include/linux/blkdev.h
+@@ -535,6 +535,7 @@ struct request_queue {
+ 	struct delayed_work	requeue_work;
+ 
+ 	struct mutex		sysfs_lock;
++	struct mutex		sysfs_dir_lock;
+ 
+ 	/*
+ 	 * for reusing dead hctx instance in case of updating
+================================================================================
+
+branch: linux-4.19
+fix_commit: 4f12385298d474541a794f4c47980861299f20e7
+bug_url: https://syzkaller.appspot.com/bug?extid=77d13153b9599a418a9c
+title: kernel BUG at net/core/skbuff.c:LINE!
+relevance_score: 0
+
+ drivers/remoteproc/qcom_q6v5_pil.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+diff --git a/drivers/remoteproc/qcom_q6v5_pil.c b/drivers/remoteproc/qcom_q6v5_pil.c
+index 289cba29e240..604828c04ddf 100644
+--- a/drivers/remoteproc/qcom_q6v5_pil.c
++++ b/drivers/remoteproc/qcom_q6v5_pil.c
+@@ -340,6 +340,12 @@ static int q6v5_load(struct rproc *rproc, const struct firmware *fw)
+ {
+ 	struct q6v5 *qproc = rproc->priv;
+ 
++	/* MBA is restricted to a maximum size of 1M */
++	if (fw->size > qproc->mba_size || fw->size > SZ_1M) {
++		dev_err(qproc->dev, "MBA firmware load failed\n");
++		return -EINVAL;
++	}
++
+ 	memcpy(qproc->mba_region, fw->data, fw->size);
+ 
+ 	return 0;
+================================================================================
+
+branch: linux-4.14
+fix_commit: 3949d16100044eeb6723eca03b1038b469fb9ae8
+bug_url: https://syzkaller.appspot.com/bug?extid=812d66c9f9b0bbb28d30
+title: kernel BUG at net/core/skbuff.c:LINE!
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 5fb1bad2fe74..6a2a71d3051b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 303
++SUBLEVEL = 304
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

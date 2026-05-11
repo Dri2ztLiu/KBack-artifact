@@ -1,0 +1,69 @@
+{
+  "extid": "186522670e6722692d86",
+  "target_ref": "186522670e6722692d86",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "f2295faba5e8249ae4082791bfc1664c88fff83a",
+      "branch": "linux-6.1",
+      "title": "KASAN: stack-out-of-bounds Write in copy_from_kernel_nofault",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "c79648372d02944bf4a54d87e3901db05d0ac82e",
+      "branch": "linux-5.15",
+      "title": "Internal error in copy_from_kernel_nofault",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "32019c659ecfe1d92e3bf9fcdfbb11a7c70acd58",
+      "branch": "linux-5.15",
+      "title": "BUG: unable to handle kernel paging request in copy_from_kernel_nofault",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "arch/x86/mm/maccess.c"
+      ],
+      "symbols": [
+        "copy_from_kernel_nofault_allowed",
+        "if"
+      ],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

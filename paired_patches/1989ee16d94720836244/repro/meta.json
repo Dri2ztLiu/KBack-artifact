@@ -1,0 +1,50 @@
+{
+  "extid": "1989ee16d94720836244",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1989ee16d94720836244",
+  "bug_title": "KASAN: slab-use-after-free Read in bpf_link_free (2)",
+  "bug_status": "fixed on 2024/06/18 10:18",
+  "fix_commits": [
+    {
+      "title": "bpf: Fix a potential use-after-free in bpf_link_free()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2884dc7d08d98a89d8d65121524bb7533183a63a",
+      "hash": "2884dc7d08d98a89d8d65121524bb7533183a63a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2024-06-02T18:27:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in bpf_link_free",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "d8ec19857b095b39d114ae299713bd8ea6c1e66a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3113787fe7a0c96998737e520aa95c303fdd41ef",
+  "syzkaller-commit": "3113787fe7a0c96998737e520aa95c303fdd41ef",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1684f032980000",
+      "saved_to": "/home/lcj/paired_patches/1989ee16d94720836244/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b9016f104992d69c",
+      "saved_to": "/home/lcj/paired_patches/1989ee16d94720836244/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1989ee16d94720836244/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13ea03b4980000",
+      "saved_to": "/home/lcj/paired_patches/1989ee16d94720836244/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

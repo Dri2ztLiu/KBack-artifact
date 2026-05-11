@@ -1,0 +1,50 @@
+{
+  "extid": "b4169a1cfb945d2ed0ec",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b4169a1cfb945d2ed0ec",
+  "bug_title": "WARNING: suspicious RCU usage in task_cls_state",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "net, bpf: Fix RCU usage in task_cls_state() for BPF programs",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7f12c33850482521c961c5c15a50ebe9b9a88d1e",
+      "hash": "7f12c33850482521c961c5c15a50ebe9b9a88d1e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "charmitro@posteo.net",
+      "author-name": "Charalampos Mitrodimas",
+      "date": "2025-06-11T17:20:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: suspicious RCU usage in task_cls_state",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "02670deede2288d8e4e3d800477b27c091080fae",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4826c28ef2aca1ee7dba7111e48d3b6a9c83d9a8",
+  "syzkaller-commit": "4826c28ef2aca1ee7dba7111e48d3b6a9c83d9a8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12190d70580000",
+      "saved_to": "/home/lcj/paired_patches/b4169a1cfb945d2ed0ec/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fd0cea6d0f67318f",
+      "saved_to": "/home/lcj/paired_patches/b4169a1cfb945d2ed0ec/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=126ef20c580000",
+      "saved_to": "/home/lcj/paired_patches/b4169a1cfb945d2ed0ec/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1318a9d4580000",
+      "saved_to": "/home/lcj/paired_patches/b4169a1cfb945d2ed0ec/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

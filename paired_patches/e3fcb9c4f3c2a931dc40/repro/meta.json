@@ -1,0 +1,50 @@
+{
+  "extid": "e3fcb9c4f3c2a931dc40",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e3fcb9c4f3c2a931dc40",
+  "bug_title": "KASAN: slab-out-of-bounds Read in hci_le_meta_evt (2)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: stop proccessing malicious adv data",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3a56ef719f0b9682afb8a86d64b2399e36faa4e6",
+      "hash": "3a56ef719f0b9682afb8a86d64b2399e36faa4e6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-11-01T07:12:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in hci_le_meta_evt",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "119c85055d867b9588263bca59794c872ef2a30e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/098b5d530648147c744a7c2eb8b78c1307f9d3ce",
+  "syzkaller-commit": "098b5d530648147c744a7c2eb8b78c1307f9d3ce",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10d741f4b00000",
+      "saved_to": "/home/lcj/paired_patches/e3fcb9c4f3c2a931dc40/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6362530af157355b",
+      "saved_to": "/home/lcj/paired_patches/e3fcb9c4f3c2a931dc40/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1431dfe2b00000",
+      "saved_to": "/home/lcj/paired_patches/e3fcb9c4f3c2a931dc40/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1128465cb00000",
+      "saved_to": "/home/lcj/paired_patches/e3fcb9c4f3c2a931dc40/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

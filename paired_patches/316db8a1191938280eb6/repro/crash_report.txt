@@ -1,0 +1,191 @@
+==================================================================
+BUG: KASAN: slab-use-after-free in ovl_dentry_remote fs/overlayfs/util.c:162 [inline]
+BUG: KASAN: slab-use-after-free in ovl_dentry_update_reval+0xd2/0xf0 fs/overlayfs/util.c:167
+Read of size 4 at addr ffff888029a2b780 by task syz.0.4296/16785
+
+CPU: 0 PID: 16785 Comm: syz.0.4296 Not tainted 6.10.0-rc6-syzkaller-00041-g9903efbddba0 #0
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2~bpo12+1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:88 [inline]
+ dump_stack_lvl+0x116/0x1f0 lib/dump_stack.c:114
+ print_address_description mm/kasan/report.c:377 [inline]
+ print_report+0xc3/0x620 mm/kasan/report.c:488
+ kasan_report+0xd9/0x110 mm/kasan/report.c:601
+ ovl_dentry_remote fs/overlayfs/util.c:162 [inline]
+ ovl_dentry_update_reval+0xd2/0xf0 fs/overlayfs/util.c:167
+ ovl_link_up fs/overlayfs/copy_up.c:610 [inline]
+ ovl_copy_up_one+0x2105/0x3490 fs/overlayfs/copy_up.c:1170
+ ovl_copy_up_flags+0x18d/0x200 fs/overlayfs/copy_up.c:1223
+ ovl_rename+0x39e/0x18c0 fs/overlayfs/dir.c:1136
+ vfs_rename+0xf84/0x20a0 fs/namei.c:4893
+ do_renameat2+0xc54/0xdc0 fs/namei.c:5050
+ __do_sys_renameat2 fs/namei.c:5084 [inline]
+ __se_sys_renameat2 fs/namei.c:5081 [inline]
+ __ia32_sys_renameat2+0xeb/0x130 fs/namei.c:5081
+ do_syscall_32_irqs_on arch/x86/entry/common.c:165 [inline]
+ __do_fast_syscall_32+0x73/0x120 arch/x86/entry/common.c:386
+ do_fast_syscall_32+0x32/0x80 arch/x86/entry/common.c:411
+ entry_SYSENTER_compat_after_hwframe+0x84/0x8e
+RIP: 0023:0xf745b579
+Code: b8 01 10 06 03 74 b4 01 10 07 03 74 b0 01 10 08 03 74 d8 01 00 00 00 00 00 00 00 00 00 00 00 00 00 51 52 55 89 e5 0f 34 cd 80 <5d> 5a 59 c3 90 90 90 90 8d b4 26 00 00 00 00 8d b4 26 00 00 00 00
+RSP: 002b:00000000f5d7357c EFLAGS: 00000292 ORIG_RAX: 0000000000000161
+RAX: ffffffffffffffda RBX: 0000000000000007 RCX: 0000000020000080
+RDX: 0000000000000008 RSI: 0000000020000580 RDI: 0000000000000000
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000292 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+
+Allocated by task 16785:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ unpoison_slab_object mm/kasan/common.c:312 [inline]
+ __kasan_slab_alloc+0x89/0x90 mm/kasan/common.c:338
+ kasan_slab_alloc include/linux/kasan.h:201 [inline]
+ slab_post_alloc_hook mm/slub.c:3940 [inline]
+ slab_alloc_node mm/slub.c:4002 [inline]
+ kmem_cache_alloc_lru_noprof+0x121/0x2f0 mm/slub.c:4021
+ __d_alloc+0x35/0x8c0 fs/dcache.c:1624
+ d_alloc+0x4a/0x1e0 fs/dcache.c:1704
+ d_alloc_parallel+0xe9/0x12b0 fs/dcache.c:2462
+ __lookup_slow+0x194/0x460 fs/namei.c:1677
+ lookup_one+0x185/0x1c0 fs/namei.c:2794
+ ovl_lookup_upper fs/overlayfs/overlayfs.h:404 [inline]
+ ovl_link_up fs/overlayfs/copy_up.c:599 [inline]
+ ovl_copy_up_one+0x105a/0x3490 fs/overlayfs/copy_up.c:1170
+ ovl_copy_up_flags+0x18d/0x200 fs/overlayfs/copy_up.c:1223
+ ovl_rename+0x39e/0x18c0 fs/overlayfs/dir.c:1136
+ vfs_rename+0xf84/0x20a0 fs/namei.c:4893
+ do_renameat2+0xc54/0xdc0 fs/namei.c:5050
+ __do_sys_renameat2 fs/namei.c:5084 [inline]
+ __se_sys_renameat2 fs/namei.c:5081 [inline]
+ __ia32_sys_renameat2+0xeb/0x130 fs/namei.c:5081
+ do_syscall_32_irqs_on arch/x86/entry/common.c:165 [inline]
+ __do_fast_syscall_32+0x73/0x120 arch/x86/entry/common.c:386
+ do_fast_syscall_32+0x32/0x80 arch/x86/entry/common.c:411
+ entry_SYSENTER_compat_after_hwframe+0x84/0x8e
+
+Freed by task 111:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ kasan_save_free_info+0x3b/0x60 mm/kasan/generic.c:579
+ poison_slab_object+0xf7/0x160 mm/kasan/common.c:240
+ __kasan_slab_free+0x32/0x50 mm/kasan/common.c:256
+ kasan_slab_free include/linux/kasan.h:184 [inline]
+ slab_free_hook mm/slub.c:2196 [inline]
+ slab_free mm/slub.c:4438 [inline]
+ kmem_cache_free+0x12f/0x3a0 mm/slub.c:4513
+ rcu_do_batch kernel/rcu/tree.c:2535 [inline]
+ rcu_core+0x828/0x16b0 kernel/rcu/tree.c:2809
+ handle_softirqs+0x216/0x8f0 kernel/softirq.c:554
+ __do_softirq kernel/softirq.c:588 [inline]
+ invoke_softirq kernel/softirq.c:428 [inline]
+ __irq_exit_rcu kernel/softirq.c:637 [inline]
+ irq_exit_rcu+0xbb/0x120 kernel/softirq.c:649
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1043 [inline]
+ sysvec_apic_timer_interrupt+0x95/0xb0 arch/x86/kernel/apic/apic.c:1043
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+
+Last potentially related work creation:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ __kasan_record_aux_stack+0xba/0xd0 mm/kasan/generic.c:541
+ __call_rcu_common.constprop.0+0x9a/0x790 kernel/rcu/tree.c:3072
+ dentry_free+0xc2/0x160 fs/dcache.c:376
+ __dentry_kill+0x498/0x600 fs/dcache.c:622
+ shrink_kill fs/dcache.c:1048 [inline]
+ shrink_dentry_list+0x140/0x5d0 fs/dcache.c:1075
+ prune_dcache_sb+0xeb/0x150 fs/dcache.c:1156
+ super_cache_scan+0x32a/0x550 fs/super.c:221
+ do_shrink_slab+0x44f/0x11c0 mm/shrinker.c:435
+ shrink_slab_memcg mm/shrinker.c:548 [inline]
+ shrink_slab+0xa87/0x1310 mm/shrinker.c:626
+ shrink_one+0x493/0x7c0 mm/vmscan.c:4790
+ shrink_many mm/vmscan.c:4851 [inline]
+ lru_gen_shrink_node+0x89f/0x1750 mm/vmscan.c:4951
+ shrink_node mm/vmscan.c:5910 [inline]
+ kswapd_shrink_node mm/vmscan.c:6720 [inline]
+ balance_pgdat+0x1105/0x1970 mm/vmscan.c:6911
+ kswapd+0x5ea/0xbf0 mm/vmscan.c:7180
+ kthread+0x2c1/0x3a0 kernel/kthread.c:389
+ ret_from_fork+0x45/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+
+The buggy address belongs to the object at ffff888029a2b780
+ which belongs to the cache dentry of size 312
+The buggy address is located 0 bytes inside of
+ freed 312-byte region [ffff888029a2b780, ffff888029a2b8b8)
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x29a2a
+head: order:1 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+memcg:ffff88801bc54a01
+flags: 0xfff00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
+page_type: 0xffffefff(slab)
+raw: 00fff00000000040 ffff8880166a3400 ffffea0000a68180 dead000000000002
+raw: 0000000000000000 0000000080150015 00000001ffffefff ffff88801bc54a01
+head: 00fff00000000040 ffff8880166a3400 ffffea0000a68180 dead000000000002
+head: 0000000000000000 0000000080150015 00000001ffffefff ffff88801bc54a01
+head: 00fff00000000001 ffffea0000a68a81 ffffffffffffffff 0000000000000000
+head: 0000000000000002 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 1, migratetype Reclaimable, gfp_mask 0xd20d0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC|__GFP_RECLAIMABLE), pid 4704, tgid 4704 (udevd), ts 31781364549, free_ts 0
+ set_page_owner include/linux/page_owner.h:32 [inline]
+ post_alloc_hook+0x2d1/0x350 mm/page_alloc.c:1473
+ prep_new_page mm/page_alloc.c:1481 [inline]
+ get_page_from_freelist+0x1353/0x2e50 mm/page_alloc.c:3425
+ __alloc_pages_noprof+0x22b/0x2460 mm/page_alloc.c:4683
+ __alloc_pages_node_noprof include/linux/gfp.h:269 [inline]
+ alloc_pages_node_noprof include/linux/gfp.h:296 [inline]
+ alloc_slab_page+0x56/0x110 mm/slub.c:2265
+ allocate_slab mm/slub.c:2428 [inline]
+ new_slab+0x84/0x260 mm/slub.c:2481
+ ___slab_alloc+0xdac/0x1870 mm/slub.c:3667
+ __slab_alloc.constprop.0+0x56/0xb0 mm/slub.c:3757
+ __slab_alloc_node mm/slub.c:3810 [inline]
+ slab_alloc_node mm/slub.c:3990 [inline]
+ kmem_cache_alloc_lru_noprof+0x2a7/0x2f0 mm/slub.c:4021
+ __d_alloc+0x35/0x8c0 fs/dcache.c:1624
+ d_alloc+0x4a/0x1e0 fs/dcache.c:1704
+ d_alloc_parallel+0xe9/0x12b0 fs/dcache.c:2462
+ __lookup_slow+0x194/0x460 fs/namei.c:1677
+ lookup_slow fs/namei.c:1709 [inline]
+ walk_component+0x350/0x5b0 fs/namei.c:2004
+ lookup_last fs/namei.c:2469 [inline]
+ path_lookupat+0x17f/0x770 fs/namei.c:2493
+ filename_lookup+0x1e5/0x5b0 fs/namei.c:2522
+ vfs_statx+0x13e/0x550 fs/stat.c:244
+page_owner free stack trace missing
+
+Memory state around the buggy address:
+ ffff888029a2b680: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ffff888029a2b700: 00 00 00 00 00 00 00 00 fc fc fc fc fc fc fc fc
+>ffff888029a2b780: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                   ^
+ ffff888029a2b800: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff888029a2b880: fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc fa
+==================================================================
+----------------
+Code disassembly (best guess), 2 bytes skipped:
+   0:	10 06                	adc    %al,(%rsi)
+   2:	03 74 b4 01          	add    0x1(%rsp,%rsi,4),%esi
+   6:	10 07                	adc    %al,(%rdi)
+   8:	03 74 b0 01          	add    0x1(%rax,%rsi,4),%esi
+   c:	10 08                	adc    %cl,(%rax)
+   e:	03 74 d8 01          	add    0x1(%rax,%rbx,8),%esi
+  1e:	00 51 52             	add    %dl,0x52(%rcx)
+  21:	55                   	push   %rbp
+  22:	89 e5                	mov    %esp,%ebp
+  24:	0f 34                	sysenter
+  26:	cd 80                	int    $0x80
+* 28:	5d                   	pop    %rbp <-- trapping instruction
+  29:	5a                   	pop    %rdx
+  2a:	59                   	pop    %rcx
+  2b:	c3                   	ret
+  2c:	90                   	nop
+  2d:	90                   	nop
+  2e:	90                   	nop
+  2f:	90                   	nop
+  30:	8d b4 26 00 00 00 00 	lea    0x0(%rsi,%riz,1),%esi
+  37:	8d b4 26 00 00 00 00 	lea    0x0(%rsi,%riz,1),%esi

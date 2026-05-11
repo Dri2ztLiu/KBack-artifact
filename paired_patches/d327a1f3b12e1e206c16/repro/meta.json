@@ -1,0 +1,50 @@
+{
+  "extid": "d327a1f3b12e1e206c16",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d327a1f3b12e1e206c16",
+  "bug_title": "memory leak in nr_create (3)",
+  "bug_status": "fixed on 2024/07/09 19:14",
+  "fix_commits": [
+    {
+      "title": "netrom: Fix a memory leak in nr_heartbeat_expiry()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0b9130247f3b6a1122478471ff0e014ea96bb735",
+      "hash": "0b9130247f3b6a1122478471ff0e014ea96bb735",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Ilia.Gavrilov@infotecs.ru",
+      "author-name": "Gavrilov Ilia",
+      "date": "2024-06-13T08:23:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in nr_create",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7d2f353b2682dcfe5f9bc71e5b61d5b61770d98e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/03d9c195daed8fca30b642783f35657aa7e32209",
+  "syzkaller-commit": "03d9c195daed8fca30b642783f35657aa7e32209",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=103516ffa80000",
+      "saved_to": "/home/lcj/paired_patches/d327a1f3b12e1e206c16/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f3c65e06397a9d58",
+      "saved_to": "/home/lcj/paired_patches/d327a1f3b12e1e206c16/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=144f740ba80000",
+      "saved_to": "/home/lcj/paired_patches/d327a1f3b12e1e206c16/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1531371fa80000",
+      "saved_to": "/home/lcj/paired_patches/d327a1f3b12e1e206c16/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

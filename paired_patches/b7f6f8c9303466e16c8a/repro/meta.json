@@ -1,0 +1,50 @@
+{
+  "extid": "b7f6f8c9303466e16c8a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b7f6f8c9303466e16c8a",
+  "bug_title": "general protection fault in l2cap_sock_recv_cb",
+  "bug_status": "fixed on 2024/08/06 11:02",
+  "fix_commits": [
+    {
+      "title": "bluetooth/l2cap: sync sock recv cb and release",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=89e856e124f9ae548572c56b1b70c2255705f8fe",
+      "hash": "89e856e124f9ae548572c56b1b70c2255705f8fe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2024-06-15T01:45:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in l2cap_sock_recv_cb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8282d5af7be82100c5460d093e9774140a26b96a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/757f06b1fadfe22cb3ac5f4f36e8e894eb78bb08",
+  "syzkaller-commit": "757f06b1fadfe22cb3ac5f4f36e8e894eb78bb08",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1581d78e980000",
+      "saved_to": "/home/lcj/paired_patches/b7f6f8c9303466e16c8a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=67463c0717b8d4ca",
+      "saved_to": "/home/lcj/paired_patches/b7f6f8c9303466e16c8a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12fd1da9980000",
+      "saved_to": "/home/lcj/paired_patches/b7f6f8c9303466e16c8a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1333df3e980000",
+      "saved_to": "/home/lcj/paired_patches/b7f6f8c9303466e16c8a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

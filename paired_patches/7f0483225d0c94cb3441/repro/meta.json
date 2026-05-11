@@ -1,0 +1,50 @@
+{
+  "extid": "7f0483225d0c94cb3441",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7f0483225d0c94cb3441",
+  "bug_title": "WARNING: bad unlock balance in rxrpc_do_sendmsg",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "rxrpc: Fix locking in rxrpc's sendmsg",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0f571ecd7943423c25947439045f0d352ca3dbf",
+      "hash": "b0f571ecd7943423c25947439045f0d352ca3dbf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2022-08-24T16:35:45Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: bad unlock balance in rxrpc_do_sendmsg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "88084a3df1672e131ddc1b4e39eeacfd39864acf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1434eec0b84075b7246560cfa89f20cdb3d8077f",
+  "syzkaller-commit": "1434eec0b84075b7246560cfa89f20cdb3d8077f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10a26197f00000",
+      "saved_to": "/home/lcj/paired_patches/7f0483225d0c94cb3441/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6b2632af90cfbfdc",
+      "saved_to": "/home/lcj/paired_patches/7f0483225d0c94cb3441/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11aec924080000",
+      "saved_to": "/home/lcj/paired_patches/7f0483225d0c94cb3441/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11381234080000",
+      "saved_to": "/home/lcj/paired_patches/7f0483225d0c94cb3441/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

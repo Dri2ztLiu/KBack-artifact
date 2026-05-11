@@ -1,0 +1,50 @@
+{
+  "extid": "6e29a053eb165bd50de5",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6e29a053eb165bd50de5",
+  "bug_title": "memory leak in smc_create (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net/smc: Fix sock leak when release after smc_shutdown()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a74e99323746353bba11562a2f2d0aa8102f402",
+      "hash": "1a74e99323746353bba11562a2f2d0aa8102f402",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tonylu@linux.alibaba.com",
+      "author-name": "Tony Lu",
+      "date": "2022-04-14T07:51:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in smc_create",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ed4643521e6af8ab8ed1e467630a85884d2696cf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/89bc860804252dbacb8c2bea60b9204859f4afd7",
+  "syzkaller-commit": "89bc860804252dbacb8c2bea60b9204859f4afd7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15296899700000",
+      "saved_to": "/home/lcj/paired_patches/6e29a053eb165bd50de5/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8414405fa34d7154",
+      "saved_to": "/home/lcj/paired_patches/6e29a053eb165bd50de5/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15f44cdb700000",
+      "saved_to": "/home/lcj/paired_patches/6e29a053eb165bd50de5/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16431151700000",
+      "saved_to": "/home/lcj/paired_patches/6e29a053eb165bd50de5/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

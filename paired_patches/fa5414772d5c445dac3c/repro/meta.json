@@ -1,0 +1,50 @@
+{
+  "extid": "fa5414772d5c445dac3c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fa5414772d5c445dac3c",
+  "bug_title": "KMSAN: kernel-infoleak in copyout (2)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "xfrm: Zero padding when dumping algos and encap",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8222d5910dae08213b6d9d4bc9a7f8502855e624",
+      "hash": "8222d5910dae08213b6d9d4bc9a7f8502855e624",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "herbert@gondor.apana.org.au",
+      "author-name": "Herbert Xu",
+      "date": "2023-02-09T01:09:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: kernel-infoleak in copyout",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "c9a4e3bf8138353520d97a1c61a050448ffc5c6c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1dac8c7a01e2bdd35cb04eb4901ddb157291ac2d",
+  "syzkaller-commit": "1dac8c7a01e2bdd35cb04eb4901ddb157291ac2d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=161cfa16480000",
+      "saved_to": "/home/lcj/paired_patches/fa5414772d5c445dac3c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b63e082c4fda2e77",
+      "saved_to": "/home/lcj/paired_patches/fa5414772d5c445dac3c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16455df2480000",
+      "saved_to": "/home/lcj/paired_patches/fa5414772d5c445dac3c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12e0e61c480000",
+      "saved_to": "/home/lcj/paired_patches/fa5414772d5c445dac3c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

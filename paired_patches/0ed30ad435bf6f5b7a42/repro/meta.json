@@ -1,0 +1,50 @@
+{
+  "extid": "0ed30ad435bf6f5b7a42",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0ed30ad435bf6f5b7a42",
+  "bug_title": "WARNING in btrfs_add_delayed_iput",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "btrfs: fix race between async reclaim worker and close_ctree()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a26bf338cdad3643a6e7c3d78a172baadba15c1a",
+      "hash": "a26bf338cdad3643a6e7c3d78a172baadba15c1a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2025-06-04T15:54:44Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in btrfs_add_delayed_iput",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "b551c4e2a98a177a06148cf16505643cd2108386",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3cda49cfaa8556b73277ccd7e75952f0f2de2d74",
+  "syzkaller-commit": "3cda49cfaa8556b73277ccd7e75952f0f2de2d74",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=174b0d82580000",
+      "saved_to": "/home/lcj/paired_patches/0ed30ad435bf6f5b7a42/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=90b2e63e925474ab",
+      "saved_to": "/home/lcj/paired_patches/0ed30ad435bf6f5b7a42/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0ed30ad435bf6f5b7a42/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0ed30ad435bf6f5b7a42/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

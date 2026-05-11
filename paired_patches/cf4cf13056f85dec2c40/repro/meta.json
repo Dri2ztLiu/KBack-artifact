@@ -1,0 +1,50 @@
+{
+  "extid": "cf4cf13056f85dec2c40",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cf4cf13056f85dec2c40",
+  "bug_title": "kernel BUG in __filemap_get_folio",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "XArray: Disallow sibling entries of nodes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=63b1898fffcd8bd81905b95104ecc52b45a97e21",
+      "hash": "63b1898fffcd8bd81905b95104ecc52b45a97e21",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "willy@infradead.org",
+      "author-name": "Matthew Wilcox (Oracle)",
+      "date": "2022-04-22T17:23:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in __filemap_get_folio",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "559089e0a93d44280ec3ab478830af319c56dbe3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7d7bc7384ef404234239532c5c2a9af81b020152",
+  "syzkaller-commit": "7d7bc7384ef404234239532c5c2a9af81b020152",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13eb13c0f00000",
+      "saved_to": "/home/lcj/paired_patches/cf4cf13056f85dec2c40/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=dd7c9a79dfcfa205",
+      "saved_to": "/home/lcj/paired_patches/cf4cf13056f85dec2c40/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=147f41ecf00000",
+      "saved_to": "/home/lcj/paired_patches/cf4cf13056f85dec2c40/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16554fd0f00000",
+      "saved_to": "/home/lcj/paired_patches/cf4cf13056f85dec2c40/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "348331f63b034f89b622",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=348331f63b034f89b622",
+  "bug_title": "WARNING in bcm5974_start_traffic/usb_submit_urb",
+  "bug_status": "fixed on 2024/03/26 17:39",
+  "fix_commits": [
+    {
+      "title": "Input: bcm5974 - check endpoint type before starting traffic",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2b9c3eb32a699acdd4784d6b93743271b4970899",
+      "hash": "2b9c3eb32a699acdd4784d6b93743271b4970899",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "javier.carrasco.cruz@gmail.com",
+      "author-name": "Javier Carrasco",
+      "date": "2023-10-14T10:20:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in bcm5974_start_traffic/usb_submit_urb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "55be6084c8e0e0ada9278c2ab60b7a584378efda",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67cb024cd1a3c95e311263a5c95e957f9abfd8ca",
+  "syzkaller-commit": "67cb024cd1a3c95e311263a5c95e957f9abfd8ca",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14b848d2880000",
+      "saved_to": "/home/lcj/paired_patches/348331f63b034f89b622/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c29b6436e994d72e",
+      "saved_to": "/home/lcj/paired_patches/348331f63b034f89b622/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1356da06880000",
+      "saved_to": "/home/lcj/paired_patches/348331f63b034f89b622/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1140e8d2880000",
+      "saved_to": "/home/lcj/paired_patches/348331f63b034f89b622/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

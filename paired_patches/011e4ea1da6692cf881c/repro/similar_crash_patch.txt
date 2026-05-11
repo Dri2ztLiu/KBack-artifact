@@ -1,0 +1,101 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (1), fs/pipe.c (1)
+TOP_SYMBOLS:
+  pipe_write (2)
+TOP_KEYWORDS:
+  deadlock (2), lockdep (1), NULL (1), null (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=pipe_write)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 59b13c2b647e464dd85622c89d7f16c15d681e96
+bug_url: https://syzkaller.appspot.com/bug?extid=00ef6e8711d8fe2c15bd
+title: possible deadlock in pipe_write
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index e7c344d5af15..82aaa3ae7395 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 51
++SUBLEVEL = 52
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: 055ca83559912f2cfd91c9441427bac4caf3c74e
+bug_url: https://syzkaller.appspot.com/bug?id=2741eb9d0350dbb56ab64113b9d4f349eb845d5b
+title: possible deadlock in pipe_write
+relevance_score: 0
+
+ fs/pipe.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
+diff --git a/fs/pipe.c b/fs/pipe.c
+index 804a7d789452..226e7f66b590 100644
+--- a/fs/pipe.c
++++ b/fs/pipe.c
+@@ -446,6 +446,18 @@ pipe_write(struct kiocb *iocb, struct iov_iter *from)
+ 	bool was_empty = false;
+ 	bool wake_next_writer = false;
+ 
++	/*
++	 * Reject writing to watch queue pipes before the point where we lock
++	 * the pipe.
++	 * Otherwise, lockdep would be unhappy if the caller already has another
++	 * pipe locked.
++	 * If we had to support locking a normal pipe and a notification pipe at
++	 * the same time, we could set up lockdep annotations for that, but
++	 * since we don't actually need that, it's simpler to just bail here.
++	 */
++	if (pipe_has_watch_queue(pipe))
++		return -EXDEV;
++
+ 	/* Null write succeeds. */
+ 	if (unlikely(total_len == 0))
+ 		return 0;
+@@ -458,11 +470,6 @@ pipe_write(struct kiocb *iocb, struct iov_iter *from)
+ 		goto out;
+ 	}
+ 
+-	if (pipe_has_watch_queue(pipe)) {
+-		ret = -EXDEV;
+-		goto out;
+-	}
+-
+ 	/*
+ 	 * If it wasn't empty we try to merge new data into
+ 	 * the last buffer.
+================================================================================

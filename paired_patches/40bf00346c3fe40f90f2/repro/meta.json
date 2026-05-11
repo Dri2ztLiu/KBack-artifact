@@ -1,0 +1,50 @@
+{
+  "extid": "40bf00346c3fe40f90f2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=40bf00346c3fe40f90f2",
+  "bug_title": "WARNING in kvfree_call_rcu",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "smc: Fix various oops due to inet_sock type confusion.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=60ada4fe644edaa6c2da97364184b0425e8aeaf5",
+      "hash": "60ada4fe644edaa6c2da97364184b0425e8aeaf5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-07-11T06:07:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in kvfree_call_rcu",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "7482bb149b9f4e2c9f195a3fcb2af2f2b5aa8307",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4f67c4aece4f5794be20c6bc99c177e44b1320e8",
+  "syzkaller-commit": "4f67c4aece4f5794be20c6bc99c177e44b1320e8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=131db28c580000",
+      "saved_to": "/home/lcj/paired_patches/40bf00346c3fe40f90f2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3c06e3e2454512b3",
+      "saved_to": "/home/lcj/paired_patches/40bf00346c3fe40f90f2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15fe9582580000",
+      "saved_to": "/home/lcj/paired_patches/40bf00346c3fe40f90f2/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1257428c580000",
+      "saved_to": "/home/lcj/paired_patches/40bf00346c3fe40f90f2/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

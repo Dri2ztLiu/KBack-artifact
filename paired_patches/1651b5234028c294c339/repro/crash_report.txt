@@ -1,0 +1,51 @@
+==================================================================
+BUG: KCSAN: data-race in ip_vs_add_service / ip_vs_out_hook
+
+write to 0xffff8881199a9004 of 4 bytes by task 13277 on cpu 1:
+ ip_vs_add_service+0xa18/0xa70 net/netfilter/ipvs/ip_vs_ctl.c:1488
+ do_ip_vs_set_ctl+0x6ec/0x8c0 net/netfilter/ipvs/ip_vs_ctl.c:2808
+ nf_setsockopt+0x199/0x1b0 net/netfilter/nf_sockopt.c:101
+ ip_setsockopt+0x102/0x110 net/ipv4/ip_sockglue.c:1424
+ udp_setsockopt+0x99/0xb0 net/ipv4/udp.c:3081
+ sock_common_setsockopt+0x69/0x80 net/core/sock.c:3903
+ do_sock_setsockopt net/socket.c:2344 [inline]
+ __sys_setsockopt+0x181/0x200 net/socket.c:2369
+ __do_sys_setsockopt net/socket.c:2375 [inline]
+ __se_sys_setsockopt net/socket.c:2372 [inline]
+ __x64_sys_setsockopt+0x64/0x80 net/socket.c:2372
+ x64_sys_call+0x20ec/0x2ff0 arch/x86/include/generated/asm/syscalls_64.h:55
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xd2/0x200 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+read to 0xffff8881199a9004 of 4 bytes by task 13269 on cpu 0:
+ ip_vs_out_hook+0x1c1/0x920 net/netfilter/ipvs/ip_vs_core.c:1356
+ nf_hook_entry_hookfn include/linux/netfilter.h:158 [inline]
+ nf_hook_slow+0x78/0x180 net/netfilter/core.c:623
+ nf_hook include/linux/netfilter.h:273 [inline]
+ __ip_local_out+0x2cb/0x2f0 net/ipv4/ip_output.c:118
+ ip_local_out net/ipv4/ip_output.c:127 [inline]
+ ip_send_skb+0x34/0x160 net/ipv4/ip_output.c:1506
+ udp_send_skb+0x6e3/0xa40 net/ipv4/udp.c:1195
+ udp_sendmsg+0x1050/0x13c0 net/ipv4/udp.c:1484
+ inet_sendmsg+0xac/0xd0 net/ipv4/af_inet.c:851
+ sock_sendmsg_nosec net/socket.c:714 [inline]
+ __sock_sendmsg+0x102/0x180 net/socket.c:729
+ ____sys_sendmsg+0x345/0x4e0 net/socket.c:2614
+ ___sys_sendmsg+0x17b/0x1d0 net/socket.c:2668
+ __sys_sendmmsg+0x178/0x300 net/socket.c:2757
+ __do_sys_sendmmsg net/socket.c:2784 [inline]
+ __se_sys_sendmmsg net/socket.c:2781 [inline]
+ __x64_sys_sendmmsg+0x57/0x70 net/socket.c:2781
+ x64_sys_call+0x1c4a/0x2ff0 arch/x86/include/generated/asm/syscalls_64.h:308
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xd2/0x200 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+value changed: 0x00000000 -> 0x00000001
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 0 UID: 0 PID: 13269 Comm: syz.0.3422 Not tainted syzkaller #0 PREEMPT(voluntary) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 08/18/2025
+==================================================================
+IPVS: wlc: UDP 224.0.0.2:0 - no destination available

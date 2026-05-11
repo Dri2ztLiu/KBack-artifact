@@ -1,0 +1,50 @@
+{
+  "extid": "59aa77b92d06cd5a54f2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=59aa77b92d06cd5a54f2",
+  "bug_title": "WARNING in ethnl_default_doit",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "ethtool: strset: fix message length calculation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e175aef902697826d344ce3a12189329848fe898",
+      "hash": "e175aef902697826d344ce3a12189329848fe898",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2021-06-12T01:49:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ethnl_default_doit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "4bea7207a80c8bba3b3eb5b84c407b162968475f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/aba2b2fb3544d9e42991237c13d8cada421deda5",
+  "syzkaller-commit": "aba2b2fb3544d9e42991237c13d8cada421deda5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15cd30a0300000",
+      "saved_to": "/home/lcj/paired_patches/59aa77b92d06cd5a54f2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a6380da8984033f1",
+      "saved_to": "/home/lcj/paired_patches/59aa77b92d06cd5a54f2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/59aa77b92d06cd5a54f2/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/59aa77b92d06cd5a54f2/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "c2c79c6d6eddc5262b77",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c2c79c6d6eddc5262b77",
+  "bug_title": "KASAN: invalid-access Read in copy_page",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "arm64: mte: Avoid setting PG_mte_tagged if no tags cleared or restored",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a8e5e5146ad08d794c58252bab00b261045ef16d",
+      "hash": "a8e5e5146ad08d794c58252bab00b261045ef16d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "catalin.marinas@arm.com",
+      "author-name": "Catalin Marinas",
+      "date": "2022-10-06T16:33:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: invalid-access Read in copy_page",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "aa512c115a09d9133dcb09466e39f93f99a82fdb",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2b253ced7f2f29cbe3de4782c1da91ff9d8a8a8c",
+  "syzkaller-commit": "2b253ced7f2f29cbe3de4782c1da91ff9d8a8a8c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11738142880000",
+      "saved_to": "/home/lcj/paired_patches/c2c79c6d6eddc5262b77/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f763898353661aa5",
+      "saved_to": "/home/lcj/paired_patches/c2c79c6d6eddc5262b77/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c2c79c6d6eddc5262b77/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/c2c79c6d6eddc5262b77/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

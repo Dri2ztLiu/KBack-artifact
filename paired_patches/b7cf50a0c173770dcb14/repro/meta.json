@@ -1,0 +1,50 @@
+{
+  "extid": "b7cf50a0c173770dcb14",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b7cf50a0c173770dcb14",
+  "bug_title": "BUG: unable to handle kernel paging request in try_to_wake_up (2)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "btrfs: flush delalloc workers queue before stopping cleaner kthread during unmount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f10bef73fb355e3fc85e63a50386798be68ff486",
+      "hash": "f10bef73fb355e3fc85e63a50386798be68ff486",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2024-12-03T11:53:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in try_to_wake_up",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cdd30ebb1b9f36159d66f088b61aee264e649d7a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/578925bcbcaef470c75aea9e463ca6a44ac10c17",
+  "syzkaller-commit": "578925bcbcaef470c75aea9e463ca6a44ac10c17",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1300c0f8580000",
+      "saved_to": "/home/lcj/paired_patches/b7cf50a0c173770dcb14/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=91c852e3d1d7c1a6",
+      "saved_to": "/home/lcj/paired_patches/b7cf50a0c173770dcb14/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14b1e80f980000",
+      "saved_to": "/home/lcj/paired_patches/b7cf50a0c173770dcb14/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=140e75e8580000",
+      "saved_to": "/home/lcj/paired_patches/b7cf50a0c173770dcb14/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

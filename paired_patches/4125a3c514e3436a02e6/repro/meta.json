@@ -1,0 +1,50 @@
+{
+  "extid": "4125a3c514e3436a02e6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4125a3c514e3436a02e6",
+  "bug_title": "KASAN: null-ptr-deref Write in xfs_filestream_select_ag (2)",
+  "bug_status": "fixed on 2024/11/14 10:09",
+  "fix_commits": [
+    {
+      "title": "xfs: fix finding a last resort AG in xfs_filestream_pick_ag",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dc60992ce76fbc2f71c2674f435ff6bde2108028",
+      "hash": "dc60992ce76fbc2f71c2674f435ff6bde2108028",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hch@lst.de",
+      "author-name": "Christoph Hellwig",
+      "date": "2024-10-23T13:37:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: null-ptr-deref Write in xfs_filestream_select_ag",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4d939780b70592e0f4bc6c397e52e518f8fb7916",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/666f77ed02b98b834393ff84c646a8d611605f6f",
+  "syzkaller-commit": "666f77ed02b98b834393ff84c646a8d611605f6f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11db4487980000",
+      "saved_to": "/home/lcj/paired_patches/4125a3c514e3436a02e6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=164d2822debd8b0d",
+      "saved_to": "/home/lcj/paired_patches/4125a3c514e3436a02e6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4125a3c514e3436a02e6/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1374d830580000",
+      "saved_to": "/home/lcj/paired_patches/4125a3c514e3436a02e6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "e1cd6bd8493060bd701d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e1cd6bd8493060bd701d",
+  "bug_title": "possible deadlock in inet_shutdown",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "nbd: restrict sockets to TCP and UDP",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9f7c02e031570e8291a63162c6c046dc15ff85b0",
+      "hash": "9f7c02e031570e8291a63162c6c046dc15ff85b0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2025-09-09T13:22:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in inet_shutdown",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "788bc43d8330511af433bf282021a8fecb6b9009",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/807a3b61ca22f8988561c180eb47268ea6e244db",
+  "syzkaller-commit": "807a3b61ca22f8988561c180eb47268ea6e244db",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=170b2242580000",
+      "saved_to": "/home/lcj/paired_patches/e1cd6bd8493060bd701d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c302bcfb26a48af",
+      "saved_to": "/home/lcj/paired_patches/e1cd6bd8493060bd701d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12ddc1f0580000",
+      "saved_to": "/home/lcj/paired_patches/e1cd6bd8493060bd701d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13205a62580000",
+      "saved_to": "/home/lcj/paired_patches/e1cd6bd8493060bd701d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

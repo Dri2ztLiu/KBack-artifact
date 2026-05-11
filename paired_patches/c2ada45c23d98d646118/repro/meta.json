@@ -1,0 +1,50 @@
+{
+  "extid": "c2ada45c23d98d646118",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c2ada45c23d98d646118",
+  "bug_title": "possible deadlock in ntfs_set_state (2)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix warning possible deadlock in ntfs_set_state",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5b2db723455a89dc96743d34d8bdaa23a402db2f",
+      "hash": "5b2db723455a89dc96743d34d8bdaa23a402db2f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-08-19T13:26:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in ntfs_set_state",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fe46a7dd189e25604716c03576d05ac8a5209743",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d615901c739a765329b688494cee2f8e1b5037cb",
+  "syzkaller-commit": "d615901c739a765329b688494cee2f8e1b5037cb",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11368711180000",
+      "saved_to": "/home/lcj/paired_patches/c2ada45c23d98d646118/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1a07d5da4eb21586",
+      "saved_to": "/home/lcj/paired_patches/c2ada45c23d98d646118/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1514a6a5180000",
+      "saved_to": "/home/lcj/paired_patches/c2ada45c23d98d646118/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13718006180000",
+      "saved_to": "/home/lcj/paired_patches/c2ada45c23d98d646118/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

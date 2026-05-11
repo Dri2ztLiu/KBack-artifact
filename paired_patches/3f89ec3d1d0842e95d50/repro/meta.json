@@ -1,0 +1,50 @@
+{
+  "extid": "3f89ec3d1d0842e95d50",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3f89ec3d1d0842e95d50",
+  "bug_title": "WARNING in usbnet_status_start",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "usb: net: sierra: check for no status endpoint",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4c4ca3c46167518f8534ed70f6e3b4bf86c4d158",
+      "hash": "4c4ca3c46167518f8534ed70f6e3b4bf86c4d158",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "oneukum@suse.com",
+      "author-name": "Oliver Neukum",
+      "date": "2025-07-14T11:12:56Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in usbnet_status_start",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "b551c4e2a98a177a06148cf16505643cd2108386",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3cda49cfaa8556b73277ccd7e75952f0f2de2d74",
+  "syzkaller-commit": "3cda49cfaa8556b73277ccd7e75952f0f2de2d74",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15118d82580000",
+      "saved_to": "/home/lcj/paired_patches/3f89ec3d1d0842e95d50/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5b36857f6469ad5b",
+      "saved_to": "/home/lcj/paired_patches/3f89ec3d1d0842e95d50/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15a1ba8c580000",
+      "saved_to": "/home/lcj/paired_patches/3f89ec3d1d0842e95d50/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=140ea0f0580000",
+      "saved_to": "/home/lcj/paired_patches/3f89ec3d1d0842e95d50/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

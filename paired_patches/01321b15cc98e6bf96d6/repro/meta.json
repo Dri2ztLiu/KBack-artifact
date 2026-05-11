@@ -1,0 +1,50 @@
+{
+  "extid": "01321b15cc98e6bf96d6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=01321b15cc98e6bf96d6",
+  "bug_title": "memory leak in blk_iolatency_init",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "blkcg: fix memory leak in blk_iolatency_init",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6f5ddde41069fcd1f0993ec76c9dbbf9d021fd4d",
+      "hash": "6f5ddde41069fcd1f0993ec76c9dbbf9d021fd4d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yanfei.xu@windriver.com",
+      "author-name": "Yanfei Xu",
+      "date": "2021-09-15T07:24:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in blk_iolatency_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0014404f9c18dd360a1b8bb4243643c679ce99bf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7bdd8b2c56b883af3e65b261cd7c942104dc2ecc",
+  "syzkaller-commit": "7bdd8b2c56b883af3e65b261cd7c942104dc2ecc",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17f744ee700000",
+      "saved_to": "/home/lcj/paired_patches/01321b15cc98e6bf96d6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3f0a704147ec8e32",
+      "saved_to": "/home/lcj/paired_patches/01321b15cc98e6bf96d6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=123ec76e700000",
+      "saved_to": "/home/lcj/paired_patches/01321b15cc98e6bf96d6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=117c205e700000",
+      "saved_to": "/home/lcj/paired_patches/01321b15cc98e6bf96d6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

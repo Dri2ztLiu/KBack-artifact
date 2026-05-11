@@ -1,0 +1,50 @@
+{
+  "extid": "169de184e9defe7fe709",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=169de184e9defe7fe709",
+  "bug_title": "possible deadlock in rpc_close_pipes",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "better lockdep annotations for simple_recursive_removal()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2a8061ee5e41034eb14170ec4517b5583dbeff9f",
+      "hash": "2a8061ee5e41034eb14170ec4517b5583dbeff9f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "viro@zeniv.linux.org.uk",
+      "author-name": "Al Viro",
+      "date": "2025-07-03T02:30:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in rpc_close_pipes",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "50c8770a42faf8b1c7abe93e7c114337f580a97d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0cd59a8f39893a99b3c21e8be52a1924e565581c",
+  "syzkaller-commit": "0cd59a8f39893a99b3c21e8be52a1924e565581c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1583348c580000",
+      "saved_to": "/home/lcj/paired_patches/169de184e9defe7fe709/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=70c16e4e191115d4",
+      "saved_to": "/home/lcj/paired_patches/169de184e9defe7fe709/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17ffe48c580000",
+      "saved_to": "/home/lcj/paired_patches/169de184e9defe7fe709/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1247d770580000",
+      "saved_to": "/home/lcj/paired_patches/169de184e9defe7fe709/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

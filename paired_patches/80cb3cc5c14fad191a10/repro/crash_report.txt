@@ -1,0 +1,39 @@
+=====================================
+WARNING: bad unlock balance detected!
+syzkaller #0 Not tainted
+-------------------------------------
+syz.1.48/6865 is trying to release lock (&sighand->siglock) at:
+[<ffff8000803b8634>] spin_unlock include/linux/spinlock.h:391 [inline]
+[<ffff8000803b8634>] copy_process+0x22d4/0x31ec kernel/fork.c:2432
+but there are no more locks to release!
+
+other info that might help us debug this:
+1 lock held by syz.1.48/6865:
+ #0: ffff80008fa00450 (cgroup_threadgroup_rwsem){++++}-{0:0}, at: copy_process+0x2228/0x31ec kernel/fork.c:2274
+
+stack backtrace:
+CPU: 0 UID: 0 PID: 6865 Comm: syz.1.48 Not tainted syzkaller #0 PREEMPT 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 06/30/2025
+Call trace:
+ show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:499 (C)
+ __dump_stack+0x30/0x40 lib/dump_stack.c:94
+ dump_stack_lvl+0xd8/0x12c lib/dump_stack.c:120
+ dump_stack+0x1c/0x28 lib/dump_stack.c:129
+ print_unlock_imbalance_bug+0xf4/0xfc kernel/locking/lockdep.c:5298
+ __lock_release kernel/locking/lockdep.c:-1 [inline]
+ lock_release+0x244/0x39c kernel/locking/lockdep.c:5889
+ __raw_spin_unlock include/linux/spinlock_api_smp.h:141 [inline]
+ _raw_spin_unlock+0x24/0x78 kernel/locking/spinlock.c:186
+ spin_unlock include/linux/spinlock.h:391 [inline]
+ copy_process+0x22d4/0x31ec kernel/fork.c:2432
+ kernel_clone+0x1d8/0x84c kernel/fork.c:2605
+ __do_sys_clone kernel/fork.c:2748 [inline]
+ __se_sys_clone kernel/fork.c:2716 [inline]
+ __arm64_sys_clone+0x144/0x1a0 kernel/fork.c:2716
+ __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+ invoke_syscall+0x98/0x2b8 arch/arm64/kernel/syscall.c:49
+ el0_svc_common+0x130/0x23c arch/arm64/kernel/syscall.c:132
+ do_el0_svc+0x48/0x58 arch/arm64/kernel/syscall.c:151
+ el0_svc+0x5c/0x254 arch/arm64/kernel/entry-common.c:744
+ el0t_64_sync_handler+0x84/0x12c arch/arm64/kernel/entry-common.c:763
+ el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:596

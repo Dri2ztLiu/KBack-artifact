@@ -1,0 +1,40 @@
+{
+  "extid": "1a3986bbd3169c307819",
+  "target_ref": "1a3986bbd3169c307819",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "850925a8133c73c4a2453c360b2c3beb3bab67c9",
+      "branch": "linux-5.15",
+      "title": "WARNING in __dev_queue_xmit",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "arch/x86/include/asm/runtime-const.h"
+      ],
+      "symbols": [
+        "typeof",
+        "typeof"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

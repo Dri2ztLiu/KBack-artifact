@@ -1,0 +1,50 @@
+{
+  "extid": "7df055631cd1be4586fd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7df055631cd1be4586fd",
+  "bug_title": "WARNING in io_sync_cancel",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "io_uring/cancel: re-grab ctx mutex after finishing wait",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=23fffb2f09ce1145cbd751801d45ba74acaa6542",
+      "hash": "23fffb2f09ce1145cbd751801d45ba74acaa6542",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "axboe@kernel.dk",
+      "author-name": "Jens Axboe",
+      "date": "2022-12-21T14:11:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in io_sync_cancel",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "77856d911a8c8724ee8e2b09d55979fc1de8f1c0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/05494336991504e3c6137b89eeddd492e17af6b6",
+  "syzkaller-commit": "05494336991504e3c6137b89eeddd492e17af6b6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10adaa57880000",
+      "saved_to": "/home/lcj/paired_patches/7df055631cd1be4586fd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=334a10f27a9ee2e0",
+      "saved_to": "/home/lcj/paired_patches/7df055631cd1be4586fd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=142b36b7880000",
+      "saved_to": "/home/lcj/paired_patches/7df055631cd1be4586fd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14ac9ee7880000",
+      "saved_to": "/home/lcj/paired_patches/7df055631cd1be4586fd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

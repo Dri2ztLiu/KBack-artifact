@@ -1,0 +1,50 @@
+{
+  "extid": "6af973a3b8dfd2faefdc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6af973a3b8dfd2faefdc",
+  "bug_title": "BUG: unable to handle kernel NULL pointer dereference in lo_rw_aio",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "loop: Add sanity check for read/write_iter",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f5c84eff634ba003326aa034c414e2a9dcb7c6a7",
+      "hash": "f5c84eff634ba003326aa034c414e2a9dcb7c6a7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lizhi.xu@windriver.com",
+      "author-name": "Lizhi Xu",
+      "date": "2025-04-28T14:36:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel NULL pointer dereference in lo_rw_aio",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "119009db267415049182774196e3cce9e13b52ef",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2a20f901dbd7922a27b5625a8a442587c8c3df2c",
+  "syzkaller-commit": "2a20f901dbd7922a27b5625a8a442587c8c3df2c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13a64c70580000",
+      "saved_to": "/home/lcj/paired_patches/6af973a3b8dfd2faefdc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7a7c679f880028f0",
+      "saved_to": "/home/lcj/paired_patches/6af973a3b8dfd2faefdc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=100b5b98580000",
+      "saved_to": "/home/lcj/paired_patches/6af973a3b8dfd2faefdc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=179aeccc580000",
+      "saved_to": "/home/lcj/paired_patches/6af973a3b8dfd2faefdc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

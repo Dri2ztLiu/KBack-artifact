@@ -1,0 +1,50 @@
+{
+  "extid": "90a11e6b1e810785c6ff",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=90a11e6b1e810785c6ff",
+  "bug_title": "KASAN: invalid-free in diUnmount",
+  "bug_status": "closed as dup on 2023/07/18 16:07",
+  "fix_commits": [
+    {
+      "title": "jfs: fix invalid free of JFS_IP(ipimap)->i_imap in diUnmount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6e2bda2c192d0244b5a78b787ef20aa10cb319b7",
+      "hash": "6e2bda2c192d0244b5a78b787ef20aa10cb319b7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jfs-discussion@lists.sourceforge.net",
+      "author-name": "Liu Shixin via Jfs-discussion",
+      "date": "2022-12-01T12:46:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: invalid-free in diUnmount",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a027b2eca0b7e90b11a0b0ddfad0dc4068707799",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b1b6ae3d01b572c8dee71422c9888915519c2a6c",
+  "syzkaller-commit": "b1b6ae3d01b572c8dee71422c9888915519c2a6c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10c5fa43a80000",
+      "saved_to": "/home/lcj/paired_patches/90a11e6b1e810785c6ff/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d68e24deab17dfcf",
+      "saved_to": "/home/lcj/paired_patches/90a11e6b1e810785c6ff/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12c54d0ba80000",
+      "saved_to": "/home/lcj/paired_patches/90a11e6b1e810785c6ff/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15435a43a80000",
+      "saved_to": "/home/lcj/paired_patches/90a11e6b1e810785c6ff/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

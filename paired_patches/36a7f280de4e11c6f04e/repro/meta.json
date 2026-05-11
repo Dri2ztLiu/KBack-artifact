@@ -1,0 +1,50 @@
+{
+  "extid": "36a7f280de4e11c6f04e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=36a7f280de4e11c6f04e",
+  "bug_title": "WARNING: refcount bug in rxe_qp_do_cleanup",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "RDMA/rxe: Clear all QP fields if creation failed",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=67f29896fdc83298eed5a6576ff8f9873f709228",
+      "hash": "67f29896fdc83298eed5a6576ff8f9873f709228",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "leonro@nvidia.com",
+      "author-name": "Leon Romanovsky",
+      "date": "2021-05-11T07:26:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: refcount bug in rxe_qp_do_cleanup",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d2b6f8a179194de0ffc4886ffc2c4358d86047b8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bc5434be1a615eca6d901c20b026712bd9697fd4",
+  "syzkaller-commit": "bc5434be1a615eca6d901c20b026712bd9697fd4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13a95f2dd00000",
+      "saved_to": "/home/lcj/paired_patches/36a7f280de4e11c6f04e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d360b81e47df40ea",
+      "saved_to": "/home/lcj/paired_patches/36a7f280de4e11c6f04e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/36a7f280de4e11c6f04e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/36a7f280de4e11c6f04e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

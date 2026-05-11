@@ -1,0 +1,52 @@
+=====================================================
+BUG: KMSAN: uninit-value in hfsplus_subfolders_dec fs/hfsplus/catalog.c:248 [inline]
+BUG: KMSAN: uninit-value in hfsplus_delete_cat+0x1195/0x13d0 fs/hfsplus/catalog.c:419
+ hfsplus_subfolders_dec fs/hfsplus/catalog.c:248 [inline]
+ hfsplus_delete_cat+0x1195/0x13d0 fs/hfsplus/catalog.c:419
+ hfsplus_rmdir+0x13c/0x310 fs/hfsplus/dir.c:425
+ vfs_rmdir+0x5b6/0x800 fs/namei.c:4461
+ do_rmdir+0x7d6/0xdc0 fs/namei.c:4516
+ __do_sys_unlinkat fs/namei.c:4690 [inline]
+ __se_sys_unlinkat fs/namei.c:4684 [inline]
+ __x64_sys_unlinkat+0x166/0x210 fs/namei.c:4684
+ x64_sys_call+0x3c44/0x3e20 arch/x86/include/generated/asm/syscalls_64.h:264
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xd9/0x210 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Uninit was created at:
+ __alloc_frozen_pages_noprof+0x689/0xf00 mm/page_alloc.c:5171
+ alloc_pages_mpol+0x328/0x860 mm/mempolicy.c:2416
+ alloc_frozen_pages_noprof+0xf7/0x200 mm/mempolicy.c:2487
+ alloc_slab_page mm/slub.c:2487 [inline]
+ allocate_slab+0x24d/0x1220 mm/slub.c:2655
+ new_slab mm/slub.c:2709 [inline]
+ ___slab_alloc+0x1024/0x34e0 mm/slub.c:3891
+ __slab_alloc mm/slub.c:3981 [inline]
+ __slab_alloc_node mm/slub.c:4056 [inline]
+ slab_alloc_node mm/slub.c:4217 [inline]
+ kmem_cache_alloc_lru_noprof+0x922/0xed0 mm/slub.c:4248
+ hfsplus_alloc_inode+0x5a/0xd0 fs/hfsplus/super.c:625
+ alloc_inode+0x8a/0x4a0 fs/inode.c:346
+ iget_locked+0x239/0x12d0 fs/inode.c:1438
+ hfsplus_iget+0x5c/0xb80 fs/hfsplus/super.c:65
+ hfsplus_btree_open+0x128/0x1cf0 fs/hfsplus/btree.c:150
+ hfsplus_fill_super+0x1161/0x2730 fs/hfsplus/super.c:472
+ get_tree_bdev_flags+0x6e3/0x920 fs/super.c:1692
+ get_tree_bdev+0x38/0x50 fs/super.c:1715
+ hfsplus_get_tree+0x35/0x40 fs/hfsplus/super.c:638
+ vfs_get_tree+0xb0/0x5c0 fs/super.c:1815
+ do_new_mount+0x733/0x1420 fs/namespace.c:3808
+ path_mount+0x6db/0x1e90 fs/namespace.c:4123
+ do_mount fs/namespace.c:4136 [inline]
+ __do_sys_mount fs/namespace.c:4347 [inline]
+ __se_sys_mount+0x6eb/0x7d0 fs/namespace.c:4324
+ __x64_sys_mount+0xe4/0x150 fs/namespace.c:4324
+ x64_sys_call+0x3604/0x3e20 arch/x86/include/generated/asm/syscalls_64.h:166
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xd9/0x210 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+CPU: 1 UID: 0 PID: 5976 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(none) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+=====================================================

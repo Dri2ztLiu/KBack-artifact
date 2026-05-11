@@ -1,0 +1,60 @@
+{
+  "extid": "4e89b5368baba8324e07",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4e89b5368baba8324e07",
+  "bug_title": "BUG: unable to handle kernel paging request in txBeginAnon",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "jfs: add check read-only before truncation in jfs_truncate_nolock()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b5799dd77054c1ec49b0088b006c9908e256843b",
+      "hash": "b5799dd77054c1ec49b0088b006c9908e256843b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kovalev@altlinux.org",
+      "author-name": "Vasiliy Kovalev",
+      "date": "2024-12-24T14:49:14Z"
+    },
+    {
+      "title": "jfs: add check read-only before txBeginAnon() call",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0176e69743ecc02961f2ae1ea42439cd2bf9ed58",
+      "hash": "0176e69743ecc02961f2ae1ea42439cd2bf9ed58",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kovalev@altlinux.org",
+      "author-name": "Vasiliy Kovalev",
+      "date": "2024-12-24T14:49:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel paging request in txBeginAnon",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "ac2193b4b460dfc0fe2dc8a76fe7e24e19b2cdab",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f429ab00b60520c365d122f14c46235ca0aa11ef",
+  "syzkaller-commit": "f429ab00b60520c365d122f14c46235ca0aa11ef",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12a3b7ee980000",
+      "saved_to": "/home/lcj/paired_patches/4e89b5368baba8324e07/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2ce2e16ea9422f82",
+      "saved_to": "/home/lcj/paired_patches/4e89b5368baba8324e07/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1161ebca980000",
+      "saved_to": "/home/lcj/paired_patches/4e89b5368baba8324e07/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14a2e146980000",
+      "saved_to": "/home/lcj/paired_patches/4e89b5368baba8324e07/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

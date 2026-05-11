@@ -1,0 +1,50 @@
+{
+  "extid": "b5ad66046b913bc04c6f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b5ad66046b913bc04c6f",
+  "bug_title": "KMSAN: uninit-value in __llc_lookup_established",
+  "bug_status": "fixed on 2024/03/25 11:41",
+  "fix_commits": [
+    {
+      "title": "llc: Drop support for ETH_P_TR_802_2.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e3f9bed9bee261e3347131764e42aeedf1ffea61",
+      "hash": "e3f9bed9bee261e3347131764e42aeedf1ffea61",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2024-01-19T01:55:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in __llc_lookup_established",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2cf4f94d8e8646803f8fb0facf134b0cd7fb691a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3ad490ea48468e50fe91f6f6b2ca4cbc74d924bf",
+  "syzkaller-commit": "3ad490ea48468e50fe91f6f6b2ca4cbc74d924bf",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17e50921e80000",
+      "saved_to": "/home/lcj/paired_patches/b5ad66046b913bc04c6f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4a65fa9f077ead01",
+      "saved_to": "/home/lcj/paired_patches/b5ad66046b913bc04c6f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11f99ef1e80000",
+      "saved_to": "/home/lcj/paired_patches/b5ad66046b913bc04c6f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15180301e80000",
+      "saved_to": "/home/lcj/paired_patches/b5ad66046b913bc04c6f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

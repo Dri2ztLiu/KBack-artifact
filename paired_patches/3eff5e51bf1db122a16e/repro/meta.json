@@ -1,0 +1,50 @@
+{
+  "extid": "3eff5e51bf1db122a16e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3eff5e51bf1db122a16e",
+  "bug_title": "general protection fault in scatterwalk_copychunks (5)",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "crypto: scomp - fix req->dst buffer overflow",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=744e1885922a9943458954cfea917b31064b4131",
+      "hash": "744e1885922a9943458954cfea917b31064b4131",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zhouchengming@bytedance.com",
+      "author-name": "Chengming Zhou",
+      "date": "2023-12-27T09:35:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in scatterwalk_copychunks",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "39676dfe52331dba909c617f213fdb21015c8d10",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1147f6cee80000",
+      "saved_to": "/home/lcj/paired_patches/3eff5e51bf1db122a16e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f3761490b734dc96",
+      "saved_to": "/home/lcj/paired_patches/3eff5e51bf1db122a16e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15c399e9e80000",
+      "saved_to": "/home/lcj/paired_patches/3eff5e51bf1db122a16e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=178f6e26e80000",
+      "saved_to": "/home/lcj/paired_patches/3eff5e51bf1db122a16e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

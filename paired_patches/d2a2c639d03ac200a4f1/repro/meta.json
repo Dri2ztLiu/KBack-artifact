@@ -1,0 +1,50 @@
+{
+  "extid": "d2a2c639d03ac200a4f1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d2a2c639d03ac200a4f1",
+  "bug_title": "UBSAN: array-index-out-of-bounds in bpf_prog_select_runtime",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "bpf: Fix array bounds error with may_goto",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6ebc5030e0c5a698f1dd9a6684cddf6ccaed64a0",
+      "hash": "6ebc5030e0c5a698f1dd9a6684cddf6ccaed64a0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mrpre@163.com",
+      "author-name": "Jiayuan Chen",
+      "date": "2025-02-14T09:18:21Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in bpf_prog_select_runtime",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a430d95c5efa2b545d26a094eb5f624e36732af0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c673ca06b23cea94091ab496ef62c3513e434585",
+  "syzkaller-commit": "c673ca06b23cea94091ab496ef62c3513e434585",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15545207980000",
+      "saved_to": "/home/lcj/paired_patches/d2a2c639d03ac200a4f1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=44d46e514184cd24",
+      "saved_to": "/home/lcj/paired_patches/d2a2c639d03ac200a4f1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=148dc69f980000",
+      "saved_to": "/home/lcj/paired_patches/d2a2c639d03ac200a4f1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1311c4a9980000",
+      "saved_to": "/home/lcj/paired_patches/d2a2c639d03ac200a4f1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

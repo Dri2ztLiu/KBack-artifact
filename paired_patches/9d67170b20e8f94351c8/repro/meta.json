@@ -1,0 +1,50 @@
+{
+  "extid": "9d67170b20e8f94351c8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9d67170b20e8f94351c8",
+  "bug_title": "memory leak in ntfs_init_fs_context",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix memory leak on ntfs_fill_super() error path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=51e76a232f8c037f1d9e9922edc25b003d5f3414",
+      "hash": "51e76a232f8c037f1d9e9922edc25b003d5f3414",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2022-08-23T10:32:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in ntfs_init_fs_context",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d264dd3bbbd16b56239e889023fbe49413a58eaf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4067838e6b16173af08e062ce434ecfc46d45bda",
+  "syzkaller-commit": "4067838e6b16173af08e062ce434ecfc46d45bda",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=126c80e8480000",
+      "saved_to": "/home/lcj/paired_patches/9d67170b20e8f94351c8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5e8e94e626cabe5f",
+      "saved_to": "/home/lcj/paired_patches/9d67170b20e8f94351c8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10d7cbd0480000",
+      "saved_to": "/home/lcj/paired_patches/9d67170b20e8f94351c8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1147f993880000",
+      "saved_to": "/home/lcj/paired_patches/9d67170b20e8f94351c8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

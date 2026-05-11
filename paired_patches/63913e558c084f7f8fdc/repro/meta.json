@@ -1,0 +1,50 @@
+{
+  "extid": "63913e558c084f7f8fdc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=63913e558c084f7f8fdc",
+  "bug_title": "possible deadlock in btrfs_tree_lock_nested",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "btrfs: fix lockdep splat while merging a relocation root",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a216542027b892e6651c1b4e076012140d04afaf",
+      "hash": "a216542027b892e6651c1b4e076012140d04afaf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2025-01-10T15:22:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in btrfs_tree_lock_nested",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "09a0fa92e5b45e99cf435b2fbf5ebcf889cf8780",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "syzkaller-commit": "f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14158ef8580000",
+      "saved_to": "/home/lcj/paired_patches/63913e558c084f7f8fdc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4ef22c4fce5135b4",
+      "saved_to": "/home/lcj/paired_patches/63913e558c084f7f8fdc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/63913e558c084f7f8fdc/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/63913e558c084f7f8fdc/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "29c402e56c4760763cc0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=29c402e56c4760763cc0",
+  "bug_title": "memory leak in sctp_sched_prio_set",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "sctp: fix memory leak in sctp_stream_outq_migrate()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9ed7bfc79542119ac0a9e1ce8a2a5285e43433e9",
+      "hash": "9ed7bfc79542119ac0a9e1ce8a2a5285e43433e9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "shaozhengchao@huawei.com",
+      "author-name": "Zhengchao Shao",
+      "date": "2022-11-26T03:17:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in sctp_sched_prio_set",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "eb7081409f94a9a8608593d0fb63a1aa3d6f95d8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/75740b3f90c81d4c226b0e30eec947df4fbd6832",
+  "syzkaller-commit": "75740b3f90c81d4c226b0e30eec947df4fbd6832",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15c86709880000",
+      "saved_to": "/home/lcj/paired_patches/29c402e56c4760763cc0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=522dbc1ab43c9303",
+      "saved_to": "/home/lcj/paired_patches/29c402e56c4760763cc0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11bd2f09880000",
+      "saved_to": "/home/lcj/paired_patches/29c402e56c4760763cc0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15bf682d880000",
+      "saved_to": "/home/lcj/paired_patches/29c402e56c4760763cc0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "5fcdbfab6d6744c57418",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5fcdbfab6d6744c57418",
+  "bug_title": "memory leak in nft_chain_parse_hook",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "netfilter: nf_tables: clean up hook list when offload flags check fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=77972a36ecc4db7fc7c68f0e80714263c5f03f65",
+      "hash": "77972a36ecc4db7fc7c68f0e80714263c5f03f65",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pablo@netfilter.org",
+      "author-name": "Pablo Neira Ayuso",
+      "date": "2022-08-31T11:11:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in nft_chain_parse_hook",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4c612826bec1441214816827979b62f84a097e91",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/15195ea3c66cc18f348576f4cfb94d03dd13c747",
+  "syzkaller-commit": "15195ea3c66cc18f348576f4cfb94d03dd13c747",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=164d6e4d080000",
+      "saved_to": "/home/lcj/paired_patches/5fcdbfab6d6744c57418/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b1831d905b683446",
+      "saved_to": "/home/lcj/paired_patches/5fcdbfab6d6744c57418/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=111b6545080000",
+      "saved_to": "/home/lcj/paired_patches/5fcdbfab6d6744c57418/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1263c283080000",
+      "saved_to": "/home/lcj/paired_patches/5fcdbfab6d6744c57418/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

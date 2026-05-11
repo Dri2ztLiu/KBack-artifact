@@ -1,0 +1,50 @@
+{
+  "extid": "50a8a9cf8127f2c6f5df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=50a8a9cf8127f2c6f5df",
+  "bug_title": "general protection fault in gfs2_withdraw",
+  "bug_status": "fixed on 2021/04/09 19:46",
+  "fix_commits": [
+    {
+      "title": "gfs2: bypass signal_our_withdraw if no journal",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d5bf630f355d8c532bef2347cf90e8ae60a5f1bd",
+      "hash": "d5bf630f355d8c532bef2347cf90e8ae60a5f1bd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "rpeterso@redhat.com",
+      "author-name": "Bob Peterson",
+      "date": "2021-03-12T12:58:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "139711f033f636cc78b6aaf7363252241b9698ef",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0fa352f2d664766b3115daecc56ab8608986864b",
+  "syzkaller-commit": "0fa352f2d664766b3115daecc56ab8608986864b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12f53333500000",
+      "saved_to": "/home/lcj/paired_patches/50a8a9cf8127f2c6f5df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f3e74a3fb99ae2c2",
+      "saved_to": "/home/lcj/paired_patches/50a8a9cf8127f2c6f5df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1058a8c0d00000",
+      "saved_to": "/home/lcj/paired_patches/50a8a9cf8127f2c6f5df/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16bfb7b7500000",
+      "saved_to": "/home/lcj/paired_patches/50a8a9cf8127f2c6f5df/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

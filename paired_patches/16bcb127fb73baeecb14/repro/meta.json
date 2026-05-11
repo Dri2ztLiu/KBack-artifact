@@ -1,0 +1,50 @@
+{
+  "extid": "16bcb127fb73baeecb14",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=16bcb127fb73baeecb14",
+  "bug_title": "KASAN: use-after-free Read in port100_send_complete",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "NFC: port100: fix use-after-free in port100_send_complete",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f80cfe2f26581f188429c12bd937eb905ad3ac7b",
+      "hash": "f80cfe2f26581f188429c12bd937eb905ad3ac7b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2022-03-08T18:50:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in port100_send_complete",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "38f80f42147ff658aff218edb0a88c37e58bf44f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/45a13a7381e60020d94d037d88a75727984b7a9a",
+  "syzkaller-commit": "45a13a7381e60020d94d037d88a75727984b7a9a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15a08a16700000",
+      "saved_to": "/home/lcj/paired_patches/16bcb127fb73baeecb14/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=542b2708133cc492",
+      "saved_to": "/home/lcj/paired_patches/16bcb127fb73baeecb14/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17d21be1700000",
+      "saved_to": "/home/lcj/paired_patches/16bcb127fb73baeecb14/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14a63d21700000",
+      "saved_to": "/home/lcj/paired_patches/16bcb127fb73baeecb14/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "5e70d01ee8985ae62a3b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5e70d01ee8985ae62a3b",
+  "bug_title": "unregister_netdevice: waiting for DEV to become free (7)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "RDMA/siw: Remove namespace check from siw_netdev_event()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=266e9b3475ba82212062771fdbc40be0e3c06ec8",
+      "hash": "266e9b3475ba82212062771fdbc40be0e3c06ec8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2023-04-02T05:10:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "unregister_netdevice: waiting for DEV to become free",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "033c40a89f55525139fd5b6342281b09b97d05bf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7338e3c48713281869426c4e29a02a63ab16331a",
+  "syzkaller-commit": "7338e3c48713281869426c4e29a02a63ab16331a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=113549e7480000",
+      "saved_to": "/home/lcj/paired_patches/5e70d01ee8985ae62a3b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fe56f7d193926860",
+      "saved_to": "/home/lcj/paired_patches/5e70d01ee8985ae62a3b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12a5b678c80000",
+      "saved_to": "/home/lcj/paired_patches/5e70d01ee8985ae62a3b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1622f55f480000",
+      "saved_to": "/home/lcj/paired_patches/5e70d01ee8985ae62a3b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

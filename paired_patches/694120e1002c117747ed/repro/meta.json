@@ -1,0 +1,50 @@
+{
+  "extid": "694120e1002c117747ed",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=694120e1002c117747ed",
+  "bug_title": "KASAN: use-after-free Read in tcp_retransmit_timer (5)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net: rds: acquire refcount on TCP sockets",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3a58f13a881ed351198ffab4cf9953cf19d2ab3a",
+      "hash": "3a58f13a881ed351198ffab4cf9953cf19d2ab3a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-05-02T01:40:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in tcp_retransmit_timer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "819d11507f6637731947836e6308f5966d64cf9d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6caa12e443d9f79aa2df67d44cdc6163eaa1e97f",
+  "syzkaller-commit": "6caa12e443d9f79aa2df67d44cdc6163eaa1e97f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17f269ebb00000",
+      "saved_to": "/home/lcj/paired_patches/694120e1002c117747ed/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=22b66456935ee10",
+      "saved_to": "/home/lcj/paired_patches/694120e1002c117747ed/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14fcccedb00000",
+      "saved_to": "/home/lcj/paired_patches/694120e1002c117747ed/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=172ccbcdb00000",
+      "saved_to": "/home/lcj/paired_patches/694120e1002c117747ed/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

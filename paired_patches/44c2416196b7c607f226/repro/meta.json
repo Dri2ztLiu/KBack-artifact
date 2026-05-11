@@ -1,0 +1,50 @@
+{
+  "extid": "44c2416196b7c607f226",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=44c2416196b7c607f226",
+  "bug_title": "BUG: unable to handle kernel paging request in nsim_bpf",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "netdevsim: Don't accept device bound programs",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c0c6bde586c7dce82719b4ff32a2db6af9ee3d65",
+      "hash": "c0c6bde586c7dce82719b4ff32a2db6af9ee3d65",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sdf@google.com",
+      "author-name": "Stanislav Fomichev",
+      "date": "2023-11-14T04:54:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel paging request in nsim_bpf",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "8de1e7afcc1c509fdcd4f767a9440b6ec5d0a8a4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5b429f39ae82dfd954322d3f42c830cf560f51d2",
+  "syzkaller-commit": "5b429f39ae82dfd954322d3f42c830cf560f51d2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1776239f680000",
+      "saved_to": "/home/lcj/paired_patches/44c2416196b7c607f226/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3e6feaeda5dcbc27",
+      "saved_to": "/home/lcj/paired_patches/44c2416196b7c607f226/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11bdbcece80000",
+      "saved_to": "/home/lcj/paired_patches/44c2416196b7c607f226/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15e0d2e8e80000",
+      "saved_to": "/home/lcj/paired_patches/44c2416196b7c607f226/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

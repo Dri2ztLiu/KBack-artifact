@@ -1,0 +1,50 @@
+{
+  "extid": "d7e968426f644b567e31",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d7e968426f644b567e31",
+  "bug_title": "WARNING in rtl8150_open/usb_submit_urb",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "net: usb: rtl8150: enable basic endpoint checking",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90b7f2961798793275b4844348619b622f983907",
+      "hash": "90b7f2961798793275b4844348619b622f983907",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2025-01-24T09:30:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in rtl8150_open/usb_submit_urb",
+  "kernel-source-git": "https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git",
+  "kernel-source-commit": "fc88bb11617978fb3fcfcc697fd5c9d2dae9c4a3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ee2602b8aa3e172d05dbaff914a78720b3dd04f9",
+  "syzkaller-commit": "ee2602b8aa3e172d05dbaff914a78720b3dd04f9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16001f8d980000",
+      "saved_to": "/home/lcj/paired_patches/d7e968426f644b567e31/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f470942baada45b1",
+      "saved_to": "/home/lcj/paired_patches/d7e968426f644b567e31/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=150ca88f980000",
+      "saved_to": "/home/lcj/paired_patches/d7e968426f644b567e31/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16bb5463980000",
+      "saved_to": "/home/lcj/paired_patches/d7e968426f644b567e31/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

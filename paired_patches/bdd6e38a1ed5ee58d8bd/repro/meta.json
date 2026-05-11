@@ -1,0 +1,50 @@
+{
+  "extid": "bdd6e38a1ed5ee58d8bd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bdd6e38a1ed5ee58d8bd",
+  "bug_title": "KCSAN: data-race in do_epoll_wait / do_epoll_wait",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "list: fix a data-race around ep->rdllist",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d679ae94fdd5d3ab00c35078f5af5f37e068b03d",
+      "hash": "d679ae94fdd5d3ab00c35078f5af5f37e068b03d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.co.jp",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2022-04-29T21:38:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in do_epoll_wait / do_epoll_wait",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0350785b0a092c99c5ddd2ace0260dbe7b3f919f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/647c0e2737b12e092ce23948537ddf7dd3992c53",
+  "syzkaller-commit": "647c0e2737b12e092ce23948537ddf7dd3992c53",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10263cd3f00000",
+      "saved_to": "/home/lcj/paired_patches/bdd6e38a1ed5ee58d8bd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c8f04c4e115b50a",
+      "saved_to": "/home/lcj/paired_patches/bdd6e38a1ed5ee58d8bd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bdd6e38a1ed5ee58d8bd/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bdd6e38a1ed5ee58d8bd/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

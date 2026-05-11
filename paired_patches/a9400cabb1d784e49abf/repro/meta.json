@@ -1,0 +1,50 @@
+{
+  "extid": "a9400cabb1d784e49abf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a9400cabb1d784e49abf",
+  "bug_title": "KCSAN: data-race in ipv6_mc_down / mld_ifc_work (2)",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "ipv6: mcast: fix data-race in ipv6_mc_down / mld_ifc_work",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2e7ef287f07c74985f1bf2858bedc62bd9ebf155",
+      "hash": "2e7ef287f07c74985f1bf2858bedc62bd9ebf155",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2024-01-17T17:21:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in ipv6_mc_down / mld_ifc_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1b1934dbbdcf9aa2d507932ff488cec47999cf3f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/915053c78aa2a0bd5050388203940fad27112b23",
+  "syzkaller-commit": "915053c78aa2a0bd5050388203940fad27112b23",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1510c8abe80000",
+      "saved_to": "/home/lcj/paired_patches/a9400cabb1d784e49abf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=adb08aaa4585df88",
+      "saved_to": "/home/lcj/paired_patches/a9400cabb1d784e49abf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a9400cabb1d784e49abf/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a9400cabb1d784e49abf/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "45d4691b1ed3c48eba05",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=45d4691b1ed3c48eba05",
+  "bug_title": "UBSAN: array-index-out-of-bounds in __gfs2_iomap_get",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "gfs2: Fix inode height consistency check",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cfcdb5bad34f600aed7613c3c1a5e618111f77b7",
+      "hash": "cfcdb5bad34f600aed7613c3c1a5e618111f77b7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "agruenba@redhat.com",
+      "author-name": "Andreas Gruenbacher",
+      "date": "2023-03-27T22:43:16Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in __gfs2_iomap_get",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "77856d911a8c8724ee8e2b09d55979fc1de8f1c0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/05494336991504e3c6137b89eeddd492e17af6b6",
+  "syzkaller-commit": "05494336991504e3c6137b89eeddd492e17af6b6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e64d9d880000",
+      "saved_to": "/home/lcj/paired_patches/45d4691b1ed3c48eba05/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f967143badd2fa39",
+      "saved_to": "/home/lcj/paired_patches/45d4691b1ed3c48eba05/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=123f9577880000",
+      "saved_to": "/home/lcj/paired_patches/45d4691b1ed3c48eba05/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=160f494f880000",
+      "saved_to": "/home/lcj/paired_patches/45d4691b1ed3c48eba05/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

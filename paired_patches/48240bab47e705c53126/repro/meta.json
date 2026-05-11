@@ -1,0 +1,50 @@
+{
+  "extid": "48240bab47e705c53126",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=48240bab47e705c53126",
+  "bug_title": "KASAN: slab-use-after-free Write in recv_work (2)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "nbd: fix uaf in nbd_genl_connect() error path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=aa9552438ebf015fc5f9f890dbfe39f0c53cf37e",
+      "hash": "aa9552438ebf015fc5f9f890dbfe39f0c53cf37e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zhengqixing@huawei.com",
+      "author-name": "Zheng Qixing",
+      "date": "2025-06-12T13:24:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Write in recv_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "74b4cc9b8780bfe8a3992c9ac0033bf22ac01f19",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ed3e87f71e79614f39e963e510c1e594d35a2ea2",
+  "syzkaller-commit": "ed3e87f71e79614f39e963e510c1e594d35a2ea2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13d66d0c580000",
+      "saved_to": "/home/lcj/paired_patches/48240bab47e705c53126/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4130f4d8a06c3e71",
+      "saved_to": "/home/lcj/paired_patches/48240bab47e705c53126/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11cfe370580000",
+      "saved_to": "/home/lcj/paired_patches/48240bab47e705c53126/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1049b5d4580000",
+      "saved_to": "/home/lcj/paired_patches/48240bab47e705c53126/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

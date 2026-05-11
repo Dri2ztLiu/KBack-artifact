@@ -1,0 +1,50 @@
+{
+  "extid": "812641c6c3d7586a1613",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=812641c6c3d7586a1613",
+  "bug_title": "KMSAN: uninit-value in isofs_readdir",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "isofs: fix KMSAN uninit-value bug in do_isofs_readdir()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=81a82e8f33880793029cd6f8a766fb13b737e6a7",
+      "hash": "81a82e8f33880793029cd6f8a766fb13b737e6a7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "qasdev00@gmail.com",
+      "author-name": "Qasim Ijaz",
+      "date": "2025-02-11T19:59:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in isofs_readdir",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5c8c229261f14159b54b9a32f12e5fa89d88b905",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5896748e7b42c8f1b0cc2ceca4ba3dba2bed2618",
+  "syzkaller-commit": "5896748e7b42c8f1b0cc2ceca4ba3dba2bed2618",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13ff93df980000",
+      "saved_to": "/home/lcj/paired_patches/812641c6c3d7586a1613/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f20bce78db15972a",
+      "saved_to": "/home/lcj/paired_patches/812641c6c3d7586a1613/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17ff93df980000",
+      "saved_to": "/home/lcj/paired_patches/812641c6c3d7586a1613/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12042df8580000",
+      "saved_to": "/home/lcj/paired_patches/812641c6c3d7586a1613/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

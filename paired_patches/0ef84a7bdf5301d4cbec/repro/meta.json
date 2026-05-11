@@ -1,0 +1,50 @@
+{
+  "extid": "0ef84a7bdf5301d4cbec",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0ef84a7bdf5301d4cbec",
+  "bug_title": "WARNING in bpf_check (4)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "bpf: Reject narrower access to pointer ctx fields",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e09299225d5ba3916c91ef70565f7d2187e4cca0",
+      "hash": "e09299225d5ba3916c91ef70565f7d2187e4cca0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paul.chaignon@gmail.com",
+      "author-name": "Paul Chaignon",
+      "date": "2025-07-22T14:32:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in bpf_check",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git",
+  "kernel-source-commit": "cce3fee729ee18caa03bade7f4c360343e863bb1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ffe4b334cb3673050f6078356393ce4b76adfc54",
+  "syzkaller-commit": "ffe4b334cb3673050f6078356393ce4b76adfc54",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=137793d4580000",
+      "saved_to": "/home/lcj/paired_patches/0ef84a7bdf5301d4cbec/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=79da270cec5ffd65",
+      "saved_to": "/home/lcj/paired_patches/0ef84a7bdf5301d4cbec/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11705770580000",
+      "saved_to": "/home/lcj/paired_patches/0ef84a7bdf5301d4cbec/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=109df88c580000",
+      "saved_to": "/home/lcj/paired_patches/0ef84a7bdf5301d4cbec/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

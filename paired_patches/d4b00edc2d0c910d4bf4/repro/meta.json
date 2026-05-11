@@ -1,0 +1,50 @@
+{
+  "extid": "d4b00edc2d0c910d4bf4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d4b00edc2d0c910d4bf4",
+  "bug_title": "upstream boot error: BUG: unable to handle kernel NULL pointer dereference in load_balance",
+  "bug_status": "fixed on 2023/07/01 16:05",
+  "fix_commits": [
+    {
+      "title": "ARM: 9297/1: vfp: avoid unbalanced stack on 'success' return path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2b951b0efbaa6c805854b60c11f08811054d50cd",
+      "hash": "2b951b0efbaa6c805854b60c11f08811054d50cd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ardb@kernel.org",
+      "author-name": "Ard Biesheuvel",
+      "date": "2023-05-08T12:40:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "upstream boot error: BUG: unable to handle kernel NULL pointer dereference in load_balance",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "80e62bc8487b049696e67ad133c503bf7f6806f7",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0fbd49f48637cff2f7cf1ab0150e2c4ce8d97527",
+  "syzkaller-commit": "0fbd49f48637cff2f7cf1ab0150e2c4ce8d97527",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=107491c6280000",
+      "saved_to": "/home/lcj/paired_patches/d4b00edc2d0c910d4bf4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cc86fee67199911d",
+      "saved_to": "/home/lcj/paired_patches/d4b00edc2d0c910d4bf4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d4b00edc2d0c910d4bf4/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d4b00edc2d0c910d4bf4/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

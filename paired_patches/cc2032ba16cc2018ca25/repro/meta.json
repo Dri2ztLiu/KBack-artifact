@@ -1,0 +1,50 @@
+{
+  "extid": "cc2032ba16cc2018ca25",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cc2032ba16cc2018ca25",
+  "bug_title": "WARNING in kvm_arch_vcpu_ioctl_run (6)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "KVM: x86: Don't (re)check L1 intercepts when completing userspace I/O",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e750f85391286a4c8100275516973324b621a269",
+      "hash": "e750f85391286a4c8100275516973324b621a269",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "seanjc@google.com",
+      "author-name": "Sean Christopherson",
+      "date": "2025-07-15T19:06:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in kvm_arch_vcpu_ioctl_run",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "155a3c003e555a7300d156a5252c004c392ec6b0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/44f8051e446824395d02720c745353cd454d9553",
+  "syzkaller-commit": "44f8051e446824395d02720c745353cd454d9553",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15a567d4580000",
+      "saved_to": "/home/lcj/paired_patches/cc2032ba16cc2018ca25/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8d5ef2da1e1c848",
+      "saved_to": "/home/lcj/paired_patches/cc2032ba16cc2018ca25/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13a567d4580000",
+      "saved_to": "/home/lcj/paired_patches/cc2032ba16cc2018ca25/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1213e58c580000",
+      "saved_to": "/home/lcj/paired_patches/cc2032ba16cc2018ca25/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

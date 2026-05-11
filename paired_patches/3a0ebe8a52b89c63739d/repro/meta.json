@@ -1,0 +1,50 @@
+{
+  "extid": "3a0ebe8a52b89c63739d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3a0ebe8a52b89c63739d",
+  "bug_title": "KASAN: slab-use-after-free Read in input_dev_uevent",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "HID: uclogic: Correct devm device reference for hidinput input_dev name",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dd613a4e45f8d35f49a63a2064e5308fa5619e29",
+      "hash": "dd613a4e45f8d35f49a63a2064e5308fa5619e29",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sergeantsagara@protonmail.com",
+      "author-name": "Rahul Rameshbabu",
+      "date": "2023-08-24T06:14:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in input_dev_uevent",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "7271b2a530428b879443b274c191b34536a4ea11",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d216d8a03b50bef82eac746d227230835f061640",
+  "syzkaller-commit": "d216d8a03b50bef82eac746d227230835f061640",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1095b6e3a80000",
+      "saved_to": "/home/lcj/paired_patches/3a0ebe8a52b89c63739d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1936af09cdef7dd6",
+      "saved_to": "/home/lcj/paired_patches/3a0ebe8a52b89c63739d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17b81223a80000",
+      "saved_to": "/home/lcj/paired_patches/3a0ebe8a52b89c63739d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17998f03a80000",
+      "saved_to": "/home/lcj/paired_patches/3a0ebe8a52b89c63739d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

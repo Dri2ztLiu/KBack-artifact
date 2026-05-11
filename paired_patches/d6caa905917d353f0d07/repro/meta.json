@@ -1,0 +1,55 @@
+{
+  "extid": "d6caa905917d353f0d07",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d6caa905917d353f0d07",
+  "bug_title": "KMSAN: uninit-value in kvm_irq_delivery_to_apic_fast",
+  "bug_status": "fixed on 2023/02/24 14:17",
+  "fix_commits": [
+    {
+      "title": "KVM: x86: Fully initialize 'struct kvm_lapic_irq' in kvm_pv_kick_cpu_op()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8a414f943f8b5f94bbaafdec863d6f3dbef33f8a",
+      "hash": "8a414f943f8b5f94bbaafdec863d6f3dbef33f8a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "vkuznets@redhat.com",
+      "author-name": "Vitaly Kuznetsov",
+      "date": "2022-07-08T12:51:47Z"
+    },
+    {
+      "title": "KVM: x86: Fully initialize 'struct kvm_lapic_irq' in kvm_pv_kick_cpu_op()",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in kvm_irq_delivery_to_apic_fast",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "4b28366af7d906ac10d415c2cefa61c682c11971",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a5dbd430e216c19b40593c047b622c3a8149a41d",
+  "syzkaller-commit": "a5dbd430e216c19b40593c047b622c3a8149a41d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=148d42c4080000",
+      "saved_to": "/home/lcj/paired_patches/d6caa905917d353f0d07/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d14e10a167d1c585",
+      "saved_to": "/home/lcj/paired_patches/d6caa905917d353f0d07/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10bcf08ff00000",
+      "saved_to": "/home/lcj/paired_patches/d6caa905917d353f0d07/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14d596c4080000",
+      "saved_to": "/home/lcj/paired_patches/d6caa905917d353f0d07/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

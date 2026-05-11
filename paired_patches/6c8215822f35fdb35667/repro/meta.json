@@ -1,0 +1,50 @@
+{
+  "extid": "6c8215822f35fdb35667",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6c8215822f35fdb35667",
+  "bug_title": "KASAN: slab-out-of-bounds Read in led_tg_check",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "netfilter: x_tables: fix LED ID check in led_tg_check()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=04317f4eb2aad312ad85c1a17ad81fe75f1f9bc7",
+      "hash": "04317f4eb2aad312ad85c1a17ad81fe75f1f9bc7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2024-11-21T06:55:42Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in led_tg_check",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "38f83a57aa8e644f37a88d4771d756303cfa7365",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cfe3a04a188eb9a2c407783d8d6e6f55a4b30886",
+  "syzkaller-commit": "cfe3a04a188eb9a2c407783d8d6e6f55a4b30886",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=150552e8580000",
+      "saved_to": "/home/lcj/paired_patches/6c8215822f35fdb35667/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e6d63a300b6a84a4",
+      "saved_to": "/home/lcj/paired_patches/6c8215822f35fdb35667/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=130552e8580000",
+      "saved_to": "/home/lcj/paired_patches/6c8215822f35fdb35667/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=169dd2c0580000",
+      "saved_to": "/home/lcj/paired_patches/6c8215822f35fdb35667/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

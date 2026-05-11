@@ -1,0 +1,50 @@
+{
+  "extid": "645a4616b87a2f10e398",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=645a4616b87a2f10e398",
+  "bug_title": "memory leak in __proc_create",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "scsi: core: Fix a procfs host directory removal regression",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=be03df3d4bfe7e8866d4aa43d62e648ffe884f5f",
+      "hash": "be03df3d4bfe7e8866d4aa43d62e648ffe884f5f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "bvanassche@acm.org",
+      "author-name": "Bart Van Assche",
+      "date": "2023-03-07T21:44:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in __proc_create",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8ca09d5fa3549d142c2080a72a4c70ce389163cd",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ffaa5c552d93a977259a79c7a485b18f7235a71c",
+  "syzkaller-commit": "ffaa5c552d93a977259a79c7a485b18f7235a71c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=115582ccc80000",
+      "saved_to": "/home/lcj/paired_patches/645a4616b87a2f10e398/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=337fc5840f41dbbe",
+      "saved_to": "/home/lcj/paired_patches/645a4616b87a2f10e398/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/645a4616b87a2f10e398/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17500b98c80000",
+      "saved_to": "/home/lcj/paired_patches/645a4616b87a2f10e398/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

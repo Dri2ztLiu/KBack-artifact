@@ -1,0 +1,50 @@
+{
+  "extid": "7456b5dcf65111553320",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7456b5dcf65111553320",
+  "bug_title": "BUG: unable to handle kernel paging request in ovs_vport_add",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "net: openvswitch: reject negative ifindex",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a552bfa16bab4ce901ee721346a28c4e483f4066",
+      "hash": "a552bfa16bab4ce901ee721346a28c4e483f4066",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2023-08-14T20:38:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: unable to handle kernel paging request in ovs_vport_add",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "29afcd69672a4e3d8604d17206d42004540d6d5c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4df3089c378ffe870e094cb3088bcad17d16d02d",
+  "syzkaller-commit": "4df3089c378ffe870e094cb3088bcad17d16d02d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14b75169a80000",
+      "saved_to": "/home/lcj/paired_patches/7456b5dcf65111553320/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1199967d15d20915",
+      "saved_to": "/home/lcj/paired_patches/7456b5dcf65111553320/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=104f7a9da80000",
+      "saved_to": "/home/lcj/paired_patches/7456b5dcf65111553320/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=110bf169a80000",
+      "saved_to": "/home/lcj/paired_patches/7456b5dcf65111553320/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

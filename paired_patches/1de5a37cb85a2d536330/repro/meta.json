@@ -1,0 +1,50 @@
+{
+  "extid": "1de5a37cb85a2d536330",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1de5a37cb85a2d536330",
+  "bug_title": "INFO: task hung in process_measurement (2)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "exfat: fix the infinite loop in __exfat_free_cluster()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a5324b3a488d883aa2d42f72260054e87d0940a0",
+      "hash": "a5324b3a488d883aa2d42f72260054e87d0940a0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Yuezhang.Mo@sony.com",
+      "author-name": "Yuezhang Mo",
+      "date": "2024-12-16T05:39:42Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in process_measurement",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b5f217084ab3ddd4bdd03cd437f8e3b7e2d1f5b6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9ac0fdc66500475f1914254ef369b32d51adbff9",
+  "syzkaller-commit": "9ac0fdc66500475f1914254ef369b32d51adbff9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=116803e8580000",
+      "saved_to": "/home/lcj/paired_patches/1de5a37cb85a2d536330/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=335e39020523e2ed",
+      "saved_to": "/home/lcj/paired_patches/1de5a37cb85a2d536330/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=153e70f8580000",
+      "saved_to": "/home/lcj/paired_patches/1de5a37cb85a2d536330/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=126a8820580000",
+      "saved_to": "/home/lcj/paired_patches/1de5a37cb85a2d536330/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

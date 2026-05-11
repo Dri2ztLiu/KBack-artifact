@@ -1,0 +1,50 @@
+{
+  "extid": "666c97e4686410e79649",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=666c97e4686410e79649",
+  "bug_title": "general protection fault in prepare_to_wait (2)",
+  "bug_status": "fixed on 2023/10/12 12:47",
+  "fix_commits": [
+    {
+      "title": "netrom: Deny concurrent connect().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c2f8fd7949603efb03908e05abbf7726748c8de3",
+      "hash": "c2f8fd7949603efb03908e05abbf7726748c8de3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2023-08-24T16:50:59Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in prepare_to_wait",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "ace0ab3a4b54205a01d3f4a0fd9bdb4616cfb60b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/39990d513277ce9372a4cc89bdac23d9fc30b056",
+  "syzkaller-commit": "39990d513277ce9372a4cc89bdac23d9fc30b056",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=168de773a80000",
+      "saved_to": "/home/lcj/paired_patches/666c97e4686410e79649/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3e670757e16affb",
+      "saved_to": "/home/lcj/paired_patches/666c97e4686410e79649/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/666c97e4686410e79649/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10a80fc3a80000",
+      "saved_to": "/home/lcj/paired_patches/666c97e4686410e79649/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

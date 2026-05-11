@@ -1,0 +1,50 @@
+{
+  "extid": "9d16c39efb5fade84574",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9d16c39efb5fade84574",
+  "bug_title": "possible deadlock in jbd2_log_wait_commit",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "ext4: Fix deadlock during directory rename",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3c92792da8506a295afb6d032b4476e46f979725",
+      "hash": "3c92792da8506a295afb6d032b4476e46f979725",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2023-03-01T14:10:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in jbd2_log_wait_commit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e492250d5252635b6c97d52eddf2792ec26f1ec1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/95aee97a7beb71d14db32465bb39b1d650ec6868",
+  "syzkaller-commit": "95aee97a7beb71d14db32465bb39b1d650ec6868",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12ed917f480000",
+      "saved_to": "/home/lcj/paired_patches/9d16c39efb5fade84574/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f763d89e26d3d4c4",
+      "saved_to": "/home/lcj/paired_patches/9d16c39efb5fade84574/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15346d8cc80000",
+      "saved_to": "/home/lcj/paired_patches/9d16c39efb5fade84574/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12484360c80000",
+      "saved_to": "/home/lcj/paired_patches/9d16c39efb5fade84574/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

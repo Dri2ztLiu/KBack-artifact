@@ -1,0 +1,50 @@
+{
+  "extid": "830d9e3fa61968246abd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=830d9e3fa61968246abd",
+  "bug_title": "general protection fault in btintel_read_version",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: btintel: Fix null ptr deref in btintel_read_version",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b79e040910101b020931ba0c9a6b77e81ab7f645",
+      "hash": "b79e040910101b020931ba0c9a6b77e81ab7f645",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2024-01-18T04:40:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in btintel_read_version",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "943b9f0ab2cfbaea148dd6ac279957eb08b96904",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2a7bcc7f9f751f2ec13586584e8e25b8f6817e8c",
+  "syzkaller-commit": "2a7bcc7f9f751f2ec13586584e8e25b8f6817e8c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=120edf35e80000",
+      "saved_to": "/home/lcj/paired_patches/830d9e3fa61968246abd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=12af1d067b6a6d19",
+      "saved_to": "/home/lcj/paired_patches/830d9e3fa61968246abd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=110f7913e80000",
+      "saved_to": "/home/lcj/paired_patches/830d9e3fa61968246abd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1151c2a3e80000",
+      "saved_to": "/home/lcj/paired_patches/830d9e3fa61968246abd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

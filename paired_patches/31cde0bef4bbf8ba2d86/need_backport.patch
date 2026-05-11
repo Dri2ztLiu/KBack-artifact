@@ -1,0 +1,32 @@
+commit fd954cc1919e35cb92f78671cab6e42d661945a3
+Author: Aaron Conole <aconole@redhat.com>
+Date:   Tue Oct 25 06:50:17 2022 -0400
+
+    openvswitch: switch from WARN to pr_warn
+    
+    As noted by Paolo Abeni, pr_warn doesn't generate any splat and can still
+    preserve the warning to the user that feature downgrade occurred.  We
+    likely cannot introduce other kinds of checks / enforcement here because
+    syzbot can generate different genl versions to the datapath.
+    
+    Reported-by: syzbot+31cde0bef4bbf8ba2d86@syzkaller.appspotmail.com
+    Fixes: 44da5ae5fbea ("openvswitch: Drop user features if old user space attempted to create datapath")
+    Cc: Thomas Graf <tgraf@suug.ch>
+    Signed-off-by: Aaron Conole <aconole@redhat.com>
+    Acked-by: Ilya Maximets <i.maximets@ovn.org>
+    Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+
+diff --git a/net/openvswitch/datapath.c b/net/openvswitch/datapath.c
+index c8a9075ddd0a..155263e73512 100644
+--- a/net/openvswitch/datapath.c
++++ b/net/openvswitch/datapath.c
+@@ -1616,7 +1616,8 @@ static void ovs_dp_reset_user_features(struct sk_buff *skb,
+ 	if (IS_ERR(dp))
+ 		return;
+ 
+-	WARN(dp->user_features, "Dropping previously announced user features\n");
++	pr_warn("%s: Dropping previously announced user features\n",
++		ovs_dp_name(dp));
+ 	dp->user_features = 0;
+ }
+ 

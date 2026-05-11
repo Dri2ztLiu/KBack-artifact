@@ -1,0 +1,50 @@
+{
+  "extid": "9543479984ae9e576000",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9543479984ae9e576000",
+  "bug_title": "possible deadlock in ext4_bmap",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "ext4, jbd2: add an optimized bmap for the journal inode",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=62913ae96de747091c4dacd06d158e7729c1a76d",
+      "hash": "62913ae96de747091c4dacd06d158e7729c1a76d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tytso@mit.edu",
+      "author-name": "Theodore Ts'o",
+      "date": "2023-03-08T04:15:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in ext4_bmap",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0a3f9a6b0265b64c02226fcabb5e9a958307913b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "syzkaller-commit": "f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13708a04c80000",
+      "saved_to": "/home/lcj/paired_patches/9543479984ae9e576000/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cab35c936731a347",
+      "saved_to": "/home/lcj/paired_patches/9543479984ae9e576000/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12b1bc04c80000",
+      "saved_to": "/home/lcj/paired_patches/9543479984ae9e576000/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17f0cc82c80000",
+      "saved_to": "/home/lcj/paired_patches/9543479984ae9e576000/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

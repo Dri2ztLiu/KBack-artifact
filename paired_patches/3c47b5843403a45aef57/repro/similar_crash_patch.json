@@ -1,0 +1,66 @@
+{
+  "extid": "3c47b5843403a45aef57",
+  "target_ref": "3c47b5843403a45aef57",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "3fff5da4ca2164bb4d0f1e6cd33f6eb8a0e73e50",
+      "branch": "linux-6.1",
+      "title": "possible deadlock in team_port_change_check",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/net/team/team_core.c"
+      ],
+      "symbols": [
+        "team_port_add",
+        "if",
+        "NL_SET_ERR_MSG",
+        "netdev_err",
+        "if"
+      ],
+      "patterns": [
+        "deadlock",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "3fff5da4ca2164bb4d0f1e6cd33f6eb8a0e73e50",
+      "branch": "linux-5.15",
+      "title": "possible deadlock in team_port_change_check",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/net/team/team_core.c"
+      ],
+      "symbols": [
+        "team_port_add",
+        "if",
+        "NL_SET_ERR_MSG",
+        "netdev_err",
+        "if"
+      ],
+      "patterns": [
+        "deadlock",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

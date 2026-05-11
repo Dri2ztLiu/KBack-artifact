@@ -1,0 +1,50 @@
+{
+  "extid": "411debe54d318eaed386",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=411debe54d318eaed386",
+  "bug_title": "UBSAN: shift-out-of-bounds in dbJoin",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "jfs: fix shift-out-of-bounds in dbJoin",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cca974daeb6c43ea971f8ceff5a7080d7d49ee30",
+      "hash": "cca974daeb6c43ea971f8ceff5a7080d7d49ee30",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ghandatmanas@gmail.com",
+      "author-name": "Manas Ghandat",
+      "date": "2023-10-11T14:39:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in dbJoin",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "55be6084c8e0e0ada9278c2ab60b7a584378efda",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/67cb024cd1a3c95e311263a5c95e957f9abfd8ca",
+  "syzkaller-commit": "67cb024cd1a3c95e311263a5c95e957f9abfd8ca",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=169359e6880000",
+      "saved_to": "/home/lcj/paired_patches/411debe54d318eaed386/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=df75278aabf0681a",
+      "saved_to": "/home/lcj/paired_patches/411debe54d318eaed386/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11daf0c2880000",
+      "saved_to": "/home/lcj/paired_patches/411debe54d318eaed386/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16e3c63a880000",
+      "saved_to": "/home/lcj/paired_patches/411debe54d318eaed386/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

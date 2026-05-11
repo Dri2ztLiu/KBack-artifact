@@ -1,0 +1,50 @@
+{
+  "extid": "663359e32ce6f1a305ad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=663359e32ce6f1a305ad",
+  "bug_title": "WARNING in perf_pending_event",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "perf: Ignore sigtrap for tracepoints destined for other tasks",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=73743c3b092277febbf69b250ce8ebbca0525aa2",
+      "hash": "73743c3b092277febbf69b250ce8ebbca0525aa2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "elver@google.com",
+      "author-name": "Marco Elver",
+      "date": "2021-11-09T12:22:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in perf_pending_event",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "85a90500f9a1717c4e142ce92e6c1cb1a339ec78",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6972b10616d785401dea17cec890cca8916424a7",
+  "syzkaller-commit": "6972b10616d785401dea17cec890cca8916424a7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16e95ce9300000",
+      "saved_to": "/home/lcj/paired_patches/663359e32ce6f1a305ad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5ba4a97de189f896",
+      "saved_to": "/home/lcj/paired_patches/663359e32ce6f1a305ad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1039bce6300000",
+      "saved_to": "/home/lcj/paired_patches/663359e32ce6f1a305ad/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12ac8392300000",
+      "saved_to": "/home/lcj/paired_patches/663359e32ce6f1a305ad/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

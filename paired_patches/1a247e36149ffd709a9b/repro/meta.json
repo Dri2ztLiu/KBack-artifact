@@ -1,0 +1,50 @@
+{
+  "extid": "1a247e36149ffd709a9b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1a247e36149ffd709a9b",
+  "bug_title": "UBSAN: array-index-out-of-bounds in pvr2_i2c_core_init",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "media: pvrusb2: fix array-index-out-of-bounds in pvr2_i2c_core_init",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=471bec68457aaf981add77b4f590d65dd7da1059",
+      "hash": "471bec68457aaf981add77b4f590d65dd7da1059",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2022-04-15T21:24:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in pvr2_i2c_core_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4ea3c6425269d33da53c79d539ce9554117cf4d4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e22c3da3b05600c6c0f62142160839b4b7f82a62",
+  "syzkaller-commit": "e22c3da3b05600c6c0f62142160839b4b7f82a62",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15c9d374f00000",
+      "saved_to": "/home/lcj/paired_patches/1a247e36149ffd709a9b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=307baecfd5e87ced",
+      "saved_to": "/home/lcj/paired_patches/1a247e36149ffd709a9b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=121dc124f00000",
+      "saved_to": "/home/lcj/paired_patches/1a247e36149ffd709a9b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17279a70f00000",
+      "saved_to": "/home/lcj/paired_patches/1a247e36149ffd709a9b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

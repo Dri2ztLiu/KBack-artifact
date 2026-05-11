@@ -1,0 +1,60 @@
+{
+  "extid": "47c24ca20a2fa01f082e",
+  "target_ref": "47c24ca20a2fa01f082e",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "2584024b23552c00d95b50255e47bd18d306d31a",
+      "branch": "linux-6.1",
+      "title": "BUG: unable to handle kernel paging request in sctp_outq_tail",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/sctp/socket.c"
+      ],
+      "symbols": [
+        "sctp_sendmsg_to_asoc",
+        "if"
+      ],
+      "patterns": [
+        "BUG",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "2584024b23552c00d95b50255e47bd18d306d31a",
+      "branch": "linux-5.15",
+      "title": "BUG: unable to handle kernel paging request in sctp_outq_tail",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/sctp/socket.c"
+      ],
+      "symbols": [
+        "sctp_sendmsg_to_asoc",
+        "if"
+      ],
+      "patterns": [
+        "BUG",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

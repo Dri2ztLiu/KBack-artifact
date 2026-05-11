@@ -1,0 +1,50 @@
+{
+  "extid": "d383dc9579a76f56c251",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d383dc9579a76f56c251",
+  "bug_title": "INFO: task hung in nsim_dev_hwstats_exit",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "netdevsim: use cond_resched() in nsim_dev_trap_report_work()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a1494d532e28598bde7a5544892ef9c7dbfafa93",
+      "hash": "a1494d532e28598bde7a5544892ef9c7dbfafa93",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-10-12T09:42:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in nsim_dev_hwstats_exit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2d5404caa8c7bb5c4e0435f94b28834ae5456623",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/75bb1b32609dc8e20e442a992f648e465c66cdf3",
+  "syzkaller-commit": "75bb1b32609dc8e20e442a992f648e465c66cdf3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1446f8c0580000",
+      "saved_to": "/home/lcj/paired_patches/d383dc9579a76f56c251/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=327b6119dd928cbc",
+      "saved_to": "/home/lcj/paired_patches/d383dc9579a76f56c251/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d383dc9579a76f56c251/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d383dc9579a76f56c251/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

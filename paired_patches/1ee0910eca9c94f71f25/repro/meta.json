@@ -1,0 +1,50 @@
+{
+  "extid": "1ee0910eca9c94f71f25",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1ee0910eca9c94f71f25",
+  "bug_title": "possible deadlock in snd_timer_interrupt (2)",
+  "bug_status": "fixed on 2023/02/24 13:51",
+  "fix_commits": [
+    {
+      "title": "ALSA: timer: Use deferred fasync helper",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=95cc637c1afd83fb7dd3d7c8a53710488f4caf9c",
+      "hash": "95cc637c1afd83fb7dd3d7c8a53710488f4caf9c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2022-07-28T12:59:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in snd_timer_interrupt",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "200e340f2196d7fd427a5810d06e893b932f145a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/da700653bf1ea72171f93dc607c08b53cc9a4f0c",
+  "syzkaller-commit": "da700653bf1ea72171f93dc607c08b53cc9a4f0c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11cef6f2080000",
+      "saved_to": "/home/lcj/paired_patches/1ee0910eca9c94f71f25/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f2886ebe3c7b3459",
+      "saved_to": "/home/lcj/paired_patches/1ee0910eca9c94f71f25/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15256276080000",
+      "saved_to": "/home/lcj/paired_patches/1ee0910eca9c94f71f25/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1463ed46080000",
+      "saved_to": "/home/lcj/paired_patches/1ee0910eca9c94f71f25/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

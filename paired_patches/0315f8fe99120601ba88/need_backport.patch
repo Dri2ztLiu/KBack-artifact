@@ -1,0 +1,33 @@
+commit 839f102efb168f02dfdd46717b7c6dddb26b015e
+Author: Ghanshyam Agrawal <ghanshyam1898@gmail.com>
+Date:   Tue Oct 1 11:35:47 2024 +0530
+
+    jfs: fix array-index-out-of-bounds in jfs_readdir
+    
+    The stbl might contain some invalid values. Added a check to
+    return error code in that case.
+    
+    Reported-by: syzbot+0315f8fe99120601ba88@syzkaller.appspotmail.com
+    Closes: https://syzkaller.appspot.com/bug?extid=0315f8fe99120601ba88
+    Signed-off-by: Ghanshyam Agrawal <ghanshyam1898@gmail.com>
+    Signed-off-by: Dave Kleikamp <dave.kleikamp@oracle.com>
+
+diff --git a/fs/jfs/jfs_dtree.c b/fs/jfs/jfs_dtree.c
+index 69fd936fbdb3..8f85177f284b 100644
+--- a/fs/jfs/jfs_dtree.c
++++ b/fs/jfs/jfs_dtree.c
+@@ -2891,6 +2891,14 @@ int jfs_readdir(struct file *file, struct dir_context *ctx)
+ 		stbl = DT_GETSTBL(p);
+ 
+ 		for (i = index; i < p->header.nextindex; i++) {
++			if (stbl[i] < 0 || stbl[i] > 127) {
++				jfs_err("JFS: Invalid stbl[%d] = %d for inode %ld, block = %lld",
++					i, stbl[i], (long)ip->i_ino, (long long)bn);
++				free_page(dirent_buf);
++				DT_PUTPAGE(mp);
++				return -EIO;
++			}
++
+ 			d = (struct ldtentry *) & p->slot[stbl[i]];
+ 
+ 			if (((long) jfs_dirent + d->namlen + 1) >

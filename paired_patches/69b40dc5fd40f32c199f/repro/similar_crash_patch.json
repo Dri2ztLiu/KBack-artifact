@@ -1,0 +1,52 @@
+{
+  "extid": "69b40dc5fd40f32c199f",
+  "target_ref": "69b40dc5fd40f32c199f",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6741e066ec7633450d3186946035c1f80c4226b8",
+      "branch": "linux-6.1",
+      "title": "BUG: sleeping function called from invalid context in __getblk_gfp",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "98f47d0e9b8c557d3063d3ea661cbea1489af330",
+      "branch": "linux-5.15",
+      "title": "BUG: sleeping function called from invalid context in __getblk_gfp",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

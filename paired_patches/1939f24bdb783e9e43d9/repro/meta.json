@@ -1,0 +1,50 @@
+{
+  "extid": "1939f24bdb783e9e43d9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1939f24bdb783e9e43d9",
+  "bug_title": "KASAN: slab-use-after-free Read in __dev_get_by_index",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "net: avoid potential UAF in default_operstate()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=750e51603395e755537da08f745864c93e3ce741",
+      "hash": "750e51603395e755537da08f745864c93e3ce741",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-12-03T17:09:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in __dev_get_by_index",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "aaf20f870da056752f6386693cc0d8e25421ef35",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5df2386563cbffa1bbbb9d0b8ec1eebb98d051ae",
+  "syzkaller-commit": "5df2386563cbffa1bbbb9d0b8ec1eebb98d051ae",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15006f5f980000",
+      "saved_to": "/home/lcj/paired_patches/1939f24bdb783e9e43d9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=493f836b3188006b",
+      "saved_to": "/home/lcj/paired_patches/1939f24bdb783e9e43d9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1939f24bdb783e9e43d9/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1939f24bdb783e9e43d9/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

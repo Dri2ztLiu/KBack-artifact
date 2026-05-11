@@ -1,0 +1,50 @@
+{
+  "extid": "eb83fe1cce5833cd66a0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=eb83fe1cce5833cd66a0",
+  "bug_title": "KMSAN: uninit-value in v9fs_evict_inode",
+  "bug_status": "fixed on 2024/05/22 23:36",
+  "fix_commits": [
+    {
+      "title": "fs/9p: fix uninitialized values during inode evict",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6630036b7c228f57c7893ee0403e92c2db2cd21d",
+      "hash": "6630036b7c228f57c7893ee0403e92c2db2cd21d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ericvh@kernel.org",
+      "author-name": "Eric Van Hensbergen",
+      "date": "2024-03-19T13:50:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in v9fs_evict_inode",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "23956900041d968f9ad0f30db6dede4daccd7aa9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6753db5cdc04330ec9d1a5116b890c19481d69b3",
+  "syzkaller-commit": "6753db5cdc04330ec9d1a5116b890c19481d69b3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1423c2a5180000",
+      "saved_to": "/home/lcj/paired_patches/eb83fe1cce5833cd66a0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5c1d7ee7e74661a8",
+      "saved_to": "/home/lcj/paired_patches/eb83fe1cce5833cd66a0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=149c2021180000",
+      "saved_to": "/home/lcj/paired_patches/eb83fe1cce5833cd66a0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1009c0e9180000",
+      "saved_to": "/home/lcj/paired_patches/eb83fe1cce5833cd66a0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

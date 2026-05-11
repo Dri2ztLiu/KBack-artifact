@@ -1,0 +1,178 @@
+{
+  "extid": "5e5a981ad7cc54c4b2b4",
+  "target_ref": "5e5a981ad7cc54c4b2b4",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "5ca2e29f6834c64c0e5a9ccf1278c21fb49b827e",
+      "branch": "linux-5.15",
+      "title": "kernel BUG in pskb_expand_head (2)",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/core/skmsg.c"
+      ],
+      "symbols": [
+        "sk_psock_skb_ingress_enqueue",
+        "sk_psock_skb_ingress_enqueue",
+        "sk_psock_skb_ingress_enqueue",
+        "sk_psock_skb_ingress",
+        "sk_psock_skb_ingress",
+        "sk_psock_skb_ingress",
+        "sk_psock_skb_ingress_self",
+        "sk_psock_skb_ingress_self",
+        "sk_psock_verdict_apply",
+        "if",
+        "skb_get",
+        "if",
+        "kfree_skb"
+      ],
+      "patterns": [
+        "BUG",
+        "spin_lock",
+        "atomic",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "cecf5d87ff2035127bb5a9ee054d0023a4a7cad3",
+      "branch": "linux-4.19",
+      "title": "kernel BUG in pfkey_send_acquire",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "block/blk-core.c",
+        "block/blk-mq-sysfs.c",
+        "block/blk-sysfs.c",
+        "block/blk.h",
+        "block/elevator.c",
+        "include/linux/blkdev.h"
+      ],
+      "symbols": [
+        "blk_alloc_queue_node",
+        "blk_mq_unregister_dev",
+        "__blk_mq_register_dev",
+        "blk_mq_sysfs_unregister",
+        "blk_mq_sysfs_unregister",
+        "blk_mq_sysfs_register",
+        "blk_mq_sysfs_register",
+        "blk_register_queue",
+        "blk_register_queue",
+        "blk_register_queue",
+        "blk_register_queue",
+        "EXPORT_SYMBOL_GPL",
+        "blk_unregister_queue",
+        "elevator_init_mq",
+        "elv_ktype",
+        "elv_register_queue",
+        "elevator_switch_mq",
+        "elevator_switch_mq",
+        "request_queue",
+        "mutex_init",
+        "lockdep_assert_held",
+        "lockdep_assert_held",
+        "lockdep_assert_held",
+        "lockdep_assert_held",
+        "mutex_lock",
+        "mutex_lock",
+        "mutex_unlock",
+        "mutex_unlock",
+        "mutex_lock",
+        "mutex_lock",
+        "mutex_unlock",
+        "mutex_unlock",
+        "blk_queue_flag_set",
+        "mutex_lock",
+        "mutex_lock",
+        "kobject_uevent",
+        "wbt_enable_default",
+        "blk_throtl_register_queue",
+        "mutex_unlock",
+        "kobject_uevent",
+        "mutex_unlock",
+        "mutex_lock",
+        "blk_queue_flag_set",
+        "wbt_enable_default",
+        "blk_throtl_register_queue",
+        "kobject_uevent",
+        "if",
+        "kobject_uevent",
+        "mutex_unlock",
+        "mutex_unlock",
+        "mutex_unlock",
+        "blk_queue_flag_clear",
+        "mutex_unlock",
+        "mutex_lock",
+        "mutex_unlock",
+        "mutex_lock",
+        "if",
+        "if",
+        "mutex_unlock",
+        "mutex_unlock",
+        "lockdep_assert_held",
+        "kobject_uevent",
+        "if",
+        "kobject_uevent",
+        "mutex_lock",
+        "mutex_unlock",
+        "lockdep_assert_held",
+        "if",
+        "mutex_lock",
+        "mutex_unlock",
+        "if",
+        "if",
+        "mutex_unlock",
+        "mutex_lock",
+        "if",
+        "mutex_unlock",
+        "mutex_lock"
+      ],
+      "patterns": [
+        "race",
+        "lockdep",
+        "WARN",
+        "BUG",
+        "spin_lock",
+        "mutex"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "4f12385298d474541a794f4c47980861299f20e7",
+      "branch": "linux-4.19",
+      "title": "kernel BUG at net/core/skbuff.c:LINE!",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/remoteproc/qcom_q6v5_pil.c"
+      ],
+      "symbols": [
+        "q6v5_load",
+        "if",
+        "dev_err",
+        "memcpy"
+      ],
+      "patterns": [
+        "BUG",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

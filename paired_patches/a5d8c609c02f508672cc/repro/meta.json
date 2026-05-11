@@ -1,0 +1,50 @@
+{
+  "extid": "a5d8c609c02f508672cc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a5d8c609c02f508672cc",
+  "bug_title": "possible deadlock in fat_count_free_clusters",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "loop: Fix ABBA locking race",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b49125574cae26458d4aa02ce8f4523ba9a2a328",
+      "hash": "b49125574cae26458d4aa02ce8f4523ba9a2a328",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hirofumi@mail.parknet.co.jp",
+      "author-name": "OGAWA Hirofumi",
+      "date": "2024-11-19T14:42:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in fat_count_free_clusters",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0e287d31b62bb53ad81d5e59778384a40f8b6f56",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/689146651cb695ec7836080377ad32933a0b9bce",
+  "syzkaller-commit": "689146651cb695ec7836080377ad32933a0b9bce",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14a980df980000",
+      "saved_to": "/home/lcj/paired_patches/a5d8c609c02f508672cc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e44e33e8632f0d09",
+      "saved_to": "/home/lcj/paired_patches/a5d8c609c02f508672cc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a5d8c609c02f508672cc/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a5d8c609c02f508672cc/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

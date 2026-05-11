@@ -1,0 +1,50 @@
+{
+  "extid": "78c55c7bc6f66e53dce2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=78c55c7bc6f66e53dce2",
+  "bug_title": "possible deadlock in rds_tcp_reset_callbacks",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net: rds: don't hold sock lock when cancelling work from rds_tcp_reset_callbacks()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a91b750fd6629354460282bbf5146c01b05c4859",
+      "hash": "a91b750fd6629354460282bbf5146c01b05c4859",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-09-28T15:25:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in rds_tcp_reset_callbacks",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4fe89d07dcc2804c8b562f6c7896a45643d34b2f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/eab8f94940b33c0a2cbc7d8eb2219862b6864b19",
+  "syzkaller-commit": "eab8f94940b33c0a2cbc7d8eb2219862b6864b19",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1187555c880000",
+      "saved_to": "/home/lcj/paired_patches/78c55c7bc6f66e53dce2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a1c7bd9b9b7d4c47",
+      "saved_to": "/home/lcj/paired_patches/78c55c7bc6f66e53dce2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=121b9c2a880000",
+      "saved_to": "/home/lcj/paired_patches/78c55c7bc6f66e53dce2/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12c420b2880000",
+      "saved_to": "/home/lcj/paired_patches/78c55c7bc6f66e53dce2/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

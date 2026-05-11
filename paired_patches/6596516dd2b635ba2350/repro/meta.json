@@ -1,0 +1,50 @@
+{
+  "extid": "6596516dd2b635ba2350",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6596516dd2b635ba2350",
+  "bug_title": "general protection fault in find_match (6)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "nexthop: Forbid FDB status change while nexthop is in a group",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=390b3a300d7872cef9588f003b204398be69ce08",
+      "hash": "390b3a300d7872cef9588f003b204398be69ce08",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "idosch@nvidia.com",
+      "author-name": "Ido Schimmel",
+      "date": "2025-09-21T15:08:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in find_match",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e2291551827fe5d2d3758c435c191d32b6d1350e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0ea0ca3f3c0382da6db9c2abd88a8abf3013274e",
+  "syzkaller-commit": "0ea0ca3f3c0382da6db9c2abd88a8abf3013274e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=105f258c580000",
+      "saved_to": "/home/lcj/paired_patches/6596516dd2b635ba2350/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f62a2ef17395702a",
+      "saved_to": "/home/lcj/paired_patches/6596516dd2b635ba2350/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13c89382580000",
+      "saved_to": "/home/lcj/paired_patches/6596516dd2b635ba2350/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1091958c580000",
+      "saved_to": "/home/lcj/paired_patches/6596516dd2b635ba2350/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "106f9b687cd64ee70cd1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=106f9b687cd64ee70cd1",
+  "bug_title": "KASAN: use-after-free Read in notifier_call_chain",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "net: tun: Fix use-after-free in tun_detach()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5daadc86f27ea4d691e2131c04310d0418c6cd12",
+      "hash": "5daadc86f27ea4d691e2131c04310d0418c6cd12",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2022-11-24T17:51:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in notifier_call_chain",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "f1244c81da13009dbf61cb807f45881501c44789",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2738b391a3eb3617cd518a6d33527b1645725618",
+  "syzkaller-commit": "2738b391a3eb3617cd518a6d33527b1645725618",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13606b44f00000",
+      "saved_to": "/home/lcj/paired_patches/106f9b687cd64ee70cd1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=77eb44eab99be599",
+      "saved_to": "/home/lcj/paired_patches/106f9b687cd64ee70cd1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11bd3a10f00000",
+      "saved_to": "/home/lcj/paired_patches/106f9b687cd64ee70cd1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15a31da2f00000",
+      "saved_to": "/home/lcj/paired_patches/106f9b687cd64ee70cd1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

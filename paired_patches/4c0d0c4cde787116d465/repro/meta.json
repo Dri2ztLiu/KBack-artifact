@@ -1,0 +1,50 @@
+{
+  "extid": "4c0d0c4cde787116d465",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4c0d0c4cde787116d465",
+  "bug_title": "KASAN: slab-use-after-free Write in sco_sock_timeout",
+  "bug_status": "fixed on 2024/11/26 09:45",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: SCO: Fix UAF on sco_sock_timeout",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1bf4470a3939c678fb822073e9ea77a0560bc6bb",
+      "hash": "1bf4470a3939c678fb822073e9ea77a0560bc6bb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2024-10-22T16:31:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Write in sco_sock_timeout",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fe46a7dd189e25604716c03576d05ac8a5209743",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c8349e48534ea6d8f01515335d95de8ebf5da8df",
+  "syzkaller-commit": "c8349e48534ea6d8f01515335d95de8ebf5da8df",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1255b547180000",
+      "saved_to": "/home/lcj/paired_patches/4c0d0c4cde787116d465/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fe78468a74fdc3b7",
+      "saved_to": "/home/lcj/paired_patches/4c0d0c4cde787116d465/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11c05af5180000",
+      "saved_to": "/home/lcj/paired_patches/4c0d0c4cde787116d465/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1040f947180000",
+      "saved_to": "/home/lcj/paired_patches/4c0d0c4cde787116d465/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

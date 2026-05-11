@@ -1,0 +1,56 @@
+{
+  "extid": "09d1cd2f71e6dd3bfd2c",
+  "target_ref": "09d1cd2f71e6dd3bfd2c",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "f78c1375339a291cba492a70eaf12ec501d28a8e",
+      "branch": "linux-6.1",
+      "title": "WARNING in ieee80211_bss_info_change_notify",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/wireless/nl80211.c"
+      ],
+      "symbols": [
+        "nl80211_set_interface",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "7c6d66f0266faf94d04b3bfe0d7a06eae3484c50",
+      "branch": "linux-5.15",
+      "title": "WARNING in ieee80211_bss_info_change_notify",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

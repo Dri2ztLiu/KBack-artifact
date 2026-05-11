@@ -1,0 +1,50 @@
+{
+  "extid": "1651b5234028c294c339",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1651b5234028c294c339",
+  "bug_title": "KCSAN: data-race in ip_vs_add_service / ip_vs_out_hook",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "ipvs: Use READ_ONCE/WRITE_ONCE for ipvs->enable",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=944b6b216c0387ac3050cd8b773819ae360bfb1c",
+      "hash": "944b6b216c0387ac3050cd8b773819ae360bfb1c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zhtfdev@gmail.com",
+      "author-name": "Zhang Tengfei",
+      "date": "2025-09-01T13:46:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in ip_vs_add_service / ip_vs_out_hook",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "07e27ad16399afcd693be20211b0dfae63e0615f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0ac7291ca51f87df8022da0f66178546e855701a",
+  "syzkaller-commit": "0ac7291ca51f87df8022da0f66178546e855701a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1501a8e2580000",
+      "saved_to": "/home/lcj/paired_patches/1651b5234028c294c339/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6e0c213d0735f5dd",
+      "saved_to": "/home/lcj/paired_patches/1651b5234028c294c339/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1651b5234028c294c339/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/1651b5234028c294c339/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

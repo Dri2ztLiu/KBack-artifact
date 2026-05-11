@@ -1,0 +1,118 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/ntfs3/xattr.c (1), fs/smb/client/fs_context.c (1), fs/smb/client/fs_context.h (1)
+TOP_SYMBOLS:
+  pr_notice (2), ntfs_list_ea (1), smb3_fs_context_validate (1), smb3_fs_context_parse_param (1), cifs_param (1)
+TOP_KEYWORDS:
+  out-of-bounds (2), KASAN (2), slab (2)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=pr_notice)
+  - viewcode(ref=<target_release>, path=fs/ntfs3/xattr.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 731ab1f9828800df871c5a7ab9ffe965317d3f15
+bug_url: https://syzkaller.appspot.com/bug?extid=224664e3588ec766c818
+title: KASAN: slab-out-of-bounds Read in ntfs_listxattr
+relevance_score: 0
+
+ fs/ntfs3/xattr.c | 3 +++
+ 1 file changed, 3 insertions(+)
+diff --git a/fs/ntfs3/xattr.c b/fs/ntfs3/xattr.c
+index 071356d096d8..53e7d1fa036a 100644
+--- a/fs/ntfs3/xattr.c
++++ b/fs/ntfs3/xattr.c
+@@ -219,6 +219,9 @@ static ssize_t ntfs_list_ea(struct ntfs_inode *ni, char *buffer,
+ 		if (!ea->name_len)
+ 			break;
+ 
++		if (ea->name_len > ea_size)
++			break;
++
+ 		if (buffer) {
+ 			/* Check if we can use field ea->name */
+ 			if (off + ea_size > size)
+================================================================================
+
+branch: linux-5.15
+fix_commit: e88c4cfcb7b888ac374916806f86c17d8ecaeb67
+bug_url: https://syzkaller.appspot.com/bug?id=8ca9893861ff711213b6a1455c87758f006461ed
+title: KASAN: slab-out-of-bounds Read in ntfs_listxattr
+relevance_score: 0
+
+ fs/smb/client/fs_context.c | 12 ++++++++++++
+ fs/smb/client/fs_context.h |  2 ++
+ 2 files changed, 14 insertions(+)
+diff --git a/fs/smb/client/fs_context.c b/fs/smb/client/fs_context.c
+index 6c727d8c31e8..3bbac925d076 100644
+--- a/fs/smb/client/fs_context.c
++++ b/fs/smb/client/fs_context.c
+@@ -748,6 +748,16 @@ static int smb3_fs_context_validate(struct fs_context *fc)
+ 	/* set the port that we got earlier */
+ 	cifs_set_port((struct sockaddr *)&ctx->dstaddr, ctx->port);
+ 
++	if (ctx->uid_specified && !ctx->forceuid_specified) {
++		ctx->override_uid = 1;
++		pr_notice("enabling forceuid mount option implicitly because uid= option is specified\n");
++	}
++
++	if (ctx->gid_specified && !ctx->forcegid_specified) {
++		ctx->override_gid = 1;
++		pr_notice("enabling forcegid mount option implicitly because gid= option is specified\n");
++	}
++
+ 	if (ctx->override_uid && !ctx->uid_specified) {
+ 		ctx->override_uid = 0;
+ 		pr_notice("ignoring forceuid mount option specified with no uid= option\n");
+@@ -1019,12 +1029,14 @@ static int smb3_fs_context_parse_param(struct fs_context *fc,
+ 			ctx->override_uid = 0;
+ 		else
+ 			ctx->override_uid = 1;
++		ctx->forceuid_specified = true;
+ 		break;
+ 	case Opt_forcegid:
+ 		if (result.negated)
+ 			ctx->override_gid = 0;
+ 		else
+ 			ctx->override_gid = 1;
++		ctx->forcegid_specified = true;
+ 		break;
+ 	case Opt_perm:
+ 		if (result.negated)
+diff --git a/fs/smb/client/fs_context.h b/fs/smb/client/fs_context.h
+index a947bddeba27..cf577ec0dd0a 100644
+--- a/fs/smb/client/fs_context.h
++++ b/fs/smb/client/fs_context.h
+@@ -165,6 +165,8 @@ enum cifs_param {
+ };
+ 
+ struct smb3_fs_context {
++	bool forceuid_specified;
++	bool forcegid_specified;
+ 	bool uid_specified;
+ 	bool cruid_specified;
+ 	bool gid_specified;
+================================================================================

@@ -1,0 +1,36 @@
+------------[ cut here ]------------
+verifier bug: error during ctx access conversion (0)(1)
+WARNING: CPU: 0 PID: 3582 at kernel/bpf/verifier.c:21452 convert_ctx_accesses+0x9b0/0xb04 kernel/bpf/verifier.c:21452
+Modules linked in:
+CPU: 0 UID: 0 PID: 3582 Comm: syz.2.17 Not tainted syzkaller #0 PREEMPT 
+Hardware name: linux,dummy-virt (DT)
+pstate: 60402009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : convert_ctx_accesses+0x9b0/0xb04 kernel/bpf/verifier.c:21452
+lr : convert_ctx_accesses+0x9b0/0xb04 kernel/bpf/verifier.c:21452
+sp : ffff8000893939e0
+x29: ffff8000893939e0 x28: faf0000008948000 x27: 0000000000000002
+x26: f8ff8000832d5058 x25: 0000000000000000 x24: 0000000000000000
+x23: ffff8000816c4744 x22: 0000000000000004 x21: 0000000000000002
+x20: 0000000000000004 x19: ffff80008242a948 x18: 0000000000000001
+x17: fff07ffffcfe1000 x16: ffff800080000000 x15: fff000007f8d4980
+x14: 00000000000002de x13: 0000000000000000 x12: 0000000000000000
+x11: 00000000000000c0 x10: b2ff97ff6a7f8b51 x9 : a6a5f6a0197b216f
+x8 : f9f0000008b04978 x7 : 0000000000000190 x6 : 000000259596bf72
+x5 : 0000000000000001 x4 : fbffff3fffffffff x3 : 000000000000ffff
+x2 : 0000000000000000 x1 : 0000000000000000 x0 : f9f0000008b03780
+Call trace:
+ convert_ctx_accesses+0x9b0/0xb04 kernel/bpf/verifier.c:21452 (P)
+ bpf_check+0x12f8/0x2aac kernel/bpf/verifier.c:24743
+ bpf_prog_load+0x634/0xb74 kernel/bpf/syscall.c:2979
+ __sys_bpf+0x2e0/0x1a3c kernel/bpf/syscall.c:6029
+ __do_sys_bpf kernel/bpf/syscall.c:6139 [inline]
+ __se_sys_bpf kernel/bpf/syscall.c:6137 [inline]
+ __arm64_sys_bpf+0x24/0x34 kernel/bpf/syscall.c:6137
+ __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+ invoke_syscall+0x48/0x110 arch/arm64/kernel/syscall.c:49
+ el0_svc_common.constprop.0+0x40/0xe0 arch/arm64/kernel/syscall.c:132
+ do_el0_svc+0x1c/0x28 arch/arm64/kernel/syscall.c:151
+ el0_svc+0x34/0x10c arch/arm64/kernel/entry-common.c:879
+ el0t_64_sync_handler+0xa0/0xe4 arch/arm64/kernel/entry-common.c:898
+ el0t_64_sync+0x1a4/0x1a8 arch/arm64/kernel/entry.S:596
+---[ end trace 0000000000000000 ]---

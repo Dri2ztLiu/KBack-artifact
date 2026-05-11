@@ -1,0 +1,50 @@
+{
+  "extid": "d8941552e21eac774778",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d8941552e21eac774778",
+  "bug_title": "kernel BUG in btrfs_csum_one_bio",
+  "bug_status": "fixed on 2023/07/01 16:05",
+  "fix_commits": [
+    {
+      "title": "btrfs: handle memory allocation failure in btrfs_csum_one_bio",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=806570c0bb7b4847828c22c4934fcf2dc8fc572f",
+      "hash": "806570c0bb7b4847828c22c4934fcf2dc8fc572f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.thumshirn@wdc.com",
+      "author-name": "Johannes Thumshirn",
+      "date": "2023-05-04T11:58:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in btrfs_csum_one_bio",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f883675bf6522b52cd75dc3de791680375961769",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cc0f9968db1abe397e6c93bf4f5dff51be20f914",
+  "syzkaller-commit": "cc0f9968db1abe397e6c93bf4f5dff51be20f914",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=141a4b0e480000",
+      "saved_to": "/home/lcj/paired_patches/d8941552e21eac774778/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d24faf5fc10540ae",
+      "saved_to": "/home/lcj/paired_patches/d8941552e21eac774778/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=153fd539480000",
+      "saved_to": "/home/lcj/paired_patches/d8941552e21eac774778/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=157373de480000",
+      "saved_to": "/home/lcj/paired_patches/d8941552e21eac774778/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "c31a48e6702ccb3d64c9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c31a48e6702ccb3d64c9",
+  "bug_title": "KASAN: out-of-bounds Read in leaf_paste_entries",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "reiserfs: check directory items on read from disk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=13d257503c0930010ef9eed78b689cec417ab741",
+      "hash": "13d257503c0930010ef9eed78b689cec417ab741",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chouhan.shreyansh630@gmail.com",
+      "author-name": "Shreyansh Chouhan",
+      "date": "2021-07-09T15:29:29Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: out-of-bounds Read in leaf_paste_entries",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1bdc3d5be7e199ff56f39dafb0e5f63a9b8c975d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b599f2fcc734e2183016a340d4f6fc2891d8e41f",
+  "syzkaller-commit": "b599f2fcc734e2183016a340d4f6fc2891d8e41f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=147614b1300000",
+      "saved_to": "/home/lcj/paired_patches/c31a48e6702ccb3d64c9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=96f0602203250753",
+      "saved_to": "/home/lcj/paired_patches/c31a48e6702ccb3d64c9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=107b9275300000",
+      "saved_to": "/home/lcj/paired_patches/c31a48e6702ccb3d64c9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=105b1305300000",
+      "saved_to": "/home/lcj/paired_patches/c31a48e6702ccb3d64c9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "9c9c35374c0ecac06516",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9c9c35374c0ecac06516",
+  "bug_title": "WARNING in io_ring_ctx_wait_and_kill",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "io_uring: do sqo disable on install_fd error",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=06585c497b55045ec21aa8128e340f6a6587351c",
+      "hash": "06585c497b55045ec21aa8128e340f6a6587351c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "asml.silence@gmail.com",
+      "author-name": "Pavel Begunkov",
+      "date": "2021-01-13T15:29:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7c53f6b671f4aba70ff15e1b05148b10d58c2837",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2c1f2513486f21d26b1942ce77ffc782677fbf4e",
+  "syzkaller-commit": "2c1f2513486f21d26b1942ce77ffc782677fbf4e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17895648d00000",
+      "saved_to": "/home/lcj/paired_patches/9c9c35374c0ecac06516/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c60c9ff9cc916cbc",
+      "saved_to": "/home/lcj/paired_patches/9c9c35374c0ecac06516/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=107fc7fb500000",
+      "saved_to": "/home/lcj/paired_patches/9c9c35374c0ecac06516/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16286007500000",
+      "saved_to": "/home/lcj/paired_patches/9c9c35374c0ecac06516/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

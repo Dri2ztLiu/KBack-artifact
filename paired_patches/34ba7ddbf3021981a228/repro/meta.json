@@ -1,0 +1,50 @@
+{
+  "extid": "34ba7ddbf3021981a228",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=34ba7ddbf3021981a228",
+  "bug_title": "KASAN: use-after-free Read in gfs2_glock_shrink_scan",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "gfs2: Fix use-after-free in gfs2_glock_shrink_scan",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1ab19c5de4c537ec0d9b21020395a5b5a6c059b2",
+      "hash": "1ab19c5de4c537ec0d9b21020395a5b5a6c059b2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hdanton@sina.com",
+      "author-name": "Hillf Danton",
+      "date": "2021-05-18T08:46:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in gfs2_glock_shrink_scan",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "315d99318179b9cd5077ccc9f7f26a164c9fa998",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8bdd5343e64460868dd1318257a39f1e7fd89471",
+  "syzkaller-commit": "8bdd5343e64460868dd1318257a39f1e7fd89471",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=129a118bd00000",
+      "saved_to": "/home/lcj/paired_patches/34ba7ddbf3021981a228/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4e950b1ffed48778",
+      "saved_to": "/home/lcj/paired_patches/34ba7ddbf3021981a228/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/34ba7ddbf3021981a228/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/34ba7ddbf3021981a228/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

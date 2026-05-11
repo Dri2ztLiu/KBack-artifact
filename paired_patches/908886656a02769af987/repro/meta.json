@@ -1,0 +1,60 @@
+{
+  "extid": "908886656a02769af987",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=908886656a02769af987",
+  "bug_title": "upstream test error: KASAN: invalid-access Write in setup_arch",
+  "bug_status": "fixed on 2024/11/26 09:45",
+  "fix_commits": [
+    {
+      "title": "kasan: Disable Software Tag-Based KASAN with GCC",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7aed6a2c51ffc97a126e0ea0c270fab7af97ae18",
+      "hash": "7aed6a2c51ffc97a126e0ea0c270fab7af97ae18",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "will@kernel.org",
+      "author-name": "Will Deacon",
+      "date": "2024-10-14T16:11:00Z"
+    },
+    {
+      "title": "kasan: Fix Software Tag-Based KASAN with GCC",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=894b00a3350c560990638bdf89bdf1f3d5491950",
+      "hash": "894b00a3350c560990638bdf89bdf1f3d5491950",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "elver@google.com",
+      "author-name": "Marco Elver",
+      "date": "2024-10-21T12:00:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "upstream test error: KASAN: invalid-access Write in setup_arch",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git",
+  "kernel-source-commit": "33faa93bc8566343dd7ee4423d59c000caa05828",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ee2602b8aa3e172d05dbaff914a78720b3dd04f9",
+  "syzkaller-commit": "ee2602b8aa3e172d05dbaff914a78720b3dd04f9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12ea6143980000",
+      "saved_to": "/home/lcj/paired_patches/908886656a02769af987/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2b7b31c9aa1397ca",
+      "saved_to": "/home/lcj/paired_patches/908886656a02769af987/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/908886656a02769af987/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/908886656a02769af987/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

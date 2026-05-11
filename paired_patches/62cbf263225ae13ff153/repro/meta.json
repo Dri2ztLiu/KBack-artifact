@@ -1,0 +1,50 @@
+{
+  "extid": "62cbf263225ae13ff153",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=62cbf263225ae13ff153",
+  "bug_title": "WARNING in __ip6_append_data",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "ipv4, ipv6: Fix handling of transhdrlen in __ip{,6}_append_data()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9d4c75800f61e5d75c1659ba201b6c0c7ead3070",
+      "hash": "9d4c75800f61e5d75c1659ba201b6c0c7ead3070",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2023-09-21T10:41:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __ip6_append_data",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "65d6e954e37872fd9afb5ef3fc0481bb3c2f20f4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8bc9053e88dacf57f5ce550da040d31895eb9626",
+  "syzkaller-commit": "8bc9053e88dacf57f5ce550da040d31895eb9626",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15bc1bd0680000",
+      "saved_to": "/home/lcj/paired_patches/62cbf263225ae13ff153/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b273cdfbc13e9a4b",
+      "saved_to": "/home/lcj/paired_patches/62cbf263225ae13ff153/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10034f3fa80000",
+      "saved_to": "/home/lcj/paired_patches/62cbf263225ae13ff153/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11f37a0c680000",
+      "saved_to": "/home/lcj/paired_patches/62cbf263225ae13ff153/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

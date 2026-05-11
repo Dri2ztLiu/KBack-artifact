@@ -1,0 +1,50 @@
+{
+  "extid": "bc05445bc14148d51915",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bc05445bc14148d51915",
+  "bug_title": "inconsistent lock state in padata_do_serial (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "padata: Always leave BHs disabled when running ->parallel()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34c3a47d20ae55b3600fed733bf96eafe9c500d5",
+      "hash": "34c3a47d20ae55b3600fed733bf96eafe9c500d5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "daniel.m.jordan@oracle.com",
+      "author-name": "Daniel Jordan",
+      "date": "2022-11-17T01:28:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "inconsistent lock state in padata_do_serial",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3245cb65fd91cd514801bf91f5a3066d562f0ac4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b884348d83ed05e7e82aa997c494252ce0f48687",
+  "syzkaller-commit": "b884348d83ed05e7e82aa997c494252ce0f48687",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14788930880000",
+      "saved_to": "/home/lcj/paired_patches/bc05445bc14148d51915/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=98a30118ec9215e9",
+      "saved_to": "/home/lcj/paired_patches/bc05445bc14148d51915/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bc05445bc14148d51915/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bc05445bc14148d51915/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

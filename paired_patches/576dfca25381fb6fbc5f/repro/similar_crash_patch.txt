@@ -1,0 +1,70 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  include/linux/netfilter/nf_conntrack_pptp.h (1), net/netfilter/nf_conntrack_pptp.c (1)
+TOP_SYMBOLS:
+  (none)
+TOP_KEYWORDS:
+  net (1)
+
+Recommended next tool calls (example):
+  - viewcode(ref=<target_release>, path=include/linux/netfilter/nf_conntrack_pptp.h, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=2, rows_scanned=2, candidates_kept=1, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-4.19
+fix_commit: 4946ea5c1237036155c3b3a24f049fd5f849f8f6
+bug_url: https://syzkaller.appspot.com/bug?extid=28e6f97f84c38487043c
+title: INFO: trying to register non-static key in hci_uart_flush
+relevance_score: 0
+
+ include/linux/netfilter/nf_conntrack_pptp.h | 2 +-
+ net/netfilter/nf_conntrack_pptp.c           | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+diff --git a/include/linux/netfilter/nf_conntrack_pptp.h b/include/linux/netfilter/nf_conntrack_pptp.h
+index 6a4ff6d5ebc2..a28aa289afdc 100644
+--- a/include/linux/netfilter/nf_conntrack_pptp.h
++++ b/include/linux/netfilter/nf_conntrack_pptp.h
+@@ -10,7 +10,7 @@
+ #include <net/netfilter/nf_conntrack_expect.h>
+ #include <uapi/linux/netfilter/nf_conntrack_tuple_common.h>
+ 
+-extern const char *const pptp_msg_name(u_int16_t msg);
++const char *pptp_msg_name(u_int16_t msg);
+ 
+ /* state of the control session */
+ enum pptp_ctrlsess_state {
+diff --git a/net/netfilter/nf_conntrack_pptp.c b/net/netfilter/nf_conntrack_pptp.c
+index 7ad247784cfa..1f44d523b512 100644
+--- a/net/netfilter/nf_conntrack_pptp.c
++++ b/net/netfilter/nf_conntrack_pptp.c
+@@ -91,7 +91,7 @@ static const char *const pptp_msg_name_array[PPTP_MSG_MAX + 1] = {
+ 	[PPTP_SET_LINK_INFO]		= "SET_LINK_INFO"
+ };
+ 
+-const char *const pptp_msg_name(u_int16_t msg)
++const char *pptp_msg_name(u_int16_t msg)
+ {
+ 	if (msg > PPTP_MSG_MAX)
+ 		return pptp_msg_name_array[0];
+================================================================================

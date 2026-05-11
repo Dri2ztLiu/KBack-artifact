@@ -1,0 +1,50 @@
+{
+  "extid": "efe683d57990864b8c8e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=efe683d57990864b8c8e",
+  "bug_title": "KCSAN: data-race in virtqueue_disable_cb / virtqueue_enable_cb_delayed (9)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "virtio_ring: Fix data race by tagging event_triggered as racy for KCSAN",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2e2f925fe737576df2373931c95e1a2b66efdfef",
+      "hash": "2e2f925fe737576df2373931c95e1a2b66efdfef",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "quic_zhonhan@quicinc.com",
+      "author-name": "Zhongqiu Han",
+      "date": "2025-03-12T13:04:12Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in virtqueue_disable_cb / virtqueue_enable_cb_delayed",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "99fa936e8e4f117d62f229003c9799686f74cebc",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c3901742785ff25afdc6f470af7b25b69d7c4f2f",
+  "syzkaller-commit": "c3901742785ff25afdc6f470af7b25b69d7c4f2f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1553fc54580000",
+      "saved_to": "/home/lcj/paired_patches/efe683d57990864b8c8e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=523b0e2f15224775",
+      "saved_to": "/home/lcj/paired_patches/efe683d57990864b8c8e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/efe683d57990864b8c8e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/efe683d57990864b8c8e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

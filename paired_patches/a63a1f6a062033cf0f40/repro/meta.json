@@ -1,0 +1,50 @@
+{
+  "extid": "a63a1f6a062033cf0f40",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a63a1f6a062033cf0f40",
+  "bug_title": "KMSAN: uninit-value in br_dev_xmit (2)",
+  "bug_status": "fixed on 2024/06/05 13:52",
+  "fix_commits": [
+    {
+      "title": "net: bridge: xmit: make sure we have at least eth header len bytes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8bd67ebb50c0145fd2ca8681ab65eb7e8cde1afc",
+      "hash": "8bd67ebb50c0145fd2ca8681ab65eb7e8cde1afc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "razor@blackwall.org",
+      "author-name": "Nikolay Aleksandrov",
+      "date": "2024-05-13T10:34:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in br_dev_xmit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "dccb07f2914cdab2ac3a5b6c98406f765acab803",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4cf3f9b3f15d248d052cd369d23308c953d657d9",
+  "syzkaller-commit": "4cf3f9b3f15d248d052cd369d23308c953d657d9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=168c5e04980000",
+      "saved_to": "/home/lcj/paired_patches/a63a1f6a062033cf0f40/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=617171361dd3cd47",
+      "saved_to": "/home/lcj/paired_patches/a63a1f6a062033cf0f40/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=111a53c0980000",
+      "saved_to": "/home/lcj/paired_patches/a63a1f6a062033cf0f40/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=122a37c0980000",
+      "saved_to": "/home/lcj/paired_patches/a63a1f6a062033cf0f40/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

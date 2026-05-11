@@ -1,0 +1,60 @@
+{
+  "extid": "b3e02953598f447d4d2a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b3e02953598f447d4d2a",
+  "bug_title": "BUG: sleeping function called from invalid context in crypto_put_default_null_skcipher",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "crypto: null - Use spin lock instead of mutex",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dcc47a028c24e793ce6d6efebfef1a1e92f80297",
+      "hash": "dcc47a028c24e793ce6d6efebfef1a1e92f80297",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "herbert@gondor.apana.org.au",
+      "author-name": "Herbert Xu",
+      "date": "2025-02-12T06:10:07Z"
+    },
+    {
+      "title": "net: restrict SO_REUSEPORT to inet sockets",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5b0af621c3f6ef9261cf6067812f2fd9943acb4b",
+      "hash": "5b0af621c3f6ef9261cf6067812f2fd9943acb4b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-12-31T16:05:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in crypto_put_default_null_skcipher",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "a024e377efed31ecfb39210bed562932321345b3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13bea6df980000",
+      "saved_to": "/home/lcj/paired_patches/b3e02953598f447d4d2a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6a2b862bf4a5409f",
+      "saved_to": "/home/lcj/paired_patches/b3e02953598f447d4d2a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12bce818580000",
+      "saved_to": "/home/lcj/paired_patches/b3e02953598f447d4d2a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14bce818580000",
+      "saved_to": "/home/lcj/paired_patches/b3e02953598f447d4d2a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,264 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (3), net/bluetooth/hci_sync.c (2)
+TOP_SYMBOLS:
+  hci_dev_lock (4), hci_conn_failed (4), hci_dev_unlock (4), hci_reject_conn_sync (2), hci_abort_conn_sync (2)
+TOP_KEYWORDS:
+  WARN (5), net (2)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=hci_dev_lock)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=6, rows_scanned=6, candidates_kept=5, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: 6282921b6825fef6a1243e1c80063421d41e2576
+bug_url: https://syzkaller.appspot.com/bug?extid=e6c889790f3159fa29e2
+title: WARNING in hci_conn_timeout
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index c9a1e2286b3a..9625d9072c77 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 6
+-SUBLEVEL = 93
++SUBLEVEL = 94
+ EXTRAVERSION =
+ NAME = Pinguïn Aangedreven
+================================================================================
+
+branch: linux-6.1
+fix_commit: 5af1f84ed13a416297ab9ced7537f4d5ae7f329a
+bug_url: https://syzkaller.appspot.com/bug?extid=bfbb27ac82ea130a7a95
+title: WARNING in hci_conn_timeout
+relevance_score: 0
+
+ net/bluetooth/hci_sync.c | 45 ++++++++++++++++++++++++++--------------
+ 1 file changed, 29 insertions(+), 16 deletions(-)
+diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
+index a9b048d7b419..ec8929e79502 100644
+--- a/net/bluetooth/hci_sync.c
++++ b/net/bluetooth/hci_sync.c
+@@ -5389,27 +5389,20 @@ static int hci_reject_conn_sync(struct hci_dev *hdev, struct hci_conn *conn,
+ 
+ int hci_abort_conn_sync(struct hci_dev *hdev, struct hci_conn *conn, u8 reason)
+ {
+-	int err;
++	int err = 0;
++	u16 handle = conn->handle;
+ 
+ 	switch (conn->state) {
+ 	case BT_CONNECTED:
+ 	case BT_CONFIG:
+-		return hci_disconnect_sync(hdev, conn, reason);
++		err = hci_disconnect_sync(hdev, conn, reason);
++		break;
+ 	case BT_CONNECT:
+ 		err = hci_connect_cancel_sync(hdev, conn, reason);
+-		/* Cleanup hci_conn object if it cannot be cancelled as it
+-		 * likelly means the controller and host stack are out of sync
+-		 * or in case of LE it was still scanning so it can be cleanup
+-		 * safely.
+-		 */
+-		if (err) {
+-			hci_dev_lock(hdev);
+-			hci_conn_failed(conn, err);
+-			hci_dev_unlock(hdev);
+-		}
+-		return err;
++		break;
+ 	case BT_CONNECT2:
+-		return hci_reject_conn_sync(hdev, conn, reason);
++		err = hci_reject_conn_sync(hdev, conn, reason);
++		break;
+ 	case BT_OPEN:
+ 	case BT_BOUND:
+ 		hci_dev_lock(hdev);
+@@ -5418,10 +5411,30 @@ int hci_abort_conn_sync(struct hci_dev *hdev, struct hci_conn *conn, u8 reason)
+ 		return 0;
+ 	default:
+ 		conn->state = BT_CLOSED;
+-		break;
++		return 0;
+ 	}
+ 
+-	return 0;
++	/* Cleanup hci_conn object if it cannot be cancelled as it
++	 * likelly means the controller and host stack are out of sync
++	 * or in case of LE it was still scanning so it can be cleanup
++	 * safely.
++	 */
++	if (err) {
++		struct hci_conn *c;
++
++		/* Check if the connection hasn't been cleanup while waiting
++		 * commands to complete.
++		 */
++		c = hci_conn_hash_lookup_handle(hdev, handle);
++		if (!c || c != conn)
++			return 0;
++
++		hci_dev_lock(hdev);
++		hci_conn_failed(conn, err);
++		hci_dev_unlock(hdev);
++	}
++
++	return err;
+ }
+ 
+ static int hci_disconnect_all_sync(struct hci_dev *hdev, u8 reason)
+================================================================================
+
+branch: linux-5.15
+fix_commit: 5af1f84ed13a416297ab9ced7537f4d5ae7f329a
+bug_url: https://syzkaller.appspot.com/bug?extid=b3668760e544f4a0b191
+title: WARNING in hci_conn_timeout
+relevance_score: 0
+
+ net/bluetooth/hci_sync.c | 45 ++++++++++++++++++++++++++--------------
+ 1 file changed, 29 insertions(+), 16 deletions(-)
+diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
+index a9b048d7b419..ec8929e79502 100644
+--- a/net/bluetooth/hci_sync.c
++++ b/net/bluetooth/hci_sync.c
+@@ -5389,27 +5389,20 @@ static int hci_reject_conn_sync(struct hci_dev *hdev, struct hci_conn *conn,
+ 
+ int hci_abort_conn_sync(struct hci_dev *hdev, struct hci_conn *conn, u8 reason)
+ {
+-	int err;
++	int err = 0;
++	u16 handle = conn->handle;
+ 
+ 	switch (conn->state) {
+ 	case BT_CONNECTED:
+ 	case BT_CONFIG:
+-		return hci_disconnect_sync(hdev, conn, reason);
++		err = hci_disconnect_sync(hdev, conn, reason);
++		break;
+ 	case BT_CONNECT:
+ 		err = hci_connect_cancel_sync(hdev, conn, reason);
+-		/* Cleanup hci_conn object if it cannot be cancelled as it
+-		 * likelly means the controller and host stack are out of sync
+-		 * or in case of LE it was still scanning so it can be cleanup
+-		 * safely.
+-		 */
+-		if (err) {
+-			hci_dev_lock(hdev);
+-			hci_conn_failed(conn, err);
+-			hci_dev_unlock(hdev);
+-		}
+-		return err;
++		break;
+ 	case BT_CONNECT2:
+-		return hci_reject_conn_sync(hdev, conn, reason);
++		err = hci_reject_conn_sync(hdev, conn, reason);
++		break;
+ 	case BT_OPEN:
+ 	case BT_BOUND:
+ 		hci_dev_lock(hdev);
+@@ -5418,10 +5411,30 @@ int hci_abort_conn_sync(struct hci_dev *hdev, struct hci_conn *conn, u8 reason)
+ 		return 0;
+ 	default:
+ 		conn->state = BT_CLOSED;
+-		break;
++		return 0;
+ 	}
+ 
+-	return 0;
++	/* Cleanup hci_conn object if it cannot be cancelled as it
++	 * likelly means the controller and host stack are out of sync
++	 * or in case of LE it was still scanning so it can be cleanup
++	 * safely.
++	 */
++	if (err) {
++		struct hci_conn *c;
++
++		/* Check if the connection hasn't been cleanup while waiting
++		 * commands to complete.
++		 */
++		c = hci_conn_hash_lookup_handle(hdev, handle);
++		if (!c || c != conn)
++			return 0;
++
++		hci_dev_lock(hdev);
++		hci_conn_failed(conn, err);
++		hci_dev_unlock(hdev);
++	}
++
++	return err;
+ }
+ 
+ static int hci_disconnect_all_sync(struct hci_dev *hdev, u8 reason)
+================================================================================
+
+branch: linux-4.19
+fix_commit: c37da90efff5f183bea6ae4c2af33571f61fe317
+bug_url: https://syzkaller.appspot.com/bug?extid=1a6290d59d61c9310dfd
+title: WARNING in hci_conn_timeout
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index e5e46aecf357..6fa3278df77c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 19
+-SUBLEVEL = 142
++SUBLEVEL = 143
+ EXTRAVERSION =
+ NAME = "People's Front"
+================================================================================
+
+branch: linux-4.14
+fix_commit: 2f166cdcf8a92fcf85524f2b5526cb28e16f0a60
+bug_url: https://syzkaller.appspot.com/bug?extid=acd541d3e3ae018e2374
+title: WARNING in hci_conn_timeout
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index a5946969f4fc..5c8b785f7291 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 195
++SUBLEVEL = 196
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

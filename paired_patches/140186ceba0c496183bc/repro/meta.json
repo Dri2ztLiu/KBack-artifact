@@ -1,0 +1,50 @@
+{
+  "extid": "140186ceba0c496183bc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=140186ceba0c496183bc",
+  "bug_title": "BUG: sleeping function called from invalid context in sk_psock_stop",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "bpf: Fix sockmap calling sleepable function in teardown path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=697fb80a53642be624f5121b6ca9d66769c180e0",
+      "hash": "697fb80a53642be624f5121b6ca9d66769c180e0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "john.fastabend@gmail.com",
+      "author-name": "John Fastabend",
+      "date": "2022-06-28T03:58:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in sk_psock_stop",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "ebeae54d3a77e2f6b6b4e18a31bb9a0f7cbff238",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a371c43c33b6f901421f93b655442363c072d251",
+  "syzkaller-commit": "a371c43c33b6f901421f93b655442363c072d251",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=113c5a6c080000",
+      "saved_to": "/home/lcj/paired_patches/140186ceba0c496183bc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b98d0d4c4cfe2020",
+      "saved_to": "/home/lcj/paired_patches/140186ceba0c496183bc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=175234fff00000",
+      "saved_to": "/home/lcj/paired_patches/140186ceba0c496183bc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1354e340080000",
+      "saved_to": "/home/lcj/paired_patches/140186ceba0c496183bc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

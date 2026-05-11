@@ -1,0 +1,264 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/mctp/route.c (1), net/mctp/test/route-test.c (1), Makefile (1)
+TOP_SYMBOLS:
+  mctp_route_input (7), kfree_skb (5), KUNIT_EXPECT_EQ (4), sock_queue_rcv_skb (2), __mctp_route_test_init (2), lock_sock (2), WRITE_ONCE (2), release_sock (2), KUNIT_ASSERT_NOT_ERR_OR_NULL (2), skb_get (2)
+TOP_KEYWORDS:
+  refcount (1), race (1), NULL (1), null (1), net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=mctp_route_input)
+  - viewcode(ref=<target_release>, path=net/mctp/route.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=1, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 8faabc041a001140564f718dabe37753e88b37fa
+bug_url: https://syzkaller.appspot.com/bug?id=e8e5a620db1e60719c43d14685608052ce8f358d
+title: general protection fault in cleanup_bearer
+relevance_score: 0
+
+ net/mctp/route.c           | 36 +++++++++++-----
+ net/mctp/test/route-test.c | 86 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 112 insertions(+), 10 deletions(-)
+diff --git a/net/mctp/route.c b/net/mctp/route.c
+index 597e9cf5aa64..3f2bd65ff5e3 100644
+--- a/net/mctp/route.c
++++ b/net/mctp/route.c
+@@ -374,8 +374,13 @@ static int mctp_route_input(struct mctp_route *route, struct sk_buff *skb)
+ 	msk = NULL;
+ 	rc = -EINVAL;
+ 
+-	/* we may be receiving a locally-routed packet; drop source sk
+-	 * accounting
++	/* We may be receiving a locally-routed packet; drop source sk
++	 * accounting.
++	 *
++	 * From here, we will either queue the skb - either to a frag_queue, or
++	 * to a receiving socket. When that succeeds, we clear the skb pointer;
++	 * a non-NULL skb on exit will be otherwise unowned, and hence
++	 * kfree_skb()-ed.
+ 	 */
+ 	skb_orphan(skb);
+ 
+@@ -434,7 +439,9 @@ static int mctp_route_input(struct mctp_route *route, struct sk_buff *skb)
+ 		 * pending key.
+ 		 */
+ 		if (flags & MCTP_HDR_FLAG_EOM) {
+-			sock_queue_rcv_skb(&msk->sk, skb);
++			rc = sock_queue_rcv_skb(&msk->sk, skb);
++			if (!rc)
++				skb = NULL;
+ 			if (key) {
+ 				/* we've hit a pending reassembly; not much we
+ 				 * can do but drop it
+@@ -443,7 +450,6 @@ static int mctp_route_input(struct mctp_route *route, struct sk_buff *skb)
+ 						   MCTP_TRACE_KEY_REPLIED);
+ 				key = NULL;
+ 			}
+-			rc = 0;
+ 			goto out_unlock;
+ 		}
+ 
+@@ -470,8 +476,10 @@ static int mctp_route_input(struct mctp_route *route, struct sk_buff *skb)
+ 			 * this function.
+ 			 */
+ 			rc = mctp_key_add(key, msk);
+-			if (!rc)
++			if (!rc) {
+ 				trace_mctp_key_acquire(key);
++				skb = NULL;
++			}
+ 
+ 			/* we don't need to release key->lock on exit, so
+ 			 * clean up here and suppress the unlock via
+@@ -489,6 +497,8 @@ static int mctp_route_input(struct mctp_route *route, struct sk_buff *skb)
+ 				key = NULL;
+ 			} else {
+ 				rc = mctp_frag_queue(key, skb);
++				if (!rc)
++					skb = NULL;
+ 			}
+ 		}
+ 
+@@ -503,12 +513,19 @@ static int mctp_route_input(struct mctp_route *route, struct sk_buff *skb)
+ 		else
+ 			rc = mctp_frag_queue(key, skb);
+ 
++		if (rc)
++			goto out_unlock;
++
++		/* we've queued; the queue owns the skb now */
++		skb = NULL;
++
+ 		/* end of message? deliver to socket, and we're done with
+ 		 * the reassembly/response key
+ 		 */
+-		if (!rc && flags & MCTP_HDR_FLAG_EOM) {
+-			sock_queue_rcv_skb(key->sk, key->reasm_head);
+-			key->reasm_head = NULL;
++		if (flags & MCTP_HDR_FLAG_EOM) {
++			rc = sock_queue_rcv_skb(key->sk, key->reasm_head);
++			if (!rc)
++				key->reasm_head = NULL;
+ 			__mctp_key_done_in(key, net, f, MCTP_TRACE_KEY_REPLIED);
+ 			key = NULL;
+ 		}
+@@ -527,8 +544,7 @@ static int mctp_route_input(struct mctp_route *route, struct sk_buff *skb)
+ 	if (any_key)
+ 		mctp_key_unref(any_key);
+ out:
+-	if (rc)
+-		kfree_skb(skb);
++	kfree_skb(skb);
+ 	return rc;
+ }
+ 
+diff --git a/net/mctp/test/route-test.c b/net/mctp/test/route-test.c
+index 8551dab1d1e6..17165b86ce22 100644
+--- a/net/mctp/test/route-test.c
++++ b/net/mctp/test/route-test.c
+@@ -837,6 +837,90 @@ static void mctp_test_route_input_multiple_nets_key(struct kunit *test)
+ 	mctp_test_route_input_multiple_nets_key_fini(test, &t2);
+ }
+ 
++/* Input route to socket, using a single-packet message, where sock delivery
++ * fails. Ensure we're handling the failure appropriately.
++ */
++static void mctp_test_route_input_sk_fail_single(struct kunit *test)
++{
++	const struct mctp_hdr hdr = RX_HDR(1, 10, 8, FL_S | FL_E | FL_TO);
++	struct mctp_test_route *rt;
++	struct mctp_test_dev *dev;
++	struct socket *sock;
++	struct sk_buff *skb;
++	int rc;
++
++	__mctp_route_test_init(test, &dev, &rt, &sock, MCTP_NET_ANY);
++
++	/* No rcvbuf space, so delivery should fail. __sock_set_rcvbuf will
++	 * clamp the minimum to SOCK_MIN_RCVBUF, so we open-code this.
++	 */
++	lock_sock(sock->sk);
++	WRITE_ONCE(sock->sk->sk_rcvbuf, 0);
++	release_sock(sock->sk);
++
++	skb = mctp_test_create_skb(&hdr, 10);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, skb);
++	skb_get(skb);
++
++	mctp_test_skb_set_dev(skb, dev);
++
++	/* do route input, which should fail */
++	rc = mctp_route_input(&rt->rt, skb);
++	KUNIT_EXPECT_NE(test, rc, 0);
++
++	/* we should hold the only reference to skb */
++	KUNIT_EXPECT_EQ(test, refcount_read(&skb->users), 1);
++	kfree_skb(skb);
++
++	__mctp_route_test_fini(test, dev, rt, sock);
++}
++
++/* Input route to socket, using a fragmented message, where sock delivery fails.
++ */
++static void mctp_test_route_input_sk_fail_frag(struct kunit *test)
++{
++	const struct mctp_hdr hdrs[2] = { RX_FRAG(FL_S, 0), RX_FRAG(FL_E, 1) };
++	struct mctp_test_route *rt;
++	struct mctp_test_dev *dev;
++	struct sk_buff *skbs[2];
++	struct socket *sock;
++	unsigned int i;
++	int rc;
++
++	__mctp_route_test_init(test, &dev, &rt, &sock, MCTP_NET_ANY);
++
++	lock_sock(sock->sk);
++	WRITE_ONCE(sock->sk->sk_rcvbuf, 0);
++	release_sock(sock->sk);
++
++	for (i = 0; i < ARRAY_SIZE(skbs); i++) {
++		skbs[i] = mctp_test_create_skb(&hdrs[i], 10);
++		KUNIT_ASSERT_NOT_ERR_OR_NULL(test, skbs[i]);
++		skb_get(skbs[i]);
++
++		mctp_test_skb_set_dev(skbs[i], dev);
++	}
++
++	/* first route input should succeed, we're only queueing to the
++	 * frag list
++	 */
++	rc = mctp_route_input(&rt->rt, skbs[0]);
++	KUNIT_EXPECT_EQ(test, rc, 0);
++
++	/* final route input should fail to deliver to the socket */
++	rc = mctp_route_input(&rt->rt, skbs[1]);
++	KUNIT_EXPECT_NE(test, rc, 0);
++
++	/* we should hold the only reference to both skbs */
++	KUNIT_EXPECT_EQ(test, refcount_read(&skbs[0]->users), 1);
++	kfree_skb(skbs[0]);
++
++	KUNIT_EXPECT_EQ(test, refcount_read(&skbs[1]->users), 1);
++	kfree_skb(skbs[1]);
++
++	__mctp_route_test_fini(test, dev, rt, sock);
++}
++
+ #if IS_ENABLED(CONFIG_MCTP_FLOWS)
+ 
+ static void mctp_test_flow_init(struct kunit *test,
+@@ -1053,6 +1137,8 @@ static struct kunit_case mctp_test_cases[] = {
+ 			 mctp_route_input_sk_reasm_gen_params),
+ 	KUNIT_CASE_PARAM(mctp_test_route_input_sk_keys,
+ 			 mctp_route_input_sk_keys_gen_params),
++	KUNIT_CASE(mctp_test_route_input_sk_fail_single),
++	KUNIT_CASE(mctp_test_route_input_sk_fail_frag),
+ 	KUNIT_CASE(mctp_test_route_input_multiple_nets_bind),
+ 	KUNIT_CASE(mctp_test_route_input_multiple_nets_key),
+ 	KUNIT_CASE(mctp_test_packet_flow),
+================================================================================
+
+branch: linux-5.15
+fix_commit: 963e654022cc32d72c184b4ab86a76226b3e3b8d
+bug_url: https://syzkaller.appspot.com/bug?id=11e6c61874f14f5af4aaa37a981588b162eb1ecd
+title: general protection fault in cleanup_bearer
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 36f61a73e1e3..68ffe9d13fdd 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 173
++SUBLEVEL = 174
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================

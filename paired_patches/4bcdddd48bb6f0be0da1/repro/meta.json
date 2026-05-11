@@ -1,0 +1,50 @@
+{
+  "extid": "4bcdddd48bb6f0be0da1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4bcdddd48bb6f0be0da1",
+  "bug_title": "UBSAN: array-index-out-of-bounds in ieee80211_request_ibss_scan",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "wifi: mac80211: Set n_channels after allocating struct cfg80211_scan_request",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=82bbe02b2500ef0a62053fe2eb84773fe31c5a0a",
+      "hash": "82bbe02b2500ef0a62053fe2eb84773fe31c5a0a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kees@kernel.org",
+      "author-name": "Kees Cook",
+      "date": "2025-05-09T18:46:45Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in ieee80211_request_ibss_scan",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5bc1018675ec28a8a60d83b378d8c3991faa5a27",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c6b4fb399236b655a39701fd51c33522caa06811",
+  "syzkaller-commit": "c6b4fb399236b655a39701fd51c33522caa06811",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1442d0d4580000",
+      "saved_to": "/home/lcj/paired_patches/4bcdddd48bb6f0be0da1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=90837c100b88a636",
+      "saved_to": "/home/lcj/paired_patches/4bcdddd48bb6f0be0da1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=106fa270580000",
+      "saved_to": "/home/lcj/paired_patches/4bcdddd48bb6f0be0da1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11a39d74580000",
+      "saved_to": "/home/lcj/paired_patches/4bcdddd48bb6f0be0da1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

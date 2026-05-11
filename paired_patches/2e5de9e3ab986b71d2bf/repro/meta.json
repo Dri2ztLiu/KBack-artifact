@@ -1,0 +1,50 @@
+{
+  "extid": "2e5de9e3ab986b71d2bf",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2e5de9e3ab986b71d2bf",
+  "bug_title": "WARNING in nsim_udp_tunnel_set_port",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "net: netdevsim: try to close UDP port harness races",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=50bf398e1ceacb9a7f85bd3bdca065ebe5cb6159",
+      "hash": "50bf398e1ceacb9a7f85bd3bdca065ebe5cb6159",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuba@kernel.org",
+      "author-name": "Jakub Kicinski",
+      "date": "2025-01-22T22:45:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in nsim_udp_tunnel_set_port",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c4b9570cfb63501638db720f3bee9f6dfd044b82",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/da72ac06e38cf1dd2ecbddd5502225ff7589542d",
+  "syzkaller-commit": "da72ac06e38cf1dd2ecbddd5502225ff7589542d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=117c1824580000",
+      "saved_to": "/home/lcj/paired_patches/2e5de9e3ab986b71d2bf/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c857c6065c39b1e2",
+      "saved_to": "/home/lcj/paired_patches/2e5de9e3ab986b71d2bf/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=123349f8580000",
+      "saved_to": "/home/lcj/paired_patches/2e5de9e3ab986b71d2bf/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=167a4ab0580000",
+      "saved_to": "/home/lcj/paired_patches/2e5de9e3ab986b71d2bf/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

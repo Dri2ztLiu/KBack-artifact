@@ -1,0 +1,50 @@
+{
+  "extid": "c1d0a03d305972dbbe14",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c1d0a03d305972dbbe14",
+  "bug_title": "BUG: corrupted list in nfc_llcp_register_device",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "net: nfc: llcp: Add lock when modifying device list",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dfc7f7a988dad34c3bf4c053124fb26aa6c5f916",
+      "hash": "dfc7f7a988dad34c3bf4c053124fb26aa6c5f916",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jeremy@jcline.org",
+      "author-name": "Jeremy Cline",
+      "date": "2023-09-08T23:58:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: corrupted list in nfc_llcp_register_device",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3b517966c5616ac011081153482a5ba0e91b17ff",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8e26a358122e06b336ae4824141abc32e31e3d7a",
+  "syzkaller-commit": "8e26a358122e06b336ae4824141abc32e31e3d7a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17de6a92680000",
+      "saved_to": "/home/lcj/paired_patches/c1d0a03d305972dbbe14/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8d7d7928f78936aa",
+      "saved_to": "/home/lcj/paired_patches/c1d0a03d305972dbbe14/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11224a06680000",
+      "saved_to": "/home/lcj/paired_patches/c1d0a03d305972dbbe14/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=132e0d01680000",
+      "saved_to": "/home/lcj/paired_patches/c1d0a03d305972dbbe14/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

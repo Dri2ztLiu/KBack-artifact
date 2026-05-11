@@ -1,0 +1,50 @@
+{
+  "extid": "69b40dc5fd40f32c199f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=69b40dc5fd40f32c199f",
+  "bug_title": "BUG: sleeping function called from invalid context in __getblk_gfp",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "sysv: don't call sb_bread() with pointers_lock held",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f123dc86388cb669c3d6322702dc441abc35c31e",
+      "hash": "f123dc86388cb669c3d6322702dc441abc35c31e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2023-04-10T12:04:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in __getblk_gfp",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "94f6f0550c625fab1f373bb86a6669b45e9748b3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3c53c7d911d9dfb0bb846955a4644746fcc442d9",
+  "syzkaller-commit": "3c53c7d911d9dfb0bb846955a4644746fcc442d9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1516d965680000",
+      "saved_to": "/home/lcj/paired_patches/69b40dc5fd40f32c199f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=11e478e28144788c",
+      "saved_to": "/home/lcj/paired_patches/69b40dc5fd40f32c199f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15d1e029680000",
+      "saved_to": "/home/lcj/paired_patches/69b40dc5fd40f32c199f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13955252680000",
+      "saved_to": "/home/lcj/paired_patches/69b40dc5fd40f32c199f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

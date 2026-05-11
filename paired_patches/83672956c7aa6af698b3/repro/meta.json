@@ -1,0 +1,50 @@
+{
+  "extid": "83672956c7aa6af698b3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=83672956c7aa6af698b3",
+  "bug_title": "WARNING: ODEBUG bug in __cancel_work",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: L2CAP: initialize delayed works at l2cap_chan_create()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2d2cb3066f2c90cd8ca540b36ba7a55e7f2406e0",
+      "hash": "2d2cb3066f2c90cd8ca540b36ba7a55e7f2406e0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-09-03T15:32:56Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: ODEBUG bug in __cancel_work",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "6c8f479764ebe2848589de3249743ea552ed2495",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8dfcaa3d2828a113ae780da01f5f73ad64710e31",
+  "syzkaller-commit": "8dfcaa3d2828a113ae780da01f5f73ad64710e31",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13462c47080000",
+      "saved_to": "/home/lcj/paired_patches/83672956c7aa6af698b3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a5ae8cfa8d7075d1",
+      "saved_to": "/home/lcj/paired_patches/83672956c7aa6af698b3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=127b1a0d080000",
+      "saved_to": "/home/lcj/paired_patches/83672956c7aa6af698b3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12b620f3080000",
+      "saved_to": "/home/lcj/paired_patches/83672956c7aa6af698b3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

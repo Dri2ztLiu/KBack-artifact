@@ -1,0 +1,39 @@
+{
+  "extid": "e62c9db591c30e174662",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e62c9db591c30e174662",
+  "bug_title": "KASAN: slab-use-after-free Read in __lock_sock",
+  "bug_status": "upstream: reported C repro on 2025/07/17 21:41",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in __lock_sock",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git",
+  "kernel-source-commit": "c09fbcd31ae6d71e7c69545839bec92d8e15c13b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4440e7c2e964875f9e35dba6deda12c2195f19d3",
+  "syzkaller-commit": "4440e7c2e964875f9e35dba6deda12c2195f19d3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15f05d02580000",
+      "saved_to": "/home/lcj/paired_patches/e62c9db591c30e174662/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c5b35c4db8465904",
+      "saved_to": "/home/lcj/paired_patches/e62c9db591c30e174662/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1389b5da580000",
+      "saved_to": "/home/lcj/paired_patches/e62c9db591c30e174662/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11abf3d6580000",
+      "saved_to": "/home/lcj/paired_patches/e62c9db591c30e174662/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

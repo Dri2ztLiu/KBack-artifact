@@ -1,0 +1,50 @@
+{
+  "extid": "43475bf3cfbd6e41f5b7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=43475bf3cfbd6e41f5b7",
+  "bug_title": "WARNING in nci_send_cmd",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "nfc/nci: fix race with opening and closing",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0ad6bded175e829c2ca261529c9dce39a32a042d",
+      "hash": "0ad6bded175e829c2ca261529c9dce39a32a042d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "linma@zju.edu.cn",
+      "author-name": "Lin Ma",
+      "date": "2022-11-16T13:02:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in nci_send_cmd",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "6d464646530f464879083770e6095370b8a05fa8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/05dc7993e52e7258c455bd8e2a87f0a9f1592d36",
+  "syzkaller-commit": "05dc7993e52e7258c455bd8e2a87f0a9f1592d36",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=116ea85b880000",
+      "saved_to": "/home/lcj/paired_patches/43475bf3cfbd6e41f5b7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=54b747d981acc7b7",
+      "saved_to": "/home/lcj/paired_patches/43475bf3cfbd6e41f5b7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=117ac7ab880000",
+      "saved_to": "/home/lcj/paired_patches/43475bf3cfbd6e41f5b7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1427641d880000",
+      "saved_to": "/home/lcj/paired_patches/43475bf3cfbd6e41f5b7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

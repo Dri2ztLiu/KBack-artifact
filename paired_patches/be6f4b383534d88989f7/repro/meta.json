@@ -1,0 +1,50 @@
+{
+  "extid": "be6f4b383534d88989f7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=be6f4b383534d88989f7",
+  "bug_title": "possible deadlock in ipv6_sock_ac_close (4)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "smc: Fix lockdep false-positive for IPPROTO_SMC.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=752e2217d789be2c6a6ac66554b981cd71cd9f31",
+      "hash": "752e2217d789be2c6a6ac66554b981cd71cd9f31",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-04-07T17:03:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in ipv6_sock_ac_close",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e48e99b6edf41c69c5528aa7ffb2daf3c59ee105",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1c4febdbbe8f34403baef506b22cd689576927f6",
+  "syzkaller-commit": "1c4febdbbe8f34403baef506b22cd689576927f6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=136f8be4580000",
+      "saved_to": "/home/lcj/paired_patches/be6f4b383534d88989f7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f2054704dd53fb80",
+      "saved_to": "/home/lcj/paired_patches/be6f4b383534d88989f7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1486994c580000",
+      "saved_to": "/home/lcj/paired_patches/be6f4b383534d88989f7/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=140a294c580000",
+      "saved_to": "/home/lcj/paired_patches/be6f4b383534d88989f7/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "78ce4489b812515d5e4d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=78ce4489b812515d5e4d",
+  "bug_title": "KCSAN: data-race in can_send / can_send (5)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "can: statistics: use atomic access in hot path",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=80b5f90158d1364cbd80ad82852a757fc0692bf2",
+      "hash": "80b5f90158d1364cbd80ad82852a757fc0692bf2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "socketcan@hartkopp.net",
+      "author-name": "Oliver Hartkopp",
+      "date": "2025-03-10T14:33:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in can_send / can_send",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "81e4f8d68c66da301bb881862735bd74c6241a19",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8d0a2921fa3fb69c4895e35cddb3310066e97d52",
+  "syzkaller-commit": "8d0a2921fa3fb69c4895e35cddb3310066e97d52",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e78e98580000",
+      "saved_to": "/home/lcj/paired_patches/78ce4489b812515d5e4d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f33d372c4021745",
+      "saved_to": "/home/lcj/paired_patches/78ce4489b812515d5e4d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/78ce4489b812515d5e4d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/78ce4489b812515d5e4d/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

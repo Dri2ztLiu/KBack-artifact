@@ -1,0 +1,50 @@
+{
+  "extid": "d8f000c609f05f52d9b5",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d8f000c609f05f52d9b5",
+  "bug_title": "WARNING in iomap_iter (5)",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "erofs: refuse crafted out-of-file-range encoded extents",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7869738b6908eec7755818aaf6f3aa068b2f0e1b",
+      "hash": "7869738b6908eec7755818aaf6f3aa068b2f0e1b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hsiangkao@linux.alibaba.com",
+      "author-name": "Gao Xiang",
+      "date": "2025-06-19T03:28:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in iomap_iter",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "02adc1490e6d8681cc81057ed86d123d0240909b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0e8da31f2d4312fc3ad5c1e2e221075831885e0e",
+  "syzkaller-commit": "0e8da31f2d4312fc3ad5c1e2e221075831885e0e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=156f0e82580000",
+      "saved_to": "/home/lcj/paired_patches/d8f000c609f05f52d9b5/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=162faeb2d1eaefb4",
+      "saved_to": "/home/lcj/paired_patches/d8f000c609f05f52d9b5/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1688b10c580000",
+      "saved_to": "/home/lcj/paired_patches/d8f000c609f05f52d9b5/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=115f9e0c580000",
+      "saved_to": "/home/lcj/paired_patches/d8f000c609f05f52d9b5/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

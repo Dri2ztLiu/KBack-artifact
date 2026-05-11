@@ -1,0 +1,50 @@
+{
+  "extid": "579885d1a9a833336209",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=579885d1a9a833336209",
+  "bug_title": "possible deadlock in pipe_lock (5)",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "ovl: fix deadlock in splice write",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9b91b6b019fda817eb52f728eb9c79b3579760bc",
+      "hash": "9b91b6b019fda817eb52f728eb9c79b3579760bc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mszeredi@redhat.com",
+      "author-name": "Miklos Szeredi",
+      "date": "2021-07-28T08:38:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in pipe_lock",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8cae8cd89f05f6de223d63e6d15e31c8ba9cf53b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1b201b48c59d619af21de7fcc5face22824c0285",
+  "syzkaller-commit": "1b201b48c59d619af21de7fcc5face22824c0285",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16b9a0a2300000",
+      "saved_to": "/home/lcj/paired_patches/579885d1a9a833336209/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7273c75708b55890",
+      "saved_to": "/home/lcj/paired_patches/579885d1a9a833336209/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=165bd0ea300000",
+      "saved_to": "/home/lcj/paired_patches/579885d1a9a833336209/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=163905f2300000",
+      "saved_to": "/home/lcj/paired_patches/579885d1a9a833336209/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

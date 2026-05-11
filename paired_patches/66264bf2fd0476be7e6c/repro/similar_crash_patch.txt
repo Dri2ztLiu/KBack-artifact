@@ -1,0 +1,146 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/bluetooth/sco.c (1)
+TOP_SYMBOLS:
+  sco_connect (2), sco_sock_connect (2), hci_dev_lock (2), hci_dev_unlock (2), hci_dev_put (2), sco_chan_add (1), lock_sock (1)
+TOP_KEYWORDS:
+  NULL (1), null (1), BUG (1), net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=sco_connect)
+  - viewcode(ref=<target_release>, path=net/bluetooth/sco.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=7, rows_scanned=7, candidates_kept=1, skipped=6
+skip_breakdown: skip_upstream=3, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=3, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-4.19
+fix_commit: 734bc5ff783115aa3164f4e9dd5967ae78e0a8ab
+bug_url: https://syzkaller.appspot.com/bug?extid=9b8ab2e0f51cbed440c0
+title: BUG: corrupted list in kobject_add_internal
+relevance_score: 0
+
+ net/bluetooth/sco.c | 39 ++++++++++++++++-----------------------
+ 1 file changed, 16 insertions(+), 23 deletions(-)
+diff --git a/net/bluetooth/sco.c b/net/bluetooth/sco.c
+index 62e638f971a9..94a3aa686556 100644
+--- a/net/bluetooth/sco.c
++++ b/net/bluetooth/sco.c
+@@ -237,44 +237,32 @@ static int sco_chan_add(struct sco_conn *conn, struct sock *sk,
+ 	return err;
+ }
+ 
+-static int sco_connect(struct sock *sk)
++static int sco_connect(struct hci_dev *hdev, struct sock *sk)
+ {
+ 	struct sco_conn *conn;
+ 	struct hci_conn *hcon;
+-	struct hci_dev  *hdev;
+ 	int err, type;
+ 
+ 	BT_DBG("%pMR -> %pMR", &sco_pi(sk)->src, &sco_pi(sk)->dst);
+ 
+-	hdev = hci_get_route(&sco_pi(sk)->dst, &sco_pi(sk)->src, BDADDR_BREDR);
+-	if (!hdev)
+-		return -EHOSTUNREACH;
+-
+-	hci_dev_lock(hdev);
+-
+ 	if (lmp_esco_capable(hdev) && !disable_esco)
+ 		type = ESCO_LINK;
+ 	else
+ 		type = SCO_LINK;
+ 
+ 	if (sco_pi(sk)->setting == BT_VOICE_TRANSPARENT &&
+-	    (!lmp_transp_capable(hdev) || !lmp_esco_capable(hdev))) {
+-		err = -EOPNOTSUPP;
+-		goto done;
+-	}
++	    (!lmp_transp_capable(hdev) || !lmp_esco_capable(hdev)))
++		return -EOPNOTSUPP;
+ 
+ 	hcon = hci_connect_sco(hdev, type, &sco_pi(sk)->dst,
+ 			       sco_pi(sk)->setting);
+-	if (IS_ERR(hcon)) {
+-		err = PTR_ERR(hcon);
+-		goto done;
+-	}
++	if (IS_ERR(hcon))
++		return PTR_ERR(hcon);
+ 
+ 	conn = sco_conn_add(hcon);
+ 	if (!conn) {
+ 		hci_conn_drop(hcon);
+-		err = -ENOMEM;
+-		goto done;
++		return -ENOMEM;
+ 	}
+ 
+ 	/* Update source addr of the socket */
+@@ -282,7 +270,7 @@ static int sco_connect(struct sock *sk)
+ 
+ 	err = sco_chan_add(conn, sk, NULL);
+ 	if (err)
+-		goto done;
++		return err;
+ 
+ 	if (hcon->state == BT_CONNECTED) {
+ 		sco_sock_clear_timer(sk);
+@@ -292,9 +280,6 @@ static int sco_connect(struct sock *sk)
+ 		sco_sock_set_timer(sk, sk->sk_sndtimeo);
+ 	}
+ 
+-done:
+-	hci_dev_unlock(hdev);
+-	hci_dev_put(hdev);
+ 	return err;
+ }
+ 
+@@ -589,6 +574,7 @@ static int sco_sock_connect(struct socket *sock, struct sockaddr *addr, int alen
+ {
+ 	struct sockaddr_sco *sa = (struct sockaddr_sco *) addr;
+ 	struct sock *sk = sock->sk;
++	struct hci_dev  *hdev;
+ 	int err;
+ 
+ 	BT_DBG("sk %p", sk);
+@@ -603,12 +589,19 @@ static int sco_sock_connect(struct socket *sock, struct sockaddr *addr, int alen
+ 	if (sk->sk_type != SOCK_SEQPACKET)
+ 		return -EINVAL;
+ 
++	hdev = hci_get_route(&sa->sco_bdaddr, &sco_pi(sk)->src, BDADDR_BREDR);
++	if (!hdev)
++		return -EHOSTUNREACH;
++	hci_dev_lock(hdev);
++
+ 	lock_sock(sk);
+ 
+ 	/* Set destination address and psm */
+ 	bacpy(&sco_pi(sk)->dst, &sa->sco_bdaddr);
+ 
+-	err = sco_connect(sk);
++	err = sco_connect(hdev, sk);
++	hci_dev_unlock(hdev);
++	hci_dev_put(hdev);
+ 	if (err)
+ 		goto done;
+================================================================================

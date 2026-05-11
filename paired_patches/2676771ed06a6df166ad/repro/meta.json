@@ -1,0 +1,50 @@
+{
+  "extid": "2676771ed06a6df166ad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2676771ed06a6df166ad",
+  "bug_title": "WARNING in sta_info_insert_rcu (3)",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "wifi: cfg80211: reject auth/assoc to AP with our address",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5d4e04bf3a0f098bd9033de3a5291810fa14c7a6",
+      "hash": "5d4e04bf3a0f098bd9033de3a5291810fa14c7a6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2023-08-15T16:09:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in sta_info_insert_rcu",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4f9e7fabf8643003afefc172e62dd276686f016e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/03d9c195daed8fca30b642783f35657aa7e32209",
+  "syzkaller-commit": "03d9c195daed8fca30b642783f35657aa7e32209",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=113dcadfa80000",
+      "saved_to": "/home/lcj/paired_patches/2676771ed06a6df166ad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1e4a882f77ed77bd",
+      "saved_to": "/home/lcj/paired_patches/2676771ed06a6df166ad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11e4df60680000",
+      "saved_to": "/home/lcj/paired_patches/2676771ed06a6df166ad/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=114dc4cba80000",
+      "saved_to": "/home/lcj/paired_patches/2676771ed06a6df166ad/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

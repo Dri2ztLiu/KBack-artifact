@@ -1,0 +1,50 @@
+{
+  "extid": "e5e64cdf8e92046dd3e1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e5e64cdf8e92046dd3e1",
+  "bug_title": "KASAN: slab-use-after-free Read in release_sock (2)",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: Fix use-after-free in l2cap_sock_cleanup_listen()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=862c628108562d8c7a516a900034823b381d3cba",
+      "hash": "862c628108562d8c7a516a900034823b381d3cba",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@google.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2025-08-27T20:40:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in release_sock",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "32b7144f806e231a3fb619d4ddc5a6bffb731715",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3e79b8257815cdba40d12d0424af1446aeba0773",
+  "syzkaller-commit": "3e79b8257815cdba40d12d0424af1446aeba0773",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17963442580000",
+      "saved_to": "/home/lcj/paired_patches/e5e64cdf8e92046dd3e1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b7511150b112b9c3",
+      "saved_to": "/home/lcj/paired_patches/e5e64cdf8e92046dd3e1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e5e64cdf8e92046dd3e1/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e5e64cdf8e92046dd3e1/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

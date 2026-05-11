@@ -1,0 +1,50 @@
+{
+  "extid": "b191b5ccad8d7a986286",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b191b5ccad8d7a986286",
+  "bug_title": "BUG: sleeping function called from invalid context in team_change_rx_flags",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "af_packet: move notifier's packet_dev_mc out of rcu critical section",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d8d85ef0a631df9127f202e6371bb33a0b589952",
+      "hash": "d8d85ef0a631df9127f202e6371bb33a0b589952",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "stfomichev@gmail.com",
+      "author-name": "Stanislav Fomichev",
+      "date": "2025-05-22T03:11:28Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in team_change_rx_flags",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "239af1970bcb039a1551d2c438d113df0010c149",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f41472b03ad1c28c33fa0dcb999ded4c60d1247d",
+  "syzkaller-commit": "f41472b03ad1c28c33fa0dcb999ded4c60d1247d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=125891f4580000",
+      "saved_to": "/home/lcj/paired_patches/b191b5ccad8d7a986286/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c3f0e807ec5d1268",
+      "saved_to": "/home/lcj/paired_patches/b191b5ccad8d7a986286/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12f752d4580000",
+      "saved_to": "/home/lcj/paired_patches/b191b5ccad8d7a986286/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1285bf68580000",
+      "saved_to": "/home/lcj/paired_patches/b191b5ccad8d7a986286/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

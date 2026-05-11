@@ -1,0 +1,39 @@
+{
+  "extid": "8fcbb77276d43cc8b693",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8fcbb77276d43cc8b693",
+  "bug_title": "KMSAN: uninit-value in cma_make_mc_event",
+  "bug_status": "auto-closed as invalid on 2022/05/04 18:27",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in cma_make_mc_event",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "8b936c96768e77d97b9c7d3f73a957cd1d75f0aa",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/49ca1f59e37fcf63dc38a6bd2b60fcc47a0a708e",
+  "syzkaller-commit": "49ca1f59e37fcf63dc38a6bd2b60fcc47a0a708e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=144c7f55b00000",
+      "saved_to": "/home/lcj/paired_patches/8fcbb77276d43cc8b693/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e00a8959fdd3f3e8",
+      "saved_to": "/home/lcj/paired_patches/8fcbb77276d43cc8b693/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8fcbb77276d43cc8b693/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/8fcbb77276d43cc8b693/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

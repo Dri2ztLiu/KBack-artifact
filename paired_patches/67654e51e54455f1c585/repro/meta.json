@@ -1,0 +1,50 @@
+{
+  "extid": "67654e51e54455f1c585",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=67654e51e54455f1c585",
+  "bug_title": "kernel BUG in remove_inode_hugepages",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "hugetlb: don't pass page cache pages to restore_reserve_on_error",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c7b1850dfb41d0b4154aca8dbc04777fbd75616f",
+      "hash": "c7b1850dfb41d0b4154aca8dbc04777fbd75616f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mike.kravetz@oracle.com",
+      "author-name": "Mike Kravetz",
+      "date": "2021-08-20T02:04:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in remove_inode_hugepages",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a2824f19e6065a0d3735acd9fe7155b104e7edf5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/33c26cb735dc83786ebebe071a3e17cdd5383ead",
+  "syzkaller-commit": "33c26cb735dc83786ebebe071a3e17cdd5383ead",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12a4d5e9300000",
+      "saved_to": "/home/lcj/paired_patches/67654e51e54455f1c585/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=96f0602203250753",
+      "saved_to": "/home/lcj/paired_patches/67654e51e54455f1c585/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13515779300000",
+      "saved_to": "/home/lcj/paired_patches/67654e51e54455f1c585/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12eeb6a6300000",
+      "saved_to": "/home/lcj/paired_patches/67654e51e54455f1c585/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

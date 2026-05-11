@@ -1,0 +1,50 @@
+{
+  "extid": "79832d33eb89fb3cd092",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=79832d33eb89fb3cd092",
+  "bug_title": "KMSAN: uninit-value in idmouse_open",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "usb: idmouse: fix an uninit-value in idmouse_open",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce2b0539933e485d22d6f6f076c0fcd6f185c4c",
+      "hash": "bce2b0539933e485d22d6f6f076c0fcd6f185c4c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mudongliangabcd@gmail.com",
+      "author-name": "Dongliang Mu",
+      "date": "2022-09-22T13:48:44Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "ce8056d1f79eb253d55eca2e21a07074e4ca0d14",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/344da168cb738076d82a75e1a7a1f5177df8dbc7",
+  "syzkaller-commit": "344da168cb738076d82a75e1a7a1f5177df8dbc7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1432a461900000",
+      "saved_to": "/home/lcj/paired_patches/79832d33eb89fb3cd092/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3afe005fb99591f",
+      "saved_to": "/home/lcj/paired_patches/79832d33eb89fb3cd092/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=123a8c96900000",
+      "saved_to": "/home/lcj/paired_patches/79832d33eb89fb3cd092/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=165e850e900000",
+      "saved_to": "/home/lcj/paired_patches/79832d33eb89fb3cd092/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

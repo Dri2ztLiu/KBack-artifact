@@ -1,0 +1,50 @@
+{
+  "extid": "38e6c55d4969a14c1534",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=38e6c55d4969a14c1534",
+  "bug_title": "INFO: task hung in blk_freeze_queue (3)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "nbd: Fix hung when signal interrupts nbd_start_device_ioctl()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1de7c3cf48fc41cd95adb12bd1ea9033a917798a",
+      "hash": "1de7c3cf48fc41cd95adb12bd1ea9033a917798a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2022-09-07T16:35:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in blk_freeze_queue",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "9500fc6e9e6077616c0dea0f7eb33138be94ed0c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5bb7001449cd1dae6cbff2d660374d6d17cbd2c4",
+  "syzkaller-commit": "5bb7001449cd1dae6cbff2d660374d6d17cbd2c4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1114399e880000",
+      "saved_to": "/home/lcj/paired_patches/38e6c55d4969a14c1534/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b25c9f218686dd5e",
+      "saved_to": "/home/lcj/paired_patches/38e6c55d4969a14c1534/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=113bcd31880000",
+      "saved_to": "/home/lcj/paired_patches/38e6c55d4969a14c1534/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=142d7209880000",
+      "saved_to": "/home/lcj/paired_patches/38e6c55d4969a14c1534/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

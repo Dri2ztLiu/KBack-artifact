@@ -1,0 +1,50 @@
+{
+  "extid": "ed60da8d686dc709164c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ed60da8d686dc709164c",
+  "bug_title": "general protection fault in tipc_mon_reinit_self (3)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "tipc: fix NULL pointer dereference in tipc_mon_reinit_self()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d63527e109e811ef11abb1c2985048fdb528b4cb",
+      "hash": "d63527e109e811ef11abb1c2985048fdb528b4cb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tung.quang.nguyen@est.tech",
+      "author-name": "Tung Nguyen",
+      "date": "2025-04-17T07:47:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in tipc_mon_reinit_self",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "900241a5cc15e6e0709a012051cc72d224cd6a6e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/12ba9c21547f0ea81d8ca844847dd4d25fdb1a83",
+  "syzkaller-commit": "12ba9c21547f0ea81d8ca844847dd4d25fdb1a83",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=105e8a3f980000",
+      "saved_to": "/home/lcj/paired_patches/ed60da8d686dc709164c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7a4e108575159039",
+      "saved_to": "/home/lcj/paired_patches/ed60da8d686dc709164c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ed60da8d686dc709164c/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/ed60da8d686dc709164c/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

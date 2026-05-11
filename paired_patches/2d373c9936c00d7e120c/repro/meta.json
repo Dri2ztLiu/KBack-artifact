@@ -1,0 +1,50 @@
+{
+  "extid": "2d373c9936c00d7e120c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2d373c9936c00d7e120c",
+  "bug_title": "KCSAN: data-race in snd_seq_poll / snd_seq_pool_init",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "ALSA: seq: Improve data consistency at polling",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e3cd33ab17c33bd8f1a9df66ec83a15dd8f7afbb",
+      "hash": "e3cd33ab17c33bd8f1a9df66ec83a15dd8f7afbb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2025-03-07T08:42:42Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in snd_seq_poll / snd_seq_pool_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fc444ada131001812c5d10b380837238c9cf7c8c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ce3352cd01a728bcf99adce6330051b80ea425c5",
+  "syzkaller-commit": "ce3352cd01a728bcf99adce6330051b80ea425c5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=142a319b980000",
+      "saved_to": "/home/lcj/paired_patches/2d373c9936c00d7e120c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f33d372c4021745",
+      "saved_to": "/home/lcj/paired_patches/2d373c9936c00d7e120c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2d373c9936c00d7e120c/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2d373c9936c00d7e120c/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

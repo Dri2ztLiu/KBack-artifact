@@ -1,0 +1,50 @@
+{
+  "extid": "9ca499bb57a2b9e4c652",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9ca499bb57a2b9e4c652",
+  "bug_title": "KMSAN: uninit-value in udf_evict_inode (2)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "udf: Fix error handling in udf_new_inode()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f05f2429eec60851b98bdde213de31dab697c01b",
+      "hash": "f05f2429eec60851b98bdde213de31dab697c01b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2021-12-14T10:04:29Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in udf_evict_inode",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "85cfd6e539bdadb976104684b4533b81de0d9073",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e13a05ed99be3112220ed09062bd52e1c0a2ffb6",
+  "syzkaller-commit": "e13a05ed99be3112220ed09062bd52e1c0a2ffb6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1557a480700000",
+      "saved_to": "/home/lcj/paired_patches/9ca499bb57a2b9e4c652/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b9807dd5b044fd7a",
+      "saved_to": "/home/lcj/paired_patches/9ca499bb57a2b9e4c652/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9ca499bb57a2b9e4c652/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9ca499bb57a2b9e4c652/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "580f4f2a272e452d55cb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=580f4f2a272e452d55cb",
+  "bug_title": "KMSAN: uninit-value in bpf_iter_prog_supported",
+  "bug_status": "fixed on 2021/04/09 19:46",
+  "fix_commits": [
+    {
+      "title": "bpf: Fix an unitialized value in bpf_iter",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=17d8beda277a36203585943e70c7909b60775fd5",
+      "hash": "17d8beda277a36203585943e70c7909b60775fd5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yhs@fb.com",
+      "author-name": "Yonghong Song",
+      "date": "2021-02-12T21:33:50Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in bpf_iter_prog_supported",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "29ad81a1074aa0a510cebb1f61eae68a8f46e11c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "syzkaller-commit": "6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15df8e9ad00000",
+      "saved_to": "/home/lcj/paired_patches/580f4f2a272e452d55cb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b573c14b733efb1c",
+      "saved_to": "/home/lcj/paired_patches/580f4f2a272e452d55cb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/580f4f2a272e452d55cb/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/580f4f2a272e452d55cb/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

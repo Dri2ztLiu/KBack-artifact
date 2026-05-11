@@ -1,0 +1,50 @@
+{
+  "extid": "b4d54814b339b5c6bbd4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b4d54814b339b5c6bbd4",
+  "bug_title": "memory leak in zr364xx_probe",
+  "bug_status": "fixed on 2021/04/09 19:46",
+  "fix_commits": [
+    {
+      "title": "media: zr364xx: fix memory leaks in probe()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ea354b6ddd6f09be29424f41fa75a3e637fea234",
+      "hash": "ea354b6ddd6f09be29424f41fa75a3e637fea234",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dan.carpenter@oracle.com",
+      "author-name": "Dan Carpenter",
+      "date": "2021-01-27T13:44:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in zr364xx_probe",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ac30d8ce28d61c05ac3a8b1452e889371136f3af",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/98682e5e2aefc9aad61354f4f3ac93be96002a2a",
+  "syzkaller-commit": "98682e5e2aefc9aad61354f4f3ac93be96002a2a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13dc2124d00000",
+      "saved_to": "/home/lcj/paired_patches/b4d54814b339b5c6bbd4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a2fbb1a71525e1d5",
+      "saved_to": "/home/lcj/paired_patches/b4d54814b339b5c6bbd4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=172b1098d00000",
+      "saved_to": "/home/lcj/paired_patches/b4d54814b339b5c6bbd4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=108ddc88d00000",
+      "saved_to": "/home/lcj/paired_patches/b4d54814b339b5c6bbd4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

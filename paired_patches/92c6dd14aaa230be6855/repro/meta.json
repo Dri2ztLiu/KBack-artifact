@@ -1,0 +1,50 @@
+{
+  "extid": "92c6dd14aaa230be6855",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=92c6dd14aaa230be6855",
+  "bug_title": "WARNING in ath6kl_bmi_get_target_info (2)",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "wifi: ath6kl: remove WARN on bad firmware input",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e7417421d89358da071fd2930f91e67c7128fbff",
+      "hash": "e7417421d89358da071fd2930f91e67c7128fbff",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2025-06-17T09:45:29Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ath6kl_bmi_get_target_info",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "69e858e0b8b2ea07759e995aa383e8780d9d140c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0dff8567c67759be4a708acb57229945322c6c88",
+  "syzkaller-commit": "0dff8567c67759be4a708acb57229945322c6c88",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11454eb0580000",
+      "saved_to": "/home/lcj/paired_patches/92c6dd14aaa230be6855/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d033b14aeef39158",
+      "saved_to": "/home/lcj/paired_patches/92c6dd14aaa230be6855/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16b5fddf980000",
+      "saved_to": "/home/lcj/paired_patches/92c6dd14aaa230be6855/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17792d18580000",
+      "saved_to": "/home/lcj/paired_patches/92c6dd14aaa230be6855/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

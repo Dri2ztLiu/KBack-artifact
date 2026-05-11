@@ -1,0 +1,5 @@
+{
+  "extid": "b244bda78289b00204ed",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b244bda78289b00204ed",
+  "error": "fetch bug json failed: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+}

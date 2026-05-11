@@ -1,0 +1,50 @@
+{
+  "extid": "b01a36acd7007e273a83",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b01a36acd7007e273a83",
+  "bug_title": "WARNING in f2fs_unlink",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "f2fs: add check for deleted inode",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=81edb983b3f5d6900d3e337b9af7b1bec4bef0f2",
+      "hash": "81edb983b3f5d6900d3e337b9af7b1bec4bef0f2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "leocstone@gmail.com",
+      "author-name": "Leo Stone",
+      "date": "2025-02-27T15:54:20Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in f2fs_unlink",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a64dcfb451e254085a7daee5fe51bf22959d52d3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/43f51a00700e5960fc890e6c3d596846757bf29d",
+  "syzkaller-commit": "43f51a00700e5960fc890e6c3d596846757bf29d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13e643f8580000",
+      "saved_to": "/home/lcj/paired_patches/b01a36acd7007e273a83/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4b1ef007dfb9422f",
+      "saved_to": "/home/lcj/paired_patches/b01a36acd7007e273a83/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12aa7b18580000",
+      "saved_to": "/home/lcj/paired_patches/b01a36acd7007e273a83/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14f622a4580000",
+      "saved_to": "/home/lcj/paired_patches/b01a36acd7007e273a83/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

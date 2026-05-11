@@ -1,0 +1,50 @@
+{
+  "extid": "1b5e4e187cc586d05ea0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1b5e4e187cc586d05ea0",
+  "bug_title": "KMSAN: uninit-value in tcf_ct_flow_table_get",
+  "bug_status": "fixed on 2024/08/23 02:59",
+  "fix_commits": [
+    {
+      "title": "sched: act_ct: take care of padding in struct zones_ht_key",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2191a54f63225b548fd8346be3611c3219a24738",
+      "hash": "2191a54f63225b548fd8346be3611c3219a24738",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-07-25T09:27:45Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in tcf_ct_flow_table_get",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2c9b3512402ed192d1f43f4531fb5da947e72bd0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b88348e926b1f214763f45a5457bd91aafd36fab",
+  "syzkaller-commit": "b88348e926b1f214763f45a5457bd91aafd36fab",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=132c8721980000",
+      "saved_to": "/home/lcj/paired_patches/1b5e4e187cc586d05ea0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6bfb33a8ad10458f",
+      "saved_to": "/home/lcj/paired_patches/1b5e4e187cc586d05ea0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=126076b5980000",
+      "saved_to": "/home/lcj/paired_patches/1b5e4e187cc586d05ea0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17495ec3980000",
+      "saved_to": "/home/lcj/paired_patches/1b5e4e187cc586d05ea0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

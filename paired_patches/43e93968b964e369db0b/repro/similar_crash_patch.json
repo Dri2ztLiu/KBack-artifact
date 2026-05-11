@@ -1,0 +1,37 @@
+{
+  "extid": "43e93968b964e369db0b",
+  "target_ref": "43e93968b964e369db0b",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "7d7d1c0ab3eb7c8d8f63a126535018007823b207",
+      "branch": "linux-4.14",
+      "title": "possible deadlock in console_unlock",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "deadlock"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

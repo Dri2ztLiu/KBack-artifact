@@ -1,0 +1,50 @@
+{
+  "extid": "601018296973a481f302",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=601018296973a481f302",
+  "bug_title": "UBSAN: array-index-out-of-bounds in f2fs_iget",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "Revert \"f2fs: fix to do sanity check on extent cache correctly\"",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=958ccbbf1ce716d77c7cfa79ace50a421c1eed73",
+      "hash": "958ccbbf1ce716d77c7cfa79ace50a421c1eed73",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2023-07-20T11:29:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in f2fs_iget",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0468be89b3fa5b9249cee1097f1d50314950a2df",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/696ea0d2f4fdaa17db929e152edba19bf7666d84",
+  "syzkaller-commit": "696ea0d2f4fdaa17db929e152edba19bf7666d84",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=136f5513a80000",
+      "saved_to": "/home/lcj/paired_patches/601018296973a481f302/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3bd57a1ac08277b0",
+      "saved_to": "/home/lcj/paired_patches/601018296973a481f302/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10975d98680000",
+      "saved_to": "/home/lcj/paired_patches/601018296973a481f302/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16c48d04680000",
+      "saved_to": "/home/lcj/paired_patches/601018296973a481f302/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

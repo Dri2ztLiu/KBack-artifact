@@ -1,0 +1,34 @@
+commit 33e17b3f5ab74af12aca58c515bc8424ff69a343
+Author: David Sterba <dsterba@suse.com>
+Date:   Tue Jan 24 20:32:10 2023 +0100
+
+    btrfs: send: limit number of clones and allocated memory size
+    
+    The arg->clone_sources_count is u64 and can trigger a warning when a
+    huge value is passed from user space and a huge array is allocated.
+    Limit the allocated memory to 8MiB (can be increased if needed), which
+    in turn limits the number of clone sources to 8M / sizeof(struct
+    clone_root) = 8M / 40 = 209715.  Real world number of clones is from
+    tens to hundreds, so this is future proof.
+    
+    Reported-by: syzbot+4376a9a073770c173269@syzkaller.appspotmail.com
+    Signed-off-by: David Sterba <dsterba@suse.com>
+
+diff --git a/fs/btrfs/send.c b/fs/btrfs/send.c
+index 67f7c698ade3..26dace7b74c6 100644
+--- a/fs/btrfs/send.c
++++ b/fs/btrfs/send.c
+@@ -8072,10 +8072,10 @@ long btrfs_ioctl_send(struct inode *inode, struct btrfs_ioctl_send_args *arg)
+ 	/*
+ 	 * Check that we don't overflow at later allocations, we request
+ 	 * clone_sources_count + 1 items, and compare to unsigned long inside
+-	 * access_ok.
++	 * access_ok. Also set an upper limit for allocation size so this can't
++	 * easily exhaust memory. Max number of clone sources is about 200K.
+ 	 */
+-	if (arg->clone_sources_count >
+-	    ULONG_MAX / sizeof(struct clone_root) - 1) {
++	if (arg->clone_sources_count > SZ_8M / sizeof(struct clone_root)) {
+ 		ret = -EINVAL;
+ 		goto out;
+ 	}

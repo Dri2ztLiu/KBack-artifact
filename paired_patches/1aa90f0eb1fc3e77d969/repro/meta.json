@@ -1,0 +1,50 @@
+{
+  "extid": "1aa90f0eb1fc3e77d969",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1aa90f0eb1fc3e77d969",
+  "bug_title": "general protection fault in pick_link (2)",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: cancle set bad inode after removing name fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d99208b91933fd2a58ed9ed321af07dacd06ddc3",
+      "hash": "d99208b91933fd2a58ed9ed321af07dacd06ddc3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2025-06-18T07:31:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in pick_link",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9afe652958c3ee88f24df1e4a97f298afce89407",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cfebc8873b2f707ef8ed0bb2d8abb0280fede23a",
+  "syzkaller-commit": "cfebc8873b2f707ef8ed0bb2d8abb0280fede23a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=116fb90c580000",
+      "saved_to": "/home/lcj/paired_patches/1aa90f0eb1fc3e77d969/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6a237c32900fc479",
+      "saved_to": "/home/lcj/paired_patches/1aa90f0eb1fc3e77d969/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17b055d4580000",
+      "saved_to": "/home/lcj/paired_patches/1aa90f0eb1fc3e77d969/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13b055d4580000",
+      "saved_to": "/home/lcj/paired_patches/1aa90f0eb1fc3e77d969/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

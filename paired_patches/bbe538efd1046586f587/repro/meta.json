@@ -1,0 +1,50 @@
+{
+  "extid": "bbe538efd1046586f587",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bbe538efd1046586f587",
+  "bug_title": "KASAN: use-after-free Read in sctp_do_8_2_transport_strike",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "sctp: do asoc update earlier in sctp_sf_do_dupcook_a",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=35b4f24415c854cd718ccdf38dbea6297f010aae",
+      "hash": "35b4f24415c854cd718ccdf38dbea6297f010aae",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lucien.xin@gmail.com",
+      "author-name": "Xin Long",
+      "date": "2021-04-30T20:02:58Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in sctp_do_8_2_transport_strike",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "bf05bf16c76bb44ab5156223e1e58e26dfe30a88",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/50f523d769a891a551db56c3280fd65270090a9d",
+  "syzkaller-commit": "50f523d769a891a551db56c3280fd65270090a9d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1451e1ded00000",
+      "saved_to": "/home/lcj/paired_patches/bbe538efd1046586f587/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9404cfa686df2c05",
+      "saved_to": "/home/lcj/paired_patches/bbe538efd1046586f587/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bbe538efd1046586f587/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bbe538efd1046586f587/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

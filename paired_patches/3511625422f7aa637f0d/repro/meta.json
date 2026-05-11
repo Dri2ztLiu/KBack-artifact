@@ -1,0 +1,50 @@
+{
+  "extid": "3511625422f7aa637f0d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3511625422f7aa637f0d",
+  "bug_title": "general protection fault in do_migrate_pages",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "mm/mempolicy: fix migrate_to_node() assuming there is at least one VMA in a MM",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=091c1dd2d4df6edd1beebe0e5863d4034ade9572",
+      "hash": "091c1dd2d4df6edd1beebe0e5863d4034ade9572",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "david@redhat.com",
+      "author-name": "David Hildenbrand",
+      "date": "2024-11-20T20:11:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in do_migrate_pages",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f868cd2517763c66783c6000b29d97f0b966b311",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/eeafb6452e6709a1bbe507ece86d922b23074593",
+  "syzkaller-commit": "eeafb6452e6709a1bbe507ece86d922b23074593",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=166b42e8580000",
+      "saved_to": "/home/lcj/paired_patches/3511625422f7aa637f0d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ff8e8187a30080b5",
+      "saved_to": "/home/lcj/paired_patches/3511625422f7aa637f0d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=159c71a7980000",
+      "saved_to": "/home/lcj/paired_patches/3511625422f7aa637f0d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17e8d130580000",
+      "saved_to": "/home/lcj/paired_patches/3511625422f7aa637f0d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

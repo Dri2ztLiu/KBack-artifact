@@ -1,0 +1,56 @@
+{
+  "extid": "4708579bb230a0582a57",
+  "target_ref": "4708579bb230a0582a57",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "28c695c365e10b534e6d01d15a2186098ab815d1",
+      "branch": "linux-6.1",
+      "title": "UBSAN: shift-out-of-bounds in gfs2_dir_read",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "155a3c003e555a7300d156a5252c004c392ec6b0",
+      "branch": "linux-5.15",
+      "title": "UBSAN: shift-out-of-bounds in gfs2_dir_read",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [
+        "VERSION"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

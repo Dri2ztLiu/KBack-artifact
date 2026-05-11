@@ -1,0 +1,50 @@
+{
+  "extid": "3bfd2cc059ab93efcdb4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3bfd2cc059ab93efcdb4",
+  "bug_title": "INFO: trying to register non-static key in mark_as_free_ex",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Additional check in ni_clear()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d178944db36b3369b78a08ba520de109b89bf2a9",
+      "hash": "d178944db36b3369b78a08ba520de109b89bf2a9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-09-09T12:39:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in mark_as_free_ex",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "431c1646e1f86b949fa3685efc50b660a364c2b6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1eda0d1459e5ff07903ffa2f8cedf55ae7b24af0",
+  "syzkaller-commit": "1eda0d1459e5ff07903ffa2f8cedf55ae7b24af0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=121ced43980000",
+      "saved_to": "/home/lcj/paired_patches/3bfd2cc059ab93efcdb4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=660f6eb11f9c7dc5",
+      "saved_to": "/home/lcj/paired_patches/3bfd2cc059ab93efcdb4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1495c40d980000",
+      "saved_to": "/home/lcj/paired_patches/3bfd2cc059ab93efcdb4/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16b809eb980000",
+      "saved_to": "/home/lcj/paired_patches/3bfd2cc059ab93efcdb4/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "24c0361074799d02c452",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=24c0361074799d02c452",
+  "bug_title": "KASAN: slab-out-of-bounds Read in cougar_report_fixup",
+  "bug_status": "fixed on 2024/10/03 15:25",
+  "fix_commits": [
+    {
+      "title": "HID: cougar: fix slab-out-of-bounds Read in cougar_report_fixup",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a6e9c391d45b5865b61e569146304cff72821a5d",
+      "hash": "a6e9c391d45b5865b61e569146304cff72821a5d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cam.alvarez.i@gmail.com",
+      "author-name": "Camila Alvarez",
+      "date": "2024-07-30T23:42:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in cougar_report_fixup",
+  "kernel-source-git": "https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git",
+  "kernel-source-commit": "1722389b0d863056d78287a120a1d6cadb8d4f7b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/46eb10b79c61c4032281212d862c913683ab32a0",
+  "syzkaller-commit": "46eb10b79c61c4032281212d862c913683ab32a0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15b0cb45980000",
+      "saved_to": "/home/lcj/paired_patches/24c0361074799d02c452/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e3044dca4d5f6dbe",
+      "saved_to": "/home/lcj/paired_patches/24c0361074799d02c452/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11d32623980000",
+      "saved_to": "/home/lcj/paired_patches/24c0361074799d02c452/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10aef9a1980000",
+      "saved_to": "/home/lcj/paired_patches/24c0361074799d02c452/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

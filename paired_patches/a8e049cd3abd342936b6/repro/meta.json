@@ -1,0 +1,60 @@
+{
+  "extid": "a8e049cd3abd342936b6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a8e049cd3abd342936b6",
+  "bug_title": "WARNING in iomap_iter",
+  "bug_status": "fixed on 2023/06/12 19:24",
+  "fix_commits": [
+    {
+      "title": "erofs/zmap.c: Fix incorrect offset calculation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6acd87d50998ef0afafc441613aeaf5a8f5c9eff",
+      "hash": "6acd87d50998ef0afafc441613aeaf5a8f5c9eff",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "code@siddh.me",
+      "author-name": "Siddh Raman Pant",
+      "date": "2022-12-09T10:21:51Z"
+    },
+    {
+      "title": "loop: Check for overflow while configuring loop",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c490a0b5a4f36da3918181a8acdc6991d967c5f3",
+      "hash": "c490a0b5a4f36da3918181a8acdc6991d967c5f3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "code@siddh.me",
+      "author-name": "Siddh Raman Pant",
+      "date": "2022-08-23T16:08:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in iomap_iter",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4899a36f91a9f9b06878471096bd143e7253006d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "syzkaller-commit": "aea5da898f473385f3b66c94f8aa49ca9a1c9744",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10bf0484880000",
+      "saved_to": "/home/lcj/paired_patches/a8e049cd3abd342936b6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e2021a61197ebe02",
+      "saved_to": "/home/lcj/paired_patches/a8e049cd3abd342936b6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1037a6b2880000",
+      "saved_to": "/home/lcj/paired_patches/a8e049cd3abd342936b6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17c6c12a880000",
+      "saved_to": "/home/lcj/paired_patches/a8e049cd3abd342936b6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

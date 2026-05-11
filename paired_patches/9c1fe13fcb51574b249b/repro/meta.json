@@ -1,0 +1,50 @@
+{
+  "extid": "9c1fe13fcb51574b249b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9c1fe13fcb51574b249b",
+  "bug_title": "KMSAN: uninit-value in zswap_store",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "ext4: avoid writing unitialized memory to disk in EA inodes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=65121eff3e4c8c90f8126debf3c369228691c591",
+      "hash": "65121eff3e4c8c90f8126debf3c369228691c591",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2024-06-13T15:02:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in zswap_store",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "de9c2c66ad8e787abec7c9d7eff4f8c3cdd28aed",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e35c337f639d751098651f73ba8223d12212d503",
+  "syzkaller-commit": "e35c337f639d751098651f73ba8223d12212d503",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=142a1de3980000",
+      "saved_to": "/home/lcj/paired_patches/9c1fe13fcb51574b249b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=305509ad8eb5f9b8",
+      "saved_to": "/home/lcj/paired_patches/9c1fe13fcb51574b249b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9c1fe13fcb51574b249b/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9c1fe13fcb51574b249b/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

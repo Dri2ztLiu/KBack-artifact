@@ -1,0 +1,50 @@
+{
+  "extid": "cc448dcdc7ae0b4e4ffa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cc448dcdc7ae0b4e4ffa",
+  "bug_title": "INFO: task hung in f2fs_grab_cache_page",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to do sanity check on ino and xnid",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=061cf3a84bde038708eb0f1d065b31b7c2456533",
+      "hash": "061cf3a84bde038708eb0f1d065b31b7c2456533",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2025-03-24T05:33:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in f2fs_grab_cache_page",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "81e4f8d68c66da301bb881862735bd74c6241a19",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8d0a2921fa3fb69c4895e35cddb3310066e97d52",
+  "syzkaller-commit": "8d0a2921fa3fb69c4895e35cddb3310066e97d52",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10e7d83f980000",
+      "saved_to": "/home/lcj/paired_patches/cc448dcdc7ae0b4e4ffa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=27515cfdbafbb90d",
+      "saved_to": "/home/lcj/paired_patches/cc448dcdc7ae0b4e4ffa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10e3744c580000",
+      "saved_to": "/home/lcj/paired_patches/cc448dcdc7ae0b4e4ffa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12756e98580000",
+      "saved_to": "/home/lcj/paired_patches/cc448dcdc7ae0b4e4ffa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

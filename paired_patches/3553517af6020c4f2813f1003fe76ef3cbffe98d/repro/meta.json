@@ -1,0 +1,5 @@
+{
+  "extid": "3553517af6020c4f2813f1003fe76ef3cbffe98d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3553517af6020c4f2813f1003fe76ef3cbffe98d",
+  "error": "fetch bug json failed: HTTPError: HTTP Error 404: Not Found"
+}

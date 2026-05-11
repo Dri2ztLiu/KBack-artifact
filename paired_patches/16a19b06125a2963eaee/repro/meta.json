@@ -1,0 +1,50 @@
+{
+  "extid": "16a19b06125a2963eaee",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=16a19b06125a2963eaee",
+  "bug_title": "KCSAN: assert: race in srcu_gp_start_if_needed",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "srcu: Force synchronization for srcu_get_delay()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d31e31365b5b6c0cdfc74d71be87234ced564395",
+      "hash": "d31e31365b5b6c0cdfc74d71be87234ced564395",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paulmck@kernel.org",
+      "author-name": "Paul E. McKenney",
+      "date": "2025-01-04T01:04:49Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: assert: race in srcu_gp_start_if_needed",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "42d9e8b7ccddee75989283cf7477305cfe3776ff",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/68da6d951a345757b69b764ceb8dda1e9d65b038",
+  "syzkaller-commit": "68da6d951a345757b69b764ceb8dda1e9d65b038",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=123569c0580000",
+      "saved_to": "/home/lcj/paired_patches/16a19b06125a2963eaee/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3d7fd5be0e73b8b",
+      "saved_to": "/home/lcj/paired_patches/16a19b06125a2963eaee/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/16a19b06125a2963eaee/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/16a19b06125a2963eaee/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

@@ -1,0 +1,228 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (4), fs/jfs/jfs_imap.c (2), MAINTAINERS (1), fs/jfs/inode.c (1)
+TOP_SYMBOLS:
+  diFree (2), diUnmount (1), JFS_IP (1), diSync (1), diRead (1), jfs_evict_inode (1)
+TOP_KEYWORDS:
+  use-after-free (4), KASAN (4), BUG (2), NULL (1), null (1), out-of-bounds (1), UBSAN (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=diFree)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=12, rows_scanned=12, candidates_kept=8, skipped=4
+skip_breakdown: skip_upstream=3, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 6e2bda2c192d0244b5a78b787ef20aa10cb319b7
+bug_url: https://syzkaller.appspot.com/bug?extid=5d27913a927bee249e21
+title: KASAN: use-after-free Read in diFree
+relevance_score: 0
+
+ fs/jfs/jfs_imap.c | 1 +
+ 1 file changed, 1 insertion(+)
+diff --git a/fs/jfs/jfs_imap.c b/fs/jfs/jfs_imap.c
+index 390cbfce391f..6fb28572cb2c 100644
+--- a/fs/jfs/jfs_imap.c
++++ b/fs/jfs/jfs_imap.c
+@@ -193,6 +193,7 @@ int diUnmount(struct inode *ipimap, int mounterror)
+ 	 * free in-memory control structure
+ 	 */
+ 	kfree(imap);
++	JFS_IP(ipimap)->i_imap = NULL;
+ 
+ 	return (0);
+ }
+================================================================================
+
+branch: linux-5.15
+fix_commit: 63f7fdf733add82f126ea00e2e48f6eba15ac4b9
+bug_url: https://syzkaller.appspot.com/bug?extid=e70704cadcde378004b8
+title: UBSAN: array-index-out-of-bounds in diFree
+relevance_score: 0
+
+ fs/jfs/jfs_imap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+diff --git a/fs/jfs/jfs_imap.c b/fs/jfs/jfs_imap.c
+index ac42f8ee553f..ba6f28521360 100644
+--- a/fs/jfs/jfs_imap.c
++++ b/fs/jfs/jfs_imap.c
+@@ -290,7 +290,7 @@ int diSync(struct inode *ipimap)
+ int diRead(struct inode *ip)
+ {
+ 	struct jfs_sb_info *sbi = JFS_SBI(ip->i_sb);
+-	int iagno, ino, extno, rc;
++	int iagno, ino, extno, rc, agno;
+ 	struct inode *ipimap;
+ 	struct dinode *dp;
+ 	struct iag *iagp;
+@@ -339,8 +339,11 @@ int diRead(struct inode *ip)
+ 
+ 	/* get the ag for the iag */
+ 	agstart = le64_to_cpu(iagp->agstart);
++	agno = BLKTOAG(agstart, JFS_SBI(ip->i_sb));
+ 
+ 	release_metapage(mp);
++	if (agno >= MAXAG || agno < 0)
++		return -EIO;
+ 
+ 	rel_inode = (ino & (INOSPERPAGE - 1));
+ 	pageno = blkno >> sbi->l2nbperpage;
+================================================================================
+
+branch: linux-5.15
+fix_commit: 59f3fd30af355dc893e6df9ccb43ace0b9033faa
+bug_url: https://syzkaller.appspot.com/bug?id=3dd1fa84af9a00db7ebdc91f0f1459a793469748
+title: KASAN: use-after-free Read in diFree
+relevance_score: 0
+
+ MAINTAINERS | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bf0f54c24f81..8b17e29a75c8 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -5985,8 +5985,8 @@ F:	include/linux/devm-helpers.h
+ DEVICE-MAPPER  (LVM)
+ M:	Alasdair Kergon <agk@redhat.com>
+ M:	Mike Snitzer <snitzer@kernel.org>
+-M:	dm-devel@redhat.com
+-L:	dm-devel@redhat.com
++M:	dm-devel@lists.linux.dev
++L:	dm-devel@lists.linux.dev
+ S:	Maintained
+ W:	http://sources.redhat.com/dm
+ Q:	http://patchwork.kernel.org/project/dm-devel/list/
+================================================================================
+
+branch: linux-4.19
+fix_commit: a1b977b49b66c75e6c51a515f6700371ae720217
+bug_url: https://syzkaller.appspot.com/bug?extid=e5197b28b438c9aa19a1
+title: KASAN: use-after-free Read in diFree
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 3ff5cf33ef55..65485185bec2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 19
+-SUBLEVEL = 149
++SUBLEVEL = 150
+ EXTRAVERSION =
+ NAME = "People's Front"
+================================================================================
+
+branch: linux-4.19
+fix_commit: 9d574f985fe33efd6911f4d752de6f485a1ea732
+bug_url: https://syzkaller.appspot.com/bug?extid=e42ea4e350166ff30e9e
+title: BUG: unable to handle kernel paging request in diFree
+relevance_score: 0
+
+ fs/jfs/inode.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+diff --git a/fs/jfs/inode.c b/fs/jfs/inode.c
+index 6f65bfa9f18d..b0eb9c85eea0 100644
+--- a/fs/jfs/inode.c
++++ b/fs/jfs/inode.c
+@@ -151,7 +151,8 @@ void jfs_evict_inode(struct inode *inode)
+ 			if (test_cflag(COMMIT_Freewmap, inode))
+ 				jfs_free_zero_link(inode);
+ 
+-			diFree(inode);
++			if (JFS_SBI(inode->i_sb)->ipimap)
++				diFree(inode);
+ 
+ 			/*
+ 			 * Free the inode from the quota allocation.
+================================================================================
+
+branch: linux-4.14
+fix_commit: eb045674aab31aa55a4f9aec27cce36e3d946a21
+bug_url: https://syzkaller.appspot.com/bug?extid=e78b517fd809d2c5160d
+title: general protection fault in diFree (2)
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 78850e721b3d..f683ed316664 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 271
++SUBLEVEL = 272
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================
+
+branch: linux-4.14
+fix_commit: 9d5c0b3a8e1a8b6c4969f630803103978e8d17b6
+bug_url: https://syzkaller.appspot.com/bug?extid=d17404b64177c0bd1ab7
+title: BUG: unable to handle kernel paging request in diFree
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 222468241414..74c0d3f17293 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 294
++SUBLEVEL = 295
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================
+
+branch: linux-4.14
+fix_commit: 9d5c0b3a8e1a8b6c4969f630803103978e8d17b6
+bug_url: https://syzkaller.appspot.com/bug?extid=442ad4d28dd8b181e710
+title: KASAN: use-after-free Read in diFree
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 222468241414..74c0d3f17293 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 294
++SUBLEVEL = 295
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

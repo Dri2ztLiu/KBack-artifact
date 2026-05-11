@@ -1,0 +1,50 @@
+{
+  "extid": "5fafd5cfe1fc91f6b352",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5fafd5cfe1fc91f6b352",
+  "bug_title": "KASAN: use-after-free Read in do_accept",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "netrom: Fix use-after-free of a listening socket.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=409db27e3a2eb5e8ef7226ca33be33361b3ed1c9",
+      "hash": "409db27e3a2eb5e8ef7226ca33be33361b3ed1c9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2023-01-20T23:19:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in do_accept",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d9fc1511728c15df49ff18e49a494d00f78b7cd4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/529798b02bd6d0960c70436ce38691a520ed19f5",
+  "syzkaller-commit": "529798b02bd6d0960c70436ce38691a520ed19f5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=122aca0e480000",
+      "saved_to": "/home/lcj/paired_patches/5fafd5cfe1fc91f6b352/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=be6d86665513142a",
+      "saved_to": "/home/lcj/paired_patches/5fafd5cfe1fc91f6b352/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5fafd5cfe1fc91f6b352/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5fafd5cfe1fc91f6b352/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

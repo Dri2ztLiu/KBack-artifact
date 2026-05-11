@@ -1,0 +1,50 @@
+{
+  "extid": "7f7f201cc2668a8fd169",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7f7f201cc2668a8fd169",
+  "bug_title": "possible deadlock in unix_del_edges",
+  "bug_status": "fixed on 2024/05/22 23:16",
+  "fix_commits": [
+    {
+      "title": "af_unix: Clear stale u->oob_skb.",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b46f4eaa4f0ec38909fb0072eea3aeddb32f954e",
+      "hash": "b46f4eaa4f0ec38909fb0072eea3aeddb32f954e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2024-04-05T22:10:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in unix_del_edges",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "2b3d5988ae2cb5cd945ddbc653f0a71706231fdd",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/0ee3535ea8ff21d50e44372bb1cfd147e299ab5b",
+  "syzkaller-commit": "0ee3535ea8ff21d50e44372bb1cfd147e299ab5b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10ac7ead180000",
+      "saved_to": "/home/lcj/paired_patches/7f7f201cc2668a8fd169/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9c48fd2523cdee5e",
+      "saved_to": "/home/lcj/paired_patches/7f7f201cc2668a8fd169/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1133aaa9180000",
+      "saved_to": "/home/lcj/paired_patches/7f7f201cc2668a8fd169/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=113c7103180000",
+      "saved_to": "/home/lcj/paired_patches/7f7f201cc2668a8fd169/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

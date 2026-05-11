@@ -1,0 +1,50 @@
+{
+  "extid": "9b69b8d10ab4a7d88056",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9b69b8d10ab4a7d88056",
+  "bug_title": "BUG: corrupted list in p9_fd_cancel (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "9p/fd: fix issue of list_del corruption in p9_fd_cancel()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=11c10956515b8ec44cf4f2a7b9d8bf8b9dc05ec4",
+      "hash": "11c10956515b8ec44cf4f2a7b9d8bf8b9dc05ec4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "shaozhengchao@huawei.com",
+      "author-name": "Zhengchao Shao",
+      "date": "2022-11-10T12:26:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: corrupted list in p9_fd_cancel",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d47136c2801540e80f41ec7e063d8d592568ad76",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c0b80a55c9c8cfe75e77c555ed0d4ae7aa373cc2",
+  "syzkaller-commit": "c0b80a55c9c8cfe75e77c555ed0d4ae7aa373cc2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=151268ce880000",
+      "saved_to": "/home/lcj/paired_patches/9b69b8d10ab4a7d88056/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4789759e8a6d5f57",
+      "saved_to": "/home/lcj/paired_patches/9b69b8d10ab4a7d88056/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=102eabd2880000",
+      "saved_to": "/home/lcj/paired_patches/9b69b8d10ab4a7d88056/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1076cb7c880000",
+      "saved_to": "/home/lcj/paired_patches/9b69b8d10ab4a7d88056/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

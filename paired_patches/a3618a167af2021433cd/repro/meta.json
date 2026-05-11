@@ -1,0 +1,50 @@
+{
+  "extid": "a3618a167af2021433cd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a3618a167af2021433cd",
+  "bug_title": "INFO: rcu detected stall in unix_release",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "net/sched: fix a qdisc modification with ambiguous command request",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=da71714e359b64bd7aab3bd56ec53f307f058133",
+      "hash": "da71714e359b64bd7aab3bd56ec53f307f058133",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jhs@mojatatu.com",
+      "author-name": "Jamal Hadi Salim",
+      "date": "2023-08-22T10:12:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: rcu detected stall in unix_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "d0378ae6d16cac86579c0350d275741fd898ba08",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/13ca4cd61efbe39141a9349f08b96ccd0d8350c2",
+  "syzkaller-commit": "13ca4cd61efbe39141a9349f08b96ccd0d8350c2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15fe37c7a80000",
+      "saved_to": "/home/lcj/paired_patches/a3618a167af2021433cd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fa5bd4cd5ab6259d",
+      "saved_to": "/home/lcj/paired_patches/a3618a167af2021433cd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13b1eddda80000",
+      "saved_to": "/home/lcj/paired_patches/a3618a167af2021433cd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1152c6eda80000",
+      "saved_to": "/home/lcj/paired_patches/a3618a167af2021433cd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,163 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/overlayfs/export.c (1)
+TOP_SYMBOLS:
+  ovl_dentry_to_fid (2), dput (2), pr_warn_ratelimited (2), ovl_connect_layer (1), ovl_check_encode_origin (1), ovl_encode_fh (1)
+TOP_KEYWORDS:
+  refcount (1), NULL (1), null (1), WARN (1), BUG (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ovl_dentry_to_fid)
+  - viewcode(ref=<target_release>, path=fs/overlayfs/export.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=4, rows_scanned=4, candidates_kept=1, skipped=3
+skip_breakdown: skip_upstream=2, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: fbfd64d25c7af3b8695201ebc85efe90be28c5a3
+bug_url: https://syzkaller.appspot.com/bug?extid=7ed59d42e7f489c36a83
+title: WARNING: refcount bug in ax25_release
+relevance_score: 0
+
+ fs/overlayfs/export.c | 46 +++++++++++++++++++++++--------------------
+ 1 file changed, 25 insertions(+), 21 deletions(-)
+diff --git a/fs/overlayfs/export.c b/fs/overlayfs/export.c
+index 036c9f39a14d..444aeeccb6da 100644
+--- a/fs/overlayfs/export.c
++++ b/fs/overlayfs/export.c
+@@ -176,35 +176,37 @@ static int ovl_connect_layer(struct dentry *dentry)
+  *
+  * Return 0 for upper file handle, > 0 for lower file handle or < 0 on error.
+  */
+-static int ovl_check_encode_origin(struct dentry *dentry)
++static int ovl_check_encode_origin(struct inode *inode)
+ {
+-	struct ovl_fs *ofs = OVL_FS(dentry->d_sb);
++	struct ovl_fs *ofs = OVL_FS(inode->i_sb);
+ 	bool decodable = ofs->config.nfs_export;
++	struct dentry *dentry;
++	int err;
+ 
+ 	/* No upper layer? */
+ 	if (!ovl_upper_mnt(ofs))
+ 		return 1;
+ 
+ 	/* Lower file handle for non-upper non-decodable */
+-	if (!ovl_dentry_upper(dentry) && !decodable)
++	if (!ovl_inode_upper(inode) && !decodable)
+ 		return 1;
+ 
+ 	/* Upper file handle for pure upper */
+-	if (!ovl_dentry_lower(dentry))
++	if (!ovl_inode_lower(inode))
+ 		return 0;
+ 
+ 	/*
+ 	 * Root is never indexed, so if there's an upper layer, encode upper for
+ 	 * root.
+ 	 */
+-	if (dentry == dentry->d_sb->s_root)
++	if (inode == d_inode(inode->i_sb->s_root))
+ 		return 0;
+ 
+ 	/*
+ 	 * Upper decodable file handle for non-indexed upper.
+ 	 */
+-	if (ovl_dentry_upper(dentry) && decodable &&
+-	    !ovl_test_flag(OVL_INDEX, d_inode(dentry)))
++	if (ovl_inode_upper(inode) && decodable &&
++	    !ovl_test_flag(OVL_INDEX, inode))
+ 		return 0;
+ 
+ 	/*
+@@ -213,17 +215,25 @@ static int ovl_check_encode_origin(struct dentry *dentry)
+ 	 * ovl_connect_layer() will try to make origin's layer "connected" by
+ 	 * copying up a "connectable" ancestor.
+ 	 */
+-	if (d_is_dir(dentry) && decodable)
+-		return ovl_connect_layer(dentry);
++	if (!decodable || !S_ISDIR(inode->i_mode))
++		return 1;
++
++	dentry = d_find_any_alias(inode);
++	if (!dentry)
++		return -ENOENT;
++
++	err = ovl_connect_layer(dentry);
++	dput(dentry);
++	if (err < 0)
++		return err;
+ 
+ 	/* Lower file handle for indexed and non-upper dir/non-dir */
+ 	return 1;
+ }
+ 
+-static int ovl_dentry_to_fid(struct ovl_fs *ofs, struct dentry *dentry,
++static int ovl_dentry_to_fid(struct ovl_fs *ofs, struct inode *inode,
+ 			     u32 *fid, int buflen)
+ {
+-	struct inode *inode = d_inode(dentry);
+ 	struct ovl_fh *fh = NULL;
+ 	int err, enc_lower;
+ 	int len;
+@@ -232,7 +242,7 @@ static int ovl_dentry_to_fid(struct ovl_fs *ofs, struct dentry *dentry,
+ 	 * Check if we should encode a lower or upper file handle and maybe
+ 	 * copy up an ancestor to make lower file handle connectable.
+ 	 */
+-	err = enc_lower = ovl_check_encode_origin(dentry);
++	err = enc_lower = ovl_check_encode_origin(inode);
+ 	if (enc_lower < 0)
+ 		goto fail;
+ 
+@@ -252,8 +262,8 @@ static int ovl_dentry_to_fid(struct ovl_fs *ofs, struct dentry *dentry,
+ 	return err;
+ 
+ fail:
+-	pr_warn_ratelimited("failed to encode file handle (%pd2, err=%i)\n",
+-			    dentry, err);
++	pr_warn_ratelimited("failed to encode file handle (ino=%lu, err=%i)\n",
++			    inode->i_ino, err);
+ 	goto out;
+ }
+ 
+@@ -261,19 +271,13 @@ static int ovl_encode_fh(struct inode *inode, u32 *fid, int *max_len,
+ 			 struct inode *parent)
+ {
+ 	struct ovl_fs *ofs = OVL_FS(inode->i_sb);
+-	struct dentry *dentry;
+ 	int bytes, buflen = *max_len << 2;
+ 
+ 	/* TODO: encode connectable file handles */
+ 	if (parent)
+ 		return FILEID_INVALID;
+ 
+-	dentry = d_find_any_alias(inode);
+-	if (!dentry)
+-		return FILEID_INVALID;
+-
+-	bytes = ovl_dentry_to_fid(ofs, dentry, fid, buflen);
+-	dput(dentry);
++	bytes = ovl_dentry_to_fid(ofs, inode, fid, buflen);
+ 	if (bytes <= 0)
+ 		return FILEID_INVALID;
+================================================================================

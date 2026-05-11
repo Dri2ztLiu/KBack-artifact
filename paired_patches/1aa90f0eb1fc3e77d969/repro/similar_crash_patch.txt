@@ -1,0 +1,112 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/ntfs3/frecord.c (1), fs/ntfs3/namei.c (1), fs/ntfs3/ntfs_fs.h (1)
+TOP_SYMBOLS:
+  ni_add_name (2), ntfs_rename (2), ni_rename (1), WARN_ON (1), _ntfs_bad_inode (1)
+TOP_KEYWORDS:
+  NULL (1), null (1), WARN (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ni_add_name)
+  - viewcode(ref=<target_release>, path=fs/ntfs3/frecord.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=6, rows_scanned=6, candidates_kept=1, skipped=5
+skip_breakdown: skip_upstream=3, skip_non_linux_branch=2, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: b35a50d639ca5259466ef5fea85529bb4fb17d5b
+bug_url: https://syzkaller.appspot.com/bug?extid=069d26bb737cfa9917ee
+title: general protection fault in pick_link
+relevance_score: 0
+
+ fs/ntfs3/frecord.c |  7 +++----
+ fs/ntfs3/namei.c   | 10 +++-------
+ fs/ntfs3/ntfs_fs.h |  3 +--
+ 3 files changed, 7 insertions(+), 13 deletions(-)
+diff --git a/fs/ntfs3/frecord.c b/fs/ntfs3/frecord.c
+index 3c876c468c2c..5c45fec832b0 100644
+--- a/fs/ntfs3/frecord.c
++++ b/fs/ntfs3/frecord.c
+@@ -3058,8 +3058,7 @@ int ni_add_name(struct ntfs_inode *dir_ni, struct ntfs_inode *ni,
+  * ni_rename - Remove one name and insert new name.
+  */
+ int ni_rename(struct ntfs_inode *dir_ni, struct ntfs_inode *new_dir_ni,
+-	      struct ntfs_inode *ni, struct NTFS_DE *de, struct NTFS_DE *new_de,
+-	      bool *is_bad)
++	      struct ntfs_inode *ni, struct NTFS_DE *de, struct NTFS_DE *new_de)
+ {
+ 	int err;
+ 	struct NTFS_DE *de2 = NULL;
+@@ -3082,8 +3081,8 @@ int ni_rename(struct ntfs_inode *dir_ni, struct ntfs_inode *new_dir_ni,
+ 	err = ni_add_name(new_dir_ni, ni, new_de);
+ 	if (!err) {
+ 		err = ni_remove_name(dir_ni, ni, de, &de2, &undo);
+-		if (err && ni_remove_name(new_dir_ni, ni, new_de, &de2, &undo))
+-			*is_bad = true;
++		WARN_ON(err && ni_remove_name(new_dir_ni, ni, new_de, &de2,
++			&undo));
+ 	}
+ 
+ 	/*
+diff --git a/fs/ntfs3/namei.c b/fs/ntfs3/namei.c
+index 61c4da8e6c3d..f5901c23ab93 100644
+--- a/fs/ntfs3/namei.c
++++ b/fs/ntfs3/namei.c
+@@ -261,7 +261,7 @@ static int ntfs_rename(struct mnt_idmap *idmap, struct inode *dir,
+ 	struct ntfs_inode *ni = ntfs_i(inode);
+ 	struct inode *new_inode = d_inode(new_dentry);
+ 	struct NTFS_DE *de, *new_de;
+-	bool is_same, is_bad;
++	bool is_same;
+ 	/*
+ 	 * de		- memory of PATH_MAX bytes:
+ 	 * [0-1024)	- original name (dentry->d_name)
+@@ -330,12 +330,8 @@ static int ntfs_rename(struct mnt_idmap *idmap, struct inode *dir,
+ 	if (dir_ni != new_dir_ni)
+ 		ni_lock_dir2(new_dir_ni);
+ 
+-	is_bad = false;
+-	err = ni_rename(dir_ni, new_dir_ni, ni, de, new_de, &is_bad);
+-	if (is_bad) {
+-		/* Restore after failed rename failed too. */
+-		_ntfs_bad_inode(inode);
+-	} else if (!err) {
++	err = ni_rename(dir_ni, new_dir_ni, ni, de, new_de);
++	if (!err) {
+ 		simple_rename_timestamp(dir, dentry, new_dir, new_dentry);
+ 		mark_inode_dirty(inode);
+ 		mark_inode_dirty(dir);
+diff --git a/fs/ntfs3/ntfs_fs.h b/fs/ntfs3/ntfs_fs.h
+index c98e6868bfba..72810d8f62ee 100644
+--- a/fs/ntfs3/ntfs_fs.h
++++ b/fs/ntfs3/ntfs_fs.h
+@@ -577,8 +577,7 @@ int ni_add_name(struct ntfs_inode *dir_ni, struct ntfs_inode *ni,
+ 		struct NTFS_DE *de);
+ 
+ int ni_rename(struct ntfs_inode *dir_ni, struct ntfs_inode *new_dir_ni,
+-	      struct ntfs_inode *ni, struct NTFS_DE *de, struct NTFS_DE *new_de,
+-	      bool *is_bad);
++	      struct ntfs_inode *ni, struct NTFS_DE *de, struct NTFS_DE *new_de);
+ 
+ bool ni_is_dirty(struct inode *inode);
+================================================================================

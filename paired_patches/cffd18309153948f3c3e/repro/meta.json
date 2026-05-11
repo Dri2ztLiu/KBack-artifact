@@ -1,0 +1,50 @@
+{
+  "extid": "cffd18309153948f3c3e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cffd18309153948f3c3e",
+  "bug_title": "UBSAN: array-index-out-of-bounds in dbAllocAG",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "jfs: upper bound check of tree index in dbAllocAG",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c214006856ff52a8ff17ed8da52d50601d54f9ce",
+      "hash": "c214006856ff52a8ff17ed8da52d50601d54f9ce",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "contact@arnaud-lcm.com",
+      "author-name": "Arnaud Lecomte",
+      "date": "2025-04-23T22:13:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in dbAllocAG",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8560697b23dc2f405cb463af2b17256a9888129d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2a20f901dbd7922a27b5625a8a442587c8c3df2c",
+  "syzkaller-commit": "2a20f901dbd7922a27b5625a8a442587c8c3df2c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12f7b4cc580000",
+      "saved_to": "/home/lcj/paired_patches/cffd18309153948f3c3e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2a31f7155996562",
+      "saved_to": "/home/lcj/paired_patches/cffd18309153948f3c3e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=115dd204580000",
+      "saved_to": "/home/lcj/paired_patches/cffd18309153948f3c3e/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14708c70580000",
+      "saved_to": "/home/lcj/paired_patches/cffd18309153948f3c3e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "3c4321e10eea460eb606",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3c4321e10eea460eb606",
+  "bug_title": "INFO: task hung in _free_event",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "perf: Fix hang while freeing sigtrap event",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=56799bc035658738f362acec3e7647bb84e68933",
+      "hash": "56799bc035658738f362acec3e7647bb84e68933",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "frederic@kernel.org",
+      "author-name": "Frederic Weisbecker",
+      "date": "2025-03-04T13:54:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in _free_event",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f92f4749861b06fed908d336b4dee1326003291b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cfc402b4e65a6aab3a2555765bda8dc12c99a348",
+  "syzkaller-commit": "cfc402b4e65a6aab3a2555765bda8dc12c99a348",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=115a33e8580000",
+      "saved_to": "/home/lcj/paired_patches/3c4321e10eea460eb606/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fee25f93665c89ac",
+      "saved_to": "/home/lcj/paired_patches/3c4321e10eea460eb606/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16793544580000",
+      "saved_to": "/home/lcj/paired_patches/3c4321e10eea460eb606/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1308ccdf980000",
+      "saved_to": "/home/lcj/paired_patches/3c4321e10eea460eb606/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

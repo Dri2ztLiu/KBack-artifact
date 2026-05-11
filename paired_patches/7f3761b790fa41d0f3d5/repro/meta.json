@@ -1,0 +1,50 @@
+{
+  "extid": "7f3761b790fa41d0f3d5",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7f3761b790fa41d0f3d5",
+  "bug_title": "WARNING in wnd_add_free_ext (3)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix case when unmarked clusters intersect with zone",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5fc982fe7eca9d0cf7b25832450ebd4f7c8e1c36",
+      "hash": "5fc982fe7eca9d0cf7b25832450ebd4f7c8e1c36",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-10-10T17:09:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in wnd_add_free_ext",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5189dafa4cf950e675f02ee04b577dfbbad0d9b1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6f4edef43e90da260aa93c16da223a2a5569c978",
+  "syzkaller-commit": "6f4edef43e90da260aa93c16da223a2a5569c978",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=163a666b980000",
+      "saved_to": "/home/lcj/paired_patches/7f3761b790fa41d0f3d5/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9358cc4a2e37fd30",
+      "saved_to": "/home/lcj/paired_patches/7f3761b790fa41d0f3d5/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10487ec5980000",
+      "saved_to": "/home/lcj/paired_patches/7f3761b790fa41d0f3d5/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11f29703980000",
+      "saved_to": "/home/lcj/paired_patches/7f3761b790fa41d0f3d5/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

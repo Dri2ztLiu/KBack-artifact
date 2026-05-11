@@ -1,0 +1,50 @@
+{
+  "extid": "df64c0a2e8d68e78a4fa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=df64c0a2e8d68e78a4fa",
+  "bug_title": "memory leak in nfc_genl_se_io",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "nfc: fix memory leak of se_io context in nfc_genl_se_io",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=25ff6f8a5a3b8dc48e8abda6f013e8cc4b14ffea",
+      "hash": "25ff6f8a5a3b8dc48e8abda6f013e8cc4b14ffea",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pchelkin@ispras.ru",
+      "author-name": "Fedor Pchelkin",
+      "date": "2023-02-25T10:56:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in nfc_genl_se_io",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ceaa837f96adb69c0df0397937cd74991d5d821a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4d66ad72335dded5c9a6652adf7b767b2dbd1de4",
+  "syzkaller-commit": "4d66ad72335dded5c9a6652adf7b767b2dbd1de4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14eff957480000",
+      "saved_to": "/home/lcj/paired_patches/df64c0a2e8d68e78a4fa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=74b547d21d6e842b",
+      "saved_to": "/home/lcj/paired_patches/df64c0a2e8d68e78a4fa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1223934f480000",
+      "saved_to": "/home/lcj/paired_patches/df64c0a2e8d68e78a4fa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1273b13f480000",
+      "saved_to": "/home/lcj/paired_patches/df64c0a2e8d68e78a4fa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

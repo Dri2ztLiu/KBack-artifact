@@ -1,0 +1,39 @@
+{
+  "extid": "d769eed29cc42d75e2a3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d769eed29cc42d75e2a3",
+  "bug_title": "BUG: sleeping function called from invalid context in crypto_drop_spawn",
+  "bug_status": "auto-closed as invalid on 2020/09/29 00:28",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "39884604b11692158ce0c559fc603510b96f8c2e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a0331e89e036103c95eb898742ea5d5f28a987b0",
+  "syzkaller-commit": "a0331e89e036103c95eb898742ea5d5f28a987b0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11759012100000",
+      "saved_to": "/home/lcj/paired_patches/d769eed29cc42d75e2a3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=55b0bb710b7fdf44",
+      "saved_to": "/home/lcj/paired_patches/d769eed29cc42d75e2a3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d769eed29cc42d75e2a3/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d769eed29cc42d75e2a3/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

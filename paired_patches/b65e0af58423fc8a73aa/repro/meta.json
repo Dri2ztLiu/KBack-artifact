@@ -1,0 +1,50 @@
+{
+  "extid": "b65e0af58423fc8a73aa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b65e0af58423fc8a73aa",
+  "bug_title": "KASAN: slab-use-after-free Read in advance_sched",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "net: sched: fix use-after-free in taprio_change()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f504465970aebb2467da548f7c1efbbf36d0f44b",
+      "hash": "f504465970aebb2467da548f7c1efbbf36d0f44b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2024-10-18T05:13:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in advance_sched",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "9910665503b3c35654eb79dcd8ca83e6747b0fcd",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/25905f5d0a2a7883bd33491997556193582c6059",
+  "syzkaller-commit": "25905f5d0a2a7883bd33491997556193582c6059",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13937bba180000",
+      "saved_to": "/home/lcj/paired_patches/b65e0af58423fc8a73aa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2402d46ab3c7e581",
+      "saved_to": "/home/lcj/paired_patches/b65e0af58423fc8a73aa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13998b32180000",
+      "saved_to": "/home/lcj/paired_patches/b65e0af58423fc8a73aa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=155bdfba180000",
+      "saved_to": "/home/lcj/paired_patches/b65e0af58423fc8a73aa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

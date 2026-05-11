@@ -1,0 +1,688 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/nilfs2/segment.c (2), net/can/bcm.c (1), net/can/isotp.c (1), net/can/raw.c (1), drivers/net/tun.c (1), Makefile (1)
+TOP_SYMBOLS:
+  spin_lock (15), spin_unlock (15), nilfs_segctor_wakeup (8), register_netdevice_notifier (6), unregister_netdevice_notifier (6), nilfs_segctor_sync (4), list_for_each_entry (3), list_add_tail (3), while (3), schedule_timeout_uninterruptible (3)
+TOP_KEYWORDS:
+  use-after-free (3), race (3), KASAN (3), spin_lock (3), atomic (2), net (2), NULL (1), null (1), BUG (1), list_del (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=spin_lock)
+  - viewcode(ref=<target_release>, path=fs/nilfs2/segment.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=13, rows_scanned=13, candidates_kept=5, skipped=8
+skip_breakdown: skip_upstream=6, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=2, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 1c3844c5f4eac043954ebf6403fa9fd1f0e9c1c0
+bug_url: https://syzkaller.appspot.com/bug?extid=6cd179dd3cf87be41782
+title: KASAN: use-after-free Read in try_to_wake_up
+relevance_score: 0
+
+ fs/nilfs2/segment.c | 21 ++++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
+diff --git a/fs/nilfs2/segment.c b/fs/nilfs2/segment.c
+index 9f5a3d6bab71..006df4eac9fa 100644
+--- a/fs/nilfs2/segment.c
++++ b/fs/nilfs2/segment.c
+@@ -2229,6 +2229,14 @@ static int nilfs_segctor_sync(struct nilfs_sc_info *sci)
+ 	for (;;) {
+ 		set_current_state(TASK_INTERRUPTIBLE);
+ 
++		/*
++		 * Synchronize only while the log writer thread is alive.
++		 * Leave flushing out after the log writer thread exits to
++		 * the cleanup work in nilfs_segctor_destroy().
++		 */
++		if (!sci->sc_task)
++			break;
++
+ 		if (atomic_read(&wait_req.done)) {
+ 			err = wait_req.err;
+ 			break;
+@@ -2244,7 +2252,7 @@ static int nilfs_segctor_sync(struct nilfs_sc_info *sci)
+ 	return err;
+ }
+ 
+-static void nilfs_segctor_wakeup(struct nilfs_sc_info *sci, int err)
++static void nilfs_segctor_wakeup(struct nilfs_sc_info *sci, int err, bool force)
+ {
+ 	struct nilfs_segctor_wait_request *wrq, *n;
+ 	unsigned long flags;
+@@ -2252,7 +2260,7 @@ static void nilfs_segctor_wakeup(struct nilfs_sc_info *sci, int err)
+ 	spin_lock_irqsave(&sci->sc_wait_request.lock, flags);
+ 	list_for_each_entry_safe(wrq, n, &sci->sc_wait_request.head, wq.entry) {
+ 		if (!atomic_read(&wrq->done) &&
+-		    nilfs_cnt32_ge(sci->sc_seq_done, wrq->seq)) {
++		    (force || nilfs_cnt32_ge(sci->sc_seq_done, wrq->seq))) {
+ 			wrq->err = err;
+ 			atomic_set(&wrq->done, 1);
+ 		}
+@@ -2390,7 +2398,7 @@ static void nilfs_segctor_notify(struct nilfs_sc_info *sci, int mode, int err)
+ 	if (mode == SC_LSEG_SR) {
+ 		sci->sc_state &= ~NILFS_SEGCTOR_COMMIT;
+ 		sci->sc_seq_done = sci->sc_seq_accepted;
+-		nilfs_segctor_wakeup(sci, err);
++		nilfs_segctor_wakeup(sci, err, false);
+ 		sci->sc_flush_request = 0;
+ 	} else {
+ 		if (mode == SC_FLUSH_FILE)
+@@ -2772,6 +2780,13 @@ static void nilfs_segctor_destroy(struct nilfs_sc_info *sci)
+ 		|| sci->sc_seq_request != sci->sc_seq_done);
+ 	spin_unlock(&sci->sc_state_lock);
+ 
++	/*
++	 * Forcibly wake up tasks waiting in nilfs_segctor_sync(), which can
++	 * be called from delayed iput() via nilfs_evict_inode() and can race
++	 * with the above log writer thread termination.
++	 */
++	nilfs_segctor_wakeup(sci, 0, true);
++
+ 	if (flush_work(&sci->sc_iput_work))
+ 		flag = true;
+================================================================================
+
+branch: linux-5.15
+fix_commit: eb85dace897c5986bc2f36b3c783c6abb8a4292e
+bug_url: https://syzkaller.appspot.com/bug?extid=c7d9b2e7d8efb0044656
+title: KASAN: use-after-free Read in try_to_wake_up
+relevance_score: 0
+
+ fs/nilfs2/segment.c | 21 ++++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
+diff --git a/fs/nilfs2/segment.c b/fs/nilfs2/segment.c
+index b6c3c5f8628e..60d4f59f7665 100644
+--- a/fs/nilfs2/segment.c
++++ b/fs/nilfs2/segment.c
+@@ -2190,6 +2190,14 @@ static int nilfs_segctor_sync(struct nilfs_sc_info *sci)
+ 	for (;;) {
+ 		set_current_state(TASK_INTERRUPTIBLE);
+ 
++		/*
++		 * Synchronize only while the log writer thread is alive.
++		 * Leave flushing out after the log writer thread exits to
++		 * the cleanup work in nilfs_segctor_destroy().
++		 */
++		if (!sci->sc_task)
++			break;
++
+ 		if (atomic_read(&wait_req.done)) {
+ 			err = wait_req.err;
+ 			break;
+@@ -2205,7 +2213,7 @@ static int nilfs_segctor_sync(struct nilfs_sc_info *sci)
+ 	return err;
+ }
+ 
+-static void nilfs_segctor_wakeup(struct nilfs_sc_info *sci, int err)
++static void nilfs_segctor_wakeup(struct nilfs_sc_info *sci, int err, bool force)
+ {
+ 	struct nilfs_segctor_wait_request *wrq, *n;
+ 	unsigned long flags;
+@@ -2213,7 +2221,7 @@ static void nilfs_segctor_wakeup(struct nilfs_sc_info *sci, int err)
+ 	spin_lock_irqsave(&sci->sc_wait_request.lock, flags);
+ 	list_for_each_entry_safe(wrq, n, &sci->sc_wait_request.head, wq.entry) {
+ 		if (!atomic_read(&wrq->done) &&
+-		    nilfs_cnt32_ge(sci->sc_seq_done, wrq->seq)) {
++		    (force || nilfs_cnt32_ge(sci->sc_seq_done, wrq->seq))) {
+ 			wrq->err = err;
+ 			atomic_set(&wrq->done, 1);
+ 		}
+@@ -2362,7 +2370,7 @@ static void nilfs_segctor_notify(struct nilfs_sc_info *sci, int mode, int err)
+ 	if (mode == SC_LSEG_SR) {
+ 		sci->sc_state &= ~NILFS_SEGCTOR_COMMIT;
+ 		sci->sc_seq_done = sci->sc_seq_accepted;
+-		nilfs_segctor_wakeup(sci, err);
++		nilfs_segctor_wakeup(sci, err, false);
+ 		sci->sc_flush_request = 0;
+ 	} else {
+ 		if (mode == SC_FLUSH_FILE)
+@@ -2746,6 +2754,13 @@ static void nilfs_segctor_destroy(struct nilfs_sc_info *sci)
+ 		|| sci->sc_seq_request != sci->sc_seq_done);
+ 	spin_unlock(&sci->sc_state_lock);
+ 
++	/*
++	 * Forcibly wake up tasks waiting in nilfs_segctor_sync(), which can
++	 * be called from delayed iput() via nilfs_evict_inode() and can race
++	 * with the above log writer thread termination.
++	 */
++	nilfs_segctor_wakeup(sci, 0, true);
++
+ 	if (flush_work(&sci->sc_iput_work))
+ 		flag = true;
+================================================================================
+
+branch: linux-4.19
+fix_commit: 8d0caedb759683041d9db82069937525999ada53
+bug_url: https://syzkaller.appspot.com/bug?extid=3e7e8c857b28e3a7ed4d
+title: general protection fault in try_to_wake_up
+relevance_score: 0
+
+ net/can/bcm.c   | 59 +++++++++++++++++++++++++++++++++++-----------
+ net/can/isotp.c | 61 +++++++++++++++++++++++++++++++++++++-----------
+ net/can/raw.c   | 62 ++++++++++++++++++++++++++++++++++++++-----------
+ 3 files changed, 142 insertions(+), 40 deletions(-)
+diff --git a/net/can/bcm.c b/net/can/bcm.c
+index 909b9e684e04..f00176b2a6c3 100644
+--- a/net/can/bcm.c
++++ b/net/can/bcm.c
+@@ -125,7 +125,7 @@ struct bcm_sock {
+ 	struct sock sk;
+ 	int bound;
+ 	int ifindex;
+-	struct notifier_block notifier;
++	struct list_head notifier;
+ 	struct list_head rx_ops;
+ 	struct list_head tx_ops;
+ 	unsigned long dropped_usr_msgs;
+@@ -133,6 +133,10 @@ struct bcm_sock {
+ 	char procname [32]; /* inode number in decimal with \0 */
+ };
+ 
++static LIST_HEAD(bcm_notifier_list);
++static DEFINE_SPINLOCK(bcm_notifier_lock);
++static struct bcm_sock *bcm_busy_notifier;
++
+ static inline struct bcm_sock *bcm_sk(const struct sock *sk)
+ {
+ 	return (struct bcm_sock *)sk;
+@@ -1378,20 +1382,15 @@ static int bcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
+ /*
+  * notification handler for netdevice status changes
+  */
+-static int bcm_notifier(struct notifier_block *nb, unsigned long msg,
+-			void *ptr)
++static void bcm_notify(struct bcm_sock *bo, unsigned long msg,
++		       struct net_device *dev)
+ {
+-	struct net_device *dev = netdev_notifier_info_to_dev(ptr);
+-	struct bcm_sock *bo = container_of(nb, struct bcm_sock, notifier);
+ 	struct sock *sk = &bo->sk;
+ 	struct bcm_op *op;
+ 	int notify_enodev = 0;
+ 
+ 	if (!net_eq(dev_net(dev), sock_net(sk)))
+-		return NOTIFY_DONE;
+-
+-	if (dev->type != ARPHRD_CAN)
+-		return NOTIFY_DONE;
++		return;
+ 
+ 	switch (msg) {
+ 
+@@ -1426,7 +1425,28 @@ static int bcm_notifier(struct notifier_block *nb, unsigned long msg,
+ 				sk->sk_error_report(sk);
+ 		}
+ 	}
++}
+ 
++static int bcm_notifier(struct notifier_block *nb, unsigned long msg,
++			void *ptr)
++{
++	struct net_device *dev = netdev_notifier_info_to_dev(ptr);
++
++	if (dev->type != ARPHRD_CAN)
++		return NOTIFY_DONE;
++	if (msg != NETDEV_UNREGISTER && msg != NETDEV_DOWN)
++		return NOTIFY_DONE;
++	if (unlikely(bcm_busy_notifier)) /* Check for reentrant bug. */
++		return NOTIFY_DONE;
++
++	spin_lock(&bcm_notifier_lock);
++	list_for_each_entry(bcm_busy_notifier, &bcm_notifier_list, notifier) {
++		spin_unlock(&bcm_notifier_lock);
++		bcm_notify(bcm_busy_notifier, msg, dev);
++		spin_lock(&bcm_notifier_lock);
++	}
++	bcm_busy_notifier = NULL;
++	spin_unlock(&bcm_notifier_lock);
+ 	return NOTIFY_DONE;
+ }
+ 
+@@ -1446,9 +1466,9 @@ static int bcm_init(struct sock *sk)
+ 	INIT_LIST_HEAD(&bo->rx_ops);
+ 
+ 	/* set notifier */
+-	bo->notifier.notifier_call = bcm_notifier;
+-
+-	register_netdevice_notifier(&bo->notifier);
++	spin_lock(&bcm_notifier_lock);
++	list_add_tail(&bo->notifier, &bcm_notifier_list);
++	spin_unlock(&bcm_notifier_lock);
+ 
+ 	return 0;
+ }
+@@ -1471,7 +1491,14 @@ static int bcm_release(struct socket *sock)
+ 
+ 	/* remove bcm_ops, timer, rx_unregister(), etc. */
+ 
+-	unregister_netdevice_notifier(&bo->notifier);
++	spin_lock(&bcm_notifier_lock);
++	while (bcm_busy_notifier == bo) {
++		spin_unlock(&bcm_notifier_lock);
++		schedule_timeout_uninterruptible(1);
++		spin_lock(&bcm_notifier_lock);
++	}
++	list_del(&bo->notifier);
++	spin_unlock(&bcm_notifier_lock);
+ 
+ 	lock_sock(sk);
+ 
+@@ -1692,6 +1719,10 @@ static struct pernet_operations canbcm_pernet_ops __read_mostly = {
+ 	.exit = canbcm_pernet_exit,
+ };
+ 
++static struct notifier_block canbcm_notifier = {
++	.notifier_call = bcm_notifier
++};
++
+ static int __init bcm_module_init(void)
+ {
+ 	int err;
+@@ -1705,12 +1736,14 @@ static int __init bcm_module_init(void)
+ 	}
+ 
+ 	register_pernet_subsys(&canbcm_pernet_ops);
++	register_netdevice_notifier(&canbcm_notifier);
+ 	return 0;
+ }
+ 
+ static void __exit bcm_module_exit(void)
+ {
+ 	can_proto_unregister(&bcm_can_proto);
++	unregister_netdevice_notifier(&canbcm_notifier);
+ 	unregister_pernet_subsys(&canbcm_pernet_ops);
+ }
+ 
+diff --git a/net/can/isotp.c b/net/can/isotp.c
+index 253b24417c8e..be6183f8ca11 100644
+--- a/net/can/isotp.c
++++ b/net/can/isotp.c
+@@ -143,10 +143,14 @@ struct isotp_sock {
+ 	u32 force_tx_stmin;
+ 	u32 force_rx_stmin;
+ 	struct tpcon rx, tx;
+-	struct notifier_block notifier;
++	struct list_head notifier;
+ 	wait_queue_head_t wait;
+ };
+ 
++static LIST_HEAD(isotp_notifier_list);
++static DEFINE_SPINLOCK(isotp_notifier_lock);
++static struct isotp_sock *isotp_busy_notifier;
++
+ static inline struct isotp_sock *isotp_sk(const struct sock *sk)
+ {
+ 	return (struct isotp_sock *)sk;
+@@ -1013,7 +1017,14 @@ static int isotp_release(struct socket *sock)
+ 	/* wait for complete transmission of current pdu */
+ 	wait_event_interruptible(so->wait, so->tx.state == ISOTP_IDLE);
+ 
+-	unregister_netdevice_notifier(&so->notifier);
++	spin_lock(&isotp_notifier_lock);
++	while (isotp_busy_notifier == so) {
++		spin_unlock(&isotp_notifier_lock);
++		schedule_timeout_uninterruptible(1);
++		spin_lock(&isotp_notifier_lock);
++	}
++	list_del(&so->notifier);
++	spin_unlock(&isotp_notifier_lock);
+ 
+ 	lock_sock(sk);
+ 
+@@ -1317,21 +1328,16 @@ static int isotp_getsockopt(struct socket *sock, int level, int optname,
+ 	return 0;
+ }
+ 
+-static int isotp_notifier(struct notifier_block *nb, unsigned long msg,
+-			  void *ptr)
++static void isotp_notify(struct isotp_sock *so, unsigned long msg,
++			 struct net_device *dev)
+ {
+-	struct net_device *dev = netdev_notifier_info_to_dev(ptr);
+-	struct isotp_sock *so = container_of(nb, struct isotp_sock, notifier);
+ 	struct sock *sk = &so->sk;
+ 
+ 	if (!net_eq(dev_net(dev), sock_net(sk)))
+-		return NOTIFY_DONE;
+-
+-	if (dev->type != ARPHRD_CAN)
+-		return NOTIFY_DONE;
++		return;
+ 
+ 	if (so->ifindex != dev->ifindex)
+-		return NOTIFY_DONE;
++		return;
+ 
+ 	switch (msg) {
+ 	case NETDEV_UNREGISTER:
+@@ -1357,7 +1363,28 @@ static int isotp_notifier(struct notifier_block *nb, unsigned long msg,
+ 			sk->sk_error_report(sk);
+ 		break;
+ 	}
++}
+ 
++static int isotp_notifier(struct notifier_block *nb, unsigned long msg,
++			  void *ptr)
++{
++	struct net_device *dev = netdev_notifier_info_to_dev(ptr);
++
++	if (dev->type != ARPHRD_CAN)
++		return NOTIFY_DONE;
++	if (msg != NETDEV_UNREGISTER && msg != NETDEV_DOWN)
++		return NOTIFY_DONE;
++	if (unlikely(isotp_busy_notifier)) /* Check for reentrant bug. */
++		return NOTIFY_DONE;
++
++	spin_lock(&isotp_notifier_lock);
++	list_for_each_entry(isotp_busy_notifier, &isotp_notifier_list, notifier) {
++		spin_unlock(&isotp_notifier_lock);
++		isotp_notify(isotp_busy_notifier, msg, dev);
++		spin_lock(&isotp_notifier_lock);
++	}
++	isotp_busy_notifier = NULL;
++	spin_unlock(&isotp_notifier_lock);
+ 	return NOTIFY_DONE;
+ }
+ 
+@@ -1394,8 +1421,9 @@ static int isotp_init(struct sock *sk)
+ 
+ 	init_waitqueue_head(&so->wait);
+ 
+-	so->notifier.notifier_call = isotp_notifier;
+-	register_netdevice_notifier(&so->notifier);
++	spin_lock(&isotp_notifier_lock);
++	list_add_tail(&so->notifier, &isotp_notifier_list);
++	spin_unlock(&isotp_notifier_lock);
+ 
+ 	return 0;
+ }
+@@ -1442,6 +1470,10 @@ static const struct can_proto isotp_can_proto = {
+ 	.prot = &isotp_proto,
+ };
+ 
++static struct notifier_block canisotp_notifier = {
++	.notifier_call = isotp_notifier
++};
++
+ static __init int isotp_module_init(void)
+ {
+ 	int err;
+@@ -1451,6 +1483,8 @@ static __init int isotp_module_init(void)
+ 	err = can_proto_register(&isotp_can_proto);
+ 	if (err < 0)
+ 		pr_err("can: registration of isotp protocol failed\n");
++	else
++		register_netdevice_notifier(&canisotp_notifier);
+ 
+ 	return err;
+ }
+@@ -1458,6 +1492,7 @@ static __init int isotp_module_init(void)
+ static __exit void isotp_module_exit(void)
+ {
+ 	can_proto_unregister(&isotp_can_proto);
++	unregister_netdevice_notifier(&canisotp_notifier);
+ }
+ 
+ module_init(isotp_module_init);
+diff --git a/net/can/raw.c b/net/can/raw.c
+index 139d9471ddcf..ac96fc210025 100644
+--- a/net/can/raw.c
++++ b/net/can/raw.c
+@@ -83,7 +83,7 @@ struct raw_sock {
+ 	struct sock sk;
+ 	int bound;
+ 	int ifindex;
+-	struct notifier_block notifier;
++	struct list_head notifier;
+ 	int loopback;
+ 	int recv_own_msgs;
+ 	int fd_frames;
+@@ -95,6 +95,10 @@ struct raw_sock {
+ 	struct uniqframe __percpu *uniq;
+ };
+ 
++static LIST_HEAD(raw_notifier_list);
++static DEFINE_SPINLOCK(raw_notifier_lock);
++static struct raw_sock *raw_busy_notifier;
++
+ /* Return pointer to store the extra msg flags for raw_recvmsg().
+  * We use the space of one unsigned int beyond the 'struct sockaddr_can'
+  * in skb->cb.
+@@ -263,21 +267,16 @@ static int raw_enable_allfilters(struct net *net, struct net_device *dev,
+ 	return err;
+ }
+ 
+-static int raw_notifier(struct notifier_block *nb,
+-			unsigned long msg, void *ptr)
++static void raw_notify(struct raw_sock *ro, unsigned long msg,
++		       struct net_device *dev)
+ {
+-	struct net_device *dev = netdev_notifier_info_to_dev(ptr);
+-	struct raw_sock *ro = container_of(nb, struct raw_sock, notifier);
+ 	struct sock *sk = &ro->sk;
+ 
+ 	if (!net_eq(dev_net(dev), sock_net(sk)))
+-		return NOTIFY_DONE;
+-
+-	if (dev->type != ARPHRD_CAN)
+-		return NOTIFY_DONE;
++		return;
+ 
+ 	if (ro->ifindex != dev->ifindex)
+-		return NOTIFY_DONE;
++		return;
+ 
+ 	switch (msg) {
+ 	case NETDEV_UNREGISTER:
+@@ -305,7 +304,28 @@ static int raw_notifier(struct notifier_block *nb,
+ 			sk->sk_error_report(sk);
+ 		break;
+ 	}
++}
++
++static int raw_notifier(struct notifier_block *nb, unsigned long msg,
++			void *ptr)
++{
++	struct net_device *dev = netdev_notifier_info_to_dev(ptr);
++
++	if (dev->type != ARPHRD_CAN)
++		return NOTIFY_DONE;
++	if (msg != NETDEV_UNREGISTER && msg != NETDEV_DOWN)
++		return NOTIFY_DONE;
++	if (unlikely(raw_busy_notifier)) /* Check for reentrant bug. */
++		return NOTIFY_DONE;
+ 
++	spin_lock(&raw_notifier_lock);
++	list_for_each_entry(raw_busy_notifier, &raw_notifier_list, notifier) {
++		spin_unlock(&raw_notifier_lock);
++		raw_notify(raw_busy_notifier, msg, dev);
++		spin_lock(&raw_notifier_lock);
++	}
++	raw_busy_notifier = NULL;
++	spin_unlock(&raw_notifier_lock);
+ 	return NOTIFY_DONE;
+ }
+ 
+@@ -334,9 +354,9 @@ static int raw_init(struct sock *sk)
+ 		return -ENOMEM;
+ 
+ 	/* set notifier */
+-	ro->notifier.notifier_call = raw_notifier;
+-
+-	register_netdevice_notifier(&ro->notifier);
++	spin_lock(&raw_notifier_lock);
++	list_add_tail(&ro->notifier, &raw_notifier_list);
++	spin_unlock(&raw_notifier_lock);
+ 
+ 	return 0;
+ }
+@@ -351,7 +371,14 @@ static int raw_release(struct socket *sock)
+ 
+ 	ro = raw_sk(sk);
+ 
+-	unregister_netdevice_notifier(&ro->notifier);
++	spin_lock(&raw_notifier_lock);
++	while (raw_busy_notifier == ro) {
++		spin_unlock(&raw_notifier_lock);
++		schedule_timeout_uninterruptible(1);
++		spin_lock(&raw_notifier_lock);
++	}
++	list_del(&ro->notifier);
++	spin_unlock(&raw_notifier_lock);
+ 
+ 	lock_sock(sk);
+ 
+@@ -889,6 +916,10 @@ static const struct can_proto raw_can_proto = {
+ 	.prot       = &raw_proto,
+ };
+ 
++static struct notifier_block canraw_notifier = {
++	.notifier_call = raw_notifier
++};
++
+ static __init int raw_module_init(void)
+ {
+ 	int err;
+@@ -898,6 +929,8 @@ static __init int raw_module_init(void)
+ 	err = can_proto_register(&raw_can_proto);
+ 	if (err < 0)
+ 		pr_err("can: registration of raw protocol failed\n");
++	else
++		register_netdevice_notifier(&canraw_notifier);
+ 
+ 	return err;
+ }
+@@ -905,6 +938,7 @@ static __init int raw_module_init(void)
+ static __exit void raw_module_exit(void)
+ {
+ 	can_proto_unregister(&raw_can_proto);
++	unregister_netdevice_notifier(&canraw_notifier);
+ }
+ 
+ module_init(raw_module_init);
+================================================================================
+
+branch: linux-4.14
+fix_commit: cca8ea3b05c972ffb5295367e6c544369b45fbdd
+bug_url: https://syzkaller.appspot.com/bug?extid=a34f9da6d80289f86f4f
+title: general protection fault in try_to_wake_up
+relevance_score: 0
+
+ drivers/net/tun.c | 48 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+index fc86da7f1628..4cf38be26dc9 100644
+--- a/drivers/net/tun.c
++++ b/drivers/net/tun.c
+@@ -69,6 +69,14 @@
+ #include <linux/bpf.h>
+ #include <linux/bpf_trace.h>
+ #include <linux/mutex.h>
++#include <linux/ieee802154.h>
++#include <linux/if_ltalk.h>
++#include <uapi/linux/if_fddi.h>
++#include <uapi/linux/if_hippi.h>
++#include <uapi/linux/if_fc.h>
++#include <net/ax25.h>
++#include <net/rose.h>
++#include <net/6lowpan.h>
+ 
+ #include <linux/uaccess.h>
+ #include <linux/proc_fs.h>
+@@ -2919,6 +2927,45 @@ static int tun_set_ebpf(struct tun_struct *tun, struct tun_prog __rcu **prog_p,
+ 	return __tun_set_ebpf(tun, prog_p, prog);
+ }
+ 
++/* Return correct value for tun->dev->addr_len based on tun->dev->type. */
++static unsigned char tun_get_addr_len(unsigned short type)
++{
++	switch (type) {
++	case ARPHRD_IP6GRE:
++	case ARPHRD_TUNNEL6:
++		return sizeof(struct in6_addr);
++	case ARPHRD_IPGRE:
++	case ARPHRD_TUNNEL:
++	case ARPHRD_SIT:
++		return 4;
++	case ARPHRD_ETHER:
++		return ETH_ALEN;
++	case ARPHRD_IEEE802154:
++	case ARPHRD_IEEE802154_MONITOR:
++		return IEEE802154_EXTENDED_ADDR_LEN;
++	case ARPHRD_PHONET_PIPE:
++	case ARPHRD_PPP:
++	case ARPHRD_NONE:
++		return 0;
++	case ARPHRD_6LOWPAN:
++		return EUI64_ADDR_LEN;
++	case ARPHRD_FDDI:
++		return FDDI_K_ALEN;
++	case ARPHRD_HIPPI:
++		return HIPPI_ALEN;
++	case ARPHRD_IEEE802:
++		return FC_ALEN;
++	case ARPHRD_ROSE:
++		return ROSE_ADDR_LEN;
++	case ARPHRD_NETROM:
++		return AX25_ADDR_LEN;
++	case ARPHRD_LOCALTLK:
++		return LTALK_ALEN;
++	default:
++		return 0;
++	}
++}
++
+ static long __tun_chr_ioctl(struct file *file, unsigned int cmd,
+ 			    unsigned long arg, int ifreq_len)
+ {
+@@ -3082,6 +3129,7 @@ static long __tun_chr_ioctl(struct file *file, unsigned int cmd,
+ 				break;
+ 			}
+ 			tun->dev->type = (int) arg;
++			tun->dev->addr_len = tun_get_addr_len(tun->dev->type);
+ 			netif_info(tun, drv, tun->dev, "linktype set to %d\n",
+ 				   tun->dev->type);
+ 			call_netdevice_notifiers(NETDEV_POST_TYPE_CHANGE,
+================================================================================
+
+branch: linux-4.14
+fix_commit: 41f36d7859a79e11a13ef63ced8ae8cc31537ba2
+bug_url: https://syzkaller.appspot.com/bug?extid=badca4803d13fbbed2bd
+title: KASAN: use-after-free Read in try_to_wake_up
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 74c0d3f17293..b7978fb873d6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 295
++SUBLEVEL = 296
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

@@ -1,0 +1,50 @@
+{
+  "extid": "b26935466701e56cfdc2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b26935466701e56cfdc2",
+  "bug_title": "BUG: sleeping function called from invalid context in static_key_slow_dec",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "netfilter: nf_tables: do not defer rule destruction via call_rcu",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b04df3da1b5c6f6dc7cdccc37941740c078c4043",
+      "hash": "b04df3da1b5c6f6dc7cdccc37941740c078c4043",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-12-07T11:14:48Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in static_key_slow_dec",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "231825b2e1ff6ba799c5eaf396d3ab2354e37c6b",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/035bb8e062dc88e848028048b5805e4c39bcdc47",
+  "syzkaller-commit": "035bb8e062dc88e848028048b5805e4c39bcdc47",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10931be8580000",
+      "saved_to": "/home/lcj/paired_patches/b26935466701e56cfdc2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b874549ac3d0b012",
+      "saved_to": "/home/lcj/paired_patches/b26935466701e56cfdc2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/b26935466701e56cfdc2/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/b26935466701e56cfdc2/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

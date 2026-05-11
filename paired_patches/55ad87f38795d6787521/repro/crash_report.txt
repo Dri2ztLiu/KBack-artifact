@@ -1,0 +1,58 @@
+loop0: detected capacity change from 0 to 1024
+=====================================================
+BUG: KMSAN: uninit-value in __hfsplus_ext_read_extent fs/hfsplus/extents.c:167 [inline]
+BUG: KMSAN: uninit-value in __hfsplus_ext_cache_extent+0x82c/0x970 fs/hfsplus/extents.c:191
+ __hfsplus_ext_read_extent fs/hfsplus/extents.c:167 [inline]
+ __hfsplus_ext_cache_extent+0x82c/0x970 fs/hfsplus/extents.c:191
+ hfsplus_ext_read_extent fs/hfsplus/extents.c:218 [inline]
+ hfsplus_file_extend+0x775/0x1ba0 fs/hfsplus/extents.c:462
+ hfsplus_get_block+0xe99/0x1690 fs/hfsplus/extents.c:245
+ __block_write_begin_int+0xa6b/0x2f80 fs/buffer.c:2121
+ block_write_begin fs/buffer.c:2231 [inline]
+ cont_write_begin+0xf82/0x1940 fs/buffer.c:2582
+ hfsplus_write_begin+0x85/0x120 fs/hfsplus/inode.c:46
+ generic_perform_write+0x4d8/0x1080 mm/filemap.c:4054
+ __generic_file_write_iter+0x207/0x460 mm/filemap.c:4155
+ generic_file_write_iter+0x102/0x5b0 mm/filemap.c:4181
+ new_sync_write fs/read_write.c:590 [inline]
+ vfs_write+0xb2b/0x1540 fs/read_write.c:683
+ ksys_write+0x24f/0x4c0 fs/read_write.c:736
+ __do_sys_write fs/read_write.c:748 [inline]
+ __se_sys_write fs/read_write.c:745 [inline]
+ __x64_sys_write+0x93/0xe0 fs/read_write.c:745
+ x64_sys_call+0x306a/0x3ba0 arch/x86/include/generated/asm/syscalls_64.h:2
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xcd/0x1e0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Uninit was created at:
+ slab_post_alloc_hook mm/slub.c:4091 [inline]
+ slab_alloc_node mm/slub.c:4134 [inline]
+ __do_kmalloc_node mm/slub.c:4263 [inline]
+ __kmalloc_noprof+0x661/0xf30 mm/slub.c:4276
+ kmalloc_noprof include/linux/slab.h:882 [inline]
+ hfsplus_find_init+0x95/0x1d0 fs/hfsplus/bfind.c:21
+ hfsplus_ext_read_extent fs/hfsplus/extents.c:216 [inline]
+ hfsplus_file_extend+0x6d8/0x1ba0 fs/hfsplus/extents.c:462
+ hfsplus_get_block+0xe99/0x1690 fs/hfsplus/extents.c:245
+ __block_write_begin_int+0xa6b/0x2f80 fs/buffer.c:2121
+ block_write_begin fs/buffer.c:2231 [inline]
+ cont_write_begin+0xf82/0x1940 fs/buffer.c:2582
+ hfsplus_write_begin+0x85/0x120 fs/hfsplus/inode.c:46
+ generic_perform_write+0x4d8/0x1080 mm/filemap.c:4054
+ __generic_file_write_iter+0x207/0x460 mm/filemap.c:4155
+ generic_file_write_iter+0x102/0x5b0 mm/filemap.c:4181
+ new_sync_write fs/read_write.c:590 [inline]
+ vfs_write+0xb2b/0x1540 fs/read_write.c:683
+ ksys_write+0x24f/0x4c0 fs/read_write.c:736
+ __do_sys_write fs/read_write.c:748 [inline]
+ __se_sys_write fs/read_write.c:745 [inline]
+ __x64_sys_write+0x93/0xe0 fs/read_write.c:745
+ x64_sys_call+0x306a/0x3ba0 arch/x86/include/generated/asm/syscalls_64.h:2
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xcd/0x1e0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+CPU: 1 UID: 0 PID: 5784 Comm: syz-executor343 Not tainted 6.12.0-rc5-syzkaller-00005-ge42b1a9a2557 #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/13/2024
+=====================================================

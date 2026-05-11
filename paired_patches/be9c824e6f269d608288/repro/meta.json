@@ -1,0 +1,50 @@
+{
+  "extid": "be9c824e6f269d608288",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=be9c824e6f269d608288",
+  "bug_title": "KMSAN: uninit-value in ieee80211_rx_handlers",
+  "bug_status": "fixed on 2023/10/12 12:47",
+  "fix_commits": [
+    {
+      "title": "wifi: mac80211: check S1G action frame size",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=19e4a47ee74718a22e963e8a647c8c3bfe8bb05c",
+      "hash": "19e4a47ee74718a22e963e8a647c8c3bfe8bb05c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2023-08-15T15:51:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ieee80211_rx_handlers",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "12214540ad87ce824a8a791a3f063e6121ec5b66",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/924768299f97ac88b84f09eb979919305c8af5bb",
+  "syzkaller-commit": "924768299f97ac88b84f09eb979919305c8af5bb",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14f0f67ea80000",
+      "saved_to": "/home/lcj/paired_patches/be9c824e6f269d608288/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6271275e6c8ac3e0",
+      "saved_to": "/home/lcj/paired_patches/be9c824e6f269d608288/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=143b7009a80000",
+      "saved_to": "/home/lcj/paired_patches/be9c824e6f269d608288/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12a5f4eea80000",
+      "saved_to": "/home/lcj/paired_patches/be9c824e6f269d608288/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

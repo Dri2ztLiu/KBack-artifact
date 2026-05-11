@@ -1,0 +1,50 @@
+{
+  "extid": "8b512026a7ec10dcbdd9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=8b512026a7ec10dcbdd9",
+  "bug_title": "WARNING in sta_info_insert_rcu (4)",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "wifi: mac80211: drop invalid source address OCB frames",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d1b1a5eb27c4948e8811cf4dbb05aaf3eb10700c",
+      "hash": "d1b1a5eb27c4948e8811cf4dbb05aaf3eb10700c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2025-06-16T15:18:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in sta_info_insert_rcu",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5723cc3450bccf7f98f227b9723b5c9f6b3af1c5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f41472b03ad1c28c33fa0dcb999ded4c60d1247d",
+  "syzkaller-commit": "f41472b03ad1c28c33fa0dcb999ded4c60d1247d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16d4c1f4580000",
+      "saved_to": "/home/lcj/paired_patches/8b512026a7ec10dcbdd9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c3f0e807ec5d1268",
+      "saved_to": "/home/lcj/paired_patches/8b512026a7ec10dcbdd9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16061ef4580000",
+      "saved_to": "/home/lcj/paired_patches/8b512026a7ec10dcbdd9/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14a1df68580000",
+      "saved_to": "/home/lcj/paired_patches/8b512026a7ec10dcbdd9/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

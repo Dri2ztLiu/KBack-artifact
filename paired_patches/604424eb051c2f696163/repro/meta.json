@@ -1,0 +1,50 @@
+{
+  "extid": "604424eb051c2f696163",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=604424eb051c2f696163",
+  "bug_title": "KASAN: slab-out-of-bounds Write in squashfs_readahead (2)",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "Squashfs: fix variable overflow triggered by sysbot",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=12427de9439d68b8e96ba6f50b601ef15f437612",
+      "hash": "12427de9439d68b8e96ba6f50b601ef15f437612",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "phillip@squashfs.org.uk",
+      "author-name": "Phillip Lougher",
+      "date": "2023-11-13T16:09:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Write in squashfs_readahead",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "13d88ac54ddd1011b6e94443958e798aa06eb835",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8321139737ed27c82617231b782e88dd1e818227",
+  "syzkaller-commit": "8321139737ed27c82617231b782e88dd1e818227",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1722b717680000",
+      "saved_to": "/home/lcj/paired_patches/604424eb051c2f696163/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=beb32a598fd79db9",
+      "saved_to": "/home/lcj/paired_patches/604424eb051c2f696163/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10f691ef680000",
+      "saved_to": "/home/lcj/paired_patches/604424eb051c2f696163/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12b40c7b680000",
+      "saved_to": "/home/lcj/paired_patches/604424eb051c2f696163/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

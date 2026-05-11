@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=af179086d4c4e7312e83a6b2116a6a37c1a177b4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$vnet(0xffffffffffffff9c, &(0x7f00000004c0), 0x2, 0x0)
+ioctl$int_in(r0, 0x40000000af01, 0x0)

@@ -1,0 +1,50 @@
+{
+  "extid": "c12e2f941af1feb5632c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c12e2f941af1feb5632c",
+  "bug_title": "KASAN: slab-use-after-free Read in l2cap_connect (2)",
+  "bug_status": "fixed on 2024/11/12 23:31",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: L2CAP: Fix uaf in l2cap_connect",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=333b4fd11e89b29c84c269123f871883a30be586",
+      "hash": "333b4fd11e89b29c84c269123f871883a30be586",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2024-09-23T16:47:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in l2cap_connect",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "788220eee30d67a485a13c34c02f51a82485f337",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "syzkaller-commit": "9750182a9a67f35e95cb1e077a3b69a4a9b54083",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17c1ba00580000",
+      "saved_to": "/home/lcj/paired_patches/c12e2f941af1feb5632c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=57042fe37c7ee7c2",
+      "saved_to": "/home/lcj/paired_patches/c12e2f941af1feb5632c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1304189f980000",
+      "saved_to": "/home/lcj/paired_patches/c12e2f941af1feb5632c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11da6f29980000",
+      "saved_to": "/home/lcj/paired_patches/c12e2f941af1feb5632c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

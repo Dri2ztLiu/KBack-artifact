@@ -1,0 +1,50 @@
+{
+  "extid": "e633c79ceaecbf479854",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e633c79ceaecbf479854",
+  "bug_title": "general protection fault in ext4_acquire_dquot",
+  "bug_status": "fixed on 2023/10/12 12:47",
+  "fix_commits": [
+    {
+      "title": "quota: Properly disable quotas when add_dquot_ref() fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6a4e3363792e30177cc3965697e34ddcea8b900b",
+      "hash": "6a4e3363792e30177cc3965697e34ddcea8b900b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "jack@suse.cz",
+      "author-name": "Jan Kara",
+      "date": "2023-06-05T14:07:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in ext4_acquire_dquot",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "692b7dc87ca6d55ab254f8259e6f970171dc9d01",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/09ffe269727719aad37ea8145eb57fefb0097165",
+  "syzkaller-commit": "09ffe269727719aad37ea8145eb57fefb0097165",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1097f62f280000",
+      "saved_to": "/home/lcj/paired_patches/e633c79ceaecbf479854/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2cbd298d0aff1140",
+      "saved_to": "/home/lcj/paired_patches/e633c79ceaecbf479854/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15e87d3d280000",
+      "saved_to": "/home/lcj/paired_patches/e633c79ceaecbf479854/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13fd260f280000",
+      "saved_to": "/home/lcj/paired_patches/e633c79ceaecbf479854/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

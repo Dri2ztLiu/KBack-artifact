@@ -1,0 +1,50 @@
+{
+  "extid": "bfde3bef047a81b8fde6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bfde3bef047a81b8fde6",
+  "bug_title": "KASAN: use-after-free Read in __skb_flow_dissect (3)",
+  "bug_status": "fixed on 2024/03/26 00:54",
+  "fix_commits": [
+    {
+      "title": "net: ip_tunnel: prevent perpetual headroom growth",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5ae1e9922bbdbaeb9cfbe91085ab75927488ac0f",
+      "hash": "5ae1e9922bbdbaeb9cfbe91085ab75927488ac0f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-02-20T13:56:02Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in __skb_flow_dissect",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f5837722ffecbbedf1b1dbab072a063565f0dad1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=150d3b31e80000",
+      "saved_to": "/home/lcj/paired_patches/bfde3bef047a81b8fde6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=da1c95d4e55dda83",
+      "saved_to": "/home/lcj/paired_patches/bfde3bef047a81b8fde6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=122dfc65e80000",
+      "saved_to": "/home/lcj/paired_patches/bfde3bef047a81b8fde6/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17e61d95e80000",
+      "saved_to": "/home/lcj/paired_patches/bfde3bef047a81b8fde6/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

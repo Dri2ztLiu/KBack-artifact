@@ -1,0 +1,50 @@
+{
+  "extid": "5cfae50c0e5f2c500013",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5cfae50c0e5f2c500013",
+  "bug_title": "UBSAN: array-index-out-of-bounds in mr_table_dump",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "ipmr: do not call mr_mfc_uses_dev() for unres entries",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=15a901361ec3fb1c393f91880e1cbf24ec0a88bd",
+      "hash": "15a901361ec3fb1c393f91880e1cbf24ec0a88bd",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2025-01-21T18:12:41Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in mr_table_dump",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "573067a5a685c238d90270ffb6efae6b26c72fed",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "syzkaller-commit": "f3558dbf032eab2b77c1cb11b9ce2baffe7838d3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=104ebedf980000",
+      "saved_to": "/home/lcj/paired_patches/5cfae50c0e5f2c500013/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cd7202b56d469648",
+      "saved_to": "/home/lcj/paired_patches/5cfae50c0e5f2c500013/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1647e4b0580000",
+      "saved_to": "/home/lcj/paired_patches/5cfae50c0e5f2c500013/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13770ef8580000",
+      "saved_to": "/home/lcj/paired_patches/5cfae50c0e5f2c500013/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

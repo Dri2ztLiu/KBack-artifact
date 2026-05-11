@@ -1,0 +1,233 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (2), fs/hfsplus/xattr.c (1), arch/arm64/include/asm/module.h (1), arch/arm64/include/asm/module.lds.h (1), arch/arm64/kernel/ftrace.c (1), arch/arm64/kernel/module-plts.c (1), arch/arm64/kernel/module.c (1)
+TOP_SYMBOLS:
+  module_frob_arch_sections (3), hfsplus_create_attributes_file (1), BUG_ON (1), pr_err (1), mod_arch_specific (1), SECTIONS (1), ftrace_update_ftrace_func (1), ftrace_find_callable_addr (1), module_init_ftrace_plt (1), __init_plt (1)
+TOP_KEYWORDS:
+  BUG (4), race (1), NULL (1), null (1), KASAN (1), WARN (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=module_frob_arch_sections)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=5, rows_scanned=5, candidates_kept=4, skipped=1
+skip_breakdown: skip_upstream=0, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: c7c6363ca186747ebc2df10c8a1a51e66e0e32d9
+bug_url: https://syzkaller.appspot.com/bug?extid=7c77d64bd43394c8b8eb
+title: kernel BUG in __hfsplus_setxattr
+relevance_score: 0
+
+ fs/hfsplus/xattr.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+diff --git a/fs/hfsplus/xattr.c b/fs/hfsplus/xattr.c
+index 9a1a93e3888b..18dc3d254d21 100644
+--- a/fs/hfsplus/xattr.c
++++ b/fs/hfsplus/xattr.c
+@@ -172,7 +172,11 @@ static int hfsplus_create_attributes_file(struct super_block *sb)
+ 		return PTR_ERR(attr_file);
+ 	}
+ 
+-	BUG_ON(i_size_read(attr_file) != 0);
++	if (i_size_read(attr_file) != 0) {
++		err = -EIO;
++		pr_err("detected inconsistent attributes file, running fsck.hfsplus is recommended.\n");
++		goto end_attr_file_creation;
++	}
+ 
+ 	hip = HFSPLUS_I(attr_file);
+================================================================================
+
+branch: linux-6.1
+fix_commit: d1d10cea0895264cc3769e4d9719baa94f4b250b
+bug_url: https://syzkaller.appspot.com/bug?id=90db4795bd44fcbb13fddc0adea831a625090d21
+title: kernel BUG in __hfsplus_setxattr
+relevance_score: 0
+
+ arch/arm64/include/asm/module.h     |  1 +
+ arch/arm64/include/asm/module.lds.h |  1 +
+ arch/arm64/kernel/ftrace.c          | 13 ++++++++++---
+ arch/arm64/kernel/module-plts.c     | 12 +++++++++++-
+ arch/arm64/kernel/module.c          | 11 +++++++++++
+ 5 files changed, 34 insertions(+), 4 deletions(-)
+diff --git a/arch/arm64/include/asm/module.h b/arch/arm64/include/asm/module.h
+index 79550b22ba19..fb9b88eebeb1 100644
+--- a/arch/arm64/include/asm/module.h
++++ b/arch/arm64/include/asm/module.h
+@@ -19,6 +19,7 @@ struct mod_arch_specific {
+ 
+ 	/* for CONFIG_DYNAMIC_FTRACE */
+ 	struct plt_entry	*ftrace_trampolines;
++	struct plt_entry	*init_ftrace_trampolines;
+ };
+ 
+ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
+diff --git a/arch/arm64/include/asm/module.lds.h b/arch/arm64/include/asm/module.lds.h
+index b9ae8349e35d..fb944b46846d 100644
+--- a/arch/arm64/include/asm/module.lds.h
++++ b/arch/arm64/include/asm/module.lds.h
+@@ -2,6 +2,7 @@ SECTIONS {
+ 	.plt 0 : { BYTE(0) }
+ 	.init.plt 0 : { BYTE(0) }
+ 	.text.ftrace_trampoline 0 : { BYTE(0) }
++	.init.text.ftrace_trampoline 0 : { BYTE(0) }
+ 
+ #ifdef CONFIG_KASAN_SW_TAGS
+ 	/*
+diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+index 5a890714ee2e..5adad37ab4fa 100644
+--- a/arch/arm64/kernel/ftrace.c
++++ b/arch/arm64/kernel/ftrace.c
+@@ -258,10 +258,17 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+ 	return ftrace_modify_code(pc, 0, new, false);
+ }
+ 
+-static struct plt_entry *get_ftrace_plt(struct module *mod)
++static struct plt_entry *get_ftrace_plt(struct module *mod, unsigned long addr)
+ {
+ #ifdef CONFIG_MODULES
+-	struct plt_entry *plt = mod->arch.ftrace_trampolines;
++	struct plt_entry *plt = NULL;
++
++	if (within_module_mem_type(addr, mod, MOD_INIT_TEXT))
++		plt = mod->arch.init_ftrace_trampolines;
++	else if (within_module_mem_type(addr, mod, MOD_TEXT))
++		plt = mod->arch.ftrace_trampolines;
++	else
++		return NULL;
+ 
+ 	return &plt[FTRACE_PLT_IDX];
+ #else
+@@ -332,7 +339,7 @@ static bool ftrace_find_callable_addr(struct dyn_ftrace *rec,
+ 	if (WARN_ON(!mod))
+ 		return false;
+ 
+-	plt = get_ftrace_plt(mod);
++	plt = get_ftrace_plt(mod, pc);
+ 	if (!plt) {
+ 		pr_err("ftrace: no module PLT for %ps\n", (void *)*addr);
+ 		return false;
+diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
+index bde32979c06a..7afd370da9f4 100644
+--- a/arch/arm64/kernel/module-plts.c
++++ b/arch/arm64/kernel/module-plts.c
+@@ -283,7 +283,7 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 	unsigned long core_plts = 0;
+ 	unsigned long init_plts = 0;
+ 	Elf64_Sym *syms = NULL;
+-	Elf_Shdr *pltsec, *tramp = NULL;
++	Elf_Shdr *pltsec, *tramp = NULL, *init_tramp = NULL;
+ 	int i;
+ 
+ 	/*
+@@ -298,6 +298,9 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 		else if (!strcmp(secstrings + sechdrs[i].sh_name,
+ 				 ".text.ftrace_trampoline"))
+ 			tramp = sechdrs + i;
++		else if (!strcmp(secstrings + sechdrs[i].sh_name,
++				 ".init.text.ftrace_trampoline"))
++			init_tramp = sechdrs + i;
+ 		else if (sechdrs[i].sh_type == SHT_SYMTAB)
+ 			syms = (Elf64_Sym *)sechdrs[i].sh_addr;
+ 	}
+@@ -363,5 +366,12 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 		tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
+ 	}
+ 
++	if (init_tramp) {
++		init_tramp->sh_type = SHT_NOBITS;
++		init_tramp->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
++		init_tramp->sh_addralign = __alignof__(struct plt_entry);
++		init_tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
++	}
++
+ 	return 0;
+ }
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 40148d2725ce..d6d443c4a01a 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -466,6 +466,17 @@ static int module_init_ftrace_plt(const Elf_Ehdr *hdr,
+ 	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
+ 
+ 	mod->arch.ftrace_trampolines = plts;
++
++	s = find_section(hdr, sechdrs, ".init.text.ftrace_trampoline");
++	if (!s)
++		return -ENOEXEC;
++
++	plts = (void *)s->sh_addr;
++
++	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
++
++	mod->arch.init_ftrace_trampolines = plts;
++
+ #endif
+ 	return 0;
+ }
+================================================================================
+
+branch: linux-5.15
+fix_commit: 43bb85222e53926decace01ce6584ca88e09a0a9
+bug_url: https://syzkaller.appspot.com/bug?extid=e738f6e5c8c88da180ef
+title: kernel BUG in __hfsplus_setxattr
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 1d707d015784..bc6478fae988 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 192
++SUBLEVEL = 193
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================
+
+branch: linux-4.14
+fix_commit: 65afe34ac33d34ed3f5e21a5001f5c2ce210b6ce
+bug_url: https://syzkaller.appspot.com/bug?extid=b749da48fca936be502a
+title: kernel BUG in __hfsplus_setxattr
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index d617c7488e4b..16ec223dc9a7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 14
+-SUBLEVEL = 300
++SUBLEVEL = 301
+ EXTRAVERSION =
+ NAME = Petit Gorille
+================================================================================

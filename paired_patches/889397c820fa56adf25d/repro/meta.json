@@ -1,0 +1,50 @@
+{
+  "extid": "889397c820fa56adf25d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=889397c820fa56adf25d",
+  "bug_title": "memory leak in em28xx_dvb_init",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: em28xx: fix memory leak",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0ae10a7dc8992ee682ff0b1752ff7c83d472eef1",
+      "hash": "0ae10a7dc8992ee682ff0b1752ff7c83d472eef1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "musamaanjum@gmail.com",
+      "author-name": "Muhammad Usama Anjum",
+      "date": "2021-03-24T18:07:53Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in em28xx_dvb_init",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1a4431a5db2bf800c647ee0ed87f2727b8d6c29c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fdb2bb2c23ee709880407f56307e2800ad27e9ae",
+  "syzkaller-commit": "fdb2bb2c23ee709880407f56307e2800ad27e9ae",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11f9e81ad00000",
+      "saved_to": "/home/lcj/paired_patches/889397c820fa56adf25d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ff6b8b2e9d5a1227",
+      "saved_to": "/home/lcj/paired_patches/889397c820fa56adf25d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=176985c6d00000",
+      "saved_to": "/home/lcj/paired_patches/889397c820fa56adf25d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1559ae3ad00000",
+      "saved_to": "/home/lcj/paired_patches/889397c820fa56adf25d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

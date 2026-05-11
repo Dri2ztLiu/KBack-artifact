@@ -1,0 +1,50 @@
+{
+  "extid": "9cd5837a045bbee5b810",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9cd5837a045bbee5b810",
+  "bug_title": "UBSAN: shift-out-of-bounds in xfrm_set_default",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: xfrm: fix shift-out-of-bounce",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5d8dbb7fb82b8661c16d496644b931c0e2e3a12e",
+      "hash": "5d8dbb7fb82b8661c16d496644b931c0e2e3a12e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-07-28T16:38:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in xfrm_set_default",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "90d856e71443a2fcacca8e7539bac44d9cb3f7ab",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bc5f1d88c519868f37bd2b5ebca79b33a659c2c9",
+  "syzkaller-commit": "bc5f1d88c519868f37bd2b5ebca79b33a659c2c9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=157f9696300000",
+      "saved_to": "/home/lcj/paired_patches/9cd5837a045bbee5b810/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=298516715f6ad5cd",
+      "saved_to": "/home/lcj/paired_patches/9cd5837a045bbee5b810/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1066b4d4300000",
+      "saved_to": "/home/lcj/paired_patches/9cd5837a045bbee5b810/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1263bba6300000",
+      "saved_to": "/home/lcj/paired_patches/9cd5837a045bbee5b810/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

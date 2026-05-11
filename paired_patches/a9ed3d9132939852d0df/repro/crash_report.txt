@@ -1,0 +1,36 @@
+------------[ cut here ]------------
+verifier bug: not inlined functions bpf_probe_read_kernel_str#115 is missing func(1)
+WARNING: CPU: 1 PID: 3594 at kernel/bpf/verifier.c:22838 do_misc_fixups+0x1784/0x1ab4 kernel/bpf/verifier.c:22838
+Modules linked in:
+CPU: 1 UID: 0 PID: 3594 Comm: syz.2.17 Not tainted 6.16.0-syzkaller-11105-ga6923c06a3b2 #0 PREEMPT 
+Hardware name: linux,dummy-virt (DT)
+pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+pc : do_misc_fixups+0x1784/0x1ab4 kernel/bpf/verifier.c:22838
+lr : do_misc_fixups+0x1784/0x1ab4 kernel/bpf/verifier.c:22838
+sp : ffff80008936b9a0
+x29: ffff80008936b9a0 x28: f5ff8000832f5000 x27: 000000000000000a
+x26: f8f0000007ba8000 x25: 0000000000000000 x24: f8f0000007bae200
+x23: 000000000000f0ff x22: 000000000000000a x21: f8f0000007bae128
+x20: f8f0000007ba8aa8 x19: ffff80008243e828 x18: 0000000000000000
+x17: 0000000000000000 x16: 0000000000000000 x15: ffff800081b73b80
+x14: 0000000000000342 x13: 0000000000000000 x12: 0000000000000002
+x11: 00000000000000c0 x10: 646e0773d90f24cc x9 : 73727a981a23afd7
+x8 : fcf0000007bb36f8 x7 : 0000000000000190 x6 : 0000003978391654
+x5 : 0000000000000001 x4 : fbffff3fffffffff x3 : 000000000000ffff
+x2 : 0000000000000000 x1 : 0000000000000000 x0 : fcf0000007bb2500
+Call trace:
+ do_misc_fixups+0x1784/0x1ab4 kernel/bpf/verifier.c:22838 (P)
+ bpf_check+0x1308/0x2a8c kernel/bpf/verifier.c:24739
+ bpf_prog_load+0x634/0xb74 kernel/bpf/syscall.c:2979
+ __sys_bpf+0x2e0/0x1a3c kernel/bpf/syscall.c:6029
+ __do_sys_bpf kernel/bpf/syscall.c:6139 [inline]
+ __se_sys_bpf kernel/bpf/syscall.c:6137 [inline]
+ __arm64_sys_bpf+0x24/0x34 kernel/bpf/syscall.c:6137
+ __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+ invoke_syscall+0x48/0x110 arch/arm64/kernel/syscall.c:49
+ el0_svc_common.constprop.0+0x40/0xe0 arch/arm64/kernel/syscall.c:132
+ do_el0_svc+0x1c/0x28 arch/arm64/kernel/syscall.c:151
+ el0_svc+0x34/0x10c arch/arm64/kernel/entry-common.c:879
+ el0t_64_sync_handler+0xa0/0xe4 arch/arm64/kernel/entry-common.c:898
+ el0t_64_sync+0x1a4/0x1a8 arch/arm64/kernel/entry.S:596
+---[ end trace 0000000000000000 ]---

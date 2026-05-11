@@ -1,0 +1,50 @@
+{
+  "extid": "417aeb05fd190f3a6da9",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=417aeb05fd190f3a6da9",
+  "bug_title": "KCSAN: data-race in __unmap_hugepage_range / alloc_surplus_hugetlb_folio",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "mm/hugetlb: add missing hugetlb_lock in __unmap_hugepage_range()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=21cc2b5c5062a256ae9064442d37ebbc23f5aef7",
+      "hash": "21cc2b5c5062a256ae9064442d37ebbc23f5aef7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "aha310510@gmail.com",
+      "author-name": "Jeongjun Park",
+      "date": "2025-08-23T18:21:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in __unmap_hugepage_range / alloc_surplus_hugetlb_folio",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5d8c2ac2627b33cf6ef92f3618f3350e28ae5118",
+  "syzkaller-commit": "5d8c2ac2627b33cf6ef92f3618f3350e28ae5118",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11b08da2580000",
+      "saved_to": "/home/lcj/paired_patches/417aeb05fd190f3a6da9/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e229060118f4fc05",
+      "saved_to": "/home/lcj/paired_patches/417aeb05fd190f3a6da9/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/417aeb05fd190f3a6da9/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/417aeb05fd190f3a6da9/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

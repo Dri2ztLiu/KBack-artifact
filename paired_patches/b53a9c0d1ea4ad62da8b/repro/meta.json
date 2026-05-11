@@ -1,0 +1,60 @@
+{
+  "extid": "b53a9c0d1ea4ad62da8b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b53a9c0d1ea4ad62da8b",
+  "bug_title": "KASAN: slab-use-after-free Write in mini_qdisc_pair_swap",
+  "bug_status": "fixed on 2023/09/29 02:49",
+  "fix_commits": [
+    {
+      "title": "net/sched: qdisc_destroy() old ingress and clsact Qdiscs before grafting",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=84ad0af0bccd3691cb951c2974c5cb2c10594d4a",
+      "hash": "84ad0af0bccd3691cb951c2974c5cb2c10594d4a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "peilin.ye@bytedance.com",
+      "author-name": "Peilin Ye",
+      "date": "2023-06-11T03:30:25Z"
+    },
+    {
+      "title": "net/sched: sch_ingress: Only create under TC_H_INGRESS",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c7cfbd115001f94de9e4053657946a383147e803",
+      "hash": "c7cfbd115001f94de9e4053657946a383147e803",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "peilin.ye@bytedance.com",
+      "author-name": "Peilin Ye",
+      "date": "2023-05-29T19:52:55Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Write in mini_qdisc_pair_swap",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fff5a5e7f528b2ed2c335991399a766c2cf01103",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f94b4a29b579b3de9aab3b41915e3663e6f7094e",
+  "syzkaller-commit": "f94b4a29b579b3de9aab3b41915e3663e6f7094e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10b45991c80000",
+      "saved_to": "/home/lcj/paired_patches/b53a9c0d1ea4ad62da8b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=aaa4b45720ca0519",
+      "saved_to": "/home/lcj/paired_patches/b53a9c0d1ea4ad62da8b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11eed636c80000",
+      "saved_to": "/home/lcj/paired_patches/b53a9c0d1ea4ad62da8b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15d1497ac80000",
+      "saved_to": "/home/lcj/paired_patches/b53a9c0d1ea4ad62da8b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

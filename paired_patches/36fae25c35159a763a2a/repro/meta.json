@@ -1,0 +1,50 @@
+{
+  "extid": "36fae25c35159a763a2a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=36fae25c35159a763a2a",
+  "bug_title": "kernel BUG in populate_free_space_tree",
+  "bug_status": "fixed on 2025/09/04 16:57",
+  "fix_commits": [
+    {
+      "title": "btrfs: fix assertion when building free space tree",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1961d20f6fa8903266ed9bd77c691924c22c8f02",
+      "hash": "1961d20f6fa8903266ed9bd77c691924c22c8f02",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2025-06-05T19:51:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in populate_free_space_tree",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "d7fa1af5b33e9efd1a66fc77450bccb640b296b3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fd5e6e6163762c69d56c2cf63b53ec292c2f23ea",
+  "syzkaller-commit": "fd5e6e6163762c69d56c2cf63b53ec292c2f23ea",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=119c740c580000",
+      "saved_to": "/home/lcj/paired_patches/36fae25c35159a763a2a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=89c13de706fbf07a",
+      "saved_to": "/home/lcj/paired_patches/36fae25c35159a763a2a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=106b4c0c580000",
+      "saved_to": "/home/lcj/paired_patches/36fae25c35159a763a2a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12b79282580000",
+      "saved_to": "/home/lcj/paired_patches/36fae25c35159a763a2a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

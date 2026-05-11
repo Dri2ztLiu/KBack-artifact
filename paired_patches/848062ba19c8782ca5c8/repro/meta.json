@@ -1,0 +1,60 @@
+{
+  "extid": "848062ba19c8782ca5c8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=848062ba19c8782ca5c8",
+  "bug_title": "kernel BUG in f2fs_write_inline_data",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix return value of f2fs_convert_inline_inode()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a8eb3de28e7a365690c61161e7a07a4fc7c60bbf",
+      "hash": "a8eb3de28e7a365690c61161e7a07a4fc7c60bbf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2024-06-03T01:07:45Z"
+    },
+    {
+      "title": "f2fs: fix to do sanity check on F2FS_INLINE_DATA flag in inode during GC",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fc01008c92f40015aeeced94750855a7111b6929",
+      "hash": "fc01008c92f40015aeeced94750855a7111b6929",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2024-05-21T06:23:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in f2fs_write_inline_data",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "0e1980c40b6edfa68b6acf926bab22448a6e40c9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3113787fe7a0c96998737e520aa95c303fdd41ef",
+  "syzkaller-commit": "3113787fe7a0c96998737e520aa95c303fdd41ef",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=138d0abc980000",
+      "saved_to": "/home/lcj/paired_patches/848062ba19c8782ca5c8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d9c3ca4e54577b88",
+      "saved_to": "/home/lcj/paired_patches/848062ba19c8782ca5c8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14d86426980000",
+      "saved_to": "/home/lcj/paired_patches/848062ba19c8782ca5c8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14a9aabc980000",
+      "saved_to": "/home/lcj/paired_patches/848062ba19c8782ca5c8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

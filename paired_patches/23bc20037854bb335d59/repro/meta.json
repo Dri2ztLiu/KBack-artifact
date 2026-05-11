@@ -1,0 +1,50 @@
+{
+  "extid": "23bc20037854bb335d59",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=23bc20037854bb335d59",
+  "bug_title": "general protection fault in lbmStartIO",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "jfs: fix log->bdev_handle null ptr deref in lbmStartIO",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6306ff39a7fcb7e9c59a00e6860b933b71a2ed3e",
+      "hash": "6306ff39a7fcb7e9c59a00e6860b933b71a2ed3e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lizhi.xu@windriver.com",
+      "author-name": "Lizhi Xu",
+      "date": "2023-10-09T09:45:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in lbmStartIO",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "c9f2baaa18b5ea8f006a2b3a616da9597c71d15e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/65faba36470e75a1339e6f79c8631c9578786b7b",
+  "syzkaller-commit": "65faba36470e75a1339e6f79c8631c9578786b7b",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1352cb1a680000",
+      "saved_to": "/home/lcj/paired_patches/23bc20037854bb335d59/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3fe9c462fee1649f",
+      "saved_to": "/home/lcj/paired_patches/23bc20037854bb335d59/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12b62ee6680000",
+      "saved_to": "/home/lcj/paired_patches/23bc20037854bb335d59/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16204836680000",
+      "saved_to": "/home/lcj/paired_patches/23bc20037854bb335d59/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

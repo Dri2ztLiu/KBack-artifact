@@ -1,0 +1,66 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  arch/x86/include/asm/runtime-const.h (1)
+TOP_SYMBOLS:
+  typeof (2)
+TOP_KEYWORDS:
+  WARN (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=typeof)
+  - viewcode(ref=<target_release>, path=arch/x86/include/asm/runtime-const.h, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=6, rows_scanned=6, candidates_kept=1, skipped=5
+skip_breakdown: skip_upstream=4, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-5.15
+fix_commit: 850925a8133c73c4a2453c360b2c3beb3bab67c9
+bug_url: https://syzkaller.appspot.com/bug?id=1d47b4c91066c3d485cd084580315beec0bd022d
+title: WARNING in __dev_queue_xmit
+relevance_score: 0
+
+ arch/x86/include/asm/runtime-const.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+diff --git a/arch/x86/include/asm/runtime-const.h b/arch/x86/include/asm/runtime-const.h
+index 24e3a53ca255..6652ebddfd02 100644
+--- a/arch/x86/include/asm/runtime-const.h
++++ b/arch/x86/include/asm/runtime-const.h
+@@ -6,7 +6,7 @@
+ 	typeof(sym) __ret;					\
+ 	asm_inline("mov %1,%0\n1:\n"				\
+ 		".pushsection runtime_ptr_" #sym ",\"a\"\n\t"	\
+-		".long 1b - %c2 - .\n\t"			\
++		".long 1b - %c2 - .\n"				\
+ 		".popsection"					\
+ 		:"=r" (__ret)					\
+ 		:"i" ((unsigned long)0x0123456789abcdefull),	\
+@@ -20,7 +20,7 @@
+ 	typeof(0u+(val)) __ret = (val);				\
+ 	asm_inline("shrl $12,%k0\n1:\n"				\
+ 		".pushsection runtime_shift_" #sym ",\"a\"\n\t"	\
+-		".long 1b - 1 - .\n\t"				\
++		".long 1b - 1 - .\n"				\
+ 		".popsection"					\
+ 		:"+r" (__ret));					\
+ 	__ret; })
+================================================================================

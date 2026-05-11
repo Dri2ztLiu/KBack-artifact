@@ -1,0 +1,50 @@
+{
+  "extid": "6c746eea496f34b3161d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6c746eea496f34b3161d",
+  "bug_title": "KMSAN: uninit-value in z_erofs_lz4_decompress (2)",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "erofs: avoid debugging output for (de)compressed data",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=496530c7c1dfc159d59a75ae00b572f570710c53",
+      "hash": "496530c7c1dfc159d59a75ae00b572f570710c53",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hsiangkao@linux.alibaba.com",
+      "author-name": "Gao Xiang",
+      "date": "2023-12-27T15:19:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in z_erofs_lz4_decompress",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fbafc3e621c3f4ded43720fdb1d6ce1728ec664e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fb427a0782000106c62de76d251e5a02de5406a9",
+  "syzkaller-commit": "fb427a0782000106c62de76d251e5a02de5406a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=178b6ca1e80000",
+      "saved_to": "/home/lcj/paired_patches/6c746eea496f34b3161d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e0c7078a6b901aa3",
+      "saved_to": "/home/lcj/paired_patches/6c746eea496f34b3161d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14aafc81e80000",
+      "saved_to": "/home/lcj/paired_patches/6c746eea496f34b3161d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=169fac19e80000",
+      "saved_to": "/home/lcj/paired_patches/6c746eea496f34b3161d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

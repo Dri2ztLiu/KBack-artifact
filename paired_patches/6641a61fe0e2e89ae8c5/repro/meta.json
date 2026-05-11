@@ -1,0 +1,50 @@
+{
+  "extid": "6641a61fe0e2e89ae8c5",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6641a61fe0e2e89ae8c5",
+  "bug_title": "WARNING in xfrm_state_fini (3)",
+  "bug_status": "fixed on 2025/10/09 01:15",
+  "fix_commits": [
+    {
+      "title": "xfrm: flush all states in xfrm_state_fini",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=42e42562c9cfcdacf000f1b42284a4fad24f8546",
+      "hash": "42e42562c9cfcdacf000f1b42284a4fad24f8546",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sd@queasysnail.net",
+      "author-name": "Sabrina Dubroca",
+      "date": "2025-08-04T09:05:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in xfrm_state_fini",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "038d61fd642278bab63ee8ef722c50d10ab01e8f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c4a9548758bac1c6dc231afd7543b5e8c5b6a65e",
+  "syzkaller-commit": "c4a9548758bac1c6dc231afd7543b5e8c5b6a65e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10fd84a2580000",
+      "saved_to": "/home/lcj/paired_patches/6641a61fe0e2e89ae8c5/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4066f1c76cfbc4fe",
+      "saved_to": "/home/lcj/paired_patches/6641a61fe0e2e89ae8c5/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=140194a2580000",
+      "saved_to": "/home/lcj/paired_patches/6641a61fe0e2e89ae8c5/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16ca1782580000",
+      "saved_to": "/home/lcj/paired_patches/6641a61fe0e2e89ae8c5/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

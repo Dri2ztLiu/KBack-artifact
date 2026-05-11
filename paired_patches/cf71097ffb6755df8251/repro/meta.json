@@ -1,0 +1,50 @@
+{
+  "extid": "cf71097ffb6755df8251",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cf71097ffb6755df8251",
+  "bug_title": "memory leak in _r8712_init_xmit_priv",
+  "bug_status": "fixed on 2023/10/12 12:47",
+  "fix_commits": [
+    {
+      "title": "staging: r8712: Fix memory leak in _r8712_init_xmit_priv()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac83631230f77dda94154ed0ebfd368fc81c70a3",
+      "hash": "ac83631230f77dda94154ed0ebfd368fc81c70a3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Larry.Finger@lwfinger.net",
+      "author-name": "Larry Finger",
+      "date": "2023-07-14T17:54:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in _r8712_init_xmit_priv",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "8689f4f2ea561dd080118eeb05c0255ac9542905",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/668cb1fa42960ece96b7da8d9204e486ba6dcdf6",
+  "syzkaller-commit": "668cb1fa42960ece96b7da8d9204e486ba6dcdf6",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=141f3444a80000",
+      "saved_to": "/home/lcj/paired_patches/cf71097ffb6755df8251/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=832b404e095b70c0",
+      "saved_to": "/home/lcj/paired_patches/cf71097ffb6755df8251/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14482e54a80000",
+      "saved_to": "/home/lcj/paired_patches/cf71097ffb6755df8251/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16f26d02a80000",
+      "saved_to": "/home/lcj/paired_patches/cf71097ffb6755df8251/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

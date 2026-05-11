@@ -1,0 +1,50 @@
+{
+  "extid": "d050d437fe47d479d210",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d050d437fe47d479d210",
+  "bug_title": "KMSAN: uninit-value in ieee80211_amsdu_to_8023s",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "wifi: cfg80211: check A-MSDU format more carefully",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9ad7974856926129f190ffbe3beea78460b3b7cc",
+      "hash": "9ad7974856926129f190ffbe3beea78460b3b7cc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2024-02-26T19:34:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in ieee80211_amsdu_to_8023s",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "58c806d867bf265c6fd16fc3bc62e2d3c156b5c9",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/25905f5d0a2a7883bd33491997556193582c6059",
+  "syzkaller-commit": "25905f5d0a2a7883bd33491997556193582c6059",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=144d3082180000",
+      "saved_to": "/home/lcj/paired_patches/d050d437fe47d479d210/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=80c7a82a572c0de3",
+      "saved_to": "/home/lcj/paired_patches/d050d437fe47d479d210/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=134411a2180000",
+      "saved_to": "/home/lcj/paired_patches/d050d437fe47d479d210/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14227612180000",
+      "saved_to": "/home/lcj/paired_patches/d050d437fe47d479d210/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

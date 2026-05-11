@@ -1,0 +1,50 @@
+{
+  "extid": "d173bf8a5a7faeede34c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d173bf8a5a7faeede34c",
+  "bug_title": "KASAN: slab-use-after-free Read in ocfs2_lock_global_qf",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "ocfs2: fix slab-use-after-free due to dangling pointer dqi_priv",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5f3fd772d152229d94602bca243fbb658068a597",
+      "hash": "5f3fd772d152229d94602bca243fbb658068a597",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dennis.lamerice@gmail.com",
+      "author-name": "Dennis Lam",
+      "date": "2024-12-18T02:39:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in ocfs2_lock_global_qf",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "7cb1b466315004af98f6ba6c2546bb713ca3c237",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/cfc402b4e65a6aab3a2555765bda8dc12c99a348",
+  "syzkaller-commit": "cfc402b4e65a6aab3a2555765bda8dc12c99a348",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=165ba8f8580000",
+      "saved_to": "/home/lcj/paired_patches/d173bf8a5a7faeede34c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c7c9f223bfe8924e",
+      "saved_to": "/home/lcj/paired_patches/d173bf8a5a7faeede34c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=179853e8580000",
+      "saved_to": "/home/lcj/paired_patches/d173bf8a5a7faeede34c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11e0eb30580000",
+      "saved_to": "/home/lcj/paired_patches/d173bf8a5a7faeede34c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

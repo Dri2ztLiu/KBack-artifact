@@ -1,0 +1,96 @@
+{
+  "extid": "5f088f29593e6b4c8db8",
+  "target_ref": "5f088f29593e6b4c8db8",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "a779ed754e52d582b8c0e17959df063108bd0656",
+      "branch": "linux-6.1",
+      "title": "UBSAN: shift-out-of-bounds in extAlloc",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/jfs/jfs_dinode.h",
+        "fs/jfs/jfs_imap.c",
+        "fs/jfs/jfs_incore.h",
+        "fs/jfs/jfs_txnmgr.c",
+        "fs/jfs/jfs_xtree.c",
+        "fs/jfs/jfs_xtree.h"
+      ],
+      "symbols": [
+        "dinode",
+        "diWrite",
+        "diWrite",
+        "diWrite",
+        "jfs_inode_info",
+        "txLock",
+        "xtLog",
+        "xtSplitRoot",
+        "xtAppend",
+        "xadlist"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "1a80a098c606b285fb0a13aa992af4f86da1ff06",
+      "branch": "linux-5.15",
+      "title": "UBSAN: shift-out-of-bounds in extAlloc (2)",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "arch/x86/kernel/alternative.c"
+      ],
+      "symbols": [
+        "its_init_thunk",
+        "its_free_mod",
+        "its_alloc",
+        "its_alloc"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "NULL",
+        "null",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "0225e10972fa809728b8d4c1bd2772b3ec3fdb57",
+      "branch": "linux-5.15",
+      "title": "UBSAN: shift-out-of-bounds in extAlloc",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/jfs/jfs_extent.c"
+      ],
+      "symbols": [
+        "extBalloc",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

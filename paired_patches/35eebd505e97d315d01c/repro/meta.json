@@ -1,0 +1,50 @@
+{
+  "extid": "35eebd505e97d315d01c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=35eebd505e97d315d01c",
+  "bug_title": "KASAN: slab-out-of-bounds Read in thrustmaster_probe",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "HID: hid-thrustmaster: fix OOB read in thrustmaster_interrupts",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fc3ef2e3297b3c0e2006b5d7b3d66965e3392036",
+      "hash": "fc3ef2e3297b3c0e2006b5d7b3d66965e3392036",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2022-02-20T16:01:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in thrustmaster_probe",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c5d9ae265b105d9a67575fb67bd4650a6fc08e25",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8b9ca619df135211a89cc19719f2705d0016045d",
+  "syzkaller-commit": "8b9ca619df135211a89cc19719f2705d0016045d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17cce422700000",
+      "saved_to": "/home/lcj/paired_patches/35eebd505e97d315d01c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a78b064590b9f912",
+      "saved_to": "/home/lcj/paired_patches/35eebd505e97d315d01c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=109973f2700000",
+      "saved_to": "/home/lcj/paired_patches/35eebd505e97d315d01c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=175ecbf2700000",
+      "saved_to": "/home/lcj/paired_patches/35eebd505e97d315d01c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

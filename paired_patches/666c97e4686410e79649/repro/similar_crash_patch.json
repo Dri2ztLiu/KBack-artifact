@@ -1,0 +1,48 @@
+{
+  "extid": "666c97e4686410e79649",
+  "target_ref": "666c97e4686410e79649",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "d183c8e2647a7d45202c14a33631f6c09020f8ac",
+      "branch": "linux-4.19",
+      "title": "general protection fault in prepare_to_wait",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "a901bb6c7db7e6aef864ee2ba62a2a02c1421e48",
+      "branch": "linux-4.14",
+      "title": "general protection fault in prepare_to_wait",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

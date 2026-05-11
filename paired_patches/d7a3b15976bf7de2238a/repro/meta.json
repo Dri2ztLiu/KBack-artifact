@@ -1,0 +1,50 @@
+{
+  "extid": "d7a3b15976bf7de2238a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d7a3b15976bf7de2238a",
+  "bug_title": "general protection fault in ieee80211_subif_start_xmit",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "mac80211: pause TX while changing interface type",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=054c9939b4800a91475d8d89905827bf9e1ad97a",
+      "hash": "054c9939b4800a91475d8d89905827bf9e1ad97a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2021-01-26T10:59:45Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3516bd729358a2a9b090c1905bd2a3fa926e24c6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/79264ae39c1ef4b4875ab67d6f0c8c3e75aa6a34",
+  "syzkaller-commit": "79264ae39c1ef4b4875ab67d6f0c8c3e75aa6a34",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=137c6448d00000",
+      "saved_to": "/home/lcj/paired_patches/d7a3b15976bf7de2238a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2455d075a1c4afa8",
+      "saved_to": "/home/lcj/paired_patches/d7a3b15976bf7de2238a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12fe0760d00000",
+      "saved_to": "/home/lcj/paired_patches/d7a3b15976bf7de2238a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1008d03f500000",
+      "saved_to": "/home/lcj/paired_patches/d7a3b15976bf7de2238a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

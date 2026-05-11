@@ -1,0 +1,50 @@
+{
+  "extid": "5142b87a9abc510e14fa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5142b87a9abc510e14fa",
+  "bug_title": "general protection fault in tipc_udp_is_known_peer",
+  "bug_status": "fixed on 2024/03/26 17:39",
+  "fix_commits": [
+    {
+      "title": "tipc: Check the bearer type before calling tipc_udp_nl_bearer_add()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3871aa01e1a779d866fa9dfdd5a836f342f4eb87",
+      "hash": "3871aa01e1a779d866fa9dfdd5a836f342f4eb87",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2024-01-31T15:23:09Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in tipc_udp_is_known_peer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "3a3af3aedb00258f0bd49f260eabcea1d88108a1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3222d10cbe77bbedb5a7c455e5bcb6b7081a63b7",
+  "syzkaller-commit": "3222d10cbe77bbedb5a7c455e5bcb6b7081a63b7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1225bc21e80000",
+      "saved_to": "/home/lcj/paired_patches/5142b87a9abc510e14fa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=df5e944701db1d04",
+      "saved_to": "/home/lcj/paired_patches/5142b87a9abc510e14fa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=111a741ae80000",
+      "saved_to": "/home/lcj/paired_patches/5142b87a9abc510e14fa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16414cd6e80000",
+      "saved_to": "/home/lcj/paired_patches/5142b87a9abc510e14fa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "82650a4e0ed38f218363",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=82650a4e0ed38f218363",
+  "bug_title": "KASAN: use-after-free Read in btrfs_scan_one_device (2)",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "btrfs: don't access possibly stale fs_info data in device_list_add",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79c9234ba596e903907de20573fd4bcc85315b06",
+      "hash": "79c9234ba596e903907de20573fd4bcc85315b06",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mudongliangabcd@gmail.com",
+      "author-name": "Dongliang Mu",
+      "date": "2022-03-03T14:40:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in btrfs_scan_one_device",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2293be58d6a18cab800e25e42081bacb75c05752",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/45a13a7381e60020d94d037d88a75727984b7a9a",
+  "syzkaller-commit": "45a13a7381e60020d94d037d88a75727984b7a9a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=107a022a700000",
+      "saved_to": "/home/lcj/paired_patches/82650a4e0ed38f218363/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=5f28851401b410e5",
+      "saved_to": "/home/lcj/paired_patches/82650a4e0ed38f218363/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11739502700000",
+      "saved_to": "/home/lcj/paired_patches/82650a4e0ed38f218363/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=152ee696700000",
+      "saved_to": "/home/lcj/paired_patches/82650a4e0ed38f218363/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "c88fc0ebe0d5935c70da",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c88fc0ebe0d5935c70da",
+  "bug_title": "KMSAN: uninit-value in dib3000mb_attach (2)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "media: dvb-frontends: dib3000mb: fix uninit-value in dib3000_write_reg",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2dd59fe0e19e1ab955259978082b62e5751924c7",
+      "hash": "2dd59fe0e19e1ab955259978082b62e5751924c7",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2024-05-17T15:58:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in dib3000mb_attach",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9f16d5e6f220661f73b36a4be1b21575651d8833",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/68da6d951a345757b69b764ceb8dda1e9d65b038",
+  "syzkaller-commit": "68da6d951a345757b69b764ceb8dda1e9d65b038",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16baf6e8580000",
+      "saved_to": "/home/lcj/paired_patches/c88fc0ebe0d5935c70da/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=197de11c5dba9f21",
+      "saved_to": "/home/lcj/paired_patches/c88fc0ebe0d5935c70da/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=109b19c0580000",
+      "saved_to": "/home/lcj/paired_patches/c88fc0ebe0d5935c70da/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17f38778580000",
+      "saved_to": "/home/lcj/paired_patches/c88fc0ebe0d5935c70da/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

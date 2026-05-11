@@ -1,0 +1,50 @@
+{
+  "extid": "c0b807de416427ff3dd1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c0b807de416427ff3dd1",
+  "bug_title": "WARNING in batadv_iv_send_outstanding_bat_ogm_packet",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "batman-adv: Avoid WARN_ON timing related checks",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9f460ae31c4435fd022c443a6029352217a16ac1",
+      "hash": "9f460ae31c4435fd022c443a6029352217a16ac1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sven@narfation.org",
+      "author-name": "Sven Eckelmann",
+      "date": "2021-05-18T19:00:27Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "da94001239cceb93c132a31928d6ddc4214862d5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2f661ec405cb3975128e9851c7a5979d92d001f1",
+  "syzkaller-commit": "2f661ec405cb3975128e9851c7a5979d92d001f1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12aa0aa0e00000",
+      "saved_to": "/home/lcj/paired_patches/c0b807de416427ff3dd1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2d2fd92a28d3e50",
+      "saved_to": "/home/lcj/paired_patches/c0b807de416427ff3dd1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11edd580e00000",
+      "saved_to": "/home/lcj/paired_patches/c0b807de416427ff3dd1/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=141ffd77600000",
+      "saved_to": "/home/lcj/paired_patches/c0b807de416427ff3dd1/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

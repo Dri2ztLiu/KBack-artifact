@@ -1,0 +1,37 @@
+{
+  "extid": "1a9af3ef3c84c5e14dcc",
+  "target_ref": "1a9af3ef3c84c5e14dcc",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "58485ff1a74f6c5be9e7c6aafb7293e4337348e7",
+      "branch": "linux-6.1",
+      "title": "INFO: task hung in erofs_bread",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "hung"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "a7492efaa5d61b51db23",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a7492efaa5d61b51db23",
+  "bug_title": "WARNING: refcount bug in qrtr_recvmsg (2)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "net: qrtr: Fix a refcount bug in qrtr_recvmsg()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=44d807320000db0d0013372ad39b53e12d52f758",
+      "hash": "44d807320000db0d0013372ad39b53e12d52f758",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "william.xuanziyang@huawei.com",
+      "author-name": "Ziyang Xuan",
+      "date": "2023-03-30T01:25:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: refcount bug in qrtr_recvmsg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "9c1bec9c0b08abeac72ed6214b723adc224013bf",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/18b586030b9a7e7f4c7208f44be8994740608841",
+  "syzkaller-commit": "18b586030b9a7e7f4c7208f44be8994740608841",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1282f12ac80000",
+      "saved_to": "/home/lcj/paired_patches/a7492efaa5d61b51db23/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6c84f77790aba2eb",
+      "saved_to": "/home/lcj/paired_patches/a7492efaa5d61b51db23/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10e8fe2cc80000",
+      "saved_to": "/home/lcj/paired_patches/a7492efaa5d61b51db23/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13c9f8a4c80000",
+      "saved_to": "/home/lcj/paired_patches/a7492efaa5d61b51db23/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

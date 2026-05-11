@@ -1,0 +1,50 @@
+{
+  "extid": "97522333291430dd277f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=97522333291430dd277f",
+  "bug_title": "KCSAN: data-race in bpf_percpu_array_update / bpf_percpu_array_update (2)",
+  "bug_status": "fixed on 2023/10/12 12:48",
+  "fix_commits": [
+    {
+      "title": "bpf: Annotate bpf_long_memcpy with data_race",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6a86b5b5cd76d2734304a0173f5f01aa8aa2025e",
+      "hash": "6a86b5b5cd76d2734304a0173f5f01aa8aa2025e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "daniel@iogearbox.net",
+      "author-name": "Daniel Borkmann",
+      "date": "2023-08-29T20:53:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in bpf_percpu_array_update / bpf_percpu_array_update",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "727dbda16b83600379061c4ca8270ef3e2f51922",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7ba13a158b1ad89a23920bb64208ba34fed27b08",
+  "syzkaller-commit": "7ba13a158b1ad89a23920bb64208ba34fed27b08",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=136e64dba80000",
+      "saved_to": "/home/lcj/paired_patches/97522333291430dd277f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=dea9c2ce3f646a25",
+      "saved_to": "/home/lcj/paired_patches/97522333291430dd277f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/97522333291430dd277f/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/97522333291430dd277f/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

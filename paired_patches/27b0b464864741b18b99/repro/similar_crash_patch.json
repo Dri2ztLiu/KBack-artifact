@@ -1,0 +1,77 @@
+{
+  "extid": "27b0b464864741b18b99",
+  "target_ref": "27b0b464864741b18b99",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6f489a966fbeb0da63d45c2c66a8957eab604bf6",
+      "branch": "linux-6.1",
+      "title": "WARNING in corrupted",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/media/usb/siano/smsusb.c"
+      ],
+      "symbols": [
+        "smsusb_stop_streaming",
+        "cancel_work_sync",
+        "if",
+        "cancel_work_sync"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "6f489a966fbeb0da63d45c2c66a8957eab604bf6",
+      "branch": "linux-5.15",
+      "title": "WARNING in corrupted",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/media/usb/siano/smsusb.c"
+      ],
+      "symbols": [
+        "smsusb_stop_streaming",
+        "cancel_work_sync",
+        "if",
+        "cancel_work_sync"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "43bb85222e53926decace01ce6584ca88e09a0a9",
+      "branch": "linux-5.15",
+      "title": "WARNING in corrupted (3)",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "96523fb438937cd01220",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=96523fb438937cd01220",
+  "bug_title": "UBSAN: shift-out-of-bounds in strset_parse_request",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "ethtool: fix string set id check",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=efb796f5571f030743e1d9c662cdebdad724f8c5",
+      "hash": "efb796f5571f030743e1d9c662cdebdad724f8c5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mkubecek@suse.cz",
+      "author-name": "Michal Kubecek",
+      "date": "2020-12-16T19:15:11Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "a9e26cb5f2615cd638f911ea96d4fff5b4d93690",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/40cc414d10dabacf34877f4902279729ca3bc011",
+  "syzkaller-commit": "40cc414d10dabacf34877f4902279729ca3bc011",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1424d433500000",
+      "saved_to": "/home/lcj/paired_patches/96523fb438937cd01220/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e259434a8eaf0206",
+      "saved_to": "/home/lcj/paired_patches/96523fb438937cd01220/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10b72237500000",
+      "saved_to": "/home/lcj/paired_patches/96523fb438937cd01220/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16edd00f500000",
+      "saved_to": "/home/lcj/paired_patches/96523fb438937cd01220/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

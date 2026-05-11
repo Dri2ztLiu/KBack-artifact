@@ -1,0 +1,50 @@
+{
+  "extid": "d1974fc28545a3e6218b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d1974fc28545a3e6218b",
+  "bug_title": "WARNING in copy_highpage",
+  "bug_status": "fixed on 2025/11/18 08:45",
+  "fix_commits": [
+    {
+      "title": "arm64: mte: Do not warn if the page is already tagged in copy_highpage()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b98c94eed4a975e0c80b7e90a649a46967376f58",
+      "hash": "b98c94eed4a975e0c80b7e90a649a46967376f58",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "catalin.marinas@arm.com",
+      "author-name": "Catalin Marinas",
+      "date": "2025-10-22T10:09:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in copy_highpage",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fec734e8d564d55fb6bd4909ae2e68814d21d0a1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/001c90610fb2f2ac7cbbc9cd6af3f547b821a8ad",
+  "syzkaller-commit": "001c90610fb2f2ac7cbbc9cd6af3f547b821a8ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16d90ae2580000",
+      "saved_to": "/home/lcj/paired_patches/d1974fc28545a3e6218b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=13bd892ec3b155a2",
+      "saved_to": "/home/lcj/paired_patches/d1974fc28545a3e6218b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d1974fc28545a3e6218b/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/d1974fc28545a3e6218b/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

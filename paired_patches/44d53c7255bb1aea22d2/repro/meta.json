@@ -1,0 +1,55 @@
+{
+  "extid": "44d53c7255bb1aea22d2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=44d53c7255bb1aea22d2",
+  "bug_title": "WARNING in hso_free_net_device",
+  "bug_status": "fixed on 2021/11/10 13:22",
+  "fix_commits": [
+    {
+      "title": "usb: hso: fix error handling code of hso_create_net_device",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=788e67f18d797abbd48a96143511261f4f3b4f21",
+      "hash": "788e67f18d797abbd48a96143511261f4f3b4f21",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mudongliangabcd@gmail.com",
+      "author-name": "Dongliang Mu",
+      "date": "2021-07-21T08:14:56Z"
+    },
+    {
+      "title": "usb: hso: fix error handling code of hso_create_net_device",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in hso_free_net_device",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0a50438c84363bd37fe18fe432888ae9a074dcab",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "syzkaller-commit": "6a81331a1d4c744da9204d02ec88d558f7eea9c9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1591e31ad00000",
+      "saved_to": "/home/lcj/paired_patches/44d53c7255bb1aea22d2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=9320464bf47598bd",
+      "saved_to": "/home/lcj/paired_patches/44d53c7255bb1aea22d2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15ce6711d00000",
+      "saved_to": "/home/lcj/paired_patches/44d53c7255bb1aea22d2/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1550d7aad00000",
+      "saved_to": "/home/lcj/paired_patches/44d53c7255bb1aea22d2/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

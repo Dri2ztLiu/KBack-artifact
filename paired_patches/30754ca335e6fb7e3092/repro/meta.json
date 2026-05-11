@@ -1,0 +1,50 @@
+{
+  "extid": "30754ca335e6fb7e3092",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=30754ca335e6fb7e3092",
+  "bug_title": "KASAN: slab-use-after-free Read in cmp_bss",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "wifi: cfg80211: fix use-after-free in cmp_bss()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=26e84445f02ce6b2fe5f3e0e28ff7add77f35e08",
+      "hash": "26e84445f02ce6b2fe5f3e0e28ff7add77f35e08",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dmantipov@yandex.ru",
+      "author-name": "Dmitry Antipov",
+      "date": "2025-08-13T13:52:36Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in cmp_bss",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "b320789d6883cc00ac78ce83bccbfe7ed58afcf0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/807a3b61ca22f8988561c180eb47268ea6e244db",
+  "syzkaller-commit": "807a3b61ca22f8988561c180eb47268ea6e244db",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14056e34580000",
+      "saved_to": "/home/lcj/paired_patches/30754ca335e6fb7e3092/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=385d836f07b5a70d",
+      "saved_to": "/home/lcj/paired_patches/30754ca335e6fb7e3092/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15bf5662580000",
+      "saved_to": "/home/lcj/paired_patches/30754ca335e6fb7e3092/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12a0fd12580000",
+      "saved_to": "/home/lcj/paired_patches/30754ca335e6fb7e3092/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

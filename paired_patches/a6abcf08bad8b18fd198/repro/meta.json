@@ -1,0 +1,50 @@
+{
+  "extid": "a6abcf08bad8b18fd198",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a6abcf08bad8b18fd198",
+  "bug_title": "general protection fault in __aria_aesni_avx_gfni_crypt_16way",
+  "bug_status": "fixed on 2023/07/01 16:05",
+  "fix_commits": [
+    {
+      "title": "crypto: x86/aria - Use 16 byte alignment for GFNI constant vectors",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6ab39f99927eed605728b02d512438d828183c97",
+      "hash": "6ab39f99927eed605728b02d512438d828183c97",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ardb@kernel.org",
+      "author-name": "Ard Biesheuvel",
+      "date": "2023-05-16T18:14:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in __aria_aesni_avx_gfni_crypt_16way",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "31f4104e392a10327f90006a61fcf1d4e7a79472",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/2b9ba477a18ed0cc53e6b29a9641292709a7ba24",
+  "syzkaller-commit": "2b9ba477a18ed0cc53e6b29a9641292709a7ba24",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15a9c121280000",
+      "saved_to": "/home/lcj/paired_patches/a6abcf08bad8b18fd198/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8bc832f563d8bf38",
+      "saved_to": "/home/lcj/paired_patches/a6abcf08bad8b18fd198/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=149d4c06280000",
+      "saved_to": "/home/lcj/paired_patches/a6abcf08bad8b18fd198/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1737e3be280000",
+      "saved_to": "/home/lcj/paired_patches/a6abcf08bad8b18fd198/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,46 @@
+------------[ cut here ]------------
+WARNING: CPU: 1 PID: 25189 at arch/arm64/mm/copypage.c:55 try_page_mte_tagging arch/arm64/include/asm/mte.h:93 [inline]
+WARNING: CPU: 1 PID: 25189 at arch/arm64/mm/copypage.c:55 copy_highpage+0x150/0x334 arch/arm64/mm/copypage.c:55
+Modules linked in:
+CPU: 1 UID: 0 PID: 25189 Comm: syz.2.7336 Not tainted syzkaller #0 PREEMPT 
+Hardware name: linux,dummy-virt (DT)
+pstate: 00402009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : copy_highpage+0x150/0x334 arch/arm64/mm/copypage.c:55
+lr : copy_highpage+0xb4/0x334 arch/arm64/mm/copypage.c:25
+sp : ffff800088053940
+x29: ffff800088053940 x28: ffffc1ffc0acf800 x27: ffff800088053b10
+x26: ffffc1ffc0acf808 x25: ffffc1ffc037b1c0 x24: ffffc1ffc037b1c0
+x23: ffffc1ffc0acf800 x22: ffffc1ffc0acf800 x21: fff000002b3e0000
+x20: fff000000dec7000 x19: ffffc1ffc037b1c0 x18: 0000000000000000
+x17: fff07ffffcffa000 x16: ffff800080008000 x15: 0000000000000001
+x14: 0000000000000000 x13: 0000000000000003 x12: 000000000006d9ad
+x11: 0000000000000000 x10: 0000000000000010 x9 : 0000000000000000
+x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+x5 : ffff800088053b18 x4 : ffff80008032df94 x3 : 00000000ff000000
+x2 : 01ffc00003000001 x1 : 01ffc00003000001 x0 : 01ffc00003000001
+Call trace:
+ try_page_mte_tagging arch/arm64/include/asm/mte.h:93 [inline] (P)
+ copy_highpage+0x150/0x334 arch/arm64/mm/copypage.c:55 (P)
+ copy_mc_highpage include/linux/highmem.h:383 [inline]
+ folio_mc_copy+0x44/0x6c mm/util.c:740
+ __migrate_folio.constprop.0+0xc4/0x23c mm/migrate.c:851
+ migrate_folio+0x1c/0x2c mm/migrate.c:882
+ move_to_new_folio+0x58/0x144 mm/migrate.c:1097
+ migrate_folio_move mm/migrate.c:1370 [inline]
+ migrate_folios_move mm/migrate.c:1719 [inline]
+ migrate_pages_batch+0xaf4/0x1024 mm/migrate.c:1966
+ migrate_pages_sync mm/migrate.c:2023 [inline]
+ migrate_pages+0xb9c/0xcdc mm/migrate.c:2105
+ do_mbind+0x20c/0x4a4 mm/mempolicy.c:1539
+ kernel_mbind mm/mempolicy.c:1682 [inline]
+ __do_sys_mbind mm/mempolicy.c:1756 [inline]
+ __se_sys_mbind mm/mempolicy.c:1752 [inline]
+ __arm64_sys_mbind+0xd0/0xd8 mm/mempolicy.c:1752
+ __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+ invoke_syscall+0x48/0x110 arch/arm64/kernel/syscall.c:49
+ el0_svc_common.constprop.0+0x40/0xe0 arch/arm64/kernel/syscall.c:132
+ do_el0_svc+0x1c/0x28 arch/arm64/kernel/syscall.c:151
+ el0_svc+0x34/0x10c arch/arm64/kernel/entry-common.c:879
+ el0t_64_sync_handler+0xa0/0xe4 arch/arm64/kernel/entry-common.c:898
+ el0t_64_sync+0x1a4/0x1a8 arch/arm64/kernel/entry.S:596
+---[ end trace 0000000000000000 ]---

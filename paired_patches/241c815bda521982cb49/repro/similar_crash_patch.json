@@ -1,0 +1,79 @@
+{
+  "extid": "241c815bda521982cb49",
+  "target_ref": "241c815bda521982cb49",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6e2bda2c192d0244b5a78b787ef20aa10cb319b7",
+      "branch": "linux-6.1",
+      "title": "KASAN: use-after-free Read in diFree",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/jfs/jfs_imap.c"
+      ],
+      "symbols": [
+        "diUnmount",
+        "JFS_IP"
+      ],
+      "patterns": [
+        "use-after-free",
+        "NULL",
+        "null",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "63f7fdf733add82f126ea00e2e48f6eba15ac4b9",
+      "branch": "linux-5.15",
+      "title": "UBSAN: array-index-out-of-bounds in diFree",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/jfs/jfs_imap.c"
+      ],
+      "symbols": [
+        "diSync",
+        "diRead",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "59f3fd30af355dc893e6df9ccb43ace0b9033faa",
+      "branch": "linux-5.15",
+      "title": "KASAN: use-after-free Read in diFree",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "MAINTAINERS"
+      ],
+      "symbols": [],
+      "patterns": [
+        "use-after-free",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "extid": "e441aeeb422763cc5511",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e441aeeb422763cc5511",
+  "bug_title": "KCSAN: data-race in p9_fd_create / p9_fd_create (2)",
+  "bug_status": "auto-obsoleted due to no activity on 2023/09/27 01:59",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KCSAN: data-race in p9_fd_create / p9_fd_create",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "53663f4103ff6738e4697004d6f84864d052333d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b81ca3f66f8d2d8b397c3c1dc5f14e77c2936b1e",
+  "syzkaller-commit": "b81ca3f66f8d2d8b397c3c1dc5f14e77c2936b1e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=148fb707a80000",
+      "saved_to": "/home/lcj/paired_patches/e441aeeb422763cc5511/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f12c32a009b80107",
+      "saved_to": "/home/lcj/paired_patches/e441aeeb422763cc5511/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e441aeeb422763cc5511/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e441aeeb422763cc5511/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

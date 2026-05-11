@@ -1,0 +1,50 @@
+{
+  "extid": "5093ba19745994288b53",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5093ba19745994288b53",
+  "bug_title": "WARNING in __mod_timer",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "debugobject: Prevent init race with static objects",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=63a759694eed61025713b3e14dd827c8548daadc",
+      "hash": "63a759694eed61025713b3e14dd827c8548daadc",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tglx@linutronix.de",
+      "author-name": "Thomas Gleixner",
+      "date": "2023-04-12T07:54:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __mod_timer",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d8ca6dbb8de7923fcfb18e0b0b123f37c3225519",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/409945bc8fab54efa11597029f5c9704bf0cbc22",
+  "syzkaller-commit": "409945bc8fab54efa11597029f5c9704bf0cbc22",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1558fe50c80000",
+      "saved_to": "/home/lcj/paired_patches/5093ba19745994288b53/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=636897a0dac3d81e",
+      "saved_to": "/home/lcj/paired_patches/5093ba19745994288b53/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5093ba19745994288b53/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5093ba19745994288b53/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

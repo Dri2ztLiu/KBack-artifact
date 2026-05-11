@@ -1,0 +1,48 @@
+commit 6b393a1ff1746a1c91bd95cbb2d79b104d8f15ac
+Author: Pavel Begunkov <asml.silence@gmail.com>
+Date:   Sat Jan 16 05:32:29 2021 +0000
+
+    io_uring: fix false positive sqo warning on flush
+    
+    WARNING: CPU: 1 PID: 9094 at fs/io_uring.c:8884
+            io_disable_sqo_submit+0x106/0x130 fs/io_uring.c:8884
+    Call Trace:
+     io_uring_flush+0x28b/0x3a0 fs/io_uring.c:9099
+     filp_close+0xb4/0x170 fs/open.c:1280
+     close_fd+0x5c/0x80 fs/file.c:626
+     __do_sys_close fs/open.c:1299 [inline]
+     __se_sys_close fs/open.c:1297 [inline]
+     __x64_sys_close+0x2f/0xa0 fs/open.c:1297
+     do_syscall_64+0x2d/0x70 arch/x86/entry/common.c:46
+     entry_SYSCALL_64_after_hwframe+0x44/0xa9
+    
+    io_uring's final close() may be triggered by any task not only the
+    creator. It's well handled by io_uring_flush() including SQPOLL case,
+    though a warning in io_disable_sqo_submit() will fallaciously fire by
+    moving this warning out to the only call site that matters.
+    
+    Reported-by: syzbot+2f5d1785dc624932da78@syzkaller.appspotmail.com
+    Signed-off-by: Pavel Begunkov <asml.silence@gmail.com>
+    Signed-off-by: Jens Axboe <axboe@kernel.dk>
+
+diff --git a/fs/io_uring.c b/fs/io_uring.c
+index 5cda878b69cf..616c5f732a26 100644
+--- a/fs/io_uring.c
++++ b/fs/io_uring.c
+@@ -8918,8 +8918,6 @@ static void __io_uring_cancel_task_requests(struct io_ring_ctx *ctx,
+ 
+ static void io_disable_sqo_submit(struct io_ring_ctx *ctx)
+ {
+-	WARN_ON_ONCE(ctx->sqo_task != current);
+-
+ 	mutex_lock(&ctx->uring_lock);
+ 	ctx->sqo_dead = 1;
+ 	mutex_unlock(&ctx->uring_lock);
+@@ -8941,6 +8939,7 @@ static void io_uring_cancel_task_requests(struct io_ring_ctx *ctx,
+ 
+ 	if ((ctx->flags & IORING_SETUP_SQPOLL) && ctx->sq_data) {
+ 		/* for SQPOLL only sqo_task has task notes */
++		WARN_ON_ONCE(ctx->sqo_task != current);
+ 		io_disable_sqo_submit(ctx);
+ 		task = ctx->sq_data->thread;
+ 		atomic_inc(&task->io_uring->in_idle);

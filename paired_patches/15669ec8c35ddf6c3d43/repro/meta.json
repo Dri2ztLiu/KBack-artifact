@@ -1,0 +1,50 @@
+{
+  "extid": "15669ec8c35ddf6c3d43",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=15669ec8c35ddf6c3d43",
+  "bug_title": "kernel BUG in new_curseg (2)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to avoid panic once fallocation fails for pinfile",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=48ea8b200414ac69ea96f4c231f5c7ef1fbeffef",
+      "hash": "48ea8b200414ac69ea96f4c231f5c7ef1fbeffef",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2025-02-11T06:36:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in new_curseg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a64dcfb451e254085a7daee5fe51bf22959d52d3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/43f51a00700e5960fc890e6c3d596846757bf29d",
+  "syzkaller-commit": "43f51a00700e5960fc890e6c3d596846757bf29d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12ae1bdf980000",
+      "saved_to": "/home/lcj/paired_patches/15669ec8c35ddf6c3d43/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4b1ef007dfb9422f",
+      "saved_to": "/home/lcj/paired_patches/15669ec8c35ddf6c3d43/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12be72a4580000",
+      "saved_to": "/home/lcj/paired_patches/15669ec8c35ddf6c3d43/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=166931b0580000",
+      "saved_to": "/home/lcj/paired_patches/15669ec8c35ddf6c3d43/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

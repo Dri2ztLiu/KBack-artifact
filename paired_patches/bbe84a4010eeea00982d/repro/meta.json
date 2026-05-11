@@ -1,0 +1,50 @@
+{
+  "extid": "bbe84a4010eeea00982d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bbe84a4010eeea00982d",
+  "bug_title": "KASAN: slab-use-after-free Read in nfc_alloc_send_skb",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "nfc: llcp_core: Hold a ref to llcp_local->dev when holding a ref to llcp_local",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c95f919567d6f1914f13350af61a1b044ac85014",
+      "hash": "c95f919567d6f1914f13350af61a1b044ac85014",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "code@siddh.me",
+      "author-name": "Siddh Raman Pant",
+      "date": "2023-12-19T17:49:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in nfc_alloc_send_skb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "aea6bf908d730b01bd264a8821159db9463c111c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/500bfdc41735bc8d617cbfd4f1ab6b5980c8f1e5",
+  "syzkaller-commit": "500bfdc41735bc8d617cbfd4f1ab6b5980c8f1e5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1193c37f680000",
+      "saved_to": "/home/lcj/paired_patches/bbe84a4010eeea00982d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=93ac5233c138249e",
+      "saved_to": "/home/lcj/paired_patches/bbe84a4010eeea00982d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=165d67f3680000",
+      "saved_to": "/home/lcj/paired_patches/bbe84a4010eeea00982d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1336f6eb680000",
+      "saved_to": "/home/lcj/paired_patches/bbe84a4010eeea00982d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "6f98de741f7dbbfc4ccb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6f98de741f7dbbfc4ccb",
+  "bug_title": "memory leak in kcm_sendmsg (2)",
+  "bug_status": "fixed on 2023/12/21 03:45",
+  "fix_commits": [
+    {
+      "title": "kcm: Fix memory leak in error path of kcm_sendmsg()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c821a88bd720b0046433173185fd841a100d44ad",
+      "hash": "c821a88bd720b0046433173185fd841a100d44ad",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "syoshida@redhat.com",
+      "author-name": "Shigeru Yoshida",
+      "date": "2023-09-09T17:03:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in kcm_sendmsg",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "18b44bc5a67275641fb26f2c54ba7eef80ac5950",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6756545c28028f343346a8f93b5ca6d0664a598c",
+  "syzkaller-commit": "6756545c28028f343346a8f93b5ca6d0664a598c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=169aa6a1a80000",
+      "saved_to": "/home/lcj/paired_patches/6f98de741f7dbbfc4ccb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8f187978508424dc",
+      "saved_to": "/home/lcj/paired_patches/6f98de741f7dbbfc4ccb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13de8306a80000",
+      "saved_to": "/home/lcj/paired_patches/6f98de741f7dbbfc4ccb/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17d3d94ea80000",
+      "saved_to": "/home/lcj/paired_patches/6f98de741f7dbbfc4ccb/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

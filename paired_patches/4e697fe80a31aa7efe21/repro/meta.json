@@ -1,0 +1,50 @@
+{
+  "extid": "4e697fe80a31aa7efe21",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4e697fe80a31aa7efe21",
+  "bug_title": "WARNING in kvm_mmu_notifier_invalidate_range_start",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "hugetlbfs: fix off-by-one error in hugetlb_vmdelete_list()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d6aba4c8e20d4d2bf65d589953f6d891c178f3a3",
+      "hash": "d6aba4c8e20d4d2bf65d589953f6d891c178f3a3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "seanjc@google.com",
+      "author-name": "Sean Christopherson",
+      "date": "2022-01-14T22:08:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in kvm_mmu_notifier_invalidate_range_start",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "ea586a076e8aa606c59b66d86660590f18354b11",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6caa12e443d9f79aa2df67d44cdc6163eaa1e97f",
+  "syzkaller-commit": "6caa12e443d9f79aa2df67d44cdc6163eaa1e97f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11bc680db00000",
+      "saved_to": "/home/lcj/paired_patches/4e697fe80a31aa7efe21/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a9c4e3dde2c568fb",
+      "saved_to": "/home/lcj/paired_patches/4e697fe80a31aa7efe21/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12d1aedbb00000",
+      "saved_to": "/home/lcj/paired_patches/4e697fe80a31aa7efe21/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15724985b00000",
+      "saved_to": "/home/lcj/paired_patches/4e697fe80a31aa7efe21/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

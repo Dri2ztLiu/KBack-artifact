@@ -1,0 +1,50 @@
+{
+  "extid": "53ed3a6440173ddbf499",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=53ed3a6440173ddbf499",
+  "bug_title": "WARNING in __nf_unregister_net_hook (8)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "netfilter: nf_tables: don't unregister hook when table is dormant",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=688c15017d5cd5aac882400782e7213d40dc3556",
+      "hash": "688c15017d5cd5aac882400782e7213d40dc3556",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2025-04-01T12:36:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __nf_unregister_net_hook",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4e82c87058f45e79eeaa4d5bcc3b38dd3dce7209",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3999433718e98ddd68ab6a2be65b8b3df71f407",
+  "syzkaller-commit": "d3999433718e98ddd68ab6a2be65b8b3df71f407",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1098c7b0580000",
+      "saved_to": "/home/lcj/paired_patches/53ed3a6440173ddbf499/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f8721be6a767792",
+      "saved_to": "/home/lcj/paired_patches/53ed3a6440173ddbf499/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/53ed3a6440173ddbf499/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/53ed3a6440173ddbf499/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

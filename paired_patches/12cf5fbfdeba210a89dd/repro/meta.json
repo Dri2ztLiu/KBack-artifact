@@ -1,0 +1,50 @@
+{
+  "extid": "12cf5fbfdeba210a89dd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=12cf5fbfdeba210a89dd",
+  "bug_title": "general protection fault in crypto_destroy_tfm",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "crypto: api - check for ERR pointers in crypto_destroy_tfm()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=83681f2bebb34dbb3f03fecd8f570308ab8b7c2c",
+      "hash": "83681f2bebb34dbb3f03fecd8f570308ab8b7c2c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ardb@kernel.org",
+      "author-name": "Ard Biesheuvel",
+      "date": "2021-03-02T20:33:03Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in crypto_destroy_tfm",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "d93ef301644ee82925bce1d57fdfe70475dc0bae",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9d751681c8ca1ef150e96f3c1e18bdcaab99c9b9",
+  "syzkaller-commit": "9d751681c8ca1ef150e96f3c1e18bdcaab99c9b9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1001a2ead00000",
+      "saved_to": "/home/lcj/paired_patches/12cf5fbfdeba210a89dd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7d4510bb8ab81ccd",
+      "saved_to": "/home/lcj/paired_patches/12cf5fbfdeba210a89dd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/12cf5fbfdeba210a89dd/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16151052d00000",
+      "saved_to": "/home/lcj/paired_patches/12cf5fbfdeba210a89dd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

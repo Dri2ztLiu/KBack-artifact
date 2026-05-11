@@ -1,0 +1,55 @@
+{
+  "extid": "9b9124ae9b12d5af5d95",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9b9124ae9b12d5af5d95",
+  "bug_title": "KMSAN: kernel-infoleak in vmci_host_unlocked_ioctl (3)",
+  "bug_status": "fixed on 2025/09/09 21:20",
+  "fix_commits": [
+    {
+      "title": "vmci: Prevent the dispatching of uninitialized payloads",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8282013b56059c34590ac0245c74ea7ed7642924",
+      "hash": "8282013b56059c34590ac0245c74ea7ed7642924",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lizhi.xu@windriver.com",
+      "author-name": "Lizhi Xu",
+      "date": "2025-07-03T07:53:34Z"
+    },
+    {
+      "title": "vmci: Prevent the dispatching of uninitialized payloads",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: kernel-infoleak in vmci_host_unlocked_ioctl",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "08215f5486ec4d7c39cf14987ffb133e1e1f6c10",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/5f4b362dd3e6002bc038df522a090cd629d834a8",
+  "syzkaller-commit": "5f4b362dd3e6002bc038df522a090cd629d834a8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14d5e5d4580000",
+      "saved_to": "/home/lcj/paired_patches/9b9124ae9b12d5af5d95/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=61539536677af51c",
+      "saved_to": "/home/lcj/paired_patches/9b9124ae9b12d5af5d95/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1485690c580000",
+      "saved_to": "/home/lcj/paired_patches/9b9124ae9b12d5af5d95/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17f7fd70580000",
+      "saved_to": "/home/lcj/paired_patches/9b9124ae9b12d5af5d95/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

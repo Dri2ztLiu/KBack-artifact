@@ -1,0 +1,50 @@
+{
+  "extid": "34b68f850391452207df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=34b68f850391452207df",
+  "bug_title": "WARNING in current_check_refer_path",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "landlock: Handle weird files",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=49440290a0935f428a1e43a5ac8dc275a647ff80",
+      "hash": "49440290a0935f428a1e43a5ac8dc275a647ff80",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mic@digikod.net",
+      "author-name": "Mickaël Salaün",
+      "date": "2025-01-10T15:39:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in current_check_refer_path",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c2ee9f594da826bea183ed14f2cc029c719bf4da",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/15fa29791c1707abd7faed4110e284d0ccb72fae",
+  "syzkaller-commit": "15fa29791c1707abd7faed4110e284d0ccb72fae",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=144f2287980000",
+      "saved_to": "/home/lcj/paired_patches/34b68f850391452207df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fc6f8ce8c5369043",
+      "saved_to": "/home/lcj/paired_patches/34b68f850391452207df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16e748a7980000",
+      "saved_to": "/home/lcj/paired_patches/34b68f850391452207df/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=177bcc30580000",
+      "saved_to": "/home/lcj/paired_patches/34b68f850391452207df/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

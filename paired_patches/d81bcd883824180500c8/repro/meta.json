@@ -1,0 +1,50 @@
+{
+  "extid": "d81bcd883824180500c8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=d81bcd883824180500c8",
+  "bug_title": "KASAN: slab-out-of-bounds Read in dsa_user_changeupper",
+  "bug_status": "fixed on 2024/01/30 15:47",
+  "fix_commits": [
+    {
+      "title": "net: dsa: fix netdev_priv() dereference before check on non-DSA netdevice events",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=844f104790bd69c2e4dbb9ee3eba46fde1fcea7b",
+      "hash": "844f104790bd69c2e4dbb9ee3eba46fde1fcea7b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "vladimir.oltean@nxp.com",
+      "author-name": "Vladimir Oltean",
+      "date": "2024-01-10T00:33:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in dsa_user_changeupper",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "052d534373b7ed33712a63d5e17b2b6cdbce84fd",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/551587c192ecb4df26fcdab775ed145ee69c07d4",
+  "syzkaller-commit": "551587c192ecb4df26fcdab775ed145ee69c07d4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=135926fbe80000",
+      "saved_to": "/home/lcj/paired_patches/d81bcd883824180500c8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=878a2a4af11180a7",
+      "saved_to": "/home/lcj/paired_patches/d81bcd883824180500c8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=169e3ab9e80000",
+      "saved_to": "/home/lcj/paired_patches/d81bcd883824180500c8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=100266b9e80000",
+      "saved_to": "/home/lcj/paired_patches/d81bcd883824180500c8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

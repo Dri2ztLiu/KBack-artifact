@@ -1,0 +1,77 @@
+{
+  "extid": "478f2c1a6f0f447a46bb",
+  "target_ref": "478f2c1a6f0f447a46bb",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "bb9c90ab9c5a1a933a0dfd302a3fde73642b2b06",
+      "branch": "linux-6.6",
+      "title": "WARNING in udf_process_sequence",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "1a11201668e8635602577dcf06f2e96c591d8819",
+      "branch": "linux-6.1",
+      "title": "WARNING in udf_process_sequence",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/udf/super.c"
+      ],
+      "symbols": [
+        "udf_load_logicalvol",
+        "udf_load_logicalvol",
+        "if",
+        "udf_err"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "1a11201668e8635602577dcf06f2e96c591d8819",
+      "branch": "linux-5.15",
+      "title": "WARNING in udf_process_sequence",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/udf/super.c"
+      ],
+      "symbols": [
+        "udf_load_logicalvol",
+        "udf_load_logicalvol",
+        "if",
+        "udf_err"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

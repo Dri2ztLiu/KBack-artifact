@@ -1,0 +1,50 @@
+{
+  "extid": "bb950e68b400ab4f65f8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bb950e68b400ab4f65f8",
+  "bug_title": "INFO: rcu detected stall in snd_seq_write (2)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "ALSA: seq: Set upper limit of processed events",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6fadb494a638d8b8a55864ecc6ac58194f03f327",
+      "hash": "6fadb494a638d8b8a55864ecc6ac58194f03f327",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2021-12-07T16:51:46Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: rcu detected stall in snd_seq_write",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git",
+  "kernel-source-commit": "bdcc9f6a568275aed4cc32fd2312432d2ff1b704",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/098b5d530648147c744a7c2eb8b78c1307f9d3ce",
+  "syzkaller-commit": "098b5d530648147c744a7c2eb8b78c1307f9d3ce",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11515186b00000",
+      "saved_to": "/home/lcj/paired_patches/bb950e68b400ab4f65f8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4b504bcb4c507265",
+      "saved_to": "/home/lcj/paired_patches/bb950e68b400ab4f65f8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bb950e68b400ab4f65f8/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16e913bab00000",
+      "saved_to": "/home/lcj/paired_patches/bb950e68b400ab4f65f8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

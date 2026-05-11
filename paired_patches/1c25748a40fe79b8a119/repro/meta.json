@@ -1,0 +1,50 @@
+{
+  "extid": "1c25748a40fe79b8a119",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1c25748a40fe79b8a119",
+  "bug_title": "WARNING in ni_fiemap",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: Fix warning in ni_fiemap",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2705dd3d16d1000f1fd8193d82447065de8c899",
+      "hash": "e2705dd3d16d1000f1fd8193d82447065de8c899",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "almaz.alexandrovich@paragon-software.com",
+      "author-name": "Konstantin Komarov",
+      "date": "2024-10-08T07:48:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ni_fiemap",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d7a5aa4b3c007fae50405ca75c40258d90300e96",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e4bacdaf3417006ad6aa0d911a44b49bb25a6e1a",
+  "syzkaller-commit": "e4bacdaf3417006ad6aa0d911a44b49bb25a6e1a",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11751a05980000",
+      "saved_to": "/home/lcj/paired_patches/1c25748a40fe79b8a119/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7229118d88b4a71b",
+      "saved_to": "/home/lcj/paired_patches/1c25748a40fe79b8a119/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1651b6d5980000",
+      "saved_to": "/home/lcj/paired_patches/1c25748a40fe79b8a119/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1307f583980000",
+      "saved_to": "/home/lcj/paired_patches/1c25748a40fe79b8a119/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

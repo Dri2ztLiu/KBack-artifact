@@ -1,0 +1,62 @@
+{
+  "extid": "253cd2d2491df77c93ac",
+  "target_ref": "253cd2d2491df77c93ac",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6ef09cdc5ba0f93826c09d810c141a8d103a80fc",
+      "branch": "linux-6.1",
+      "title": "KASAN: slab-out-of-bounds Read in cfg80211_wext_freq",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/wireless/scan.c"
+      ],
+      "symbols": [
+        "cfg80211_wext_siwscan",
+        "if",
+        "if",
+        "if"
+      ],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "4878aadf2d1519f3731ae300ce1fef78fc63ee30",
+      "branch": "linux-5.15",
+      "title": "KASAN: slab-out-of-bounds Read in cfg80211_wext_freq",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

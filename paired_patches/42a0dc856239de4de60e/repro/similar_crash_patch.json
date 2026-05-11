@@ -1,0 +1,72 @@
+{
+  "extid": "42a0dc856239de4de60e",
+  "target_ref": "42a0dc856239de4de60e",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "3c8c23092588a23bf1856a64f58c37f477a413be",
+      "branch": "linux-4.19",
+      "title": "KASAN: use-after-free Read in ipvlan_queue_xmit (2)",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "use-after-free",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "13d2ce42de8cb98ff952f8de6307f896203854c2",
+      "branch": "linux-4.19",
+      "title": "KASAN: slab-out-of-bounds Read in ipvlan_queue_xmit",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "7878a41b6cc1ada4bb804eee96beb2c54322806c",
+      "branch": "linux-4.14",
+      "title": "KASAN: slab-out-of-bounds Read in ipvlan_queue_xmit",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN",
+        "slab"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

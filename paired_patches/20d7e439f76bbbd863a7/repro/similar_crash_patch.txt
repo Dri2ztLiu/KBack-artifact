@@ -1,0 +1,65 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  fs/ext4/super.c (1)
+TOP_SYMBOLS:
+  ext4_handle_error (1), smp_wmb (1)
+TOP_KEYWORDS:
+  deadlock (1), rcu (1), WARN (1), ext4 (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ext4_handle_error)
+  - viewcode(ref=<target_release>, path=fs/ext4/super.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=1, skipped=2
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-5.15
+fix_commit: d3476f3dad4ad68ae5f6b008ea6591d1520da5d8
+bug_url: https://syzkaller.appspot.com/bug?extid=a2840e8b8ad9747c05d5
+title: WARNING in rcu_sync_dtor
+relevance_score: 0
+
+ fs/ext4/super.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+diff --git a/fs/ext4/super.c b/fs/ext4/super.c
+index 89d9b34d787a..58423e6bf3d0 100644
+--- a/fs/ext4/super.c
++++ b/fs/ext4/super.c
+@@ -735,11 +735,12 @@ static void ext4_handle_error(struct super_block *sb, bool force_ro, int error,
+ 
+ 	ext4_msg(sb, KERN_CRIT, "Remounting filesystem read-only");
+ 	/*
+-	 * Make sure updated value of ->s_mount_flags will be visible before
+-	 * ->s_flags update
++	 * EXT4_FLAGS_SHUTDOWN was set which stops all filesystem
++	 * modifications. We don't set SB_RDONLY because that requires
++	 * sb->s_umount semaphore and setting it without proper remount
++	 * procedure is confusing code such as freeze_super() leading to
++	 * deadlocks and other problems.
+ 	 */
+-	smp_wmb();
+-	sb->s_flags |= SB_RDONLY;
+ }
+ 
+ static void update_super_work(struct work_struct *work)
+================================================================================

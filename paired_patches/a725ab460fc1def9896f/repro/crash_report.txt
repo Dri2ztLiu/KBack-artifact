@@ -1,0 +1,48 @@
+exFAT-fs (loop0): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+exFAT-fs (loop0): Medium has reported failures. Some data may be lost.
+exFAT-fs (loop0): failed to load upcase table (idx : 0x00010000, chksum : 0xe5674ec2, utbl_chksum : 0xe619d30d)
+------------[ cut here ]------------
+rtmutex deadlock detected
+WARNING: CPU: 1 PID: 6147 at kernel/locking/rtmutex.c:1674 rt_mutex_handle_deadlock kernel/locking/rtmutex.c:1674 [inline]
+WARNING: CPU: 1 PID: 6147 at kernel/locking/rtmutex.c:1674 __rt_mutex_slowlock kernel/locking/rtmutex.c:1734 [inline]
+WARNING: CPU: 1 PID: 6147 at kernel/locking/rtmutex.c:1674 __rt_mutex_slowlock_locked+0xed2/0x25e0 kernel/locking/rtmutex.c:1760
+Modules linked in:
+CPU: 1 UID: 0 PID: 6147 Comm: syz.0.17 Tainted: G        W           syzkaller #0 PREEMPT_{RT,(full)} 
+Tainted: [W]=WARN
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+RIP: 0010:rt_mutex_handle_deadlock kernel/locking/rtmutex.c:1674 [inline]
+RIP: 0010:__rt_mutex_slowlock kernel/locking/rtmutex.c:1734 [inline]
+RIP: 0010:__rt_mutex_slowlock_locked+0xed2/0x25e0 kernel/locking/rtmutex.c:1760
+Code: 7c 24 20 dd 4c 8b b4 24 98 00 00 00 0f 85 fd 0a 00 00 48 8b 7c 24 10 e8 2c ee 5d 09 90 48 c7 c7 00 ed 0a 8b e8 df 89 e7 ff 90 <0f> 0b 90 90 48 8b 9c 24 80 00 00 00 43 80 3c 3e 00 74 08 4c 89 e7
+RSP: 0018:ffffc90003f6f840 EFLAGS: 00010246
+RAX: 98a8314600ad2b00 RBX: ffff88802acb2860 RCX: ffff88802acb1dc0
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: ffffc90003f6fa30 R08: 0000000000000000 R09: 0000000000000000
+R10: dffffc0000000000 R11: ffffed1017124863 R12: ffff88802acb34e0
+R13: ffff88802acb1dd8 R14: 1ffff1100559669c R15: dffffc0000000000
+FS:  0000555562c1e500(0000) GS:ffff8881269c5000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 00000000409d0000 CR4: 00000000003526f0
+Call Trace:
+ <TASK>
+ rt_mutex_slowlock+0xb5/0x160 kernel/locking/rtmutex.c:1800
+ __rt_mutex_lock kernel/locking/rtmutex.c:1815 [inline]
+ rwbase_write_lock+0x14f/0x750 kernel/locking/rwbase_rt.c:244
+ inode_lock_nested include/linux/fs.h:914 [inline]
+ vfs_rename+0x68f/0xf00 fs/namei.c:5092
+ do_renameat2+0x6ce/0xa80 fs/namei.c:5278
+ __do_sys_renameat2 fs/namei.c:5312 [inline]
+ __se_sys_renameat2 fs/namei.c:5309 [inline]
+ __x64_sys_renameat2+0xce/0xe0 fs/namei.c:5309
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xfa/0x3b0 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f5a9fd9ebe9
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc404e6a38 EFLAGS: 00000246 ORIG_RAX: 000000000000013c
+RAX: ffffffffffffffda RBX: 00007f5a9ffc5fa0 RCX: 00007f5a9fd9ebe9
+RDX: 0000000000000004 RSI: 00002000000001c0 RDI: 0000000000000004
+RBP: 00007f5a9fe21e19 R08: 0000000000000004 R09: 0000000000000000
+R10: 0000200000000140 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f5a9ffc5fa0 R14: 00007f5a9ffc5fa0 R15: 0000000000000005
+ </TASK>

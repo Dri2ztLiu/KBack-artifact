@@ -1,0 +1,50 @@
+{
+  "extid": "204a4382fcb3311f3858",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=204a4382fcb3311f3858",
+  "bug_title": "KASAN: slab-use-after-free Read in page_pool_put_unrefed_netmem",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "page_pool: Fix use-after-free in page_pool_recycle_in_ring",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=271683bb2cf32e5126c592b5d5e6a756fa374fd9",
+      "hash": "271683bb2cf32e5126c592b5d5e6a756fa374fd9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dongchenchen2@huawei.com",
+      "author-name": "Dong Chenchen",
+      "date": "2025-05-27T11:41:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in page_pool_put_unrefed_netmem",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git",
+  "kernel-source-commit": "dfa94ce54f4139c893b9c4ec17df6f7c6a7515d3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13ed7af8580000",
+      "saved_to": "/home/lcj/paired_patches/204a4382fcb3311f3858/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6c532525a32eb57d",
+      "saved_to": "/home/lcj/paired_patches/204a4382fcb3311f3858/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/204a4382fcb3311f3858/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/204a4382fcb3311f3858/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

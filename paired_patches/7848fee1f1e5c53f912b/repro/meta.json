@@ -1,0 +1,50 @@
+{
+  "extid": "7848fee1f1e5c53f912b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7848fee1f1e5c53f912b",
+  "bug_title": "WARNING in __proc_create (3)",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "afs: Fix the maximum cell name length",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fd56ad6e7c90ac2bddb0741c6b248c8c5d56ac8",
+      "hash": "8fd56ad6e7c90ac2bddb0741c6b248c8c5d56ac8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2025-01-06T16:21:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __proc_create",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "059dd502b263d8a4e2a84809cf1068d6a3905e6f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=166ecac4580000",
+      "saved_to": "/home/lcj/paired_patches/7848fee1f1e5c53f912b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c078001e66e4a17e",
+      "saved_to": "/home/lcj/paired_patches/7848fee1f1e5c53f912b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1755b0b0580000",
+      "saved_to": "/home/lcj/paired_patches/7848fee1f1e5c53f912b/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=165ac6df980000",
+      "saved_to": "/home/lcj/paired_patches/7848fee1f1e5c53f912b/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

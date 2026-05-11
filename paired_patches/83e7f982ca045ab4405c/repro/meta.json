@@ -1,0 +1,50 @@
+{
+  "extid": "83e7f982ca045ab4405c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=83e7f982ca045ab4405c",
+  "bug_title": "possible deadlock in force_sig_info_to_task",
+  "bug_status": "fixed on 2024/05/23 00:16",
+  "fix_commits": [
+    {
+      "title": "x86/mm: Remove broken vsyscall emulation code from the page fault code",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=02b670c1f88e78f42a6c5aee155c7b26960ca054",
+      "hash": "02b670c1f88e78f42a6c5aee155c7b26960ca054",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "torvalds@linux-foundation.org",
+      "author-name": "Linus Torvalds",
+      "date": "2024-04-29T08:00:51Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in force_sig_info_to_task",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5eb4573ea63d0c83bf58fb7c243fc2c2b6966c02",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/07b455f928ae5c2cd07f4d61c1b499f56ea3dd08",
+  "syzkaller-commit": "07b455f928ae5c2cd07f4d61c1b499f56ea3dd08",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17a48517180000",
+      "saved_to": "/home/lcj/paired_patches/83e7f982ca045ab4405c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3d46aa9d7a44f40d",
+      "saved_to": "/home/lcj/paired_patches/83e7f982ca045ab4405c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13a1cd27180000",
+      "saved_to": "/home/lcj/paired_patches/83e7f982ca045ab4405c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=120f79ef180000",
+      "saved_to": "/home/lcj/paired_patches/83e7f982ca045ab4405c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

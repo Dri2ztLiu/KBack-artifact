@@ -1,0 +1,50 @@
+{
+  "extid": "412dea214d8baa3f7483",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=412dea214d8baa3f7483",
+  "bug_title": "UBSAN: array-index-out-of-bounds in dbAdjTree (2)",
+  "bug_status": "fixed on 2024/12/16 09:50",
+  "fix_commits": [
+    {
+      "title": "jfs: add a check to prevent array-index-out-of-bounds in dbAdjTree",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a174706ba4dad895c40b1d2277bade16dfacdcd9",
+      "hash": "a174706ba4dad895c40b1d2277bade16dfacdcd9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "niharchaithanya@gmail.com",
+      "author-name": "Nihar Chaithanya",
+      "date": "2024-10-08T20:21:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in dbAdjTree",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d7a5aa4b3c007fae50405ca75c40258d90300e96",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e1c76ab230ba9925a55290523b8ec832399f9ba3",
+  "syzkaller-commit": "e1c76ab230ba9925a55290523b8ec832399f9ba3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15ba2d6b980000",
+      "saved_to": "/home/lcj/paired_patches/412dea214d8baa3f7483/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=92c0312151c4e32e",
+      "saved_to": "/home/lcj/paired_patches/412dea214d8baa3f7483/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=101c95f5980000",
+      "saved_to": "/home/lcj/paired_patches/412dea214d8baa3f7483/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=153aefd3980000",
+      "saved_to": "/home/lcj/paired_patches/412dea214d8baa3f7483/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

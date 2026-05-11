@@ -1,0 +1,50 @@
+{
+  "extid": "4793f6096d174c90b4f7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=4793f6096d174c90b4f7",
+  "bug_title": "possible deadlock in __f2fs_ioctl",
+  "bug_status": "fixed on 2023/01/11 16:14",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to avoid potential deadlock",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ca8b201f28547e28343a6f00a6e91fa8c09572fe",
+      "hash": "ca8b201f28547e28343a6f00a6e91fa8c09572fe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2025-10-14T11:47:35Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in __f2fs_ioctl",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "5a41237ad1d4b62008f93163af1d9b1da90729d8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/48bc529a18de54dddab161d995fc3abd85a670a8",
+  "syzkaller-commit": "48bc529a18de54dddab161d995fc3abd85a670a8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1525a13c480000",
+      "saved_to": "/home/lcj/paired_patches/4793f6096d174c90b4f7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ebc110f9741920ed",
+      "saved_to": "/home/lcj/paired_patches/4793f6096d174c90b4f7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4793f6096d174c90b4f7/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/4793f6096d174c90b4f7/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

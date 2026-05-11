@@ -1,0 +1,50 @@
+{
+  "extid": "f83a1df1ed4f67e8d8ad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f83a1df1ed4f67e8d8ad",
+  "bug_title": "KMSAN: kernel-usb-infoleak in hif_usb_send",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "ath9k_htc: fix uninit value bugs",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d1e0df1c57bd30871dd1c855742a7c346dbca853",
+      "hash": "d1e0df1c57bd30871dd1c855742a7c346dbca853",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2022-01-19T08:52:37Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: kernel-usb-infoleak in hif_usb_send",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "29ad81a1074aa0a510cebb1f61eae68a8f46e11c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4c37c133e4bf703d023995535f1e264d8658e08e",
+  "syzkaller-commit": "4c37c133e4bf703d023995535f1e264d8658e08e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=148395b6d00000",
+      "saved_to": "/home/lcj/paired_patches/f83a1df1ed4f67e8d8ad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c8e3b38ca92283e",
+      "saved_to": "/home/lcj/paired_patches/f83a1df1ed4f67e8d8ad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11de8a5cd00000",
+      "saved_to": "/home/lcj/paired_patches/f83a1df1ed4f67e8d8ad/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=167f3ea8d00000",
+      "saved_to": "/home/lcj/paired_patches/f83a1df1ed4f67e8d8ad/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

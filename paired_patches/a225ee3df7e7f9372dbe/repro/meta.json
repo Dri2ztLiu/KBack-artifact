@@ -1,0 +1,50 @@
+{
+  "extid": "a225ee3df7e7f9372dbe",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a225ee3df7e7f9372dbe",
+  "bug_title": "inconsistent lock state in valid_state (2)",
+  "bug_status": "fixed on 2024/06/11 03:41",
+  "fix_commits": [
+    {
+      "title": "dma-buf/sw-sync: don't enable IRQ from sync_print_obj()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b794918961516f667b0c745aebdfebbb8a98df39",
+      "hash": "b794918961516f667b0c745aebdfebbb8a98df39",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2024-05-05T14:08:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "inconsistent lock state in valid_state",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cd97950cbcabe662cd8a9fd0a08a247c1ea1fb28",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fdb4c10ce6d49163d1f57463d7ca0ae22b71e765",
+  "syzkaller-commit": "fdb4c10ce6d49163d1f57463d7ca0ae22b71e765",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=103a055c980000",
+      "saved_to": "/home/lcj/paired_patches/a225ee3df7e7f9372dbe/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=998a12fcfbfea370",
+      "saved_to": "/home/lcj/paired_patches/a225ee3df7e7f9372dbe/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=174e4fbc980000",
+      "saved_to": "/home/lcj/paired_patches/a225ee3df7e7f9372dbe/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12a2a55c980000",
+      "saved_to": "/home/lcj/paired_patches/a225ee3df7e7f9372dbe/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

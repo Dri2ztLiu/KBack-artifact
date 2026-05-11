@@ -1,0 +1,50 @@
+{
+  "extid": "779559d6503f3a56213d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=779559d6503f3a56213d",
+  "bug_title": "WARNING: ODEBUG bug in net_dm_cmd_trace",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "drop_monitor: Perform cleanup upon probe registration failure",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9398e9c0b1d44eeb700e9e766c02bcc765c82570",
+      "hash": "9398e9c0b1d44eeb700e9e766c02bcc765c82570",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "idosch@nvidia.com",
+      "author-name": "Ido Schimmel",
+      "date": "2021-03-10T10:28:01Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING: ODEBUG bug in net_dm_cmd_trace",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "d310ec03a34e92a77302edb804f7d68ee4f01ba0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/06ed56cd22e24a55c40d152880b66b108834c8f2",
+  "syzkaller-commit": "06ed56cd22e24a55c40d152880b66b108834c8f2",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10fce02ad00000",
+      "saved_to": "/home/lcj/paired_patches/779559d6503f3a56213d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2b8307379601586a",
+      "saved_to": "/home/lcj/paired_patches/779559d6503f3a56213d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/779559d6503f3a56213d/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12ad095cd00000",
+      "saved_to": "/home/lcj/paired_patches/779559d6503f3a56213d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

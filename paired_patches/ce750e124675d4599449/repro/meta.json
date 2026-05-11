@@ -1,0 +1,50 @@
+{
+  "extid": "ce750e124675d4599449",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=ce750e124675d4599449",
+  "bug_title": "KASAN: slab-use-after-free Read in pvr2_context_set_notify (2)",
+  "bug_status": "fixed on 2024/04/10 03:59",
+  "fix_commits": [
+    {
+      "title": "media: pvrusb2: fix uaf in pvr2_context_set_notify",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0a0b79ea55de8514e1750884e5fec77f9fdd01ee",
+      "hash": "0a0b79ea55de8514e1750884e5fec77f9fdd01ee",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2024-02-16T07:30:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in pvr2_context_set_notify",
+  "kernel-source-git": "https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git",
+  "kernel-source-commit": "f1a27f081c1fa1eeebf38406e45f29636114470f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/373b66cd2ba1fd05c72d0bbe16141fb287fe2eb3",
+  "syzkaller-commit": "373b66cd2ba1fd05c72d0bbe16141fb287fe2eb3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=130ab337e80000",
+      "saved_to": "/home/lcj/paired_patches/ce750e124675d4599449/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=986ce9258c6856ff",
+      "saved_to": "/home/lcj/paired_patches/ce750e124675d4599449/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=117b00afe80000",
+      "saved_to": "/home/lcj/paired_patches/ce750e124675d4599449/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=116a895be80000",
+      "saved_to": "/home/lcj/paired_patches/ce750e124675d4599449/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

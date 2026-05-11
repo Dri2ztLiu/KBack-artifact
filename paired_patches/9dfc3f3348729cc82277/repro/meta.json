@@ -1,0 +1,50 @@
+{
+  "extid": "9dfc3f3348729cc82277",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9dfc3f3348729cc82277",
+  "bug_title": "WARNING in default_device_exit_batch (4)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "bonding: restore bond's IFF_SLAVE flag if a non-eth dev enslave fails",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e667d469098671261d558be0cd93dca4d285ce1e",
+      "hash": "e667d469098671261d558be0cd93dca4d285ce1e",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "razor@blackwall.org",
+      "author-name": "Nikolay Aleksandrov",
+      "date": "2023-03-15T11:18:41Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in default_device_exit_batch",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "5b7c4cabbb65f5c469464da6c5f614cbd7f730f2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "syzkaller-commit": "f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11897cb0c80000",
+      "saved_to": "/home/lcj/paired_patches/9dfc3f3348729cc82277/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c74c134cc415a89b",
+      "saved_to": "/home/lcj/paired_patches/9dfc3f3348729cc82277/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11c52674c80000",
+      "saved_to": "/home/lcj/paired_patches/9dfc3f3348729cc82277/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13158898c80000",
+      "saved_to": "/home/lcj/paired_patches/9dfc3f3348729cc82277/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

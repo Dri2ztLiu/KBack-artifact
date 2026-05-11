@@ -1,0 +1,50 @@
+{
+  "extid": "0154da2d403396b2bd59",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0154da2d403396b2bd59",
+  "bug_title": "KASAN: slab-use-after-free Read in steam_input_open",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "HID: hid-steam: Fix use-after-free when detaching device",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e53fc232a65f7488ab75d03a5b95f06aaada7262",
+      "hash": "e53fc232a65f7488ab75d03a5b95f06aaada7262",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "vi@endrift.com",
+      "author-name": "Vicki Pfau",
+      "date": "2025-02-27T23:41:33Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in steam_input_open",
+  "kernel-source-git": "https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git",
+  "kernel-source-commit": "811d22141369d572319ee3350ff8b40fa05850f8",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/831e3629115be4f5e68e6e0df3a5b07eed26daa4",
+  "syzkaller-commit": "831e3629115be4f5e68e6e0df3a5b07eed26daa4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15d6f078580000",
+      "saved_to": "/home/lcj/paired_patches/0154da2d403396b2bd59/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f429368eda610a89",
+      "saved_to": "/home/lcj/paired_patches/0154da2d403396b2bd59/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14f0ca54580000",
+      "saved_to": "/home/lcj/paired_patches/0154da2d403396b2bd59/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=10d0fda8580000",
+      "saved_to": "/home/lcj/paired_patches/0154da2d403396b2bd59/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

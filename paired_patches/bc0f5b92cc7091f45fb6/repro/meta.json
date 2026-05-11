@@ -1,0 +1,50 @@
+{
+  "extid": "bc0f5b92cc7091f45fb6",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bc0f5b92cc7091f45fb6",
+  "bug_title": "WARNING in _ieee80211_change_chanctx",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "wifi: nl80211: disallow setting special AP channel widths",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=23daf1b4c91db9b26f8425cc7039cf96d22ccbfe",
+      "hash": "23daf1b4c91db9b26f8425cc7039cf96d22ccbfe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "johannes.berg@intel.com",
+      "author-name": "Johannes Berg",
+      "date": "2024-05-15T12:16:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in _ieee80211_change_chanctx",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "795c58e4c7fc6163d8fb9f2baa86cfe898fa4b19",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/dc6bbff0c2fe403c39d8a1d057f668088b09069f",
+  "syzkaller-commit": "dc6bbff0c2fe403c39d8a1d057f668088b09069f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12fc99b9980000",
+      "saved_to": "/home/lcj/paired_patches/bc0f5b92cc7091f45fb6/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1ace69f521989b1f",
+      "saved_to": "/home/lcj/paired_patches/bc0f5b92cc7091f45fb6/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bc0f5b92cc7091f45fb6/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/bc0f5b92cc7091f45fb6/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

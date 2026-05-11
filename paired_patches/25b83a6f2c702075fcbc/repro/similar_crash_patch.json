@@ -1,0 +1,54 @@
+{
+  "extid": "25b83a6f2c702075fcbc",
+  "target_ref": "25b83a6f2c702075fcbc",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "4938296e03bd227e5020d63d418956fe52baf97c",
+      "branch": "linux-4.19",
+      "title": "KASAN: stack-out-of-bounds Read in iov_iter_revert",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "e911713e40ca73142b455ccfde2d7c0b0984c008",
+      "branch": "linux-4.14",
+      "title": "KASAN: stack-out-of-bounds Read in iov_iter_revert",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

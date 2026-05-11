@@ -1,0 +1,50 @@
+{
+  "extid": "c558267ad910fc494497",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c558267ad910fc494497",
+  "bug_title": "possible deadlock in display_open",
+  "bug_status": "fixed on 2023/02/24 13:51",
+  "fix_commits": [
+    {
+      "title": "media: imon: reorganize serialization",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=db264d4c66c0fe007b5d19fd007707cd0697603d",
+      "hash": "db264d4c66c0fe007b5d19fd007707cd0697603d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@I-love.SAKURA.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2022-05-02T03:49:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in display_open",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f993aed406eaf968ba3867a76bb46c95336a33d0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/50c53f397b6d13b9021ebc244a6e54967dfe59a1",
+  "syzkaller-commit": "50c53f397b6d13b9021ebc244a6e54967dfe59a1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=120ec26ef00000",
+      "saved_to": "/home/lcj/paired_patches/c558267ad910fc494497/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=902c5209311d387c",
+      "saved_to": "/home/lcj/paired_patches/c558267ad910fc494497/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1458bcc5f00000",
+      "saved_to": "/home/lcj/paired_patches/c558267ad910fc494497/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17f9c989f00000",
+      "saved_to": "/home/lcj/paired_patches/c558267ad910fc494497/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

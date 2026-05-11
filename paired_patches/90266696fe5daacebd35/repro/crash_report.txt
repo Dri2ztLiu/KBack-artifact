@@ -1,0 +1,56 @@
+loop0: detected capacity change from 0 to 40427
+F2FS-fs (loop0): Wrong SSA boundary, start(3584) end(4096) blocks(3072)
+F2FS-fs (loop0): Can't find valid F2FS filesystem in 1th superblock
+F2FS-fs (loop0): invalid crc value
+F2FS-fs (loop0): f2fs_convert_inline_folio: corrupted inline inode ino=3, i_addr[0]:0x1601, run fsck to fix.
+------------[ cut here ]------------
+kernel BUG at fs/inode.c:753!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 6097 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT_{RT,(full)} 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+RIP: 0010:clear_inode+0x169/0x190 fs/inode.c:753
+Code: 4c 89 f7 e8 59 7a ec ff e9 60 ff ff ff 44 89 f1 80 e1 07 80 c1 03 38 c1 7c c0 4c 89 f7 e8 2f 7b ec ff eb b6 e8 28 40 8d ff 90 <0f> 0b e8 20 40 8d ff 90 0f 0b e8 18 40 8d ff 90 0f 0b e8 10 40 8d
+RSP: 0018:ffffc9000408f890 EFLAGS: 00010293
+RAX: ffffffff82311f78 RBX: ffff888022059300 RCX: ffff888024ced940
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: ffffc9000408fa00 R08: 0000000000000000 R09: 0000000000000000
+R10: dffffc0000000000 R11: fffffbfff1e3ab47 R12: dffffc0000000000
+R13: ffff888022059300 R14: ffff888022059558 R15: 0000000000000001
+FS:  000055557dd70500(0000) GS:ffff8881268bf000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055738e9e8660 CR3: 0000000029a1c000 CR4: 00000000003526f0
+Call Trace:
+ <TASK>
+ evict+0x504/0x9c0 fs/inode.c:810
+ f2fs_fill_super+0x5612/0x6fa0 fs/f2fs/super.c:5047
+ get_tree_bdev_flags+0x40e/0x4d0 fs/super.c:1692
+ vfs_get_tree+0x8f/0x2b0 fs/super.c:1815
+ do_new_mount+0x2a2/0x9e0 fs/namespace.c:3808
+ do_mount fs/namespace.c:4136 [inline]
+ __do_sys_mount fs/namespace.c:4347 [inline]
+ __se_sys_mount+0x317/0x410 fs/namespace.c:4324
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xfa/0x3b0 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f865d77038a
+Code: d8 64 89 02 48 c7 c0 ff ff ff ff eb a6 e8 de 1a 00 00 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc62ec72e8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 00007ffc62ec7370 RCX: 00007f865d77038a
+RDX: 0000200000000140 RSI: 00002000000000c0 RDI: 00007ffc62ec7330
+RBP: 0000200000000140 R08: 00007ffc62ec7370 R09: 0000000000000008
+R10: 0000000000000008 R11: 0000000000000246 R12: 00002000000000c0
+R13: 00007ffc62ec7330 R14: 0000000000005531 R15: 00002000000056c0
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:clear_inode+0x169/0x190 fs/inode.c:753
+Code: 4c 89 f7 e8 59 7a ec ff e9 60 ff ff ff 44 89 f1 80 e1 07 80 c1 03 38 c1 7c c0 4c 89 f7 e8 2f 7b ec ff eb b6 e8 28 40 8d ff 90 <0f> 0b e8 20 40 8d ff 90 0f 0b e8 18 40 8d ff 90 0f 0b e8 10 40 8d
+RSP: 0018:ffffc9000408f890 EFLAGS: 00010293
+RAX: ffffffff82311f78 RBX: ffff888022059300 RCX: ffff888024ced940
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: ffffc9000408fa00 R08: 0000000000000000 R09: 0000000000000000
+R10: dffffc0000000000 R11: fffffbfff1e3ab47 R12: dffffc0000000000
+R13: ffff888022059300 R14: ffff888022059558 R15: 0000000000000001
+FS:  000055557dd70500(0000) GS:ffff8881268bf000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055738e9e8660 CR3: 0000000029a1c000 CR4: 00000000003526f0

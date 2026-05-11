@@ -1,0 +1,50 @@
+{
+  "extid": "c8166c541d3971bf6c87",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c8166c541d3971bf6c87",
+  "bug_title": "INFO: task hung in nilfs_segctor_thread (2)",
+  "bug_status": "fixed on 2024/07/09 19:14",
+  "fix_commits": [
+    {
+      "title": "nilfs2: fix nilfs_empty_dir() misjudgment and long loop on I/O errors",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7373a51e7998b508af7136530f3a997b286ce81c",
+      "hash": "7373a51e7998b508af7136530f3a997b286ce81c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "konishi.ryusuke@gmail.com",
+      "author-name": "Ryusuke Konishi",
+      "date": "2024-06-04T13:42:55Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in nilfs_segctor_thread",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "89be4025b0db42db830d72d532437248774cba49",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3113787fe7a0c96998737e520aa95c303fdd41ef",
+  "syzkaller-commit": "3113787fe7a0c96998737e520aa95c303fdd41ef",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=167ff4ba980000",
+      "saved_to": "/home/lcj/paired_patches/c8166c541d3971bf6c87/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=47d282ddffae809f",
+      "saved_to": "/home/lcj/paired_patches/c8166c541d3971bf6c87/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=120ae206980000",
+      "saved_to": "/home/lcj/paired_patches/c8166c541d3971bf6c87/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1164d8bc980000",
+      "saved_to": "/home/lcj/paired_patches/c8166c541d3971bf6c87/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

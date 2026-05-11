@@ -1,0 +1,50 @@
+{
+  "extid": "340581ba9dceb7e06fb3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=340581ba9dceb7e06fb3",
+  "bug_title": "WARNING in fscrypt_fname_siphash",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "ext4: filesystems without casefold feature cannot be mounted with siphash",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=985b67cd86392310d9e9326de941c22fc9340eec",
+      "hash": "985b67cd86392310d9e9326de941c22fc9340eec",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lizhi.xu@windriver.com",
+      "author-name": "Lizhi Xu",
+      "date": "2024-06-05T01:23:35Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in fscrypt_fname_siphash",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1934261d897467a924e2afd1181a74c1cbfa2c1d",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1eda0d1459e5ff07903ffa2f8cedf55ae7b24af0",
+  "syzkaller-commit": "1eda0d1459e5ff07903ffa2f8cedf55ae7b24af0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=177600fb980000",
+      "saved_to": "/home/lcj/paired_patches/340581ba9dceb7e06fb3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d29b390765df150d",
+      "saved_to": "/home/lcj/paired_patches/340581ba9dceb7e06fb3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=158a0129980000",
+      "saved_to": "/home/lcj/paired_patches/340581ba9dceb7e06fb3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1035fb39980000",
+      "saved_to": "/home/lcj/paired_patches/340581ba9dceb7e06fb3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

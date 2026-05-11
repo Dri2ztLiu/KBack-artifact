@@ -1,0 +1,50 @@
+{
+  "extid": "0ae4804973be759fa420",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0ae4804973be759fa420",
+  "bug_title": "WARNING in carl9170_usb_send_rx_irq_urb/usb_submit_urb",
+  "bug_status": "fixed on 2024/06/05 13:52",
+  "fix_commits": [
+    {
+      "title": "wifi: carl9170: add a proper sanity check for endpoints",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b6dd09b3dac89b45d1ea3e3bd035a3859c0369a0",
+      "hash": "b6dd09b3dac89b45d1ea3e3bd035a3859c0369a0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2024-04-22T18:33:55Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in carl9170_usb_send_rx_irq_urb/usb_submit_urb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "88603b6dc419445847923fcb7fe5080067a30f98",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ab32d50881df9f96f2af301aadca62ad00b7e099",
+  "syzkaller-commit": "ab32d50881df9f96f2af301aadca62ad00b7e099",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1033f8ec480000",
+      "saved_to": "/home/lcj/paired_patches/0ae4804973be759fa420/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=affadc28955d87c3",
+      "saved_to": "/home/lcj/paired_patches/0ae4804973be759fa420/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=174e2d6c480000",
+      "saved_to": "/home/lcj/paired_patches/0ae4804973be759fa420/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=178f931a480000",
+      "saved_to": "/home/lcj/paired_patches/0ae4804973be759fa420/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

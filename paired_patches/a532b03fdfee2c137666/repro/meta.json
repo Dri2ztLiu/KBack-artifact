@@ -1,0 +1,50 @@
+{
+  "extid": "a532b03fdfee2c137666",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a532b03fdfee2c137666",
+  "bug_title": "WARNING in blk_rq_map_user_iov",
+  "bug_status": "fixed on 2024/03/29 22:49",
+  "fix_commits": [
+    {
+      "title": "block: Fix WARNING in _copy_from_iter",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=13f3956eb5681a4045a8dfdef48df5dc4d9f58a6",
+      "hash": "13f3956eb5681a4045a8dfdef48df5dc4d9f58a6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lk@c--e.de",
+      "author-name": "Christian A. Ehrhardt",
+      "date": "2024-01-21T20:26:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in blk_rq_map_user_iov",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "052d534373b7ed33712a63d5e17b2b6cdbce84fd",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/915053c78aa2a0bd5050388203940fad27112b23",
+  "syzkaller-commit": "915053c78aa2a0bd5050388203940fad27112b23",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13a25edde80000",
+      "saved_to": "/home/lcj/paired_patches/a532b03fdfee2c137666/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=878a2a4af11180a7",
+      "saved_to": "/home/lcj/paired_patches/a532b03fdfee2c137666/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12dd7ca3e80000",
+      "saved_to": "/home/lcj/paired_patches/a532b03fdfee2c137666/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=123cf9fbe80000",
+      "saved_to": "/home/lcj/paired_patches/a532b03fdfee2c137666/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

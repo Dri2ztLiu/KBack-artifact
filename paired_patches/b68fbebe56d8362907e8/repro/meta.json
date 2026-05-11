@@ -1,0 +1,50 @@
+{
+  "extid": "b68fbebe56d8362907e8",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b68fbebe56d8362907e8",
+  "bug_title": "memory leak in htc_connect_service",
+  "bug_status": "fixed on 2023/09/28 17:51",
+  "fix_commits": [
+    {
+      "title": "wifi: ath9k: don't allow to overwrite ENDPOINT0 attributes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=061b0cb9327b80d7a0f63a33e7c3e2a91a71f142",
+      "hash": "061b0cb9327b80d7a0f63a33e7c3e2a91a71f142",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pchelkin@ispras.ru",
+      "author-name": "Fedor Pchelkin",
+      "date": "2023-05-17T15:03:17Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in htc_connect_service",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c9c3395d5e3dcc6daee66c6908354d47bf98cb0c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/bcdf85f8bd3fccff5bc9507a589c4847d9b35405",
+  "syzkaller-commit": "bcdf85f8bd3fccff5bc9507a589c4847d9b35405",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11195fd7480000",
+      "saved_to": "/home/lcj/paired_patches/b68fbebe56d8362907e8/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=eeb87d4dfcdb4cc0",
+      "saved_to": "/home/lcj/paired_patches/b68fbebe56d8362907e8/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13a3de27480000",
+      "saved_to": "/home/lcj/paired_patches/b68fbebe56d8362907e8/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16523630c80000",
+      "saved_to": "/home/lcj/paired_patches/b68fbebe56d8362907e8/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

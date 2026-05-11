@@ -1,0 +1,50 @@
+{
+  "extid": "c5da1f087c9e4ec6c933",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=c5da1f087c9e4ec6c933",
+  "bug_title": "WARNING in __alloc_skb (3)",
+  "bug_status": "fixed on 2024/03/29 01:33",
+  "fix_commits": [
+    {
+      "title": "ppp_async: limit MRU to 64K",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cb88cb53badb8aeb3955ad6ce80b07b598e310b8",
+      "hash": "cb88cb53badb8aeb3955ad6ce80b07b598e310b8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "edumazet@google.com",
+      "author-name": "Eric Dumazet",
+      "date": "2024-02-05T17:10:04Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __alloc_skb",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "41bccc98fb7931d63d03f326a746ac4d429c1dd3",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a67b2c42696e8ec97679ecfd699882620a0c0c55",
+  "syzkaller-commit": "a67b2c42696e8ec97679ecfd699882620a0c0c55",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11dfead4180000",
+      "saved_to": "/home/lcj/paired_patches/c5da1f087c9e4ec6c933/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=451a1e62b11ea4a6",
+      "saved_to": "/home/lcj/paired_patches/c5da1f087c9e4ec6c933/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14bbfe18180000",
+      "saved_to": "/home/lcj/paired_patches/c5da1f087c9e4ec6c933/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=168e0a9fe80000",
+      "saved_to": "/home/lcj/paired_patches/c5da1f087c9e4ec6c933/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

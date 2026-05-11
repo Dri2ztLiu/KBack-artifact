@@ -1,0 +1,50 @@
+{
+  "extid": "be4a9983e95a5e25c8d3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=be4a9983e95a5e25c8d3",
+  "bug_title": "possible deadlock in f2fs_record_stop_reason",
+  "bug_status": "closed as dup on 2024/10/29 01:35",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to avoid potential deadlock in f2fs_record_stop_reason()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f10a890308a7cd8794e21f646f09827c6cb4bf5d",
+      "hash": "f10a890308a7cd8794e21f646f09827c6cb4bf5d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2024-10-22T08:36:23Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in f2fs_record_stop_reason",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c964ced7726294d40913f2127c3f185a92cb4a41",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/666f77ed02b98b834393ff84c646a8d611605f6f",
+  "syzkaller-commit": "666f77ed02b98b834393ff84c646a8d611605f6f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1203745f980000",
+      "saved_to": "/home/lcj/paired_patches/be4a9983e95a5e25c8d3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=cfbd94c114a3d407",
+      "saved_to": "/home/lcj/paired_patches/be4a9983e95a5e25c8d3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/be4a9983e95a5e25c8d3/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/be4a9983e95a5e25c8d3/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

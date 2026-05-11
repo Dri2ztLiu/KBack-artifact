@@ -1,0 +1,50 @@
+{
+  "extid": "aab53008a5adf26abe91",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=aab53008a5adf26abe91",
+  "bug_title": "KASAN: use-after-free Read in rxe_queue_cleanup",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "RDMA: Fix use-after-free in rxe_queue_cleanup",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=84b01721e8042cdd1e8ffeb648844a09cd4213e0",
+      "hash": "84b01721e8042cdd1e8ffeb648844a09cd4213e0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-11-21T20:22:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in rxe_queue_cleanup",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a51e3ac43ddbad891c2b1a4f3aa52371d6939570",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/61f862782082c777ba335aa4b4b08d4f74d7d86e",
+  "syzkaller-commit": "61f862782082c777ba335aa4b4b08d4f74d7d86e",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13676af9b00000",
+      "saved_to": "/home/lcj/paired_patches/aab53008a5adf26abe91/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e9ea28d2c3c2c389",
+      "saved_to": "/home/lcj/paired_patches/aab53008a5adf26abe91/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/aab53008a5adf26abe91/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/aab53008a5adf26abe91/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

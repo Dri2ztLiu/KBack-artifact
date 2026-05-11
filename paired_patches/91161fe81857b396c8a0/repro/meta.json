@@ -1,0 +1,39 @@
+{
+  "extid": "91161fe81857b396c8a0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=91161fe81857b396c8a0",
+  "bug_title": "KASAN: global-out-of-bounds Read in __hw_addr_add_ex",
+  "bug_status": "auto-obsoleted due to no activity on 2024/10/10 19:31",
+  "fix_commits": [],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: global-out-of-bounds Read in __hw_addr_add_ex",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git",
+  "kernel-source-commit": "c562ba719df570c986caf0941fea2449150bcbc4",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/1e9c4cf3ae82ef82220af312606fffe65e124563",
+  "syzkaller-commit": "1e9c4cf3ae82ef82220af312606fffe65e124563",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=148e636d980000",
+      "saved_to": "/home/lcj/paired_patches/91161fe81857b396c8a0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=6f0e253d4eb63b4e",
+      "saved_to": "/home/lcj/paired_patches/91161fe81857b396c8a0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/91161fe81857b396c8a0/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/91161fe81857b396c8a0/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

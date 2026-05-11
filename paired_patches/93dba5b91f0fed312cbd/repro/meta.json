@@ -1,0 +1,50 @@
+{
+  "extid": "93dba5b91f0fed312cbd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=93dba5b91f0fed312cbd",
+  "bug_title": "KASAN: use-after-free Read in cipso_v4_doi_add",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "smackfs: use netlbl_cfg_cipsov4_del() for deleting cipso_v4_doi",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0934ad42bb2c5df90a1b9de690f93de735b622fe",
+      "hash": "0934ad42bb2c5df90a1b9de690f93de735b622fe",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "penguin-kernel@i-love.sakura.ne.jp",
+      "author-name": "Tetsuo Handa",
+      "date": "2021-10-19T11:27:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in cipso_v4_doi_add",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "26d6574109838b8fa40a8261421693015bab0579",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7aa5fe41bbf8f92f7e9d64244d90ea5d7db11912",
+  "syzkaller-commit": "7aa5fe41bbf8f92f7e9d64244d90ea5d7db11912",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15c0eac8b00000",
+      "saved_to": "/home/lcj/paired_patches/93dba5b91f0fed312cbd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1de5da8af5c2277d",
+      "saved_to": "/home/lcj/paired_patches/93dba5b91f0fed312cbd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/93dba5b91f0fed312cbd/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/93dba5b91f0fed312cbd/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

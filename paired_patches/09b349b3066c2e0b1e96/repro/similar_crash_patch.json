@@ -1,0 +1,35 @@
+{
+  "extid": "09b349b3066c2e0b1e96",
+  "target_ref": "09b349b3066c2e0b1e96",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "c79648372d02944bf4a54d87e3901db05d0ac82e",
+      "branch": "linux-5.15",
+      "title": "Internal error in sys_name_to_handle_at",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

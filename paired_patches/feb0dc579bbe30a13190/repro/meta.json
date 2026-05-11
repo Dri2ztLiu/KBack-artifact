@@ -1,0 +1,50 @@
+{
+  "extid": "feb0dc579bbe30a13190",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=feb0dc579bbe30a13190",
+  "bug_title": "KASAN: slab-use-after-free Read in mgmt_remove_adv_monitor_complete (3)",
+  "bug_status": "fixed on 2025/08/06 17:37",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: MGMT: Fix UAF on mgmt_remove_adv_monitor_complete",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e6ed54e86aae9e4f7286ce8d5c73780f91b48d1c",
+      "hash": "e6ed54e86aae9e4f7286ce8d5c73780f91b48d1c",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2025-06-03T20:12:39Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in mgmt_remove_adv_monitor_complete",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e271ed52b344ac02d4581286961d0c40acc54c03",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3d899f2c5e1c5ec45e9d84a30170aa09360c1045",
+  "syzkaller-commit": "3d899f2c5e1c5ec45e9d84a30170aa09360c1045",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13b5620c580000",
+      "saved_to": "/home/lcj/paired_patches/feb0dc579bbe30a13190/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=73696606574e3967",
+      "saved_to": "/home/lcj/paired_patches/feb0dc579bbe30a13190/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1262f1d4580000",
+      "saved_to": "/home/lcj/paired_patches/feb0dc579bbe30a13190/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=151db282580000",
+      "saved_to": "/home/lcj/paired_patches/feb0dc579bbe30a13190/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

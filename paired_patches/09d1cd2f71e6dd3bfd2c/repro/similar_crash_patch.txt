@@ -1,0 +1,78 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  net/wireless/nl80211.c (1), Makefile (1)
+TOP_SYMBOLS:
+  nl80211_set_interface (1)
+TOP_KEYWORDS:
+  WARN (2), net (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=nl80211_set_interface)
+  - viewcode(ref=<target_release>, path=net/wireless/nl80211.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=4, rows_scanned=4, candidates_kept=2, skipped=2
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=1, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: f78c1375339a291cba492a70eaf12ec501d28a8e
+bug_url: https://syzkaller.appspot.com/bug?extid=a171518375d8f4311bc4
+title: WARNING in ieee80211_bss_info_change_notify
+relevance_score: 0
+
+ net/wireless/nl80211.c | 2 ++
+ 1 file changed, 2 insertions(+)
+diff --git a/net/wireless/nl80211.c b/net/wireless/nl80211.c
+index b09700400d09..bd54a928bab4 100644
+--- a/net/wireless/nl80211.c
++++ b/net/wireless/nl80211.c
+@@ -4197,6 +4197,8 @@ static int nl80211_set_interface(struct sk_buff *skb, struct genl_info *info)
+ 
+ 		if (ntype != NL80211_IFTYPE_MESH_POINT)
+ 			return -EINVAL;
++		if (otype != NL80211_IFTYPE_MESH_POINT)
++			return -EINVAL;
+ 		if (netif_running(dev))
+ 			return -EBUSY;
+================================================================================
+
+branch: linux-5.15
+fix_commit: 7c6d66f0266faf94d04b3bfe0d7a06eae3484c50
+bug_url: https://syzkaller.appspot.com/bug?extid=0a139b1a72e3314bad6f
+title: WARNING in ieee80211_bss_info_change_notify
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 790f63b2c80d..a9b6f1ff9619 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 5
+ PATCHLEVEL = 15
+-SUBLEVEL = 162
++SUBLEVEL = 163
+ EXTRAVERSION =
+ NAME = Trick or Treat
+================================================================================

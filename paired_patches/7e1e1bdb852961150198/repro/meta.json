@@ -1,0 +1,50 @@
+{
+  "extid": "7e1e1bdb852961150198",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=7e1e1bdb852961150198",
+  "bug_title": "WARNING in cleanup_net (2)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "smc: Fix use-after-free in tcp_write_timer_handler().",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9744d2bf19762703704ecba885b7ac282c02eacf",
+      "hash": "9744d2bf19762703704ecba885b7ac282c02eacf",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kuniyu@amazon.com",
+      "author-name": "Kuniyuki Iwashima",
+      "date": "2023-04-08T18:49:43Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in cleanup_net",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "f33642224e38d7e0d59336e10e7b4e370b1c4506",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fbf0499acc828df26995835e51d83c3a0117e716",
+  "syzkaller-commit": "fbf0499acc828df26995835e51d83c3a0117e716",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12251639c80000",
+      "saved_to": "/home/lcj/paired_patches/7e1e1bdb852961150198/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ea09b0836073ee4",
+      "saved_to": "/home/lcj/paired_patches/7e1e1bdb852961150198/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=170668b6c80000",
+      "saved_to": "/home/lcj/paired_patches/7e1e1bdb852961150198/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12d98a05c80000",
+      "saved_to": "/home/lcj/paired_patches/7e1e1bdb852961150198/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

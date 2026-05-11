@@ -1,0 +1,50 @@
+{
+  "extid": "cfcc1a3c85be15a40cba",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cfcc1a3c85be15a40cba",
+  "bug_title": "INFO: trying to register non-static key in rxe_cleanup_task (2)",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "RDMA/rxe: Fix the error \"trying to register non-static key in rxe_cleanup_task\"",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2b1ddc457458fecd1c6f385baa9fbda5f0c63ad",
+      "hash": "b2b1ddc457458fecd1c6f385baa9fbda5f0c63ad",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "yanjun.zhu@linux.dev",
+      "author-name": "Zhu Yanjun",
+      "date": "2023-04-13T10:11:15Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: trying to register non-static key in rxe_cleanup_task",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "89d77f71f493a3663b10fa812d17f472935d24be",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/62df2017e3b1edd786a4c737bd4ccba2b4581d88",
+  "syzkaller-commit": "62df2017e3b1edd786a4c737bd4ccba2b4581d88",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16c8c1f7c80000",
+      "saved_to": "/home/lcj/paired_patches/cfcc1a3c85be15a40cba/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=74b5317e3634c92",
+      "saved_to": "/home/lcj/paired_patches/cfcc1a3c85be15a40cba/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/cfcc1a3c85be15a40cba/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/cfcc1a3c85be15a40cba/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

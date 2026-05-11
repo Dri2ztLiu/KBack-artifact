@@ -1,0 +1,50 @@
+{
+  "extid": "2fb0835e0c9cefc34614",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2fb0835e0c9cefc34614",
+  "bug_title": "BUG: sleeping function called from invalid context in hci_le_create_big_complete_evt",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: hci_core: Fix sleeping function called from invalid context",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4d94f05558271654670d18c26c912da0c1c15549",
+      "hash": "4d94f05558271654670d18c26c912da0c1c15549",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "luiz.von.dentz@intel.com",
+      "author-name": "Luiz Augusto von Dentz",
+      "date": "2024-12-03T21:07:32Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: sleeping function called from invalid context in hci_le_create_big_complete_evt",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "480e035fc4c714fb5536e64ab9db04fedc89e910",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ca620dd8f97f5b3a9134b687b5584203019518fb",
+  "syzkaller-commit": "ca620dd8f97f5b3a9134b687b5584203019518fb",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10f2a29d180000",
+      "saved_to": "/home/lcj/paired_patches/2fb0835e0c9cefc34614/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1e5b814e91787669",
+      "saved_to": "/home/lcj/paired_patches/2fb0835e0c9cefc34614/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11ee2e75180000",
+      "saved_to": "/home/lcj/paired_patches/2fb0835e0c9cefc34614/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14136223180000",
+      "saved_to": "/home/lcj/paired_patches/2fb0835e0c9cefc34614/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

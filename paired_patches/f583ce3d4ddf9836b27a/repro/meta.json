@@ -1,0 +1,50 @@
+{
+  "extid": "f583ce3d4ddf9836b27a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f583ce3d4ddf9836b27a",
+  "bug_title": "KMSAN: uninit-value in gre_parse_header",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "erspan: fix version 1 check in gre_parse_header()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=085c7c4e1c0e50d90b7d90f61a12e12b317a91e2",
+      "hash": "085c7c4e1c0e50d90b7d90f61a12e12b317a91e2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "cong.wang@bytedance.com",
+      "author-name": "Cong Wang",
+      "date": "2020-12-28T23:00:00Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "997a8b55bc92f97eab30ceb957e73a66bb437ba2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/af6b8ef8f18c45343685f0ee7af9dd3a4b2b5d95",
+  "syzkaller-commit": "af6b8ef8f18c45343685f0ee7af9dd3a4b2b5d95",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16a69ab9e00000",
+      "saved_to": "/home/lcj/paired_patches/f583ce3d4ddf9836b27a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8fd289db07d24f0c",
+      "saved_to": "/home/lcj/paired_patches/f583ce3d4ddf9836b27a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1345bac6e00000",
+      "saved_to": "/home/lcj/paired_patches/f583ce3d4ddf9836b27a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1647163ee00000",
+      "saved_to": "/home/lcj/paired_patches/f583ce3d4ddf9836b27a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

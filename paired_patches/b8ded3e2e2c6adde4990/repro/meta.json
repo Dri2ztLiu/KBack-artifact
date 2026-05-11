@@ -1,0 +1,50 @@
+{
+  "extid": "b8ded3e2e2c6adde4990",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=b8ded3e2e2c6adde4990",
+  "bug_title": "WARNING in __perf_event_overflow",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "perf: Improve missing SIGTRAP checking",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bb88f9695460bec25aa30ba9072595025cf6c8af",
+      "hash": "bb88f9695460bec25aa30ba9072595025cf6c8af",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "elver@google.com",
+      "author-name": "Marco Elver",
+      "date": "2022-10-31T09:35:13Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __perf_event_overflow",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "8be602dadb2febb5e4cb367bff1162205bcf9905",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/74a66371788c1eb22bde25c9c422c7754596d7f5",
+  "syzkaller-commit": "74a66371788c1eb22bde25c9c422c7754596d7f5",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=126b5555880000",
+      "saved_to": "/home/lcj/paired_patches/b8ded3e2e2c6adde4990/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2ef68931938fa9dc",
+      "saved_to": "/home/lcj/paired_patches/b8ded3e2e2c6adde4990/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17ab558d880000",
+      "saved_to": "/home/lcj/paired_patches/b8ded3e2e2c6adde4990/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=138b0a73880000",
+      "saved_to": "/home/lcj/paired_patches/b8ded3e2e2c6adde4990/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

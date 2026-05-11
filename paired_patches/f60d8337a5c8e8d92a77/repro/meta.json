@@ -1,0 +1,50 @@
+{
+  "extid": "f60d8337a5c8e8d92a77",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f60d8337a5c8e8d92a77",
+  "bug_title": "kernel BUG in btrfs_split_ordered_extent",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "btrfs: fix assertion failure when splitting ordered extent after transaction abort",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0d85f5c2dd91df6b5da454406756f463ba923b69",
+      "hash": "0d85f5c2dd91df6b5da454406756f463ba923b69",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2025-01-13T15:01:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "kernel BUG in btrfs_split_ordered_extent",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "fc033cf25e612e840e545f8d5ad2edd6ba613ed5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15f1aac4580000",
+      "saved_to": "/home/lcj/paired_patches/f60d8337a5c8e8d92a77/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1c541fa8af5c9cc7",
+      "saved_to": "/home/lcj/paired_patches/f60d8337a5c8e8d92a77/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f60d8337a5c8e8d92a77/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/f60d8337a5c8e8d92a77/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

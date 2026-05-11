@@ -1,0 +1,44 @@
+{
+  "extid": "34b68f850391452207df",
+  "target_ref": "34b68f850391452207df",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "da4373fbcf006deda90e5e6a87c499e0ff747572",
+      "branch": "linux-6.1",
+      "title": "WARNING in current_check_refer_path",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/bcachefs/io_read.c"
+      ],
+      "symbols": [
+        "__promote_alloc",
+        "kfree",
+        "kfree_rcu"
+      ],
+      "patterns": [
+        "rcu",
+        "NULL",
+        "null",
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

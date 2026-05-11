@@ -1,0 +1,50 @@
+{
+  "extid": "9dfbaedb6e6baca57a32",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9dfbaedb6e6baca57a32",
+  "bug_title": "general protection fault in __mptcp_set_connected",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "mptcp: fix possible NULL pointer dereference on close",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d109a7767273d1706b541c22b83a0323823dfde4",
+      "hash": "d109a7767273d1706b541c22b83a0323823dfde4",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "pabeni@redhat.com",
+      "author-name": "Paolo Abeni",
+      "date": "2023-11-13T23:16:14Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in __mptcp_set_connected",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "719639853d88071dfdfd8d9971eca9c283ff314c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/45e9b83e7898237d71f11368ddd097422e2f328f",
+  "syzkaller-commit": "45e9b83e7898237d71f11368ddd097422e2f328f",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1088c3c0e80000",
+      "saved_to": "/home/lcj/paired_patches/9dfbaedb6e6baca57a32/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f6659852f386d627",
+      "saved_to": "/home/lcj/paired_patches/9dfbaedb6e6baca57a32/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9dfbaedb6e6baca57a32/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/9dfbaedb6e6baca57a32/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

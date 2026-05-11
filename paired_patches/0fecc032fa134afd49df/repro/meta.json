@@ -1,0 +1,50 @@
+{
+  "extid": "0fecc032fa134afd49df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0fecc032fa134afd49df",
+  "bug_title": "WARNING in btrfs_put_transaction (2)",
+  "bug_status": "fixed on 2024/07/09 19:14",
+  "fix_commits": [
+    {
+      "title": "btrfs: fix leak of qgroup extent records after transaction abort",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fb33eb2ef0d88e75564983ef057b44c5b7e4fded",
+      "hash": "fb33eb2ef0d88e75564983ef057b44c5b7e4fded",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fdmanana@suse.com",
+      "author-name": "Filipe Manana",
+      "date": "2024-06-03T11:49:08Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in btrfs_put_transaction",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4a4be1ad3a6efea16c56615f31117590fd881358",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c2e0726105cc811a456d900c62443159acc29c32",
+  "syzkaller-commit": "c2e0726105cc811a456d900c62443159acc29c32",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17960d0c980000",
+      "saved_to": "/home/lcj/paired_patches/0fecc032fa134afd49df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=733cc7a95171d8e7",
+      "saved_to": "/home/lcj/paired_patches/0fecc032fa134afd49df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0fecc032fa134afd49df/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/0fecc032fa134afd49df/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

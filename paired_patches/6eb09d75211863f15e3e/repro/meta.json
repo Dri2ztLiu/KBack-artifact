@@ -1,0 +1,50 @@
+{
+  "extid": "6eb09d75211863f15e3e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=6eb09d75211863f15e3e",
+  "bug_title": "memory leak in skb_copy (2)",
+  "bug_status": "fixed on 2024/01/20 21:18",
+  "fix_commits": [
+    {
+      "title": "nfc: virtual_ncidev: Add variable to check if ndev is running",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=84d2db91f14a32dc856a5972e3f0907089093c7a",
+      "hash": "84d2db91f14a32dc856a5972e3f0907089093c7a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "phind.uet@gmail.com",
+      "author-name": "Nguyen Dinh Phi",
+      "date": "2023-11-21T07:53:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in skb_copy",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6bc986ab839c844e78a2333a02e55f02c9e57935",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4862372a57ee80af8186cd80f6c9c8f741a45e40",
+  "syzkaller-commit": "4862372a57ee80af8186cd80f6c9c8f741a45e40",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=150191ef680000",
+      "saved_to": "/home/lcj/paired_patches/6eb09d75211863f15e3e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=ecfdf78a410c834",
+      "saved_to": "/home/lcj/paired_patches/6eb09d75211863f15e3e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/6eb09d75211863f15e3e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=176a6ee0e80000",
+      "saved_to": "/home/lcj/paired_patches/6eb09d75211863f15e3e/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

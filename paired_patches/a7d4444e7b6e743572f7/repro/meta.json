@@ -1,0 +1,50 @@
+{
+  "extid": "a7d4444e7b6e743572f7",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a7d4444e7b6e743572f7",
+  "bug_title": "UBSAN: array-index-out-of-bounds in fbcon_info_from_console",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "fbcon: Make sure modelist not set on unregistered console",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cedc1b63394a866bf8663a3e40f4546f1d28c8d8",
+      "hash": "cedc1b63394a866bf8663a3e40f4546f1d28c8d8",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "kees@kernel.org",
+      "author-name": "Kees Cook",
+      "date": "2025-05-09T20:06:47Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: array-index-out-of-bounds in fbcon_info_from_console",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0de63bb7d91975e73338300a57c54b93d3cc151c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/8f267cefd3660f9d5640ebbbd42e295a61774469",
+  "syzkaller-commit": "8f267cefd3660f9d5640ebbbd42e295a61774469",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10ec5d18580000",
+      "saved_to": "/home/lcj/paired_patches/a7d4444e7b6e743572f7/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=c48f582603dcb16c",
+      "saved_to": "/home/lcj/paired_patches/a7d4444e7b6e743572f7/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a7d4444e7b6e743572f7/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/a7d4444e7b6e743572f7/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

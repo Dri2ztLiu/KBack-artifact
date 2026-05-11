@@ -1,0 +1,50 @@
+{
+  "extid": "3e3f419f4a7816471838",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=3e3f419f4a7816471838",
+  "bug_title": "KASAN: use-after-free Read in blk_mq_sched_free_rqs",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "block: disable the elevator int del_gendisk",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=50e34d78815e474d410f342fbe783b18192ca518",
+      "hash": "50e34d78815e474d410f342fbe783b18192ca518",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hch@lst.de",
+      "author-name": "Christoph Hellwig",
+      "date": "2022-06-14T07:48:24Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in blk_mq_sched_free_rqs",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "6c465408a7709cf180cde7569e141191b67a175c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3037caa999f22cdb40f1fa5c6b1b13e5d6af9781",
+  "syzkaller-commit": "3037caa999f22cdb40f1fa5c6b1b13e5d6af9781",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14576c51f00000",
+      "saved_to": "/home/lcj/paired_patches/3e3f419f4a7816471838/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e2c9c27babb4d679",
+      "saved_to": "/home/lcj/paired_patches/3e3f419f4a7816471838/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14a6a8eef00000",
+      "saved_to": "/home/lcj/paired_patches/3e3f419f4a7816471838/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1658daf3f00000",
+      "saved_to": "/home/lcj/paired_patches/3e3f419f4a7816471838/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

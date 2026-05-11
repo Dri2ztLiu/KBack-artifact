@@ -1,0 +1,50 @@
+{
+  "extid": "f303e045423e617d2cad",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f303e045423e617d2cad",
+  "bug_title": "memory leak in tty_init_dev",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "net: caif: fix memory leak in ldisc_open",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=58af3d3d54e87bfc1f936e16c04ade3369d34011",
+      "hash": "58af3d3d54e87bfc1f936e16c04ade3369d34011",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-06-12T14:51:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "memory leak in tty_init_dev",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0da0a8a0a0e1845f495431c3d8d733d2bbf9e9e5",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/813be5426a31b5b3ead90cf5729c8b7a7a17d7c1",
+  "syzkaller-commit": "813be5426a31b5b3ead90cf5729c8b7a7a17d7c1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=164d4a3b500000",
+      "saved_to": "/home/lcj/paired_patches/f303e045423e617d2cad/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=850b6de5f8959443",
+      "saved_to": "/home/lcj/paired_patches/f303e045423e617d2cad/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=122d1fc7500000",
+      "saved_to": "/home/lcj/paired_patches/f303e045423e617d2cad/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=166cd5b8d00000",
+      "saved_to": "/home/lcj/paired_patches/f303e045423e617d2cad/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

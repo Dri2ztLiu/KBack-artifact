@@ -1,0 +1,50 @@
+{
+  "extid": "e6300f66a999a6612477",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e6300f66a999a6612477",
+  "bug_title": "possible deadlock in xsk_diag_dump (2)",
+  "bug_status": "fixed on 2025/10/09 01:15",
+  "fix_commits": [
+    {
+      "title": "hamradio: ignore ops-locked netdevs",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c64237960819aee1766d03f446ae6de94b1e3f73",
+      "hash": "c64237960819aee1766d03f446ae6de94b1e3f73",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "sdf@fomichev.me",
+      "author-name": "Stanislav Fomichev",
+      "date": "2025-08-06T21:37:26Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in xsk_diag_dump",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "d2eedaa3909be9102d648a4a0a50ccf64f96c54f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7368264b463a401571d2eb381f50ea2a758e9d05",
+  "syzkaller-commit": "7368264b463a401571d2eb381f50ea2a758e9d05",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13634042580000",
+      "saved_to": "/home/lcj/paired_patches/e6300f66a999a6612477/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=75e522434dc68cb9",
+      "saved_to": "/home/lcj/paired_patches/e6300f66a999a6612477/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e6300f66a999a6612477/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/e6300f66a999a6612477/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

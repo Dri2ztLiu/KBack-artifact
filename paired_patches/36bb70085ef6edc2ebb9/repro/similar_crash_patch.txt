@@ -1,0 +1,269 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  Makefile (2), Documentation/filesystems/ntfs3.rst (1), fs/ntfs3/file.c (1), fs/ntfs3/inode.c (1), fs/ntfs3/namei.c (1), fs/ntfs3/ntfs_fs.h (1), fs/ntfs3/super.c (1), fs/ntfs3/xattr.c (1)
+TOP_SYMBOLS:
+  ntfs_fallocate (1), ntfs_file_inode_operations (1), ntfs_link_inode_operations (1), ntfs_dir_inode_operations (1), ntfs_mount_options (1), ntfs_init_acl (1), Opt (1), ntfs_fs_parse_param (1), ntfs_show_options (1), ntfs_init_from_boot (1)
+TOP_KEYWORDS:
+  deadlock (3), WARN (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=ntfs_fallocate)
+  - viewcode(ref=<target_release>, path=Makefile, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=4, rows_scanned=4, candidates_kept=3, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.6
+fix_commit: c09fbcd31ae6d71e7c69545839bec92d8e15c13b
+bug_url: https://syzkaller.appspot.com/bug?extid=08019e91be38802a5b96
+title: possible deadlock in attr_data_get_block
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index 20c3688ff3bf..ec2fb5c10957 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 6
+-SUBLEVEL = 129
++SUBLEVEL = 130
+ EXTRAVERSION =
+ NAME = Pinguïn Aangedreven
+================================================================================
+
+branch: linux-6.1
+fix_commit: f2ddafa93a259310ca47507153b7811ec54ab7fd
+bug_url: https://syzkaller.appspot.com/bug?extid=f159b81656e067e7746b
+title: possible deadlock in attr_data_get_block
+relevance_score: 0
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+index ab1cb6f2e6ee..5c06e9d3dfd3 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 6
+ PATCHLEVEL = 1
+-SUBLEVEL = 165
++SUBLEVEL = 166
+ EXTRAVERSION =
+ NAME = Curry Ramen
+================================================================================
+
+branch: linux-5.15
+fix_commit: 267a36ba30a7425ad59d20e7e7e33bbdcc9cfb0a
+bug_url: https://syzkaller.appspot.com/bug?extid=591c47e27ef4bfc0e409
+title: possible deadlock in attr_data_get_block
+relevance_score: 0
+
+ Documentation/filesystems/ntfs3.rst | 11 -----------
+ fs/ntfs3/file.c                     | 11 -----------
+ fs/ntfs3/inode.c                    |  1 -
+ fs/ntfs3/namei.c                    |  1 -
+ fs/ntfs3/ntfs_fs.h                  |  3 ---
+ fs/ntfs3/super.c                    |  9 +--------
+ fs/ntfs3/xattr.c                    | 14 --------------
+ 7 files changed, 1 insertion(+), 49 deletions(-)
+diff --git a/Documentation/filesystems/ntfs3.rst b/Documentation/filesystems/ntfs3.rst
+index 5aa102bd72c2..f0cf05cad2ba 100644
+--- a/Documentation/filesystems/ntfs3.rst
++++ b/Documentation/filesystems/ntfs3.rst
+@@ -61,17 +61,6 @@ this table marked with no it means default is without **no**.
+        directories, fmask applies only to files and dmask only to directories.
+    * - fmask=
+ 
+-   * - noacsrules
+-     - "No access rules" mount option sets access rights for files/folders to
+-       777 and owner/group to root. This mount option absorbs all other
+-       permissions.
+-
+-       - Permissions change for files/folders will be reported as successful,
+-	 but they will remain 777.
+-
+-       - Owner/group change will be reported as successful, butthey will stay
+-	 as root.
+-
+    * - nohidden
+      - Files with the Windows-specific HIDDEN (FILE_ATTRIBUTE_HIDDEN) attribute
+        will not be shown under Linux.
+diff --git a/fs/ntfs3/file.c b/fs/ntfs3/file.c
+index b3b72673fa5e..e4b54d6bcda5 100644
+--- a/fs/ntfs3/file.c
++++ b/fs/ntfs3/file.c
+@@ -654,22 +654,12 @@ static long ntfs_fallocate(struct file *file, int mode, loff_t vbo, loff_t len)
+ int ntfs3_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+ 		  struct iattr *attr)
+ {
+-	struct super_block *sb = dentry->d_sb;
+-	struct ntfs_sb_info *sbi = sb->s_fs_info;
+ 	struct inode *inode = d_inode(dentry);
+ 	struct ntfs_inode *ni = ntfs_i(inode);
+ 	u32 ia_valid = attr->ia_valid;
+ 	umode_t mode = inode->i_mode;
+ 	int err;
+ 
+-	if (sbi->options->noacsrules) {
+-		/* "No access rules" - Force any changes of time etc. */
+-		attr->ia_valid |= ATTR_FORCE;
+-		/* and disable for editing some attributes. */
+-		attr->ia_valid &= ~(ATTR_UID | ATTR_GID | ATTR_MODE);
+-		ia_valid = attr->ia_valid;
+-	}
+-
+ 	err = setattr_prepare(idmap, dentry, attr);
+ 	if (err)
+ 		goto out;
+@@ -1153,7 +1143,6 @@ const struct inode_operations ntfs_file_inode_operations = {
+ 	.getattr	= ntfs_getattr,
+ 	.setattr	= ntfs3_setattr,
+ 	.listxattr	= ntfs_listxattr,
+-	.permission	= ntfs_permission,
+ 	.get_inode_acl	= ntfs_get_acl,
+ 	.set_acl	= ntfs_set_acl,
+ 	.fiemap		= ntfs_fiemap,
+diff --git a/fs/ntfs3/inode.c b/fs/ntfs3/inode.c
+index bb004e476563..31f7e97fa43e 100644
+--- a/fs/ntfs3/inode.c
++++ b/fs/ntfs3/inode.c
+@@ -2070,7 +2070,6 @@ const struct inode_operations ntfs_link_inode_operations = {
+ 	.get_link	= ntfs_get_link,
+ 	.setattr	= ntfs3_setattr,
+ 	.listxattr	= ntfs_listxattr,
+-	.permission	= ntfs_permission,
+ };
+ 
+ const struct address_space_operations ntfs_aops = {
+diff --git a/fs/ntfs3/namei.c b/fs/ntfs3/namei.c
+index 92bbc8ee83ca..fdd11f2a1883 100644
+--- a/fs/ntfs3/namei.c
++++ b/fs/ntfs3/namei.c
+@@ -607,7 +607,6 @@ const struct inode_operations ntfs_dir_inode_operations = {
+ 	.rmdir		= ntfs_rmdir,
+ 	.mknod		= ntfs_mknod,
+ 	.rename		= ntfs_rename,
+-	.permission	= ntfs_permission,
+ 	.get_inode_acl	= ntfs_get_acl,
+ 	.set_acl	= ntfs_set_acl,
+ 	.setattr	= ntfs3_setattr,
+diff --git a/fs/ntfs3/ntfs_fs.h b/fs/ntfs3/ntfs_fs.h
+index 15296f5690b5..85efb34d211c 100644
+--- a/fs/ntfs3/ntfs_fs.h
++++ b/fs/ntfs3/ntfs_fs.h
+@@ -100,7 +100,6 @@ struct ntfs_mount_options {
+ 	unsigned hide_dot_files : 1; /* Set hidden flag on dot files. */
+ 	unsigned windows_names : 1; /* Disallow names forbidden by Windows. */
+ 	unsigned force : 1; /* RW mount dirty volume. */
+-	unsigned noacsrules : 1; /* Exclude acs rules. */
+ 	unsigned prealloc : 1; /* Preallocate space when file is growing. */
+ 	unsigned nocase : 1; /* case insensitive. */
+ };
+@@ -870,8 +869,6 @@ int ntfs_init_acl(struct mnt_idmap *idmap, struct inode *inode,
+ #endif
+ 
+ int ntfs_acl_chmod(struct mnt_idmap *idmap, struct dentry *dentry);
+-int ntfs_permission(struct mnt_idmap *idmap, struct inode *inode,
+-		    int mask);
+ ssize_t ntfs_listxattr(struct dentry *dentry, char *buffer, size_t size);
+ extern const struct xattr_handler *ntfs_xattr_handlers[];
+ 
+diff --git a/fs/ntfs3/super.c b/fs/ntfs3/super.c
+index 19d0889b131f..10c019ef7da3 100644
+--- a/fs/ntfs3/super.c
++++ b/fs/ntfs3/super.c
+@@ -253,7 +253,6 @@ enum Opt {
+ 	Opt_acl,
+ 	Opt_iocharset,
+ 	Opt_prealloc,
+-	Opt_noacsrules,
+ 	Opt_nocase,
+ 	Opt_err,
+ };
+@@ -274,7 +273,6 @@ static const struct fs_parameter_spec ntfs_fs_parameters[] = {
+ 	fsparam_flag_no("acl",			Opt_acl),
+ 	fsparam_flag_no("showmeta",		Opt_showmeta),
+ 	fsparam_flag_no("prealloc",		Opt_prealloc),
+-	fsparam_flag_no("acsrules",		Opt_noacsrules),
+ 	fsparam_flag_no("nocase",		Opt_nocase),
+ 	fsparam_string("iocharset",		Opt_iocharset),
+ 	{}
+@@ -387,9 +385,6 @@ static int ntfs_fs_parse_param(struct fs_context *fc,
+ 	case Opt_prealloc:
+ 		opts->prealloc = result.negated ? 0 : 1;
+ 		break;
+-	case Opt_noacsrules:
+-		opts->noacsrules = result.negated ? 1 : 0;
+-		break;
+ 	case Opt_nocase:
+ 		opts->nocase = result.negated ? 1 : 0;
+ 		break;
+@@ -572,8 +567,6 @@ static int ntfs_show_options(struct seq_file *m, struct dentry *root)
+ 		seq_puts(m, ",hide_dot_files");
+ 	if (opts->force)
+ 		seq_puts(m, ",force");
+-	if (opts->noacsrules)
+-		seq_puts(m, ",noacsrules");
+ 	if (opts->prealloc)
+ 		seq_puts(m, ",prealloc");
+ 	if (sb->s_flags & SB_POSIXACL)
+@@ -791,7 +784,7 @@ static int ntfs_init_from_boot(struct super_block *sb, u32 sector_size,
+ 	if (boot_sector_size != sector_size) {
+ 		ntfs_warn(
+ 			sb,
+-			"Different NTFS' sector size (%u) and media sector size (%u)",
++			"Different NTFS sector size (%u) and media sector size (%u)",
+ 			boot_sector_size, sector_size);
+ 		dev_size += sector_size - 1;
+ 	}
+diff --git a/fs/ntfs3/xattr.c b/fs/ntfs3/xattr.c
+index 4746959af964..4cab20d70c79 100644
+--- a/fs/ntfs3/xattr.c
++++ b/fs/ntfs3/xattr.c
+@@ -711,20 +711,6 @@ int ntfs_acl_chmod(struct mnt_idmap *idmap, struct dentry *dentry)
+ 	return posix_acl_chmod(idmap, dentry, inode->i_mode);
+ }
+ 
+-/*
+- * ntfs_permission - inode_operations::permission
+- */
+-int ntfs_permission(struct mnt_idmap *idmap, struct inode *inode,
+-		    int mask)
+-{
+-	if (ntfs_sb(inode->i_sb)->options->noacsrules) {
+-		/* "No access rules" mode - Allow all changes. */
+-		return 0;
+-	}
+-
+-	return generic_permission(idmap, inode, mask);
+-}
+-
+ /*
+  * ntfs_listxattr - inode_operations::listxattr
+  */
+================================================================================

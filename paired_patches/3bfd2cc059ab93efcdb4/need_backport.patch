@@ -1,0 +1,27 @@
+commit d178944db36b3369b78a08ba520de109b89bf2a9
+Author: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+Date:   Mon Sep 9 15:39:10 2024 +0300
+
+    fs/ntfs3: Additional check in ni_clear()
+    
+    Checking of NTFS_FLAGS_LOG_REPLAYING added to prevent access to
+    uninitialized bitmap during replay process.
+    
+    Reported-by: syzbot+3bfd2cc059ab93efcdb4@syzkaller.appspotmail.com
+    Signed-off-by: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+
+diff --git a/fs/ntfs3/frecord.c b/fs/ntfs3/frecord.c
+index 7d4e54161291..41c7ffad2790 100644
+--- a/fs/ntfs3/frecord.c
++++ b/fs/ntfs3/frecord.c
+@@ -102,7 +102,9 @@ void ni_clear(struct ntfs_inode *ni)
+ {
+ 	struct rb_node *node;
+ 
+-	if (!ni->vfs_inode.i_nlink && ni->mi.mrec && is_rec_inuse(ni->mi.mrec))
++	if (!ni->vfs_inode.i_nlink && ni->mi.mrec &&
++	    is_rec_inuse(ni->mi.mrec) &&
++	    !(ni->mi.sbi->flags & NTFS_FLAGS_LOG_REPLAYING))
+ 		ni_delete_all(ni);
+ 
+ 	al_destroy(ni);

@@ -1,0 +1,57 @@
+{
+  "extid": "0122fa359a69694395d5",
+  "target_ref": "0122fa359a69694395d5",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "99d3bf5f7377d42f8be60a6b9cb60fb0be34dceb",
+      "branch": "linux-6.1",
+      "title": "WARNING in input_mt_init_slots",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/input/input-mt.c"
+      ],
+      "symbols": [
+        "input_mt_init_slots",
+        "if"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "da3ea35007d0af457a0afc87e84fddaebc4e0b63",
+      "branch": "linux-5.15",
+      "title": "WARNING in input_mt_init_slots",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [
+        "VERSION"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

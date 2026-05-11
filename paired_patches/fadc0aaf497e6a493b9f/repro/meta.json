@@ -1,0 +1,50 @@
+{
+  "extid": "fadc0aaf497e6a493b9f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=fadc0aaf497e6a493b9f",
+  "bug_title": "possible deadlock in md_open",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "md: fix a lock order reversal in md_alloc",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7df835a32a8bedf7ce88efcfa7c9b245b52ff139",
+      "hash": "7df835a32a8bedf7ce88efcfa7c9b245b52ff139",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hch@lst.de",
+      "author-name": "Christoph Hellwig",
+      "date": "2021-09-01T11:38:29Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in md_open",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e8f71f89236ef82d449991bfbc237e3cb6ea584f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/af796c181d2f26346fd413a8aec4262799a13cd1",
+  "syzkaller-commit": "af796c181d2f26346fd413a8aec4262799a13cd1",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1605f5f3300000",
+      "saved_to": "/home/lcj/paired_patches/fadc0aaf497e6a493b9f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e917f3dfc452c977",
+      "saved_to": "/home/lcj/paired_patches/fadc0aaf497e6a493b9f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=146b51ab300000",
+      "saved_to": "/home/lcj/paired_patches/fadc0aaf497e6a493b9f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11b722ad300000",
+      "saved_to": "/home/lcj/paired_patches/fadc0aaf497e6a493b9f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

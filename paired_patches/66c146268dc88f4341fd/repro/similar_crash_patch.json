@@ -1,0 +1,64 @@
+{
+  "extid": "66c146268dc88f4341fd",
+  "target_ref": "66c146268dc88f4341fd",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "c03a82b4a0c935774afa01fd6d128b444fd930a1",
+      "branch": "linux-6.1",
+      "title": "KASAN: use-after-free Read in __ocfs2_find_path",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ocfs2/buffer_head_io.c"
+      ],
+      "symbols": [
+        "ocfs2_read_blocks",
+        "ocfs2_metadata_cache_io_unlock"
+      ],
+      "patterns": [
+        "use-after-free",
+        "NULL",
+        "null",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "a406aff8c05115119127c962cbbbbd202e1973ef",
+      "branch": "linux-5.15",
+      "title": "KASAN: use-after-free Read in __ocfs2_find_path",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ocfs2/alloc.c"
+      ],
+      "symbols": [
+        "__ocfs2_find_path",
+        "if",
+        "ocfs2_error",
+        "le16_to_cpu"
+      ],
+      "patterns": [
+        "use-after-free",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

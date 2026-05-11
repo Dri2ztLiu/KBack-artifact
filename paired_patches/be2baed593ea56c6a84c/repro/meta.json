@@ -1,0 +1,50 @@
+{
+  "extid": "be2baed593ea56c6a84c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=be2baed593ea56c6a84c",
+  "bug_title": "INFO: task hung in hci_req_sync",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "Bluetooth: add timeout sanity check to hci_inquiry",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f41a4b2b5eb7872109723dab8ae1603bdd9d9ec1",
+      "hash": "f41a4b2b5eb7872109723dab8ae1603bdd9d9ec1",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "paskripkin@gmail.com",
+      "author-name": "Pavel Skripkin",
+      "date": "2021-08-19T15:15:21Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in hci_req_sync",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "c9194f32bfd932e976a158d1af97a63be68a2aab",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6972b10616d785401dea17cec890cca8916424a7",
+  "syzkaller-commit": "6972b10616d785401dea17cec890cca8916424a7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12218cf6300000",
+      "saved_to": "/home/lcj/paired_patches/be2baed593ea56c6a84c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=343fd21f6f4da2d6",
+      "saved_to": "/home/lcj/paired_patches/be2baed593ea56c6a84c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=15fcd192300000",
+      "saved_to": "/home/lcj/paired_patches/be2baed593ea56c6a84c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15b5afc6300000",
+      "saved_to": "/home/lcj/paired_patches/be2baed593ea56c6a84c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "1a8e2b31f2ac9bd3d148",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1a8e2b31f2ac9bd3d148",
+  "bug_title": "KASAN: null-ptr-deref Write in f2fs_stop_gc_thread",
+  "bug_status": "fixed on 2024/10/22 11:56",
+  "fix_commits": [
+    {
+      "title": "f2fs: fix to avoid use-after-free in f2fs_stop_gc_thread()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c7f114d864ac91515bb07ac271e9824a20f5ed95",
+      "hash": "c7f114d864ac91515bb07ac271e9824a20f5ed95",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "chao@kernel.org",
+      "author-name": "Chao Yu",
+      "date": "2024-07-30T01:08:55Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: null-ptr-deref Write in f2fs_stop_gc_thread",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2c9b3512402ed192d1f43f4531fb5da947e72bd0",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/b88348e926b1f214763f45a5457bd91aafd36fab",
+  "syzkaller-commit": "b88348e926b1f214763f45a5457bd91aafd36fab",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14e5eeb5980000",
+      "saved_to": "/home/lcj/paired_patches/1a8e2b31f2ac9bd3d148/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f4925140c45a2a50",
+      "saved_to": "/home/lcj/paired_patches/1a8e2b31f2ac9bd3d148/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1510b445980000",
+      "saved_to": "/home/lcj/paired_patches/1a8e2b31f2ac9bd3d148/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=136eee95980000",
+      "saved_to": "/home/lcj/paired_patches/1a8e2b31f2ac9bd3d148/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

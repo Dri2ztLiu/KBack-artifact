@@ -1,0 +1,54 @@
+{
+  "extid": "4fec412f59eba8c01b77",
+  "target_ref": "4fec412f59eba8c01b77",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "bf4ad6fa4e5332e53913b073d0219319a4091619",
+      "branch": "linux-6.1",
+      "title": "UBSAN: shift-out-of-bounds in ext2_fill_super",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "8a7f2a5c5aa1648edb4f2029c6ec33870afb7a95",
+      "branch": "linux-5.15",
+      "title": "UBSAN: shift-out-of-bounds in ext2_fill_super",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "out-of-bounds",
+        "UBSAN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

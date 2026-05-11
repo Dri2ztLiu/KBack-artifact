@@ -1,0 +1,41 @@
+------------[ cut here ]------------
+URB ffff888057dae700 submitted while active
+WARNING: drivers/usb/core/urb.c:379 at usb_submit_urb+0xfc1/0x1830 drivers/usb/core/urb.c:379, CPU#1: kworker/1:6/7756
+Modules linked in:
+CPU: 1 UID: 0 PID: 7756 Comm: kworker/1:6 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/12/2025
+Workqueue: mld mld_ifc_work
+RIP: 0010:usb_submit_urb+0xfc1/0x1830 drivers/usb/core/urb.c:379
+Code: 44 89 f2 e8 51 7c f5 f9 e9 13 fc ff ff e8 87 69 89 fa c6 05 e0 ba 97 08 01 90 48 c7 c7 c0 6f 56 8c 48 89 de e8 50 09 4d fa 90 <0f> 0b 90 90 e9 b7 f0 ff ff e8 61 69 89 fa eb 11 e8 5a 69 89 fa bd
+RSP: 0018:ffffc9000b70f010 EFLAGS: 00010246
+RAX: 0218107c34ac3b00 RBX: ffff888057dae700 RCX: ffff888021ab5a00
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000002
+RBP: dffffc0000000000 R08: 0000000000000003 R09: 0000000000000004
+R10: dffffc0000000000 R11: fffffbfff1c7a604 R12: dffffc0000000000
+R13: ffff888032a8a002 R14: ffff888057dae708 R15: 0000000000000820
+FS:  0000000000000000(0000) GS:ffff8881258c4000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f6072c44a90 CR3: 000000000e338000 CR4: 00000000003526f0
+Call Trace:
+ <TASK>
+ rtl8150_start_xmit+0x2cb/0x5f0 drivers/net/usb/rtl8150.c:696
+ __netdev_start_xmit include/linux/netdevice.h:5222 [inline]
+ netdev_start_xmit include/linux/netdevice.h:5231 [inline]
+ xmit_one net/core/dev.c:3839 [inline]
+ dev_hard_start_xmit+0x2d7/0x830 net/core/dev.c:3855
+ sch_direct_xmit+0x241/0x4b0 net/sched/sch_generic.c:344
+ __dev_xmit_skb net/core/dev.c:4114 [inline]
+ __dev_queue_xmit+0x1857/0x3b50 net/core/dev.c:4691
+ neigh_output include/net/neighbour.h:547 [inline]
+ ip6_finish_output2+0x11fb/0x16a0 net/ipv6/ip6_output.c:141
+ NF_HOOK+0x9e/0x380 include/linux/netfilter.h:318
+ mld_sendpack+0x8d4/0xe60 net/ipv6/mcast.c:1860
+ mld_send_cr net/ipv6/mcast.c:2159 [inline]
+ mld_ifc_work+0x83e/0xd60 net/ipv6/mcast.c:2698
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0xae1/0x17b0 kernel/workqueue.c:3319
+ worker_thread+0x8a0/0xda0 kernel/workqueue.c:3400
+ kthread+0x711/0x8a0 kernel/kthread.c:463
+ ret_from_fork+0x47c/0x820 arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>

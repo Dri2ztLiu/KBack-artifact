@@ -1,0 +1,50 @@
+{
+  "extid": "942297eecf7d2d61d1f1",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=942297eecf7d2d61d1f1",
+  "bug_title": "KASAN: slab-use-after-free Read in rose_timer_expiry (3)",
+  "bug_status": "fixed on 2025/10/09 01:14",
+  "fix_commits": [
+    {
+      "title": "net: rose: include node references in rose_neigh refcount",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=da9c9c877597170b929a6121a68dcd3dd9a80f45",
+      "hash": "da9c9c877597170b929a6121a68dcd3dd9a80f45",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "takamitz@amazon.co.jp",
+      "author-name": "Takamitsu Iwai",
+      "date": "2025-08-23T08:58:57Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in rose_timer_expiry",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "07d9df80082b8d1f37e05658371b087cb6738770",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3e1beec658de176f019d70b438efd52ea21b2cf4",
+  "syzkaller-commit": "3e1beec658de176f019d70b438efd52ea21b2cf4",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=17f00242580000",
+      "saved_to": "/home/lcj/paired_patches/942297eecf7d2d61d1f1/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=da02162f945f3311",
+      "saved_to": "/home/lcj/paired_patches/942297eecf7d2d61d1f1/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/942297eecf7d2d61d1f1/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/942297eecf7d2d61d1f1/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

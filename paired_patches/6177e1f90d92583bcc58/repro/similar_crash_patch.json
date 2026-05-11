@@ -1,0 +1,59 @@
+{
+  "extid": "6177e1f90d92583bcc58",
+  "target_ref": "6177e1f90d92583bcc58",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "c0a2a1b0d631fc460d830f52d06211838874d655",
+      "branch": "linux-6.1",
+      "title": "WARNING in __alloc_skb",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "drivers/net/ppp/ppp_synctty.c"
+      ],
+      "symbols": [
+        "ppp_sync_ioctl",
+        "if"
+      ],
+      "patterns": [
+        "WARN",
+        "net",
+        "ioctl"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "155a3c003e555a7300d156a5252c004c392ec6b0",
+      "branch": "linux-5.15",
+      "title": "WARNING in __alloc_skb",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [
+        "VERSION"
+      ],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

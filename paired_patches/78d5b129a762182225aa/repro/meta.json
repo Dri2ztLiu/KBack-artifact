@@ -1,0 +1,50 @@
+{
+  "extid": "78d5b129a762182225aa",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=78d5b129a762182225aa",
+  "bug_title": "UBSAN: shift-out-of-bounds in parse_audio_unit",
+  "bug_status": "fixed on 2024/08/14 03:44",
+  "fix_commits": [
+    {
+      "title": "ALSA: usb: Fix UBSAN warning in parse_audio_unit()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f38cf730caedaeacdefb7ff35b0a3c1168117f9",
+      "hash": "2f38cf730caedaeacdefb7ff35b0a3c1168117f9",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2024-07-15T12:35:54Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in parse_audio_unit",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "a19ea421490dcc45c9f78145bb2703ac5d373b28",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/c699c2eb05c8f8cc8d8e20c5a883689491a03ac0",
+  "syzkaller-commit": "c699c2eb05c8f8cc8d8e20c5a883689491a03ac0",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15de3185980000",
+      "saved_to": "/home/lcj/paired_patches/78d5b129a762182225aa/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b63b35269462a0e0",
+      "saved_to": "/home/lcj/paired_patches/78d5b129a762182225aa/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1373427e980000",
+      "saved_to": "/home/lcj/paired_patches/78d5b129a762182225aa/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15773776980000",
+      "saved_to": "/home/lcj/paired_patches/78d5b129a762182225aa/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

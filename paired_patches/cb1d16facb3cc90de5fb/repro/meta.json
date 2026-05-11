@@ -1,0 +1,50 @@
+{
+  "extid": "cb1d16facb3cc90de5fb",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=cb1d16facb3cc90de5fb",
+  "bug_title": "KASAN: wild-memory-access Write in v9fs_get_acl",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "9P FS: Fix wild-memory-access write in v9fs_get_acl",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=707823e7f22f3864ddc7d85e8e9b614afe4f1b16",
+      "hash": "707823e7f22f3864ddc7d85e8e9b614afe4f1b16",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "ivan.orlov0322@gmail.com",
+      "author-name": "Ivan Orlov",
+      "date": "2023-03-11T12:50:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: wild-memory-access Write in v9fs_get_acl",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git",
+  "kernel-source-commit": "596b6b7096320e2ba3b5ee1f03c4669803c45253",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "syzkaller-commit": "f8902b5747fbe3d5b860bd782eec63fc9c7da6e7",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11461b54c80000",
+      "saved_to": "/home/lcj/paired_patches/cb1d16facb3cc90de5fb/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=3519974f3f27816d",
+      "saved_to": "/home/lcj/paired_patches/cb1d16facb3cc90de5fb/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17e74fb0c80000",
+      "saved_to": "/home/lcj/paired_patches/cb1d16facb3cc90de5fb/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15b2e204c80000",
+      "saved_to": "/home/lcj/paired_patches/cb1d16facb3cc90de5fb/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

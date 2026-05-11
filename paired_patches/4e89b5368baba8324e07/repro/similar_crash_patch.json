@@ -1,0 +1,69 @@
+{
+  "extid": "4e89b5368baba8324e07",
+  "target_ref": "4e89b5368baba8324e07",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "f231f248323d6469c23792221863779f41c4a219",
+      "branch": "linux-6.6",
+      "title": "KASAN: null-ptr-deref Read in txBeginAnon",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "NULL",
+        "null",
+        "KASAN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "535ec20c50273d81b2cc7985fed2108dee0e65d7",
+      "branch": "linux-6.1",
+      "title": "BUG: unable to handle kernel paging request in txBeginAnon",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "16fdf2c7111bd6927f16c3e811f5086fecebbf00",
+      "branch": "linux-5.15",
+      "title": "BUG: unable to handle kernel paging request in txBeginAnon",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "BUG"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

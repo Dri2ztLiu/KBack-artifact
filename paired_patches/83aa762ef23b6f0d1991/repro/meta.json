@@ -1,0 +1,50 @@
+{
+  "extid": "83aa762ef23b6f0d1991",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=83aa762ef23b6f0d1991",
+  "bug_title": "BUG: unable to handle kernel paging request in bpf_trace_run3",
+  "bug_status": "fixed on 2021/04/09 19:46",
+  "fix_commits": [
+    {
+      "title": "tracepoint: Do not fail unregistering a probe due to memory failure",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=befe6d946551d65cddbd32b9cb0170b0249fd5ed",
+      "hash": "befe6d946551d65cddbd32b9cb0170b0249fd5ed",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "rostedt@goodmis.org",
+      "author-name": "Steven Rostedt (VMware)",
+      "date": "2021-02-02T22:02:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git",
+  "kernel-source-commit": "9ff9b0d392ea08090cd1780fb196f36dbb586529",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fea47c014be7a00a32ab016b946c0a77f32c1f40",
+  "syzkaller-commit": "fea47c014be7a00a32ab016b946c0a77f32c1f40",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1452ac5f900000",
+      "saved_to": "/home/lcj/paired_patches/83aa762ef23b6f0d1991/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d13c3fa80bc4bcc1",
+      "saved_to": "/home/lcj/paired_patches/83aa762ef23b6f0d1991/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=130d3310500000",
+      "saved_to": "/home/lcj/paired_patches/83aa762ef23b6f0d1991/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14113907900000",
+      "saved_to": "/home/lcj/paired_patches/83aa762ef23b6f0d1991/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

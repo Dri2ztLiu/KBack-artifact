@@ -1,0 +1,50 @@
+{
+  "extid": "263426984509be19c9a0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=263426984509be19c9a0",
+  "bug_title": "KASAN: slab-use-after-free Read in br_multicast_port_group_expired",
+  "bug_status": "fixed on 2024/10/03 15:25",
+  "fix_commits": [
+    {
+      "title": "net: bridge: mcast: wait for previous gc cycles when removing port",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=92c4ee25208d0f35dafc3213cdf355fbe449e078",
+      "hash": "92c4ee25208d0f35dafc3213cdf355fbe449e078",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "razor@blackwall.org",
+      "author-name": "Nikolay Aleksandrov",
+      "date": "2024-08-02T08:07:30Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-use-after-free Read in br_multicast_port_group_expired",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "24ca36a562d63f1bff04c3f11236f52969c67717",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/880c1ca1d9289d57d785f043306f8b243edf4197",
+  "syzkaller-commit": "880c1ca1d9289d57d785f043306f8b243edf4197",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=108e26ae980000",
+      "saved_to": "/home/lcj/paired_patches/263426984509be19c9a0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=68f694eee402f940",
+      "saved_to": "/home/lcj/paired_patches/263426984509be19c9a0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/263426984509be19c9a0/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/263426984509be19c9a0/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

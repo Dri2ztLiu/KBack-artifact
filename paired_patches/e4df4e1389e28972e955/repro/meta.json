@@ -1,0 +1,50 @@
+{
+  "extid": "e4df4e1389e28972e955",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e4df4e1389e28972e955",
+  "bug_title": "KASAN: use-after-free Read in vlan_dev_real_dev (2)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "net: vlan: fix a UAF in vlan_dev_real_dev()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=563bcbae3ba233c275c244bfce2efe12938f5363",
+      "hash": "563bcbae3ba233c275c244bfce2efe12938f5363",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "william.xuanziyang@huawei.com",
+      "author-name": "Ziyang Xuan",
+      "date": "2021-11-02T02:12:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in vlan_dev_real_dev",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "732b74d647048668f0f8dc0c848f0746c69e2e2f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/838e7e2cd9228583ca33c49a39aea4d863d3e36d",
+  "syzkaller-commit": "838e7e2cd9228583ca33c49a39aea4d863d3e36d",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13de52d0b00000",
+      "saved_to": "/home/lcj/paired_patches/e4df4e1389e28972e955/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e2ffb281e6323643",
+      "saved_to": "/home/lcj/paired_patches/e4df4e1389e28972e955/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14613277300000",
+      "saved_to": "/home/lcj/paired_patches/e4df4e1389e28972e955/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=103828fb300000",
+      "saved_to": "/home/lcj/paired_patches/e4df4e1389e28972e955/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

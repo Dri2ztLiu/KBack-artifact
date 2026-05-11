@@ -1,0 +1,50 @@
+{
+  "extid": "823000d23b3400619f7c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=823000d23b3400619f7c",
+  "bug_title": "KASAN: use-after-free Read in __update_extent_tree_range",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "f2fs: synchronize atomic write aborts",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a46bebd502fe1a3bd1d22f64cedd93e7e7702693",
+      "hash": "a46bebd502fe1a3bd1d22f64cedd93e7e7702693",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "daehojeong@google.com",
+      "author-name": "Daeho Jeong",
+      "date": "2023-02-09T18:18:19Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in __update_extent_tree_range",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1b929c02afd37871d5afb9d498426f83432e71c2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9da18ae8fa827d046ef8da48cc23c97418553c23",
+  "syzkaller-commit": "9da18ae8fa827d046ef8da48cc23c97418553c23",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13f6dd74480000",
+      "saved_to": "/home/lcj/paired_patches/823000d23b3400619f7c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2651619a26b4d687",
+      "saved_to": "/home/lcj/paired_patches/823000d23b3400619f7c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11ae9d7f880000",
+      "saved_to": "/home/lcj/paired_patches/823000d23b3400619f7c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=12597238480000",
+      "saved_to": "/home/lcj/paired_patches/823000d23b3400619f7c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

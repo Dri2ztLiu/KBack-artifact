@@ -1,0 +1,60 @@
+{
+  "extid": "9fcea5ef6dc4dc72d334",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9fcea5ef6dc4dc72d334",
+  "bug_title": "KASAN: slab-out-of-bounds Read in ntfs_listxattr",
+  "bug_status": "fixed on 2023/12/22 18:34",
+  "fix_commits": [
+    {
+      "title": "fs/ntfs3: fix panic about slab-out-of-bounds caused by ntfs_list_ea()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8e7e27b2ee1e19c4040d4987e345f678a74c0aed",
+      "hash": "8e7e27b2ee1e19c4040d4987e345f678a74c0aed",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zengheng4@huawei.com",
+      "author-name": "Zeng Heng",
+      "date": "2023-04-20T07:46:22Z"
+    },
+    {
+      "title": "ntfs: Fix panic about slab-out-of-bounds caused by ntfs_listxattr()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3c675ddffb17a8b1e32efad5c983254af18b12c2",
+      "hash": "3c675ddffb17a8b1e32efad5c983254af18b12c2",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "zengheng4@huawei.com",
+      "author-name": "Zeng Heng",
+      "date": "2022-12-07T16:28:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in ntfs_listxattr",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "1b907d0507354b74a4f2c286380cd6059af79248",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6d6dbf8ab21a52df701946afac2a86f93a88fdc8",
+  "syzkaller-commit": "6d6dbf8ab21a52df701946afac2a86f93a88fdc8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=10794b97680000",
+      "saved_to": "/home/lcj/paired_patches/9fcea5ef6dc4dc72d334/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=88e7ba51eecd9cd6",
+      "saved_to": "/home/lcj/paired_patches/9fcea5ef6dc4dc72d334/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1275591f680000",
+      "saved_to": "/home/lcj/paired_patches/9fcea5ef6dc4dc72d334/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=174ff898e80000",
+      "saved_to": "/home/lcj/paired_patches/9fcea5ef6dc4dc72d334/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "e91619dd4c11c4960706",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=e91619dd4c11c4960706",
+  "bug_title": "UBSAN: shift-out-of-bounds in nilfs_load_super_block",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "nilfs2: fix shift-out-of-bounds/overflow in nilfs_sb2_bad_offset()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=610a2a3d7d8be3537458a378ec69396a76c385b6",
+      "hash": "610a2a3d7d8be3537458a378ec69396a76c385b6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "konishi.ryusuke@gmail.com",
+      "author-name": "Ryusuke Konishi",
+      "date": "2022-10-27T04:43:05Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in nilfs_load_super_block",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "ee6050c8af96bba2f81e8b0793a1fc2f998fcd20",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6d752409f178135881da3510c910bb11ae1f1381",
+  "syzkaller-commit": "6d752409f178135881da3510c910bb11ae1f1381",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=113b8b39880000",
+      "saved_to": "/home/lcj/paired_patches/e91619dd4c11c4960706/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d080a4bd239918dd",
+      "saved_to": "/home/lcj/paired_patches/e91619dd4c11c4960706/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=102c2c51880000",
+      "saved_to": "/home/lcj/paired_patches/e91619dd4c11c4960706/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=175c55fc880000",
+      "saved_to": "/home/lcj/paired_patches/e91619dd4c11c4960706/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

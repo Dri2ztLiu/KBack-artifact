@@ -1,0 +1,50 @@
+{
+  "extid": "a8c7be6dee0de1b669cc",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a8c7be6dee0de1b669cc",
+  "bug_title": "KMSAN: uninit-value in llc_station_rcv",
+  "bug_status": "fixed on 2023/12/21 01:43",
+  "fix_commits": [
+    {
+      "title": "llc: verify mac len before reading mac header",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7b3ba18703a63f6fd487183b9262b08e5632da1b",
+      "hash": "7b3ba18703a63f6fd487183b9262b08e5632da1b",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "willemb@google.com",
+      "author-name": "Willem de Bruijn",
+      "date": "2023-10-25T23:42:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in llc_station_rcv",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "401644852d0b2a278811de38081be23f74b5bb04",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fc170927228ea774aeb61449ce88220bd3ce0156",
+  "syzkaller-commit": "fc170927228ea774aeb61449ce88220bd3ce0156",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14a331c1680000",
+      "saved_to": "/home/lcj/paired_patches/a8c7be6dee0de1b669cc/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=aa41ce7c1680fd9a",
+      "saved_to": "/home/lcj/paired_patches/a8c7be6dee0de1b669cc/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16a974b1680000",
+      "saved_to": "/home/lcj/paired_patches/a8c7be6dee0de1b669cc/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=11535252680000",
+      "saved_to": "/home/lcj/paired_patches/a8c7be6dee0de1b669cc/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

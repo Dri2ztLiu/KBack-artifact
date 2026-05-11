@@ -1,0 +1,50 @@
+{
+  "extid": "df6cdcb35904203d2b6d",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=df6cdcb35904203d2b6d",
+  "bug_title": "KMSAN: uninit-value in diFree",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "jfs: Fix uninit-value access of imap allocated in the diMount() function",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9629d7d66c621671d9a47afe27ca9336bfc8a9ea",
+      "hash": "9629d7d66c621671d9a47afe27ca9336bfc8a9ea",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "quic_zhonhan@quicinc.com",
+      "author-name": "Zhongqiu Han",
+      "date": "2025-02-19T14:02:11Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in diFree",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "6537cfb395f352782918d8ee7b7f10ba2cc3cbf2",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9a14138f4fc02e412262b751acdc4dd70665a726",
+  "syzkaller-commit": "9a14138f4fc02e412262b751acdc4dd70665a726",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=151d2fdf980000",
+      "saved_to": "/home/lcj/paired_patches/df6cdcb35904203d2b6d/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8cf1217edc1cc7da",
+      "saved_to": "/home/lcj/paired_patches/df6cdcb35904203d2b6d/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16321498580000",
+      "saved_to": "/home/lcj/paired_patches/df6cdcb35904203d2b6d/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=131d2fdf980000",
+      "saved_to": "/home/lcj/paired_patches/df6cdcb35904203d2b6d/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

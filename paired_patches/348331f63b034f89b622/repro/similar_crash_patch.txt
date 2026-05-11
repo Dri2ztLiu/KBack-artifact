@@ -1,0 +1,80 @@
+================================================================================
+GUIDE: How to use this Similar Fix Cluster (do NOT copy code blindly)
+================================================================================
+1) Treat the patches below as *evidence* of common fix locations/patterns, not as drop-in code.
+2) Your next actions should be:
+   - Focus on the TOP touched files/functions below; use `locate_symbol` and `viewcode` on the target release.
+   - Use `git_history` / `git_show` to understand how the old version evolved around the suspected lines.
+   - Implement ONLY the minimal root-cause fix required for the old version (avoid refactors/cleanups).
+   - Re-run `validate` after each revision; if compile fails, use the error symbol/file as new `focus_error`.
+3) If you see API mismatch:
+   - Preserve intent (e.g., add missing check, correct refcounting, fix locking order) and adapt to old APIs.
+
+================================================================================
+SIGNALS: Frequent touched files / symbols / keywords (use as search anchors)
+================================================================================
+TOP_FILES:
+  drivers/usb/core/urb.c (1), drivers/firewire/core-cdev.c (1)
+TOP_SYMBOLS:
+  usb_submit_urb (1), dev_WARN (1), dev_warn_once (1)
+TOP_KEYWORDS:
+  WARN (2), overflow (1)
+
+Recommended next tool calls (example):
+  - locate_symbol(ref=<target_release>, symbol=usb_submit_urb)
+  - viewcode(ref=<target_release>, path=drivers/usb/core/urb.c, startline=<around>, endline=<around>)
+
+================================================================================
+DIAGNOSTICS
+================================================================================
+summary: rows_total=3, rows_scanned=3, candidates_kept=2, skipped=1
+skip_breakdown: skip_upstream=1, skip_non_linux_branch=0, skip_same_target_branch=0, skip_no_fix_commit=0, skip_commit_not_in_repo=0, skip_empty_diff=0
+
+================================================================================
+PATCHES: Similar crash fix diffs (ranked)
+================================================================================
+branch: linux-6.1
+fix_commit: 503bbde34cc3dd2acd231f277ba70c3f9ed22e59
+bug_url: https://syzkaller.appspot.com/bug?extid=90c7435c68b469a5d2fe
+title: WARNING in bcm5974_start_traffic/usb_submit_urb
+relevance_score: 0
+
+ drivers/usb/core/urb.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/drivers/usb/core/urb.c b/drivers/usb/core/urb.c
+index 0e58a8531d6e..7a76d5a62db1 100644
+--- a/drivers/usb/core/urb.c
++++ b/drivers/usb/core/urb.c
+@@ -500,7 +500,7 @@ int usb_submit_urb(struct urb *urb, gfp_t mem_flags)
+ 
+ 	/* Check that the pipe's type matches the endpoint's type */
+ 	if (usb_pipe_type_check(urb->dev, urb->pipe))
+-		dev_WARN(&dev->dev, "BOGUS urb xfer, pipe %x != type %x\n",
++		dev_warn_once(&dev->dev, "BOGUS urb xfer, pipe %x != type %x\n",
+ 			usb_pipetype(urb->pipe), pipetypes[xfertype]);
+ 
+ 	/* Check against a simple/standard policy */
+================================================================================
+
+branch: linux-5.15
+fix_commit: f975f08c2e899ae2484407d7bba6bb7f8b6d9d40
+bug_url: https://syzkaller.appspot.com/bug?id=bb2229eaf851678a5839dd2a5b56066481d6c920
+title: WARNING in bcm5974_start_traffic/usb_submit_urb
+relevance_score: 0
+
+ drivers/firewire/core-cdev.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/drivers/firewire/core-cdev.c b/drivers/firewire/core-cdev.c
+index 78b10c6ef7fe..2e93189d7142 100644
+--- a/drivers/firewire/core-cdev.c
++++ b/drivers/firewire/core-cdev.c
+@@ -41,7 +41,7 @@
+ /*
+  * ABI version history is documented in linux/firewire-cdev.h.
+  */
+-#define FW_CDEV_KERNEL_VERSION			5
++#define FW_CDEV_KERNEL_VERSION			6
+ #define FW_CDEV_VERSION_EVENT_REQUEST2		4
+ #define FW_CDEV_VERSION_ALLOCATE_REGION_END	4
+ #define FW_CDEV_VERSION_AUTO_FLUSH_ISO_OVERFLOW	5
+================================================================================

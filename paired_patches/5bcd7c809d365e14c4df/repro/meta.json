@@ -1,0 +1,50 @@
+{
+  "extid": "5bcd7c809d365e14c4df",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5bcd7c809d365e14c4df",
+  "bug_title": "WARNING in call_s_stream",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "media: vimc: skip .s_stream() for stopped entities",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=36cef585e2a31e4ddf33a004b0584a7a572246de",
+      "hash": "36cef585e2a31e4ddf33a004b0584a7a572246de",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "n.zhandarovich@fintech.ru",
+      "author-name": "Nikita Zhandarovich",
+      "date": "2025-03-02T14:58:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in call_s_stream",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "2d8308bf5b67dff50262d8a9260a50113b3628c6",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/7cbfbb3ab457b0a8ecf525a27a65a2078c5dcaa8",
+  "syzkaller-commit": "7cbfbb3ab457b0a8ecf525a27a65a2078c5dcaa8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1228860f980000",
+      "saved_to": "/home/lcj/paired_patches/5bcd7c809d365e14c4df/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=b874549ac3d0b012",
+      "saved_to": "/home/lcj/paired_patches/5bcd7c809d365e14c4df/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10bac344580000",
+      "saved_to": "/home/lcj/paired_patches/5bcd7c809d365e14c4df/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=13ba07e8580000",
+      "saved_to": "/home/lcj/paired_patches/5bcd7c809d365e14c4df/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "f61594de72d6705aea03",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f61594de72d6705aea03",
+  "bug_title": "KASAN: vmalloc-out-of-bounds Read in __ebt_unregister_table",
+  "bug_status": "fixed on 2023/06/08 14:41",
+  "fix_commits": [
+    {
+      "title": "netfilter: ebtables: fix table blob use-after-free",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e58a171d35e32e6e8c37cfe0e8a94406732a331f",
+      "hash": "e58a171d35e32e6e8c37cfe0e8a94406732a331f",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2023-02-17T22:20:06Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: vmalloc-out-of-bounds Read in __ebt_unregister_table",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "3ac88fa4605ec98e545fb3ad0154f575fda2de5f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/851bc19a3c4615f6653414b6deec9b9e84c8ca58",
+  "syzkaller-commit": "851bc19a3c4615f6653414b6deec9b9e84c8ca58",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11f667db480000",
+      "saved_to": "/home/lcj/paired_patches/f61594de72d6705aea03/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=fe56f7d193926860",
+      "saved_to": "/home/lcj/paired_patches/f61594de72d6705aea03/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=143058d7480000",
+      "saved_to": "/home/lcj/paired_patches/f61594de72d6705aea03/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=14123acf480000",
+      "saved_to": "/home/lcj/paired_patches/f61594de72d6705aea03/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

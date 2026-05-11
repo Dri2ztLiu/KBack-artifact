@@ -1,0 +1,50 @@
+{
+  "extid": "985f827280dc3a6e7e92",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=985f827280dc3a6e7e92",
+  "bug_title": "BUG: corrupted list in ieee802154_if_remove",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "mac802154: check local interfaces before deleting sdata list",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=eb09fbeb48709fe66c0d708aed81e910a577a30a",
+      "hash": "eb09fbeb48709fe66c0d708aed81e910a577a30a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "lizhi.xu@windriver.com",
+      "author-name": "Lizhi Xu",
+      "date": "2024-11-13T09:51:29Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "BUG: corrupted list in ieee802154_if_remove",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "557329bcecc2f55e134db8974953b32b69db9d15",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/509da42949c4013fb236ebf6e25d3562d110198c",
+  "syzkaller-commit": "509da42949c4013fb236ebf6e25d3562d110198c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=12a23587980000",
+      "saved_to": "/home/lcj/paired_patches/985f827280dc3a6e7e92/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=921b01cbfd887a9b",
+      "saved_to": "/home/lcj/paired_patches/985f827280dc3a6e7e92/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=12a9f740580000",
+      "saved_to": "/home/lcj/paired_patches/985f827280dc3a6e7e92/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15d76d5f980000",
+      "saved_to": "/home/lcj/paired_patches/985f827280dc3a6e7e92/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

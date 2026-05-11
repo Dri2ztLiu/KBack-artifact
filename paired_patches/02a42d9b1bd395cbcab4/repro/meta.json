@@ -1,0 +1,50 @@
+{
+  "extid": "02a42d9b1bd395cbcab4",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=02a42d9b1bd395cbcab4",
+  "bug_title": "general protection fault in hsr_proxy_announce",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "net: hsr: prevent NULL pointer dereference in hsr_proxy_announce()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a7789fd4caaf96ecfed5e28c4cddb927e6bebadb",
+      "hash": "a7789fd4caaf96ecfed5e28c4cddb927e6bebadb",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "aha310510@gmail.com",
+      "author-name": "Jeongjun Park",
+      "date": "2024-09-07T19:03:41Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in hsr_proxy_announce",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "7808012003004b5b31e24795af33480d5eed20f1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9d47f20a1c5cfc0e89b8e37d0175d69be81ad9a9",
+  "syzkaller-commit": "9d47f20a1c5cfc0e89b8e37d0175d69be81ad9a9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11bcf08b980000",
+      "saved_to": "/home/lcj/paired_patches/02a42d9b1bd395cbcab4/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=996585887acdadb3",
+      "saved_to": "/home/lcj/paired_patches/02a42d9b1bd395cbcab4/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/02a42d9b1bd395cbcab4/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/02a42d9b1bd395cbcab4/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

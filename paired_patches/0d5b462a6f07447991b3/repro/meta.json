@@ -1,0 +1,50 @@
+{
+  "extid": "0d5b462a6f07447991b3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=0d5b462a6f07447991b3",
+  "bug_title": "WARNING in __set_page_dirty",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "nilfs2: fix lockdep warnings in page operations for btree nodes",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e897be17a441fa637cd166fc3de1445131e57692",
+      "hash": "e897be17a441fa637cd166fc3de1445131e57692",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "konishi.ryusuke@gmail.com",
+      "author-name": "Ryusuke Konishi",
+      "date": "2022-04-01T18:28:18Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in __set_page_dirty",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "f8fbb47c6e86c0b75f8df864db702c3e3f757361",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/3fd2ea69e05557e7e0fef9b68263b4150670671c",
+  "syzkaller-commit": "3fd2ea69e05557e7e0fef9b68263b4150670671c",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1680e8ee300000",
+      "saved_to": "/home/lcj/paired_patches/0d5b462a6f07447991b3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=e3a20bae04b96ccd",
+      "saved_to": "/home/lcj/paired_patches/0d5b462a6f07447991b3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=17925381300000",
+      "saved_to": "/home/lcj/paired_patches/0d5b462a6f07447991b3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=122742ee300000",
+      "saved_to": "/home/lcj/paired_patches/0d5b462a6f07447991b3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

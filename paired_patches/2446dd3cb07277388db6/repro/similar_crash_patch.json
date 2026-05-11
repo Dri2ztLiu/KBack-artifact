@@ -1,0 +1,93 @@
+{
+  "extid": "2446dd3cb07277388db6",
+  "target_ref": "2446dd3cb07277388db6",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "6282921b6825fef6a1243e1c80063421d41e2576",
+      "branch": "linux-6.6",
+      "title": "WARNING in hci_conn_timeout",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "Makefile"
+      ],
+      "symbols": [],
+      "patterns": [
+        "WARN"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "5af1f84ed13a416297ab9ced7537f4d5ae7f329a",
+      "branch": "linux-6.1",
+      "title": "WARNING in hci_conn_timeout",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/bluetooth/hci_sync.c"
+      ],
+      "symbols": [
+        "hci_reject_conn_sync",
+        "hci_abort_conn_sync",
+        "if",
+        "hci_dev_lock",
+        "hci_conn_failed",
+        "hci_dev_unlock",
+        "if",
+        "if",
+        "hci_dev_lock",
+        "hci_conn_failed",
+        "hci_dev_unlock"
+      ],
+      "patterns": [
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    },
+    {
+      "fix_commit": "5af1f84ed13a416297ab9ced7537f4d5ae7f329a",
+      "branch": "linux-5.15",
+      "title": "WARNING in hci_conn_timeout",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "net/bluetooth/hci_sync.c"
+      ],
+      "symbols": [
+        "hci_reject_conn_sync",
+        "hci_abort_conn_sync",
+        "if",
+        "hci_dev_lock",
+        "hci_conn_failed",
+        "hci_dev_unlock",
+        "if",
+        "if",
+        "hci_dev_lock",
+        "hci_conn_failed",
+        "hci_dev_unlock"
+      ],
+      "patterns": [
+        "WARN",
+        "net"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

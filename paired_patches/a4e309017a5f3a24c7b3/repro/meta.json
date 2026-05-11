@@ -1,0 +1,50 @@
+{
+  "extid": "a4e309017a5f3a24c7b3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a4e309017a5f3a24c7b3",
+  "bug_title": "KMSAN: uninit-value in number (3)",
+  "bug_status": "fixed on 2021/11/10 00:50",
+  "fix_commits": [
+    {
+      "title": "media: gspca/sq905.c: fix uninitialized variable",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=eaaea4681984c79d2b2b160387b297477f0c1aab",
+      "hash": "eaaea4681984c79d2b2b160387b297477f0c1aab",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "hverkuil-cisco@xs4all.nl",
+      "author-name": "Hans Verkuil",
+      "date": "2021-03-11T14:46:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in number",
+  "kernel-source-git": "https://github.com/google/kmsan.git",
+  "kernel-source-commit": "29ad81a1074aa0a510cebb1f61eae68a8f46e11c",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/fdb2bb2c23ee709880407f56307e2800ad27e9ae",
+  "syzkaller-commit": "fdb2bb2c23ee709880407f56307e2800ad27e9ae",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=16ca9decd00000",
+      "saved_to": "/home/lcj/paired_patches/a4e309017a5f3a24c7b3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8b976581f6bd1e7d",
+      "saved_to": "/home/lcj/paired_patches/a4e309017a5f3a24c7b3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=14c409b2d00000",
+      "saved_to": "/home/lcj/paired_patches/a4e309017a5f3a24c7b3/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1488adc6d00000",
+      "saved_to": "/home/lcj/paired_patches/a4e309017a5f3a24c7b3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

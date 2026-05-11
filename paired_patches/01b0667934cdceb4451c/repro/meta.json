@@ -1,0 +1,50 @@
+{
+  "extid": "01b0667934cdceb4451c",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=01b0667934cdceb4451c",
+  "bug_title": "WARNING in ah6_output",
+  "bug_status": "fixed on 2025/10/29 21:02",
+  "fix_commits": [
+    {
+      "title": "net: ipv6: fix field-spanning memcpy warning in AH output",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2327a3d6f65ce2fe2634546dde4a25ef52296fec",
+      "hash": "2327a3d6f65ce2fe2634546dde4a25ef52296fec",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "charmitro@posteo.net",
+      "author-name": "Charalampos Mitrodimas",
+      "date": "2025-08-12T15:51:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in ah6_output",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git",
+  "kernel-source-commit": "9caca6ac0e26cd20efd490d8b3b2ffb1c7c00f6f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/26d77996cd6057592f0d7212c9017e8b62be66e8",
+  "syzkaller-commit": "26d77996cd6057592f0d7212c9017e8b62be66e8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13449b70580000",
+      "saved_to": "/home/lcj/paired_patches/01b0667934cdceb4451c/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=d11f52d3049c3790",
+      "saved_to": "/home/lcj/paired_patches/01b0667934cdceb4451c/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1715d182580000",
+      "saved_to": "/home/lcj/paired_patches/01b0667934cdceb4451c/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1252bdd4580000",
+      "saved_to": "/home/lcj/paired_patches/01b0667934cdceb4451c/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

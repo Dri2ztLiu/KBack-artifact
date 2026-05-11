@@ -1,0 +1,43 @@
+{
+  "extid": "20d7e439f76bbbd863a7",
+  "target_ref": "20d7e439f76bbbd863a7",
+  "reference": {
+    "files": [
+      "arch/x86/mm/pat/memtype.c",
+      "include/linux/pgtable.h",
+      "mm/memory.c"
+    ],
+    "symbols": [
+      "untrack_pfn",
+      "track_pfn_insert",
+      "copy_page_range",
+      "move_vma",
+      "untrack_pfn_clear"
+    ],
+    "patterns": [],
+    "keywords": []
+  },
+  "top_candidates": [
+    {
+      "fix_commit": "d3476f3dad4ad68ae5f6b008ea6591d1520da5d8",
+      "branch": "linux-5.15",
+      "title": "WARNING in rcu_sync_dtor",
+      "score": 0,
+      "relevance": 0,
+      "files": [
+        "fs/ext4/super.c"
+      ],
+      "symbols": [
+        "ext4_handle_error",
+        "smp_wmb"
+      ],
+      "patterns": [
+        "deadlock",
+        "rcu",
+        "WARN",
+        "ext4"
+      ],
+      "reason": "related files, symbol overlap"
+    }
+  ]
+}

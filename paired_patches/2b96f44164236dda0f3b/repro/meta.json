@@ -1,0 +1,50 @@
+{
+  "extid": "2b96f44164236dda0f3b",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=2b96f44164236dda0f3b",
+  "bug_title": "possible deadlock in __snd_timer_user_ioctl",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "ALSA: timer: Don't take register_mutex with copy_from/to_user()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3424c8f53bc63c87712a7fc22dc13d0cc85fb0d6",
+      "hash": "3424c8f53bc63c87712a7fc22dc13d0cc85fb0d6",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2025-03-21T17:26:52Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "possible deadlock in __snd_timer_user_ioctl",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "4701f33a10702d5fc577c32434eb62adde0a1ae1",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/948c34e42741360f52e3dfaba2fd06f350693795",
+  "syzkaller-commit": "948c34e42741360f52e3dfaba2fd06f350693795",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11535278580000",
+      "saved_to": "/home/lcj/paired_patches/2b96f44164236dda0f3b/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=7f1ab0f4f8e33050",
+      "saved_to": "/home/lcj/paired_patches/2b96f44164236dda0f3b/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2b96f44164236dda0f3b/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/2b96f44164236dda0f3b/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

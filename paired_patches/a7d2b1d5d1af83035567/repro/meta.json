@@ -1,0 +1,50 @@
+{
+  "extid": "a7d2b1d5d1af83035567",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=a7d2b1d5d1af83035567",
+  "bug_title": "INFO: rcu detected stall in packet_release",
+  "bug_status": "fixed on 2024/06/11 03:41",
+  "fix_commits": [
+    {
+      "title": "net/sched: taprio: extend minimum interval restriction to entire cycle too",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fb66df20a7201e60f2b13d7f95d031b31a8831d3",
+      "hash": "fb66df20a7201e60f2b13d7f95d031b31a8831d3",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "vladimir.oltean@nxp.com",
+      "author-name": "Vladimir Oltean",
+      "date": "2024-05-27T15:39:55Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: rcu detected stall in packet_release",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git",
+  "kernel-source-commit": "3ab5720881a924fb6405d9e6a3b09f1026467c47",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4f9530a3b62297342999c9097c77dde726522618",
+  "syzkaller-commit": "4f9530a3b62297342999c9097c77dde726522618",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1436f3e9e80000",
+      "saved_to": "/home/lcj/paired_patches/a7d2b1d5d1af83035567/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8f565e10f0b1e1fc",
+      "saved_to": "/home/lcj/paired_patches/a7d2b1d5d1af83035567/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=16760ccee80000",
+      "saved_to": "/home/lcj/paired_patches/a7d2b1d5d1af83035567/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1086b376e80000",
+      "saved_to": "/home/lcj/paired_patches/a7d2b1d5d1af83035567/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

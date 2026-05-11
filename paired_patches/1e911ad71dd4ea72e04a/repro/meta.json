@@ -1,0 +1,50 @@
+{
+  "extid": "1e911ad71dd4ea72e04a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=1e911ad71dd4ea72e04a",
+  "bug_title": "UBSAN: shift-out-of-bounds in snto32",
+  "bug_status": "fixed on 2021/04/09 19:46",
+  "fix_commits": [
+    {
+      "title": "HID: core: detect and skip invalid inputs to snto32()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a0312af1f94d13800e63a7d0a66e563582e39aec",
+      "hash": "a0312af1f94d13800e63a7d0a66e563582e39aec",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "rdunlap@infradead.org",
+      "author-name": "Randy Dunlap",
+      "date": "2021-01-08T13:50:40Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "UBSAN: shift-out-of-bounds in snto32",
+  "kernel-source-git": "https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git",
+  "kernel-source-commit": "7a1e838d0cdce7d09a0bd81d45c7b5a660e71ac7",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/a5f86b15f4f60350198e4b98fb7451d45d38a186",
+  "syzkaller-commit": "a5f86b15f4f60350198e4b98fb7451d45d38a186",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=178e2fd4d00000",
+      "saved_to": "/home/lcj/paired_patches/1e911ad71dd4ea72e04a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=eee74e86e1e25081",
+      "saved_to": "/home/lcj/paired_patches/1e911ad71dd4ea72e04a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1022f1d2d00000",
+      "saved_to": "/home/lcj/paired_patches/1e911ad71dd4ea72e04a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16bc5c60d00000",
+      "saved_to": "/home/lcj/paired_patches/1e911ad71dd4ea72e04a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

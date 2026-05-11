@@ -1,0 +1,50 @@
+{
+  "extid": "bc9e2d2dbcb347dd215a",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=bc9e2d2dbcb347dd215a",
+  "bug_title": "WARNING in page_counter_cancel (3)",
+  "bug_status": "fixed on 2022/03/08 16:11",
+  "fix_commits": [
+    {
+      "title": "mptcp: Check reclaim amount before reducing allocation",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=269bda9e7da48eafb599d01c96199caa2f7547e5",
+      "hash": "269bda9e7da48eafb599d01c96199caa2f7547e5",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "mathew.j.martineau@linux.intel.com",
+      "author-name": "Mat Martineau",
+      "date": "2022-01-06T22:06:38Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in page_counter_cancel",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e7c124bd04631973a3cc0df19ab881b56d8a2d50",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/6cc879d4712dbaf6e97f01250e2f4906c07b24b8",
+  "syzkaller-commit": "6cc879d4712dbaf6e97f01250e2f4906c07b24b8",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1247f253b00000",
+      "saved_to": "/home/lcj/paired_patches/bc9e2d2dbcb347dd215a/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=1a86c22260afac2f",
+      "saved_to": "/home/lcj/paired_patches/bc9e2d2dbcb347dd215a/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=11cd26c7b00000",
+      "saved_to": "/home/lcj/paired_patches/bc9e2d2dbcb347dd215a/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=17121653b00000",
+      "saved_to": "/home/lcj/paired_patches/bc9e2d2dbcb347dd215a/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

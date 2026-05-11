@@ -1,0 +1,50 @@
+{
+  "extid": "9bff4c7b992038a7409f",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=9bff4c7b992038a7409f",
+  "bug_title": "general protection fault in nilfs_btree_insert (2)",
+  "bug_status": "fixed on 2024/10/22 11:57",
+  "fix_commits": [
+    {
+      "title": "nilfs2: fix potential null-ptr-deref in nilfs_btree_insert()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9403001ad65ae4f4c5de368bdda3a0636b51d51a",
+      "hash": "9403001ad65ae4f4c5de368bdda3a0636b51d51a",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "konishi.ryusuke@gmail.com",
+      "author-name": "Ryusuke Konishi",
+      "date": "2024-09-04T08:13:07Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "general protection fault in nilfs_btree_insert",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "86987d84b968b69a610fd00ab9006c13db193b4e",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ef3de9e86e58ef3c70da9cf673ee44fc6f1006f9",
+  "syzkaller-commit": "ef3de9e86e58ef3c70da9cf673ee44fc6f1006f9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=15bb4139980000",
+      "saved_to": "/home/lcj/paired_patches/9bff4c7b992038a7409f/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=a0455552d0b27491",
+      "saved_to": "/home/lcj/paired_patches/9bff4c7b992038a7409f/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=143f1643980000",
+      "saved_to": "/home/lcj/paired_patches/9bff4c7b992038a7409f/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=16fcc40d980000",
+      "saved_to": "/home/lcj/paired_patches/9bff4c7b992038a7409f/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

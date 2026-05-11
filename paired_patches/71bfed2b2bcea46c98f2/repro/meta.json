@@ -1,0 +1,50 @@
+{
+  "extid": "71bfed2b2bcea46c98f2",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=71bfed2b2bcea46c98f2",
+  "bug_title": "KMSAN: uninit-value in nci_ntf_packet (2)",
+  "bug_status": "fixed on 2024/06/11 03:41",
+  "fix_commits": [
+    {
+      "title": "nfc/nci: Add the inconsistency check between the input data length and count",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=068648aab72c9ba7b0597354ef4d81ffaac7b979",
+      "hash": "068648aab72c9ba7b0597354ef4d81ffaac7b979",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "eadavis@qq.com",
+      "author-name": "Edward Adam Davis",
+      "date": "2024-05-28T03:12:31Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KMSAN: uninit-value in nci_ntf_packet",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "614da38e2f7afe9e01c6e359dfa09285f26fa381",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/4d098039e09f95a4767fe001c5fd244e6eaeef28",
+  "syzkaller-commit": "4d098039e09f95a4767fe001c5fd244e6eaeef28",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=13b9c592980000",
+      "saved_to": "/home/lcj/paired_patches/71bfed2b2bcea46c98f2/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f5d2cbf33633f507",
+      "saved_to": "/home/lcj/paired_patches/71bfed2b2bcea46c98f2/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=13113a34980000",
+      "saved_to": "/home/lcj/paired_patches/71bfed2b2bcea46c98f2/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=1065f33f180000",
+      "saved_to": "/home/lcj/paired_patches/71bfed2b2bcea46c98f2/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

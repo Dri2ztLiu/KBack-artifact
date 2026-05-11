@@ -1,0 +1,50 @@
+{
+  "extid": "5f9f31cb7d985f584d8e",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=5f9f31cb7d985f584d8e",
+  "bug_title": "KASAN: slab-out-of-bounds Read in xfrm_state_find",
+  "bug_status": "fixed on 2025/05/06 15:33",
+  "fix_commits": [
+    {
+      "title": "xfrm: state: fix out-of-bounds read during lookup",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e952837f3ddb0ff726d5b582aa1aad9aa38d024d",
+      "hash": "e952837f3ddb0ff726d5b582aa1aad9aa38d024d",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "fw@strlen.de",
+      "author-name": "Florian Westphal",
+      "date": "2024-11-28T14:26:25Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: slab-out-of-bounds Read in xfrm_state_find",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "059dd502b263d8a4e2a84809cf1068d6a3905e6f",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "syzkaller-commit": "d3ccff6372e07c6aabd02b5da419aa6492b5f0ad",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=1608b0b0580000",
+      "saved_to": "/home/lcj/paired_patches/5f9f31cb7d985f584d8e/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=743927383a52aa3d",
+      "saved_to": "/home/lcj/paired_patches/5f9f31cb7d985f584d8e/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5f9f31cb7d985f584d8e/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/5f9f31cb7d985f584d8e/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

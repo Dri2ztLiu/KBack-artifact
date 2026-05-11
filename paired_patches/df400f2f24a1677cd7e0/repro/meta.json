@@ -1,0 +1,50 @@
+{
+  "extid": "df400f2f24a1677cd7e0",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=df400f2f24a1677cd7e0",
+  "bug_title": "unregister_netdevice: waiting for DEV to become free (4)",
+  "bug_status": "fixed on 2021/03/10 01:48",
+  "fix_commits": [
+    {
+      "title": "rxrpc: Fix deadlock around release of dst cached on udp tunnel",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5399d52233c47905bbf97dcbaa2d7a9cc31670ba",
+      "hash": "5399d52233c47905bbf97dcbaa2d7a9cc31670ba",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dhowells@redhat.com",
+      "author-name": "David Howells",
+      "date": "2021-01-30T05:38:11Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "unregister_netdevice: waiting for DEV to become free",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "cee407c5cc427a7d9b21ee964fbda613e368bdff",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/9d751681c8ca1ef150e96f3c1e18bdcaab99c9b9",
+  "syzkaller-commit": "9d751681c8ca1ef150e96f3c1e18bdcaab99c9b9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14dd020ad00000",
+      "saved_to": "/home/lcj/paired_patches/df400f2f24a1677cd7e0/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=8e9647a2af28ac00",
+      "saved_to": "/home/lcj/paired_patches/df400f2f24a1677cd7e0/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=115f38a2d00000",
+      "saved_to": "/home/lcj/paired_patches/df400f2f24a1677cd7e0/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=142cb1b6d00000",
+      "saved_to": "/home/lcj/paired_patches/df400f2f24a1677cd7e0/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extid": "912776840162c13db1a3",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=912776840162c13db1a3",
+  "bug_title": "KASAN: use-after-free Read in xfs_qm_dqfree_one",
+  "bug_status": "fixed on 2023/02/24 13:50",
+  "fix_commits": [
+    {
+      "title": "xfs: dquot shrinker doesn't check for XFS_DQFLAG_FREEING",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=52f31ed228212ba572c44e15e818a3a5c74122c0",
+      "hash": "52f31ed228212ba572c44e15e818a3a5c74122c0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "dchinner@redhat.com",
+      "author-name": "Dave Chinner",
+      "date": "2022-12-08T16:29:22Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "KASAN: use-after-free Read in xfs_qm_dqfree_one",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0ba09b1733878afe838fe35c310715fda3d46428",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/e080de16713b9dbf308cdd7bcb85b58293e46e33",
+  "syzkaller-commit": "e080de16713b9dbf308cdd7bcb85b58293e46e33",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=177083e3880000",
+      "saved_to": "/home/lcj/paired_patches/912776840162c13db1a3/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=2325e409a9a893e1",
+      "saved_to": "/home/lcj/paired_patches/912776840162c13db1a3/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/912776840162c13db1a3/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=128c9e23880000",
+      "saved_to": "/home/lcj/paired_patches/912776840162c13db1a3/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=af9ba1fcd3b4e9a03a2e1ddbaea905cc5e7103b6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000000340)=ANY=[@ANYBLOB="12013f00000000407f04ffff000000000001090224000100000000090400001503000000092140000001220f00090581", @ANYRES32], 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io(r0, &(0x7f0000000b00)={0x2c, &(0x7f0000000040)=ANY=[@ANYBLOB="00000f00000009003d140f3c369197d09647190890"], 0x0, 0x0, 0x0, 0x0}, 0x0)
+syz_usb_connect$hid(0x0, 0x36, 0x0, &(0x7f00000000c0)={0x0, 0x0, 0x0, 0x0, 0x1, [{0x4, &(0x7f0000000180)=@lang_id={0x4}}]})
+r1 = syz_open_dev$hiddev(&(0x7f0000000080), 0x0, 0x20880)
+ioctl$HIDIOCGUSAGE(r1, 0x501c4814, &(0x7f00000000c0)={0x2})
+r2 = syz_open_dev$hiddev(&(0x7f0000000300), 0x0, 0x0)
+ioctl$HIDIOCGUSAGE(r2, 0x400c4808, &(0x7f00000000c0)={0x2, 0x100})

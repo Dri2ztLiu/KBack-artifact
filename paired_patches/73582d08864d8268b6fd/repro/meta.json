@@ -1,0 +1,50 @@
+{
+  "extid": "73582d08864d8268b6fd",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=73582d08864d8268b6fd",
+  "bug_title": "INFO: task hung in snd_card_free",
+  "bug_status": "fixed on 2024/12/16 09:50",
+  "fix_commits": [
+    {
+      "title": "ALSA: usx2y: Use snd_card_free_when_closed() at disconnection",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dafb28f02be407e07a6f679e922a626592b481b0",
+      "hash": "dafb28f02be407e07a6f679e922a626592b481b0",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "tiwai@suse.de",
+      "author-name": "Takashi Iwai",
+      "date": "2024-11-13T11:10:35Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in snd_card_free",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "e42b1a9a2557aa94fee47f078633677198386a52",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/66aeb999f37ab41e95f08d1da821200313f71342",
+  "syzkaller-commit": "66aeb999f37ab41e95f08d1da821200313f71342",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=11274540580000",
+      "saved_to": "/home/lcj/paired_patches/73582d08864d8268b6fd/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=4340261e4e9f37fc",
+      "saved_to": "/home/lcj/paired_patches/73582d08864d8268b6fd/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=1274ca30580000",
+      "saved_to": "/home/lcj/paired_patches/73582d08864d8268b6fd/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=130d3687980000",
+      "saved_to": "/home/lcj/paired_patches/73582d08864d8268b6fd/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}

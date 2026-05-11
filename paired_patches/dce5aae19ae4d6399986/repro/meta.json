@@ -1,0 +1,50 @@
+{
+  "extid": "dce5aae19ae4d6399986",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=dce5aae19ae4d6399986",
+  "bug_title": "WARNING in bpf_map_lookup_percpu_elem",
+  "bug_status": "fixed on 2025/07/08 00:33",
+  "fix_commits": [
+    {
+      "title": "bpf: Check rcu_read_lock_trace_held() in bpf_map_lookup_percpu_elem()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d4965578267e2e81f67c86e2608481e77e9c8569",
+      "hash": "d4965578267e2e81f67c86e2608481e77e9c8569",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "houtao1@huawei.com",
+      "author-name": "Hou Tao",
+      "date": "2025-05-26T06:25:34Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "WARNING in bpf_map_lookup_percpu_elem",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "928f79a188aacc057ba36c85b36b6d1e99c8f595",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ef3de9e86e58ef3c70da9cf673ee44fc6f1006f9",
+  "syzkaller-commit": "ef3de9e86e58ef3c70da9cf673ee44fc6f1006f9",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=173facb7980000",
+      "saved_to": "/home/lcj/paired_patches/dce5aae19ae4d6399986/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=f29704545d454ed3",
+      "saved_to": "/home/lcj/paired_patches/dce5aae19ae4d6399986/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/dce5aae19ae4d6399986/repro/repro.c",
+      "ok": false,
+      "error": "empty url"
+    },
+    "repro.syz": {
+      "url": "",
+      "saved_to": "/home/lcj/paired_patches/dce5aae19ae4d6399986/repro/repro.syz",
+      "ok": false,
+      "error": "empty url"
+    }
+  }
+}

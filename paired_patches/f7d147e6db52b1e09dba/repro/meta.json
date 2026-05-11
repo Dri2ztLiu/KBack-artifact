@@ -1,0 +1,50 @@
+{
+  "extid": "f7d147e6db52b1e09dba",
+  "bug_url": "https://syzkaller.appspot.com/bug?extid=f7d147e6db52b1e09dba",
+  "bug_title": "INFO: task hung in __blockdev_direct_IO (4)",
+  "bug_status": "fixed on 2025/06/10 16:19",
+  "fix_commits": [
+    {
+      "title": "exfat: fix the infinite loop in exfat_find_last_cluster()",
+      "link": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0522303f67255926b946aa66885a0104d1b2980",
+      "hash": "b0522303f67255926b946aa66885a0104d1b2980",
+      "repo": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "branch": "master",
+      "author": "Yuezhang.Mo@sony.com",
+      "author-name": "Yuezhang Mo",
+      "date": "2025-03-17T02:53:10Z"
+    }
+  ],
+  "selected_crash_index": 1,
+  "selected_crash_title": "INFO: task hung in __blockdev_direct_IO",
+  "kernel-source-git": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+  "kernel-source-commit": "0b46b049d6eccd947c361018439fcb596e741d7a",
+  "syzkaller-git": "https://github.com/google/syzkaller/commits/ee70e6dbc377b7957fe85c173da580f033ee93a3",
+  "syzkaller-commit": "ee70e6dbc377b7957fe85c173da580f033ee93a3",
+  "download_results": {
+    "crash_report.txt": {
+      "url": "https://syzkaller.appspot.com/text?tag=CrashReport&x=14c897a8580000",
+      "saved_to": "/home/lcj/paired_patches/f7d147e6db52b1e09dba/repro/crash_report.txt",
+      "ok": true,
+      "error": ""
+    },
+    "kernel.config": {
+      "url": "https://syzkaller.appspot.com/text?tag=KernelConfig&x=77b023e9ae0dbb6a",
+      "saved_to": "/home/lcj/paired_patches/f7d147e6db52b1e09dba/repro/kernel.config",
+      "ok": true,
+      "error": ""
+    },
+    "repro.c": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproC&x=10856060580000",
+      "saved_to": "/home/lcj/paired_patches/f7d147e6db52b1e09dba/repro/repro.c",
+      "ok": true,
+      "error": ""
+    },
+    "repro.syz": {
+      "url": "https://syzkaller.appspot.com/text?tag=ReproSyz&x=15fe8c78580000",
+      "saved_to": "/home/lcj/paired_patches/f7d147e6db52b1e09dba/repro/repro.syz",
+      "ok": true,
+      "error": ""
+    }
+  }
+}
